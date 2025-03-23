@@ -1,7 +1,7 @@
 // Configurazione per l'internazionalizzazione
 import { createContext, useContext } from 'react';
 
-export type Locale = 'it' | 'en';
+export type Locale = 'it' | 'en' | 'fr' | 'de';
 
 export interface Translations {
   [key: string]: string;
@@ -97,6 +97,88 @@ export const defaultTranslations: Record<Locale, Translations> = {
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms and Conditions',
     'footer.cookies': 'Cookie Policy',
+  },
+  fr: {
+    // Navbar
+    'nav.home': 'ACCUEIL',
+    'nav.about': 'À PROPOS DE NOUS',
+    'nav.services': 'SERVICES',
+    'nav.faq': 'FAQ',
+    'nav.contact': 'CONTACT',
+    
+    // Servizi dropdown
+    'nav.services.photovoltaic': 'Photovoltaïque pour les entreprises',
+    'nav.services.community': 'Communautés énergétiques',
+    'nav.services.thermal': 'Compte thermique 3.0',
+    
+    // Hero Section
+    'hero.title': 'L\'énergie pour votre entreprise',
+    'hero.subtitle': 'L\'incitation la plus adaptée à votre secteur',
+    'hero.cta': 'En savoir plus',
+    
+    // Form
+    'form.title': 'Demander une consultation gratuite',
+    'form.subtitle': 'Remplissez le formulaire pour recevoir des informations sur les incitations disponibles pour votre entreprise',
+    'form.name': 'Nom et prénom',
+    'form.email': 'Email',
+    'form.phone': 'Téléphone',
+    'form.company.size': 'Taille de l\'entreprise',
+    'form.interests': 'Je suis intéressé par:',
+    'form.interests.national': 'Incitations nationales',
+    'form.interests.regional': 'Incitations régionales',
+    'form.interests.sectoral': 'Incitations sectorielles',
+    'form.interests.consulting': 'Consultation personnalisée',
+    'form.message': 'Message',
+    'form.submit': 'Envoyer la demande',
+    'form.success': 'Merci pour votre demande ! Nous vous contacterons dès que possible.',
+    'form.error': 'Une erreur est survenue. Veuillez réessayer plus tard ou nous contacter directement.',
+    
+    // Footer
+    'footer.rights': 'Tous droits réservés',
+    'footer.privacy': 'Politique de confidentialité',
+    'footer.terms': 'Conditions et termes',
+    'footer.cookies': 'Politique de cookies',
+  },
+  de: {
+    // Navbar
+    'nav.home': 'STARTSEITE',
+    'nav.about': 'ÜBER UNS',
+    'nav.services': 'DIENSTLEISTUNGEN',
+    'nav.faq': 'FAQ',
+    'nav.contact': 'KONTAKT',
+    
+    // Servizi dropdown
+    'nav.services.photovoltaic': 'Photovoltaik für Unternehmen',
+    'nav.services.community': 'Energiegemeinschaften',
+    'nav.services.thermal': 'Thermokonto 3.0',
+    
+    // Hero Section
+    'hero.title': 'Energie für Ihr Unternehmen',
+    'hero.subtitle': 'Die am besten geeignete Anreiz für Ihren Sektor',
+    'hero.cta': 'Mehr erfahren',
+    
+    // Form
+    'form.title': 'Kostenlose Beratung anfordern',
+    'form.subtitle': 'Füllen Sie das Formular aus, um Informationen über verfügbare Anreize für Ihr Unternehmen zu erhalten',
+    'form.name': 'Vollständiger Name',
+    'form.email': 'Email',
+    'form.phone': 'Telefon',
+    'form.company.size': 'Unternehmensgröße',
+    'form.interests': 'Ich bin an folgendem interessiert:',
+    'form.interests.national': 'Nationale Anreize',
+    'form.interests.regional': 'Regionale Anreize',
+    'form.interests.sectoral': 'Sektorale Anreize',
+    'form.interests.consulting': 'Persönliche Beratung',
+    'form.message': 'Nachricht',
+    'form.submit': 'Anfrage senden',
+    'form.success': 'Vielen Dank für Ihre Anfrage! Wir werden uns so schnell wie möglich bei Ihnen melden.',
+    'form.error': 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal oder kontaktieren Sie uns direkt.',
+    
+    // Footer
+    'footer.rights': 'Alle Rechte vorbehalten',
+    'footer.privacy': 'Datenschutzbestimmungen',
+    'footer.terms': 'Allgemeine Geschäftsbedingungen',
+    'footer.cookies': 'Cookie-Richtlinie',
   }
 };
 
