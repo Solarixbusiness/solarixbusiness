@@ -176,8 +176,8 @@ export default function IncentiveSection() {
         <div className={styles.header}>
           <h2>Incentivi e Finanziamenti</h2>
           <p className={styles.subtitle}>
-            Scopri le opportunità di incentivi e finanziamenti disponibili per la tua azienda. 
-            Naviga tra le opzioni nazionali, regionali e settoriali per trovare la soluzione più adatta alle tue esigenze.
+            Ogni cliente riceve un piano su misura che abbina 2 o più bandi per raggiungere il massimo contributo.
+            Ti seguiamo noi, insieme al nostro studio di finanza agevolata.
           </p>
         </div>
 

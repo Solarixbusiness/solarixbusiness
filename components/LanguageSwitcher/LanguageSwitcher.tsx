@@ -18,7 +18,7 @@ export default function LanguageSwitcher() {
   
   const languages: { code: Locale; label: string; flag: string; useGoogleTranslate?: boolean }[] = [
     { code: 'it', label: 'Italiano', flag: '🇮🇹' },
-    { code: 'en', label: 'English', flag: '🇬🇧' },
+    { code: 'en', label: 'English', flag: '🇬🇧', useGoogleTranslate: true },
     { code: 'fr', label: 'Français', flag: '🇫🇷', useGoogleTranslate: true },
     { code: 'de', label: 'Deutsch', flag: '🇩🇪', useGoogleTranslate: true }
   ];
@@ -66,7 +66,6 @@ export default function LanguageSwitcher() {
             >
               <span className={styles.flag}>{lang.flag}</span>
               <span className={styles.label}>{lang.label}</span>
-              {lang.useGoogleTranslate && <span className={styles.googleTranslate}> (Google)</span>}
             </li>
           ))}
         </ul>

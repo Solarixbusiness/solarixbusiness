@@ -5,23 +5,23 @@ import styles from './IntroSection.module.css';
 const strengthPoints = [
   {
     icon: '📊',
-    title: 'Accesso ai migliori incentivi statali',
-    description: 'Sfruttiamo la nostra esperienza per individuare e gestire l\'incentivo più adatto alla tua azienda, ottimizzando il ritorno sull\'investimento.'
+    title: 'Piano agevolato costruito su misura',
+    description: 'Ogni azienda è diversa, e ogni impianto deve essere ottimizzato non solo tecnicamente, ma anche fiscalmente.\nCon SolarixBusiness ricevi un piano personalizzato che analizza consumi, investimenti e compatibilità con tutti i bandi disponibili (CER, Transizione 5.0, regionali, settore-specifici).\nIl nostro partner in finanza agevolata progetta con noi ogni operazione come se fosse un investimento, non una semplice spesa.'
   },
   {
     icon: '⚡',
-    title: 'Impianti su misura per ogni esigenza',
-    description: 'Ogni azienda è unica: per questo progettiamo soluzioni fotovoltaiche personalizzate, garantendo efficienza e massima resa.'
+    title: 'Impianto come asset strategico',
+    description: 'Il tuo impianto non è un “tetto pieno di pannelli”. È un bene produttivo con ritorno misurabile, inserito in una strategia che coinvolge:\n\nComunità Energetica Rinnovabile (CER)\n\nRitiro dedicato\n\nVendita di energia\n\nIncentivi fiscali\n\nCarbon credits\n\nRisultato? Meno tasse, più energia, più valore nel tempo. Un asset a bilancio.'
   },
   {
     icon: '📈',
-    title: 'Analisi gratuita del profilo aziendale',
-    description: 'Valutiamo il fabbisogno energetico e le opportunità di incentivo, fornendo un piano dettagliato senza impegno.'
+    title: 'ROI reale, subito visibile',
+    description: 'Il rientro dell\'investimento non è fra 10 anni, è progettato per essere immediato, grazie alla sinergia tra:\n\nIncentivi a fondo perduto fino all\'80%\n\nDetassazione dell\'autoconsumo\n\nAccesso al mercato dei crediti di carbonio\n\nIn pratica: inizi a risparmiare e guadagnare dal primo anno. Non è marketing, è matematica.'
   },
   {
     icon: '💹',
-    title: 'Massima efficienza e risparmio energetico',
-    description: 'Grazie alla nostra expertise, le aziende riducono i consumi e ottimizzano i costi, ottenendo un vantaggio competitivo sostenibile.'
+    title: 'Un network, non un fornitore',
+    description: 'Non sei seguito da un venditore o da un tecnico.\nSei affiancato da un team di progetto: consulenti energetici, fiscalisti, partner per la finanza agevolata.\nTi aggiorniamo costantemente su nuove opportunità, bandi in uscita, evoluzioni del mercato.\nSolarixBusiness è un ecosistema. Una rete che lavora per te, anche dopo l\'installazione.'
   }
 ];
 
@@ -45,9 +45,10 @@ export default function IntroSection() {
         <div className={styles.mainContent}>
           <h2 className={styles.title}>Perché Scegliere solariXbusiness</h2>
           <p className={styles.description}>
-            La transizione energetica è un'opportunità unica per le aziende italiane, ma navigare tra incentivi, 
-            normative e soluzioni impiantistiche può essere complesso. solariXbusiness semplifica il processo, 
-            offrendo consulenza personalizzata e impianti su misura per ogni esigenza aziendale.
+            Non siamo installatori.
+            SolarixBusiness è un partner strategico che ti guida nella transizione energetica come operazione economica intelligente, con un team di consulenti tecnici e uno studio di finanza agevolata al tuo fianco.
+            Progettiamo soluzioni, attiviamo bandi, calcoliamo ritorni e ti inseriamo nei circuiti dei crediti di carbonio.
+            Un impianto? No. Un investimento strategico che inizia a rendere subito.
           </p>
         </div>
 

@@ -35,8 +35,8 @@ export const defaultTranslations: Record<Locale, Translations> = {
     'hero.cta': 'Scopri di più',
     
     // Form
-    'form.title': 'Richiedi una consulenza gratuita',
-    'form.subtitle': 'Compila il form per ricevere informazioni sugli incentivi disponibili per la tua azienda',
+    'form.title': 'Scopri quanto può rendere il tuo impianto',
+    'form.subtitle': 'Compila il form e ricevi un\'analisi tecnica e finanziaria su misura.',
     'form.name': 'Nome e Cognome',
     'form.email': 'Email',
     'form.phone': 'Telefono',
@@ -76,8 +76,8 @@ export const defaultTranslations: Record<Locale, Translations> = {
     'hero.cta': 'Learn more',
     
     // Form
-    'form.title': 'Request a free consultation',
-    'form.subtitle': 'Fill out the form to receive information on available incentives for your company',
+    'form.title': 'Discover how much your system can earn',
+    'form.subtitle': 'Fill out the form and receive a customized technical and financial analysis.',
     'form.name': 'Full Name',
     'form.email': 'Email',
     'form.phone': 'Phone',
@@ -117,8 +117,8 @@ export const defaultTranslations: Record<Locale, Translations> = {
     'hero.cta': 'En savoir plus',
     
     // Form
-    'form.title': 'Demander une consultation gratuite',
-    'form.subtitle': 'Remplissez le formulaire pour recevoir des informations sur les incitations disponibles pour votre entreprise',
+    'form.title': 'Découvrez combien votre système peut gagner',
+    'form.subtitle': 'Remplissez le formulaire et recevez une analyse technique et financière personnalisée.',
     'form.name': 'Nom et prénom',
     'form.email': 'Email',
     'form.phone': 'Téléphone',
@@ -158,8 +158,8 @@ export const defaultTranslations: Record<Locale, Translations> = {
     'hero.cta': 'Mehr erfahren',
     
     // Form
-    'form.title': 'Kostenlose Beratung anfordern',
-    'form.subtitle': 'Füllen Sie das Formular aus, um Informationen über verfügbare Anreize für Ihr Unternehmen zu erhalten',
+    'form.title': 'Entdecken Sie, wie viel Ihr System verdienen kann',
+    'form.subtitle': 'Füllen Sie das Formular aus und erhalten Sie eine individuelle technische und finanzielle Analyse.',
     'form.name': 'Vollständiger Name',
     'form.email': 'Email',
     'form.phone': 'Telefon',

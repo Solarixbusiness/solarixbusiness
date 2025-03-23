@@ -8,7 +8,7 @@ export default function GuaranteeWidget() {
   return (
     <div className={styles.guarantee_container}>
       <div className={styles.guarantee_wrapper}>
-        <h2 className={styles.guarantee_title}>Le Nostre Garanzie</h2>
+        <h2 className={styles.guarantee_title}>Cosa ti garantiamo, oltre l'impianto</h2>
         <p className={styles.guarantee_subtitle}>
           solariXbusiness offre soluzioni fotovoltaiche di alta qualità con garanzie concrete per la tranquillità della tua azienda
         </p>

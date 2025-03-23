@@ -142,8 +142,8 @@ export default function IncentiveForm() {
   return (
     <div className={styles.formContainer}>
       <div className={styles.formHeader}>
-        <h3>Richiedi una consulenza gratuita</h3>
-        <p>Compila il form per ricevere informazioni sugli incentivi disponibili per la tua azienda</p>
+        <h3>Scopri quanto può rendere il tuo impianto</h3>
+        <p>Compila il form e ricevi un'analisi tecnica e finanziaria su misura.</p>
       </div>
 
       {formStatus.submitted && (

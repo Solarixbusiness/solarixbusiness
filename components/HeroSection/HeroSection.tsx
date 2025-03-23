@@ -17,10 +17,10 @@ export default function HeroSection({ title, subtitle }: HeroSectionProps) {
         <h2 className={styles.subtitle}>{subtitle}</h2>
         <div className={styles.cta_container}>
           <Link href="/contatti" className={styles.cta_button}>
-            Richiedi una consulenza gratuita
+            Calcola il tuo ritorno
           </Link>
           <Link href="/fotovoltaico-aziende" className={styles.secondary_button}>
-            Scopri le nostre soluzioni
+            Parla con un consulente
           </Link>
         </div>
       </div>
