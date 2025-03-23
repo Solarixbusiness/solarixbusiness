@@ -16,7 +16,7 @@
 }
 
 .menu_link {
-  color: white;
+  color: #0044D8; 
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -27,7 +27,7 @@
 }
 
 .menu_link:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: #003399; 
 }
 
 .dropdown {
@@ -35,7 +35,7 @@
 }
 
 .dropdown_toggle {
-  color: white;
+  color: #0044D8; 
   background: none;
   border: none;
   font-size: 14px;
@@ -56,7 +56,7 @@
   height: 0;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 4px solid white;
+  border-top: 4px solid #0044D8;
 }
 
 .dropdown_menu {
@@ -85,7 +85,7 @@
 
 .dropdown_link {
   display: block;
-  color: white;
+  color: #0044D8; 
   text-decoration: none;
   font-size: 14px;
   padding: 8px 15px;
@@ -95,7 +95,7 @@
 }
 
 .dropdown_link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 68, 216, 0.1);
 }
 
 @media (max-width: 830px) {

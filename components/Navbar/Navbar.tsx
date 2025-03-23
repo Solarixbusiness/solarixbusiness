@@ -53,9 +53,10 @@ export default function Navbar() {
           <Logo />
         </div>
 
+        {/* In desktop mostra sempre il menu, in mobile solo se aperto */}
+        {(!isMobile || isMenuOpen) && <NavMenu isOpen={isMenuOpen} />}
+
         <div className={styles.navbar_right}>
-          <LanguageSwitcher />
-          
           {/* Mostra l'hamburger menu solo in modalità mobile */}
           {isMobile && (
             <HamburgerMenu 
@@ -63,10 +64,9 @@ export default function Navbar() {
               toggleMenu={() => setIsMenuOpen(!isMenuOpen)} 
             />
           )}
+          
+          <LanguageSwitcher />
         </div>
-
-        {/* In desktop mostra sempre il menu, in mobile solo se aperto */}
-        {(!isMobile || isMenuOpen) && <NavMenu isOpen={isMenuOpen} />}
       </div>
     </header>
   )
