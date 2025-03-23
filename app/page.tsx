@@ -126,8 +126,8 @@ export default function HomePage() {
 
       {/* Hero Section con CTA */}
       <HeroSection 
-        title="L'energia per il tuo business"
-        subtitle="L'incentivo più adatto al tuo settore"
+        title="Il fotovoltaico non è una spesa. È la tua leva finanziaria"
+        subtitle="Accedi a incentivi cumulabili, ritorno immediato e carbon credits."
       />
 
       {/* Widget dei benefici solari - overview generale */}

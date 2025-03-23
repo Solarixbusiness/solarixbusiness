@@ -102,8 +102,8 @@ export default function FotovoltaicoAziendePage() {
       {/* Hero Section con CTA */}
       <div className={styles.pageContainer}>
         <div className={styles.content}>
-          <h1 className={styles.mainTitle}>L'energia per il tuo business</h1>
-          <h2 className={styles.subTitle}>L'incentivo più adatto al tuo settore</h2>
+          <h1 className={styles.mainTitle}>Il fotovoltaico non è una spesa. È la tua leva finanziaria</h1>
+          <h2 className={styles.subTitle}>Accedi a incentivi cumulabili, ritorno immediato e carbon credits.</h2>
           <BusCTA />
         </div>
       </div>
