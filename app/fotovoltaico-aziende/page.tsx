@@ -103,7 +103,7 @@ export default function FotovoltaicoAziendePage() {
       <div className={styles.pageContainer}>
         <div className={styles.content}>
           <h1 className={styles.mainTitle}>Il fotovoltaico non è una spesa. È la tua leva finanziaria</h1>
-          <h2 className={styles.subTitle}>Accedi a incentivi cumulabili, ritorno immediato e carbon credits.</h2>
+          <h2 className={styles.subTitle}>Accedi a incentivi cumulabili, ritorno immediato entra nel mercato dei carbon credits, Il tuo impianto inizia a guadagnare da subito</h2>
           <BusCTA />
         </div>
       </div>

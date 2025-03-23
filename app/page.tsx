@@ -127,7 +127,7 @@ export default function HomePage() {
       {/* Hero Section con CTA */}
       <HeroSection 
         title="Il fotovoltaico non è una spesa. È la tua leva finanziaria"
-        subtitle="Accedi a incentivi cumulabili, ritorno immediato e carbon credits."
+        subtitle="Accedi a incentivi cumulabili, ritorno immediato entra nel mercato dei carbon credits, Il tuo impianto inizia a guadagnare da subito"
       />
 
       {/* Widget dei benefici solari - overview generale */}
