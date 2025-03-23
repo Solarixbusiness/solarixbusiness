@@ -1,0 +1,129 @@
+/* Mobile Optimization Styles */
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+  }
+  
+  p {
+    font-size: 1rem !important;
+  }
+}
+
+/* Improved touch targets */
+@media (max-width: 768px) {
+  button, 
+  a, 
+  input[type="button"], 
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Add more padding to clickable elements */
+  .navbar_menu .menu_link,
+  .navbar_menu .dropdown_toggle,
+  .navbar_menu .dropdown_link {
+    padding: 12px 16px !important;
+  }
+  
+  /* Ensure form elements are easily tappable */
+  input, 
+  select, 
+  textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+    padding: 12px !important;
+  }
+  
+  /* Improve spacing for mobile */
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  /* Adjust section spacing */
+  section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+/* Fix for fixed position elements */
+@media (max-width: 768px) {
+  .fixed-element {
+    position: absolute !important;
+  }
+  
+  /* Ensure content doesn't hide under fixed headers */
+  body {
+    padding-top: var(--header-height, 60px);
+  }
+}
+
+/* Improve form layouts on mobile */
+@media (max-width: 768px) {
+  .formRow {
+    flex-direction: column !important;
+  }
+  
+  .formGroup {
+    width: 100% !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+/* Optimize images for mobile */
+@media (max-width: 768px) {
+  .responsive-image {
+    height: auto !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Hide certain elements on mobile if needed */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Show mobile-only elements */
+.mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block !important;
+  }
+}
+
+/* Improve mobile navigation */
+@media (max-width: 768px) {
+  .navbar_menu {
+    width: 100% !important;
+  }
+  
+  .menu_items {
+    flex-direction: column !important;
+  }
+  
+  .dropdown_menu {
+    position: static !important;
+    width: 100% !important;
+    box-shadow: none !important;
+  }
+}

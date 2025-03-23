@@ -1,0 +1,60 @@
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  opacity: 0;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.loaded {
+  opacity: 1;
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+.placeholderImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  z-index: 1;
+}
+
+.image.loaded + .placeholderImage,
+.image.loaded + .placeholder {
+  opacity: 0;
+  z-index: -1;
+}
+
+/* Effetto di animazione quando l'immagine è caricata */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loaded {
+  animation: fadeIn 0.3s ease forwards;
+}

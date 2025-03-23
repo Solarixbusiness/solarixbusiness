@@ -1,0 +1,7 @@
+Questa cartella contiene le immagini del sito solariXbusiness.
+
+Ricordati di aggiungere qui:
+- Logo solariXbusiness
+- Immagini hero
+- Icone
+- Immagini per i widget e le sezioni

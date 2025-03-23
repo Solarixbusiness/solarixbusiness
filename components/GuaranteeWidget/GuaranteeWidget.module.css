@@ -1,0 +1,118 @@
+.guarantee_container {
+  background-color: #ffffff;
+  padding: 80px 0;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.guarantee_wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.guarantee_title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0044D8;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.guarantee_subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.guarantees_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.guarantee_card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.guarantee_card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.guarantee_icon {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 68, 216, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  color: #0044D8;
+}
+
+.guarantee_card_title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.guarantee_description {
+  color: #666;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+}
+
+.guarantee_badge {
+  display: inline-block;
+  background-color: #0044D8;
+  color: white;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-top: 15px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .guarantee_container {
+    padding: 60px 0;
+  }
+  
+  .guarantee_title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .guarantee_subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  
+  .guarantees_grid {
+    grid-template-columns: 1fr;
+  }
+}

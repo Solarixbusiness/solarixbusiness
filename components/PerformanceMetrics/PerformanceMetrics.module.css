@@ -1,0 +1,79 @@
+.metricsContainer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Roboto', sans-serif;
+  z-index: 9999;
+  max-width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.metricsContainer h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.metricName {
+  font-weight: 500;
+}
+
+.metricValue {
+  font-family: monospace;
+}
+
+.good {
+  background-color: rgba(0, 166, 81, 0.2);
+  border-left: 3px solid #00A651;
+}
+
+.needs-improvement {
+  background-color: rgba(255, 191, 0, 0.2);
+  border-left: 3px solid #FFBF00;
+}
+
+.poor {
+  background-color: rgba(255, 82, 82, 0.2);
+  border-left: 3px solid #FF5252;
+}
+
+.neutral {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #888;
+}
+
+.closeButton {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}

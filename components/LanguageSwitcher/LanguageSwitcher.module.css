@@ -1,0 +1,78 @@
+.languageSwitcher {
+  position: relative;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+}
+
+.languageButton {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.languageButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.flag {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.languageDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  z-index: 100;
+  min-width: 150px;
+  list-style: none;
+}
+
+.languageOption {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.languageOption:hover {
+  background-color: #f5f5f5;
+}
+
+.languageOption.active {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .languageButton {
+    padding: 0.5rem;
+  }
+  
+  .label {
+    display: none;
+  }
+  
+  .flag {
+    margin-right: 0;
+  }
+}

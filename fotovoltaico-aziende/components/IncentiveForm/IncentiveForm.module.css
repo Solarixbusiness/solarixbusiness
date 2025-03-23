@@ -1,0 +1,209 @@
+.formContainer {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 8px 32px rgba(0, 77, 64, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.formHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.formHeader h3 {
+  font-size: 2.4rem;
+  color: #004d40;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-family: var(--font-roboto);
+}
+
+.formHeader p {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 300;
+  font-family: var(--font-roboto);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 400;
+  font-family: var(--font-roboto);
+}
+
+.inputGroup input,
+.inputGroup select {
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s ease;
+  font-family: var(--font-roboto);
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  border-color: #004d40;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 77, 64, 0.1);
+}
+
+.messageGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.messageGroup label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 400;
+  font-family: var(--font-roboto);
+}
+
+.messageGroup textarea {
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #333;
+  resize: vertical;
+  min-height: 120px;
+  transition: all 0.3s ease;
+  font-family: var(--font-roboto);
+}
+
+.messageGroup textarea:focus {
+  border-color: #004d40;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 77, 64, 0.1);
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.submitButton {
+  flex: 2;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #004d40 0%, #00695c 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-roboto);
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 77, 64, 0.2);
+}
+
+.submitButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.whatsappButton {
+  flex: 1;
+  padding: 1rem;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-roboto);
+}
+
+.whatsappButton:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.successMessage {
+  text-align: center;
+  padding: 1rem;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 6px;
+  margin-top: 1rem;
+  font-family: var(--font-roboto);
+}
+
+.privacyNote {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  font-family: var(--font-roboto);
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .formHeader h3 {
+    font-size: 2rem;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .formActions {
+    flex-direction: column;
+  }
+
+  .whatsappButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 1.5rem;
+  }
+
+  .formHeader h3 {
+    font-size: 1.8rem;
+  }
+
+  .formHeader p {
+    font-size: 1rem;
+  }
+} 

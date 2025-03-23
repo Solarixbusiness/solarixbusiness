@@ -1,0 +1,196 @@
+.cookieConsent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  z-index: 1000;
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.cookieContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.cookieTitle {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #00A651;
+}
+
+.cookieButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.acceptButton, 
+.necessaryButton, 
+.preferencesButton, 
+.saveButton, 
+.backButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  min-height: 44px;
+}
+
+.acceptButton {
+  background-color: #00A651;
+  color: white;
+}
+
+.acceptButton:hover {
+  background-color: #008c44;
+}
+
+.necessaryButton {
+  background-color: #333;
+  color: white;
+}
+
+.necessaryButton:hover {
+  background-color: #444;
+}
+
+.preferencesButton, .backButton {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.preferencesButton:hover, .backButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.saveButton {
+  background-color: #00A651;
+  color: white;
+}
+
+.saveButton:hover {
+  background-color: #008c44;
+}
+
+.cookieInfo {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.cookieInfo a {
+  color: #00A651;
+  text-decoration: underline;
+}
+
+.preferences {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.preferenceItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.preferenceItem h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.preferenceItem p {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* Switch toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #00A651;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #00A651;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+input:disabled + .slider {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cookieContent {
+    padding: 0.5rem;
+  }
+  
+  .cookieButtons {
+    flex-direction: column;
+  }
+  
+  .acceptButton, 
+  .necessaryButton, 
+  .preferencesButton, 
+  .saveButton, 
+  .backButton {
+    width: 100%;
+  }
+}
