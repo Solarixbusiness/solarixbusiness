@@ -4,7 +4,7 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 import Head from 'next/head';
-import { SEO_CONSTANTS, getFullUrl } from '@/utils/seoConstants';
+import { SEO_CONSTANTS, getOrganizationSchema, getFullUrl } from '@/utils/seoConstants';
 import { FaqItem } from '@/components/FaqSchema/FaqSchema';
 
 interface SeoManagerProps {
@@ -24,7 +24,7 @@ interface SeoManagerProps {
 
 export default function SeoManager({
   canonicalPath,
-  languages = SEO_CONSTANTS.LANGUAGES,
+  languages = [],
   organizationData,
   localBusinessData,
   faqItems,
@@ -46,7 +46,7 @@ export default function SeoManager({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     ...organizationData
-  } : null;
+  } : getOrganizationSchema();
 
   const localBusinessSchema = localBusinessData ? {
     '@context': 'https://schema.org',
@@ -69,9 +69,9 @@ export default function SeoManager({
 
   // Prepara i dati social
   const {
-    title = SEO_CONSTANTS.DEFAULT_TITLE,
-    description = SEO_CONSTANTS.DEFAULT_DESCRIPTION,
-    ogImage = SEO_CONSTANTS.DEFAULT_OG_IMAGE,
+    title = '',
+    description = '',
+    ogImage = '',
     ogType = 'website',
     twitterCard = 'summary_large_image'
   } = socialData || {};
@@ -90,7 +90,7 @@ export default function SeoManager({
             key={`hreflang-${lang}`}
             rel="alternate" 
             hrefLang={lang} 
-            href={lang === SEO_CONSTANTS.DEFAULT_LANGUAGE 
+            href={lang === '' 
               ? canonicalUrl 
               : getFullUrl(`/${lang}${pathWithoutLang}`)} 
           />

@@ -1,5 +1,17 @@
 'use client';
 
+// Tipizzazione per dataLayer
+interface WindowWithDataLayer {
+  dataLayer: any[];
+}
+
+// Estendiamo l'oggetto Window globale
+declare global {
+  interface Window extends WindowWithDataLayer {
+    dataLayer: any[];
+  }
+}
+
 import { useState, useEffect } from 'react';
 import styles from './CookieConsent.module.css';
 
@@ -125,18 +137,11 @@ export default function CookieConsent() {
         if (document.head) {
           document.head.appendChild(script);
           
-          // Aggiungiamo la tipizzazione per dataLayer
-          interface WindowWithDataLayer extends Window {
-            dataLayer?: any[];
-          }
-          
-          const windowWithDataLayer = window as unknown as WindowWithDataLayer;
-          windowWithDataLayer.dataLayer = windowWithDataLayer.dataLayer || [];
+          // Inizializza dataLayer se non esiste
+          window.dataLayer = window.dataLayer || [];
           
           const gtag = (...args: any[]) => {
-            if (windowWithDataLayer.dataLayer) {
-              windowWithDataLayer.dataLayer.push(args);
-            }
+            window.dataLayer.push(args);
           };
           
           // Inizializza Google Analytics

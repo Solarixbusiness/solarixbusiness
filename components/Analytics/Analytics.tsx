@@ -13,7 +13,7 @@ export default function Analytics() {
     const measurementId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
     
     if (measurementId) {
-      initializeAnalytics(measurementId);
+      initializeAnalytics();
     }
   }, []);
   

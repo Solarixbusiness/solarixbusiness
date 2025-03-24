@@ -8,8 +8,8 @@ import FontLoader from '@/components/FontLoader/FontLoader'
 import CookieConsent from '@/components/CookieConsent/CookieConsent'
 import I18nProvider from '@/i18n/I18nProvider'
 import PerformanceMetrics from '@/components/PerformanceMetrics/PerformanceMetrics'
-import { SEO_CONSTANTS, getWebsiteSchema } from '@/utils/seoConstants'
 import dynamic from 'next/dynamic'
+import { SEO_CONSTANTS } from '@/utils/seoConstants'
 
 // Importiamo SafeDOMWrapper per gestire in modo sicuro le manipolazioni del DOM
 const SafeDOMWrapper = dynamic(
@@ -53,24 +53,32 @@ const ServiceWorkerRegistration = dynamic(
   { ssr: false }
 )
 
+const roboto = Roboto({
+  weight: ['300', '400', '500', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SEO_CONSTANTS.SITE_URL),
   title: {
     default: SEO_CONSTANTS.DEFAULT_TITLE,
-    template: '%s | solariXbusiness',
+    template: `%s | ${SEO_CONSTANTS.SITE_NAME}`,
   },
   description: SEO_CONSTANTS.DEFAULT_DESCRIPTION,
-  keywords: SEO_CONSTANTS.DEFAULT_KEYWORDS,
+  keywords: 'solariXbusiness, sito web',
   openGraph: {
-    title: SEO_CONSTANTS.DEFAULT_TITLE,
-    description: SEO_CONSTANTS.DEFAULT_DESCRIPTION,
-    url: SEO_CONSTANTS.SITE_URL,
-    siteName: SEO_CONSTANTS.SITE_NAME,
+    title: 'solariXbusiness',
+    description: 'Sito web di solariXbusiness',
+    url: 'https://solariXbusiness.it',
+    siteName: 'solariXbusiness',
     images: [
       {
-        url: SEO_CONSTANTS.DEFAULT_OG_IMAGE,
+        url: 'https://solariXbusiness.it/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: SEO_CONSTANTS.DEFAULT_TITLE,
+        alt: 'solariXbusiness',
       },
     ],
     locale: 'it_IT',
@@ -89,15 +97,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: SEO_CONSTANTS.DEFAULT_TITLE,
-    description: SEO_CONSTANTS.DEFAULT_DESCRIPTION,
-    images: [SEO_CONSTANTS.DEFAULT_OG_IMAGE],
+    title: 'solariXbusiness',
+    description: 'Sito web di solariXbusiness',
+    images: ['https://solariXbusiness.it/images/og-image.jpg'],
   },
   alternates: {
-    canonical: SEO_CONSTANTS.SITE_URL,
+    canonical: 'https://solariXbusiness.it',
     languages: {
-      'it': SEO_CONSTANTS.SITE_URL,
-      'en': `${SEO_CONSTANTS.SITE_URL}/en`,
+      'it': 'https://solariXbusiness.it',
+      'en': 'https://solariXbusiness.it/en',
     },
   },
 }
@@ -115,29 +123,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it">
-      <head>
-        <link rel="icon" href="/images/faviconbus.ico" />
-        <FontLoader />
-      </head>
-      <body className="flex flex-col min-h-screen">
-        <ErrorBoundary>
+      <body className={roboto.className}>
+        <I18nProvider>
+          <FontLoader />
           <SafeDOMWrapper>
-            <I18nProvider>
-              <Analytics />
-              <ErrorTracker />
-              <OfflineDetector />
-              <ServiceWorkerRegistration />
-              <FeedbackWidget />
-              <Navbar />
-              <main className="flex-grow">
-                {children}
-              </main>
-              <Footer />
-              <CookieConsent />
-              {process.env.NODE_ENV === 'development' && <PerformanceMetrics />}
-            </I18nProvider>
+            <Navbar />
+            <main className="min-h-screen">
+              <div className="container mx-auto px-4 py-8">
+                <ErrorBoundary children={children} />
+              </div>
+            </main>
+            <Footer />
           </SafeDOMWrapper>
-        </ErrorBoundary>
+          <CookieConsent />
+          <PerformanceMetrics />
+          <Analytics />
+          <ErrorTracker />
+          <FeedbackWidget />
+          <ServiceWorkerRegistration />
+          <OfflineDetector />
+        </I18nProvider>
       </body>
     </html>
   )

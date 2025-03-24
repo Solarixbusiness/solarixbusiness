@@ -99,7 +99,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className={styles.info_title}>Telefono</h3>
-                  <p className={styles.info_text}>{SEO_CONSTANTS.COMPANY_PHONE.replace('-', ' ')}</p>
+                  <p className={styles.info_text}>{SEO_CONSTANTS.COMPANY_PHONE}</p>
                 </div>
               </div>
               

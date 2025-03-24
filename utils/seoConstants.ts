@@ -10,10 +10,12 @@ export const SEO_CONSTANTS = {
   DEFAULT_DESCRIPTION: 'Soluzioni fotovoltaiche personalizzate per aziende in tutta Italia. Massimizza il risparmio energetico e riduci i costi operativi con i nostri impianti industriali.',
   DEFAULT_KEYWORDS: 'fotovoltaico aziende, pannelli solari industriali, energia solare business, impianti fotovoltaici aziendali, risparmio energetico',
   DEFAULT_OG_IMAGE: '/images/og-image.jpg',
+  DEFAULT_LANGUAGE: 'it',
+  LANGUAGES: ['it', 'en'],
   
   // Informazioni sull'azienda
   COMPANY_NAME: 'SolariX Business',
-  COMPANY_LEGAL_NAME: 'FILY Impianti S.r.l.',
+  COMPANY_LEGAL_NAME: 'solarixbusiness S.r.l.',
   COMPANY_LOGO: '/images/logo.png',
   COMPANY_PHONE: '+39-3470087833',
   COMPANY_EMAIL: 'info@solarixbusiness.it',
@@ -28,7 +30,9 @@ export const SEO_CONSTANTS = {
     STREET: 'Cascina San Carlo 65',
     CITY: 'Carignano',
     POSTAL_CODE: '10041',
-    REGION: 'TO',
+    REGION: 'Torino',
+    COUNTRY_NAME: 'Italy',
+    COUNTRY_CODE: 'IT',
   },
   
   // Coordinate geografiche
@@ -36,11 +40,30 @@ export const SEO_CONSTANTS = {
     LATITUDE: 44.89525,
     LONGITUDE: 7.69293,
   },
+
+  // Schema.org types
+  SCHEMA_TYPES: {
+    FAQ_PAGE: 'FAQPage',
+    QUESTION: 'Question',
+    ANSWER: 'Answer',
+    ORGANIZATION: 'Organization',
+    LOCAL_BUSINESS: 'LocalBusiness',
+    POSTAL_ADDRESS: 'PostalAddress',
+    GEO_COORDINATES: 'GeoCoordinates',
+    WEBSITE: 'WebSite',
+    CONTACT_POINT: 'ContactPoint',
+    PRODUCT: 'Product',
+    OFFER: 'Offer',
+    AGGREGATE_OFFER: 'AggregateOffer',
+    BRAND: 'Brand',
+    MANUFACTURER: 'Organization',
+  },
 };
 
 // Funzione per generare l'URL completo
-export function getFullUrl(path: string): string {
-  return `${SEO_CONSTANTS.SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
+export function getFullUrl(path: string = ''): string {
+  const trimmedPath = path.startsWith('/') ? path : `/${path}`;
+  return `${SEO_CONSTANTS.SITE_URL}${trimmedPath}`;
 }
 
 // Funzione per generare i dati strutturati dell'organizzazione
@@ -63,7 +86,7 @@ export function getOrganizationSchema(): any {
       addressLocality: SEO_CONSTANTS.ADDRESS.CITY,
       postalCode: SEO_CONSTANTS.ADDRESS.POSTAL_CODE,
       addressRegion: SEO_CONSTANTS.ADDRESS.REGION,
-      addressCountry: 'IT',
+      addressCountry: SEO_CONSTANTS.ADDRESS.COUNTRY_CODE,
     },
     sameAs: [
       SEO_CONSTANTS.SOCIAL_FACEBOOK,

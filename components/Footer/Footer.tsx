@@ -61,7 +61,7 @@ export default function Footer() {
               <address className={styles.contact_info}>
                 <p>Via Esempio, 123</p>
                 <p>10100 Torino (TO)</p>
-                <p>Email: <a href={`mailto:${SEO_CONSTANTS.COMPANY_EMAIL}`}>{SEO_CONSTANTS.COMPANY_EMAIL}</a></p>
+                <p>Email: <a href={`mailto:${SEO_CONSTANTS.COMPANY_PHONE}`}>{SEO_CONSTANTS.COMPANY_PHONE}</a></p>
                 <p>Tel: <a href={`tel:${SEO_CONSTANTS.COMPANY_PHONE.replace('-', '')}`}>{SEO_CONSTANTS.COMPANY_PHONE.replace('-', ' ')}</a></p>
               </address>
             </div>

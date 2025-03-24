@@ -94,7 +94,7 @@ export default function HomePage() {
             addressLocality: SEO_CONSTANTS.ADDRESS.CITY,
             postalCode: SEO_CONSTANTS.ADDRESS.POSTAL_CODE,
             addressRegion: SEO_CONSTANTS.ADDRESS.REGION,
-            addressCountry: SEO_CONSTANTS.ADDRESS.COUNTRY,
+            addressCountry: SEO_CONSTANTS.ADDRESS.COUNTRY_CODE,
           },
           geo: {
             '@type': 'GeoCoordinates',
