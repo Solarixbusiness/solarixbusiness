@@ -13,7 +13,7 @@ export const SEO_CONSTANTS = {
   
   // Informazioni sull'azienda
   COMPANY_NAME: 'SolariX Business',
-  COMPANY_LEGAL_NAME: 'solarixbusiness S.r.l.',
+  COMPANY_LEGAL_NAME: 'FILY Impianti S.r.l.',
   COMPANY_LOGO: '/images/logo.png',
   COMPANY_PHONE: '+39-3470087833',
   COMPANY_EMAIL: 'info@solarixbusiness.it',
@@ -34,7 +34,7 @@ export const SEO_CONSTANTS = {
 
 // Funzione per generare l'URL completo
 export function getFullUrl(path: string): string {
-  return `${SEO_CONSTANTS.SITE_URL}${path}`;
+  return `${SEO_CONSTANTS.SITE_URL}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
 // Funzione per generare i dati strutturati dell'organizzazione
