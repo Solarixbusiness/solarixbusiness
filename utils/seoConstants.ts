@@ -25,10 +25,16 @@ export const SEO_CONSTANTS = {
   
   // Indirizzo fisico
   ADDRESS: {
-    STREET: 'Via Roma 123',
-    CITY: 'Milano',
-    POSTAL_CODE: '20100',
-    REGION: 'MI',
+    STREET: 'Cascina San Carlo 65',
+    CITY: 'Carignano',
+    POSTAL_CODE: '10041',
+    REGION: 'TO',
+  },
+  
+  // Coordinate geografiche
+  GEO: {
+    LATITUDE: 44.89525,
+    LONGITUDE: 7.69293,
   },
 };
 
@@ -64,6 +70,12 @@ export function getOrganizationSchema(): any {
       SEO_CONSTANTS.SOCIAL_INSTAGRAM,
       SEO_CONSTANTS.SOCIAL_LINKEDIN,
     ],
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: SEO_CONSTANTS.GEO.LATITUDE,
+      longitude: SEO_CONSTANTS.GEO.LONGITUDE,
+    },
+    openingHours: ['Mo-Fr 09:00-18:00'],
   };
 }
 
