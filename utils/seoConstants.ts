@@ -29,7 +29,6 @@ export const SEO_CONSTANTS = {
     CITY: 'Milano',
     POSTAL_CODE: '20100',
     REGION: 'MI',
-    COUNTRY: 'IT',
   },
 };
 
@@ -58,7 +57,7 @@ export function getOrganizationSchema(): any {
       addressLocality: SEO_CONSTANTS.ADDRESS.CITY,
       postalCode: SEO_CONSTANTS.ADDRESS.POSTAL_CODE,
       addressRegion: SEO_CONSTANTS.ADDRESS.REGION,
-      addressCountry: SEO_CONSTANTS.ADDRESS.COUNTRY,
+      addressCountry: 'IT',
     },
     sameAs: [
       SEO_CONSTANTS.SOCIAL_FACEBOOK,
