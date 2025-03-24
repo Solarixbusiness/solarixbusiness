@@ -29,12 +29,6 @@ const OfflineDetector = dynamic(
   { ssr: false }
 )
 
-// Importiamo ServiceWorkerRegistration in modo dinamico
-const ServiceWorkerRegistration = dynamic(
-  () => import('@/components/ServiceWorkerRegistration/ServiceWorkerRegistration'),
-  { ssr: false }
-)
-
 // Importiamo Analytics in modo dinamico
 const Analytics = dynamic(
   () => import('@/components/Analytics/Analytics'),
@@ -53,60 +47,45 @@ const FeedbackWidget = dynamic(
   { ssr: false }
 )
 
-// Importiamo WebVitals in modo dinamico
-const WebVitals = dynamic(
-  () => import('@/components/WebVitals/WebVitals'),
+// Importiamo ServiceWorkerRegistration in modo dinamico
+const ServiceWorkerRegistration = dynamic(
+  () => import('@/components/ServiceWorkerRegistration/ServiceWorkerRegistration'),
   { ssr: false }
 )
-
-// Importiamo SeoManager in modo dinamico
-const SeoManager = dynamic(
-  () => import('@/components/SeoManager/SeoManager'),
-  { ssr: false }
-)
-
-// Configurazione viewport separata come richiesto da Next.js
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 5,
-  themeColor: '#00A651',
-}
 
 export const metadata: Metadata = {
   title: {
     default: SEO_CONSTANTS.DEFAULT_TITLE,
-    template: '%s | ' + SEO_CONSTANTS.SITE_NAME
+    template: '%s | solariXbusiness',
   },
   description: SEO_CONSTANTS.DEFAULT_DESCRIPTION,
   keywords: SEO_CONSTANTS.DEFAULT_KEYWORDS,
-  icons: {
-    icon: '/images/faviconbus.ico',
-    apple: '/images/apple-touch-icon.png'
-  },
-  manifest: '/manifest.json',
-  formatDetection: {
-    telephone: true,
-    date: false,
-    address: false,
-    email: true,
-    url: true
-  },
   openGraph: {
-    type: 'website',
-    locale: 'it_IT',
-    url: SEO_CONSTANTS.SITE_URL,
-    siteName: SEO_CONSTANTS.SITE_NAME,
     title: SEO_CONSTANTS.DEFAULT_TITLE,
     description: SEO_CONSTANTS.DEFAULT_DESCRIPTION,
+    url: SEO_CONSTANTS.SITE_URL,
+    siteName: SEO_CONSTANTS.SITE_NAME,
     images: [
       {
         url: SEO_CONSTANTS.DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: SEO_CONSTANTS.DEFAULT_TITLE,
-      }
+      },
     ],
+    locale: 'it_IT',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   twitter: {
     card: 'summary_large_image',
@@ -114,7 +93,6 @@ export const metadata: Metadata = {
     description: SEO_CONSTANTS.DEFAULT_DESCRIPTION,
     images: [SEO_CONSTANTS.DEFAULT_OG_IMAGE],
   },
-  robots: SEO_CONSTANTS.ROBOTS,
   alternates: {
     canonical: SEO_CONSTANTS.SITE_URL,
     languages: {
@@ -122,6 +100,12 @@ export const metadata: Metadata = {
       'en': `${SEO_CONSTANTS.SITE_URL}/en`,
     },
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({
@@ -139,33 +123,11 @@ export default function RootLayout({
         <ErrorBoundary>
           <SafeDOMWrapper>
             <I18nProvider>
-              {/* Componente SeoManager globale */}
-              <SeoManager 
-                organizationData={{
-                  name: SEO_CONSTANTS.COMPANY_NAME,
-                  url: SEO_CONSTANTS.SITE_URL,
-                  logo: SEO_CONSTANTS.COMPANY_LOGO,
-                  contactPoint: {
-                    '@type': 'ContactPoint',
-                    telephone: SEO_CONSTANTS.COMPANY_PHONE,
-                    email: SEO_CONSTANTS.COMPANY_EMAIL,
-                    contactType: 'customer service',
-                    availableLanguage: ['Italian', 'English'],
-                  },
-                  sameAs: [
-                    SEO_CONSTANTS.SOCIAL_FACEBOOK,
-                    SEO_CONSTANTS.SOCIAL_INSTAGRAM,
-                    SEO_CONSTANTS.SOCIAL_LINKEDIN,
-                  ],
-                }}
-                socialData={{
-                  title: SEO_CONSTANTS.DEFAULT_TITLE,
-                  description: SEO_CONSTANTS.DEFAULT_DESCRIPTION,
-                  ogImage: SEO_CONSTANTS.DEFAULT_OG_IMAGE,
-                  ogType: 'website',
-                  twitterCard: 'summary_large_image'
-                }}
-              />
+              <Analytics />
+              <ErrorTracker />
+              <OfflineDetector />
+              <ServiceWorkerRegistration />
+              <FeedbackWidget />
               <Navbar />
               <main className="flex-grow">
                 {children}
@@ -173,12 +135,6 @@ export default function RootLayout({
               <Footer />
               <CookieConsent />
               {process.env.NODE_ENV === 'development' && <PerformanceMetrics />}
-              <OfflineDetector />
-              <ServiceWorkerRegistration />
-              <Analytics />
-              <ErrorTracker />
-              <FeedbackWidget />
-              <WebVitals />
             </I18nProvider>
           </SafeDOMWrapper>
         </ErrorBoundary>
