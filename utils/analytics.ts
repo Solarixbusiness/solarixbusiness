@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 /**
  * Invia le metriche di performance a Google Analytics
  * @param metric Nome della metrica
@@ -6,7 +8,7 @@
  */
 export function sendPerformanceMetric(metric: string, value: number, category: string = 'Web Vitals') {
   if (typeof window !== 'undefined' && 'gtag' in window) {
-    const gtag = (window as any).gtag;
+    const gtag = window.gtag;
     
     // Invia l'evento a Google Analytics
     gtag('event', metric, {
@@ -86,43 +88,45 @@ export function measureWebVitals() {
 }
 
 // Funzione per il tipo gtag
-type GtagFunction = (...args: any[]) => void;
+type GtagFunction = (command: string, ...args: any[]) => void;
 
 /**
  * Inizializza Google Analytics
- * @param measurementId ID di misurazione di Google Analytics
  */
-export function initializeAnalytics(measurementId: string) {
-  if (typeof window !== 'undefined' && !window.location.href.includes('localhost')) {
+export function initializeAnalytics() {
+  if (typeof window !== 'undefined') {
     try {
-      // Carica lo script di Google Analytics
+      const measurementId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+      
+      if (!measurementId) {
+        console.warn('ID di Google Analytics non configurato');
+        return;
+      }
+
+      // Aggiungi il script di Google Analytics
       const script = document.createElement('script');
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
       script.async = true;
-      
-      // Inizializza Google Analytics
-      (window as any).dataLayer = (window as any).dataLayer || [];
-      
-      // Definizione della funzione gtag
-      const gtag: GtagFunction = function() {
-        (window as any).dataLayer.push(arguments);
-      };
-      
-      (window as any).gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', measurementId, {
-        send_page_view: true,
-        anonymize_ip: true,
-        cookie_flags: 'SameSite=None;Secure',
-      });
-      
-      // Aggiungi lo script al documento in modo sicuro
-      if (document && document.head) {
-        document.head.appendChild(script);
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+      script.onload = () => {
+        // Inizializza Google Analytics
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function() {
+          window.dataLayer.push(arguments);
+        };
         
+        window.gtag('js', new Date());
+        window.gtag('config', measurementId, {
+          send_page_view: true,
+          anonymize_ip: true,
+          cookie_flags: 'SameSite=None;Secure',
+        });
+
         // Misura e invia le metriche Web Vitals
         measureWebVitals();
-      }
+      };
+      
+      // Aggiungi lo script alla pagina
+      document.head.appendChild(script);
     } catch (error) {
       console.error('Errore durante l\'inizializzazione di Google Analytics:', error);
     }
