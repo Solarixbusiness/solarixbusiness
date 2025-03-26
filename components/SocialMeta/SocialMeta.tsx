@@ -32,7 +32,7 @@ export default function SocialMeta({
   locale = 'it_IT',
 }: SocialMetaProps) {
   const pathname = usePathname();
-  const pageUrl = url || getFullUrl(pathname);
+  const pageUrl = url || getFullUrl(pathname ?? '');
   const fullImageUrl = ogImage.startsWith('http') ? ogImage : getFullUrl(ogImage);
   
   useEffect(() => {

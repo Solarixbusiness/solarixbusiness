@@ -27,6 +27,9 @@ export default function Analytics() {
         page_path: url,
         page_title: document.title,
         page_location: window.location.href,
+        send_to: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS,
+        anonymize_ip: true,
+        cookie_flags: 'SameSite=None;Secure;Partitioned',
       });
     }
   }, [pathname, searchParams]);

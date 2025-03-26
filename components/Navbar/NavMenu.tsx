@@ -2,22 +2,58 @@
 
 import { useState, useEffect, useRef, KeyboardEvent } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import styles from './NavMenu.module.css'
 import navbarStyles from './Navbar.module.css'
 
 interface NavMenuProps {
-  isOpen: boolean
+  isOpen: boolean;
+  onCloseAction: () => void;
 }
 
-export default function NavMenu({ isOpen }: NavMenuProps) {
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-  const menuItemRefs = useRef<Record<string, HTMLButtonElement | null>>({})
+export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const menuItemRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const pathname = usePathname();
+
+  // Chiude il menu quando cambia la route
+  useEffect(() => {
+    onCloseAction();
+    setActiveDropdown(null);
+  }, [pathname, onCloseAction]);
+
+  // Chiude il dropdown quando si clicca fuori
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      // Verifica se il click è stato fatto su un pulsante del dropdown
+      const target = event.target as HTMLElement;
+      if (target.closest(`.${styles.dropdown_toggle}`)) {
+        return;
+      }
+      
+      // Verifica se il click è stato fatto fuori dal menu
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
+        setActiveDropdown(null);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleDropdownClick = (dropdownName: string) => {
-    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName)
-  }
+    setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
+  };
+
+  // Chiude il dropdown quando si seleziona un link
+  const handleLinkClick = () => {
+    setActiveDropdown(null);
+    onCloseAction();
+  };
 
   const handleDropdownKeyDown = (e: KeyboardEvent<HTMLButtonElement>, dropdownName: string) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -27,27 +63,6 @@ export default function NavMenu({ isOpen }: NavMenuProps) {
       setActiveDropdown(null)
     }
   }
-
-  useEffect(() => {
-    // Verifica se siamo in ambiente browser
-    if (typeof window === 'undefined' || !document) return;
-    
-    try {
-      const handleClickOutside = (event: MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-          setActiveDropdown(null)
-        }
-      }
-
-      document.addEventListener('mousedown', handleClickOutside)
-      
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside)
-      }
-    } catch (error) {
-      console.error('Errore durante la gestione del click outside nel NavMenu:', error);
-    }
-  }, [])
 
   return (
     <nav 
@@ -82,45 +97,47 @@ export default function NavMenu({ isOpen }: NavMenuProps) {
           >
             SERVIZI
           </button>
-          <ul 
+          <div 
             className={clsx(styles.dropdown_menu, {
-              [styles['dropdown_menu--active']]: activeDropdown === 'servizi'
+              [styles.active]: activeDropdown === 'servizi'
             })}
-            role="menu"
-            aria-label="Servizi"
-            hidden={activeDropdown !== 'servizi'}
           >
-            <li role="none">
-              <Link 
-                href="/fotovoltaico-aziende" 
-                className={styles.dropdown_link}
-                role="menuitem"
-                tabIndex={activeDropdown === 'servizi' ? 0 : -1}
-              >
-                Fotovoltaico per Aziende
-              </Link>
-            </li>
-            <li role="none">
-              <Link 
-                href="/cer" 
-                className={styles.dropdown_link}
-                role="menuitem"
-                tabIndex={activeDropdown === 'servizi' ? 0 : -1}
-              >
-                Comunità Energetiche
-              </Link>
-            </li>
-            <li role="none">
-              <Link 
-                href="/conto-termico" 
-                className={styles.dropdown_link}
-                role="menuitem"
-                tabIndex={activeDropdown === 'servizi' ? 0 : -1}
-              >
-                Conto Termico 3.0
-              </Link>
-            </li>
-          </ul>
+            <Link 
+              href="/strategia-energetica" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              Strategia Energetica Aziendale
+            </Link>
+            <Link 
+              href="/accesso-incentivi" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              Accesso agli Incentivi e Bandi
+            </Link>
+            <Link 
+              href="/comunita-energetiche" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              Comunità Energetiche e Autoconsumo Incentivato
+            </Link>
+            <Link 
+              href="/monetizzazione-ambientale" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              Monetizzazione Ambientale
+            </Link>
+            <Link 
+              href="/consulenza-finanziaria" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              Consulenza Finanziaria Integrata
+            </Link>
+          </div>
         </li>
 
         <li className={styles.menu_item} role="none">

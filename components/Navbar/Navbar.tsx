@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import NavMenu from './NavMenu'
 import styles from './Navbar.module.css'
-import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher'
 import HamburgerMenu from './HamburgerMenu'
 import Logo from './Logo'
 
@@ -54,7 +53,12 @@ export default function Navbar() {
         </div>
 
         {/* In desktop mostra sempre il menu, in mobile solo se aperto */}
-        {(!isMobile || isMenuOpen) && <NavMenu isOpen={isMenuOpen} />}
+        {(!isMobile || isMenuOpen) && (
+          <NavMenu 
+            isOpen={isMenuOpen} 
+            onCloseAction={() => setIsMenuOpen(false)}
+          />
+        )}
 
         <div className={styles.navbar_right}>
           {/* Mostra l'hamburger menu solo in modalità mobile */}
@@ -64,8 +68,6 @@ export default function Navbar() {
               toggleMenu={() => setIsMenuOpen(!isMenuOpen)} 
             />
           )}
-          
-          <LanguageSwitcher />
         </div>
       </div>
     </header>

@@ -33,7 +33,6 @@ export default function Breadcrumbs({
     const translations: Record<string, string> = {
       home: 'Home',
       about: 'Chi Siamo',
-      solar_business: 'Fotovoltaico Aziende',
       energy_communities: 'CER',
       thermal_account: 'Conto Termico',
       faq: 'FAQ',
@@ -43,7 +42,8 @@ export default function Breadcrumbs({
     return translations[key] || key;
   };
 
-  const breadcrumbItems = items || generateBreadcrumbsFromPath(pathname, t);
+  const breadcrumbItems = items || generateBreadcrumbsFromPath(pathname ?? '', t);
+
 
   const allItems = showHome
     ? [{ label: t('home'), path: '/', isCurrentPage: false }, ...breadcrumbItems]
@@ -120,7 +120,6 @@ function generateBreadcrumbsFromPath(pathname: string, t: (key: string) => strin
 
   const pageNames: Record<string, string> = {
     'chi-siamo': t('about'),
-    'fotovoltaico-aziende': t('solar_business'),
     cer: t('energy_communities'),
     'conto-termico': t('thermal_account'),
     faq: t('faq'),

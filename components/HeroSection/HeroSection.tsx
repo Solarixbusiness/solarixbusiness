@@ -19,7 +19,7 @@ export default function HeroSection({ title, subtitle }: HeroSectionProps) {
           <Link href="/contatti" className={styles.cta_button}>
             Calcola il tuo ritorno
           </Link>
-          <Link href="/fotovoltaico-aziende" className={styles.secondary_button}>
+          <Link href="/parla-con-un-consulente" className={styles.secondary_button}>
             Parla con un consulente
           </Link>
         </div>

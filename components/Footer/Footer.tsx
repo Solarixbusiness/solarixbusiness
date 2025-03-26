@@ -50,7 +50,6 @@ export default function Footer() {
             <div className={styles.footer_column}>
               <h3 className={styles.footer_title}>Servizi</h3>
               <ul className={styles.footer_menu}>
-                <li><Link href="/fotovoltaico-aziende">Fotovoltaico per Aziende</Link></li>
                 <li><Link href="/cer">Comunità Energetiche</Link></li>
                 <li><Link href="/conto-termico">Conto Termico 3.0</Link></li>
               </ul>

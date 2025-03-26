@@ -148,7 +148,12 @@ export default function CookieConsent() {
           gtag('js', new Date());
           gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
             page_path: window.location.pathname,
-            cookie_flags: 'SameSite=None;Secure',
+            cookie_flags: 'SameSite=None;Secure;Partitioned',
+            cookie_domain: 'auto',
+            cookie_update: false,
+            cookie_prefix: 'ga_',
+            cookie_expires: 2592000, // 30 giorni
+            anonymize_ip: true,
           });
           
           // Aggiungi gtag all'oggetto window

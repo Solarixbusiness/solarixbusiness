@@ -118,7 +118,11 @@ export function initializeAnalytics() {
         window.gtag('config', measurementId, {
           send_page_view: true,
           anonymize_ip: true,
-          cookie_flags: 'SameSite=None;Secure',
+          cookie_flags: 'SameSite=None;Secure;Partitioned',
+          cookie_domain: 'auto',
+          cookie_update: false,
+          cookie_prefix: 'ga_',
+          cookie_expires: 2592000, // 30 giorni
         });
 
         // Misura e invia le metriche Web Vitals

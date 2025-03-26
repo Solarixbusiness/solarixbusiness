@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function ContattiPage() {
   return (
-    <>
+    <section className="bg-white py-16 px-6 md:px-16 font-roboto">
       <SeoManager 
         canonicalPath="/contatti"
         localBusinessData={{
@@ -70,6 +70,6 @@ export default function ContattiPage() {
         <Breadcrumbs />
         <ContactSection />
       </div>
-    </>
-  )
+    </section>
+  );
 }

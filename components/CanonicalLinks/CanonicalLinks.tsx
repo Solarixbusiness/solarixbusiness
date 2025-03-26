@@ -18,6 +18,11 @@ export default function CanonicalLinks({
   // Determina il percorso canonico
   const currentPath = canonicalPath || pathname;
   
+  // Se il percorso è null, usa la home page
+  if (!currentPath) {
+    return null;
+  }
+  
   // Rimuovi eventuali prefissi di lingua dal percorso
   const pathWithoutLang = currentPath.replace(/^\/(it|en)/, '');
   

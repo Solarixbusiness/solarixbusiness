@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
 import FontLoader from '@/components/FontLoader/FontLoader'
 import CookieConsent from '@/components/CookieConsent/CookieConsent'
-import I18nProvider from '@/i18n/I18nProvider'
+import { I18nProvider } from '@/i18n/I18nProvider'
 import PerformanceMetrics from '@/components/PerformanceMetrics/PerformanceMetrics'
 import dynamic from 'next/dynamic'
 import { SEO_CONSTANTS } from '@/utils/seoConstants'
@@ -126,15 +126,13 @@ export default function RootLayout({
       <body className={roboto.className}>
         <I18nProvider>
           <FontLoader />
-          <SafeDOMWrapper>
-            <Navbar />
-            <main className="min-h-screen">
-              <div className="container mx-auto px-4 py-8">
-                <ErrorBoundary children={children} />
-              </div>
-            </main>
-            <Footer />
-          </SafeDOMWrapper>
+          <Navbar />
+          <main className="min-h-screen">
+            <div className="container mx-auto px-4 py-8">
+              {children}
+            </div>
+          </main>
+          <Footer />
           <CookieConsent />
           <PerformanceMetrics />
           <Analytics />

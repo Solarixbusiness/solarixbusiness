@@ -1,12 +1,28 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, FormEvent } from 'react'
 import Image from 'next/image'
 import styles from './ContactSection.module.css'
 import { SEO_CONSTANTS } from '../../utils/seoConstants'
 
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  message: string;
+  privacy: boolean;
+}
+
+interface FormStatus {
+  submitted: boolean;
+  loading: boolean;
+  success: boolean;
+  message: string;
+}
+
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
@@ -15,9 +31,13 @@ export default function ContactSection() {
     privacy: false
   });
   
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState<string>('');
-  
+  const [formStatus, setFormStatus] = useState<FormStatus>({
+    submitted: false,
+    loading: false,
+    success: false,
+    message: ''
+  });
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -34,32 +54,50 @@ export default function ContactSection() {
     }));
   };
   
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormStatus('submitting');
-    setErrorMessage('');
     
+    // Validazione base
+    if (!formData.name || !formData.email || !formData.company || !formData.message || !formData.privacy) {
+      setFormStatus({
+        submitted: true,
+        loading: false,
+        success: false,
+        message: 'Per favore, compila tutti i campi obbligatori.'
+      });
+      return;
+    }
+
     try {
-      // Invio reale del form utilizzando l'API route
+      setFormStatus({
+        submitted: true,
+        loading: true,
+        success: false,
+        message: 'Invio in corso...'
+      });
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          formType: 'contact' // Specifichiamo che è il form di contatto
-        }),
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Si è verificato un errore durante l\'invio');
+      }
+
+      setFormStatus({
+        submitted: true,
+        loading: false,
+        success: true,
+        message: 'Grazie per averci contattato! Ti risponderemo al più presto.'
       });
       
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.error || 'Si è verificato un errore durante l\'invio del messaggio');
-      }
-      
-      // Se l'invio è andato a buon fine
-      setFormStatus('success');
+      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -68,10 +106,23 @@ export default function ContactSection() {
         message: '',
         privacy: false
       });
+      
+      // Reset status dopo 5 secondi
+      setTimeout(() => {
+        setFormStatus(prev => ({
+          ...prev,
+          submitted: false
+        }));
+      }, 5000);
+
     } catch (error) {
       console.error('Errore durante l\'invio del form:', error);
-      setFormStatus('error');
-      setErrorMessage(error instanceof Error ? error.message : 'Si è verificato un errore durante l\'invio del messaggio');
+      setFormStatus({
+        submitted: true,
+        loading: false,
+        success: false,
+        message: error instanceof Error ? error.message : 'Si è verificato un errore durante l\'invio. Riprova più tardi.'
+      });
     }
   };
   
@@ -221,20 +272,20 @@ export default function ContactSection() {
               <button 
                 type="submit" 
                 className={styles.submit_button}
-                disabled={formStatus === 'submitting'}
+                disabled={formStatus.submitted}
               >
-                {formStatus === 'submitting' ? 'Invio in corso...' : 'Invia Richiesta'}
+                {formStatus.submitted ? 'Invio in corso...' : 'Invia Richiesta'}
               </button>
               
-              {formStatus === 'success' && (
+              {formStatus.success && (
                 <div className={styles.success_message}>
-                  Grazie per averci contattato! Ti risponderemo al più presto.
+                  {formStatus.message}
                 </div>
               )}
               
-              {formStatus === 'error' && (
+              {formStatus.submitted && !formStatus.success && (
                 <div className={styles.error_message}>
-                  {errorMessage || 'Si è verificato un errore. Riprova più tardi o contattaci direttamente.'}
+                  {formStatus.message}
                 </div>
               )}
             </form>

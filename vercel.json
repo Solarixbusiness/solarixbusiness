@@ -5,6 +5,40 @@
   "framework": "nextjs",
   "regions": ["cdg1"],
   "env": {
-    "RECIPIENT_EMAIL": "info@solarixbusiness.it"
-  }
+    "RECIPIENT_EMAIL": "info@solarixbusiness.it",
+    "NODE_ENV": "production",
+    "NEXT_PUBLIC_SITE_URL": "https://www.solarixbusiness.it"
+  },
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "solarixbusiness.it"
+        }
+      ],
+      "destination": "https://www.solarixbusiness.it/$1",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
 }
