@@ -9,7 +9,7 @@ export default function Logo() {
   return (
     <Link href="/" className={styles.logo}>
       <Image
-        src="/images/logobus.png"
+        src="/images/logo/logo.png"
         alt="solariXbusiness Logo"
         width={170}
         height={100}

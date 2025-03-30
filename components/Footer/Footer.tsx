@@ -28,7 +28,7 @@ export default function Footer() {
           <div className={styles.footer_logo}>
             <Link href="/">
               <Image
-                src="/images/logobus.png"
+                src="/images/logo/logo.png"
                 alt="solariXbusiness Logo"
                 width={150}
                 height={80}

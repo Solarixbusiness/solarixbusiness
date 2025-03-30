@@ -2,6 +2,7 @@
 
 import React, { FormEvent, useState } from 'react';
 import { Roboto } from 'next/font/google';
+import { useLeadForm } from '@/hooks/useLeadForm';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -10,9 +11,10 @@ const roboto = Roboto({
 });
 
 interface FormData {
-  name: string;
+  nome: string;
+  cognome: string;
   email: string;
-  phone: string;
+  telefono: string;
   tipoAzienda: string;
   dipendenti: string;
   localita: string;
@@ -20,6 +22,7 @@ interface FormData {
   preventivi: string;
   obiettivi: string;
   richieste: string;
+  privacy: boolean;
 }
 
 interface FormStatus {
@@ -46,18 +49,20 @@ const jsonLd = {
   'description': 'Servizio di analisi personalizzata per l\'ottimizzazione della strategia energetica aziendale.'
 };
 
-export default function AnalisiPersonalizzataPage() {
+export default function AnalisiPersonalizzata() {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
+    nome: '',
+    cognome: '',
     email: '',
-    phone: '',
+    telefono: '',
     tipoAzienda: '',
     dipendenti: '',
     localita: '',
     superficie: '',
     preventivi: '',
     obiettivi: '',
-    richieste: ''
+    richieste: '',
+    privacy: false
   });
 
   const [formStatus, setFormStatus] = useState<FormStatus>({
@@ -67,88 +72,98 @@ export default function AnalisiPersonalizzataPage() {
     message: ''
   });
 
+  const { submitLead, loading: submitLoading, error } = useLeadForm({
+    formType: 'analisi_personalizzata'
+  });
+
+  const sendEmail = async (formData: FormData) => {
+    const response = await fetch('/api/send-email-analisi', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Errore nell\'invio dell\'email');
+    }
+
+    return response.json();
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    // Validazione base
-    if (!formData.name || !formData.email || !formData.phone) {
+    if (!formData.privacy) {
       setFormStatus({
         submitted: true,
         loading: false,
         success: false,
-        message: 'Per favore, compila tutti i campi obbligatori.'
+        message: 'Devi accettare la privacy policy per procedere.'
       });
       return;
     }
 
+    setFormStatus({
+      submitted: true,
+      loading: true,
+      success: false,
+      message: 'Invio in corso...'
+    });
+    
     try {
-      setFormStatus({
-        submitted: true,
-        loading: true,
-        success: false,
-        message: 'Invio in corso...'
-      });
-
-      const response = await fetch('/api/send-email-analisi', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nome: formData.name,
-          email: formData.email,
-          telefono: formData.phone,
-          tipoAzienda: formData.tipoAzienda,
+      await sendEmail(formData);
+      
+      await submitLead({
+        nome: formData.nome,
+        cognome: formData.cognome,
+        email: formData.email,
+        telefono: formData.telefono,
+        note: formData.richieste,
+        form_type: 'analisi_personalizzata',
+        additional_data: {
+          tipo_azienda: formData.tipoAzienda,
           dipendenti: formData.dipendenti,
           localita: formData.localita,
           superficie: formData.superficie,
           preventivi: formData.preventivi,
           obiettivi: formData.obiettivi,
-          richieste: formData.richieste
-        }),
+          richieste: formData.richieste,
+          fonte: 'Pagina Analisi Personalizzata',
+          privacy_accepted: formData.privacy
+        }
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Si è verificato un errore durante l\'invio');
-      }
 
       setFormStatus({
         submitted: true,
         loading: false,
         success: true,
-        message: 'Grazie! La tua richiesta è stata inviata con successo.'
+        message: 'Grazie! Ti contatteremo presto.'
       });
-      
-      // Reset form
+
       setFormData({
-        name: '',
+        nome: '',
+        cognome: '',
         email: '',
-        phone: '',
+        telefono: '',
         tipoAzienda: '',
         dipendenti: '',
         localita: '',
         superficie: '',
         preventivi: '',
         obiettivi: '',
-        richieste: ''
+        richieste: '',
+        privacy: false
       });
-      
-      // Reset status dopo 5 secondi
-      setTimeout(() => {
-        setFormStatus(prev => ({
-          ...prev,
-          submitted: false
-        }));
-      }, 5000);
+
     } catch (error) {
-      console.error('Errore durante l\'invio del form:', error);
+      console.error('Errore:', error);
       setFormStatus({
         submitted: true,
         loading: false,
         success: false,
-        message: error instanceof Error ? error.message : 'Si è verificato un errore durante l\'invio. Riprova più tardi.'
+        message: 'Si è verificato un errore. Riprova più tardi.'
       });
     }
   };
@@ -170,7 +185,9 @@ export default function AnalisiPersonalizzataPage() {
 
           {formStatus.submitted && (
             <div 
-              className={`p-4 mb-6 rounded-lg ${formStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}
+              className={`p-4 mb-6 rounded-lg ${
+                formStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+              }`}
               role="alert"
               aria-live="assertive"
             >
@@ -282,13 +299,25 @@ export default function AnalisiPersonalizzataPage() {
               <h3 className="text-lg font-semibold text-gray-800 mb-4">I tuoi recapiti per ricontattarti</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block font-medium text-gray-800 mb-1">Nome *</label>
+                  <label htmlFor="nome" className="block font-medium text-gray-800 mb-1">Nome *</label>
                   <input 
                     type="text" 
-                    id="name" 
-                    name="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    id="nome" 
+                    name="nome"
+                    value={formData.nome}
+                    onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="cognome" className="block font-medium text-gray-800 mb-1">Cognome *</label>
+                  <input 
+                    type="text" 
+                    id="cognome" 
+                    name="cognome"
+                    value={formData.cognome}
+                    onChange={(e) => setFormData({...formData, cognome: e.target.value})}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
                     required
                   />
@@ -306,17 +335,35 @@ export default function AnalisiPersonalizzataPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block font-medium text-gray-800 mb-1">Telefono *</label>
+                  <label htmlFor="telefono" className="block font-medium text-gray-800 mb-1">Telefono *</label>
                   <input 
                     type="tel" 
-                    id="phone" 
-                    name="phone"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                    id="telefono" 
+                    name="telefono"
+                    value={formData.telefono}
+                    onChange={(e) => setFormData({...formData, telefono: e.target.value})}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
                     required
                   />
                 </div>
+              </div>
+            </div>
+
+            {/* Privacy */}
+            <div className="pt-4">
+              <div className="flex items-center">
+                <input 
+                  type="checkbox" 
+                  id="privacy" 
+                  name="privacy"
+                  checked={formData.privacy}
+                  onChange={(e) => setFormData({...formData, privacy: e.target.checked})}
+                  className="h-4 w-4 text-green-700 border-gray-300 rounded"
+                  required
+                />
+                <label htmlFor="privacy" className="ml-2 block text-sm text-gray-700">
+                  Accetto la privacy policy *
+                </label>
               </div>
             </div>
 

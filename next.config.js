@@ -7,7 +7,14 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    domains: ['www.solarixbusiness.it'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.solarixbusiness.it',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   headers: async () => {
     return [
@@ -35,7 +42,7 @@ const nextConfig = {
     ];
   },
   experimental: {
-    serverComponentsExternalPackages: ['redis'],
+    serverComponentsExternalPackages: ['redis', '@supabase/supabase-js'],
   },
 }
 

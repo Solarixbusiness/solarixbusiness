@@ -2,6 +2,7 @@
 
 import React, { FormEvent, useState } from 'react';
 import { Roboto } from 'next/font/google';
+import { useLeadForm } from '@/hooks/useLeadForm';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -10,16 +11,18 @@ const roboto = Roboto({
 });
 
 interface FormData {
-  nome: string;
-  cognome: string;
+  name: string;
   email: string;
-  telefono: string;
+  phone: string;
+  message: string;
   comune: string;
   abitanti: string;
   conoscenzaCer: string;
+  privacy: boolean;
   preferenzaIncentivo: string;
   superficieDisponibile: string;
   adesioneEsistente: string;
+  cognome: string;
 }
 
 interface FormStatus {
@@ -46,18 +49,36 @@ const jsonLd = {
   'description': 'Servizio di analisi per la valutazione di partecipazione a Comunità Energetiche Rinnovabili.'
 };
 
+const sendEmail = async (formData: FormData) => {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  });
+
+  if (!response.ok) {
+    throw new Error('Errore nell\'invio dell\'email');
+  }
+
+  return response.json();
+};
+
 export default function AnalisiCERPage() {
   const [formData, setFormData] = useState<FormData>({
-    nome: '',
-    cognome: '',
+    name: '',
     email: '',
-    telefono: '',
+    phone: '',
+    message: '',
     comune: '',
     abitanti: '',
     conoscenzaCer: '',
+    privacy: false,
     preferenzaIncentivo: '',
     superficieDisponibile: '',
-    adesioneEsistente: ''
+    adesioneEsistente: '',
+    cognome: ''
   });
 
   const [formStatus, setFormStatus] = useState<FormStatus>({
@@ -67,77 +88,68 @@ export default function AnalisiCERPage() {
     message: ''
   });
 
+  const { submitLead, loading, error } = useLeadForm({
+    formType: 'analisi_cer'
+  });
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    // Validazione base
-    if (!formData.nome || !formData.email || !formData.telefono) {
-      setFormStatus({
-        submitted: true,
-        loading: false,
-        success: false,
-        message: 'Per favore, compila tutti i campi obbligatori.'
-      });
-      return;
-    }
-
+    setFormStatus({
+      submitted: true,
+      loading: true,
+      success: false,
+      message: 'Invio in corso...'
+    });
+    
     try {
-      setFormStatus({
-        submitted: true,
-        loading: true,
-        success: false,
-        message: 'Invio in corso...'
+      await sendEmail(formData);
+      
+      await submitLead({
+        nome: formData.name,
+        cognome: '',
+        telefono: formData.phone,
+        email: formData.email,
+        note: formData.message,
+        form_type: 'analisi_cer',
+        additional_data: {
+          comune: formData.comune,
+          abitanti: formData.abitanti,
+          conoscenza_cer: formData.conoscenzaCer,
+          fonte: 'Pagina Analisi CER'
+        }
       });
-
-      const response = await fetch('/api/send-email-cer', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Si è verificato un errore durante l\'invio');
-      }
 
       setFormStatus({
         submitted: true,
         loading: false,
         success: true,
-        message: 'Grazie! La tua richiesta è stata inviata con successo.'
+        message: 'Grazie! Ti contatteremo presto.'
       });
-      
+
       // Reset form
       setFormData({
-        nome: '',
-        cognome: '',
+        name: '',
         email: '',
-        telefono: '',
+        phone: '',
+        message: '',
         comune: '',
         abitanti: '',
         conoscenzaCer: '',
+        privacy: false,
         preferenzaIncentivo: '',
         superficieDisponibile: '',
-        adesioneEsistente: ''
+        adesioneEsistente: '',
+        cognome: ''
       });
-      
-      // Reset status dopo 5 secondi
-      setTimeout(() => {
-        setFormStatus(prev => ({
-          ...prev,
-          submitted: false
-        }));
-      }, 5000);
+
     } catch (error) {
-      console.error('Errore durante l\'invio del form:', error);
+      console.error('Errore:', error);
       setFormStatus({
         submitted: true,
         loading: false,
         success: false,
-        message: error instanceof Error ? error.message : 'Si è verificato un errore durante l\'invio. Riprova più tardi.'
+        message: 'Si è verificato un errore. Riprova più tardi.'
       });
     }
   };
@@ -274,8 +286,8 @@ export default function AnalisiCERPage() {
                     type="text" 
                     id="nome" 
                     name="nome"
-                    value={formData.nome}
-                    onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
                     required
                   />
@@ -310,8 +322,8 @@ export default function AnalisiCERPage() {
                     type="tel" 
                     id="telefono" 
                     name="telefono"
-                    value={formData.telefono}
-                    onChange={(e) => setFormData({...formData, telefono: e.target.value})}
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
                     required
                   />

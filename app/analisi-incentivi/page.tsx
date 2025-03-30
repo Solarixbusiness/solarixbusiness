@@ -2,6 +2,7 @@
 
 import React, { FormEvent, useState } from 'react';
 import { Roboto } from 'next/font/google';
+import { useLeadForm } from '@/hooks/useLeadForm';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -10,16 +11,20 @@ const roboto = Roboto({
 });
 
 interface FormData {
-  nome: string;
-  cognome: string;
+  name: string;
   email: string;
-  telefono: string;
+  phone: string;
+  message: string;
+  motivoNonUso: string;
+  altroMotivo: string;
+  privacy: boolean;
   settore: string;
   attivita: string;
   sede: string;
   esperienzaBandi: string;
   interesseSpecifico: string;
   livelloConoscenza: string;
+  cognome: string;
 }
 
 interface FormStatus {
@@ -46,18 +51,38 @@ const jsonLd = {
   'description': 'Servizio di analisi personalizzata degli incentivi disponibili per progetti energetici.'
 };
 
+const sendEmail = async (formData: FormData) => {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  });
+
+  if (!response.ok) {
+    throw new Error('Errore nell\'invio dell\'email');
+  }
+
+  return response.json();
+};
+
 export default function AnalisiIncentiviPage() {
   const [formData, setFormData] = useState<FormData>({
-    nome: '',
-    cognome: '',
+    name: '',
     email: '',
-    telefono: '',
+    phone: '',
+    message: '',
+    motivoNonUso: '',
+    altroMotivo: '',
+    privacy: false,
     settore: '',
     attivita: '',
     sede: '',
     esperienzaBandi: '',
     interesseSpecifico: '',
-    livelloConoscenza: ''
+    livelloConoscenza: '',
+    cognome: ''
   });
 
   const [formStatus, setFormStatus] = useState<FormStatus>({
@@ -67,77 +92,71 @@ export default function AnalisiIncentiviPage() {
     message: ''
   });
 
+  const { submitLead, loading, error } = useLeadForm({
+    formType: 'analisi_incentivi'
+  });
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    // Validazione base
-    if (!formData.nome || !formData.email || !formData.telefono) {
-      setFormStatus({
-        submitted: true,
-        loading: false,
-        success: false,
-        message: 'Per favore, compila tutti i campi obbligatori.'
-      });
-      return;
-    }
-
+    setFormStatus({
+      submitted: true,
+      loading: true,
+      success: false,
+      message: 'Invio in corso...'
+    });
+    
     try {
-      setFormStatus({
-        submitted: true,
-        loading: true,
-        success: false,
-        message: 'Invio in corso...'
+      await sendEmail(formData);
+      
+      await submitLead({
+        nome: formData.name,
+        cognome: formData.cognome,
+        telefono: formData.phone,
+        email: formData.email,
+        note: formData.message,
+        form_type: 'analisi_incentivi',
+        additional_data: {
+          settore: formData.settore,
+          attivita: formData.attivita,
+          sede: formData.sede,
+          esperienza_bandi: formData.esperienzaBandi,
+          fonte: 'Pagina Analisi Incentivi'
+        }
       });
-
-      const response = await fetch('/api/send-email-incentivi', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Si è verificato un errore durante l\'invio');
-      }
 
       setFormStatus({
         submitted: true,
         loading: false,
         success: true,
-        message: 'Grazie! La tua richiesta è stata inviata con successo.'
+        message: 'Grazie! Ti contatteremo presto.'
       });
-      
+
       // Reset form
       setFormData({
-        nome: '',
-        cognome: '',
+        name: '',
         email: '',
-        telefono: '',
+        phone: '',
+        message: '',
+        motivoNonUso: '',
+        altroMotivo: '',
+        privacy: false,
         settore: '',
         attivita: '',
         sede: '',
         esperienzaBandi: '',
         interesseSpecifico: '',
-        livelloConoscenza: ''
+        livelloConoscenza: '',
+        cognome: ''
       });
-      
-      // Reset status dopo 5 secondi
-      setTimeout(() => {
-        setFormStatus(prev => ({
-          ...prev,
-          submitted: false
-        }));
-      }, 5000);
+
     } catch (error) {
-      console.error('Errore durante l\'invio del form:', error);
+      console.error('Errore:', error);
       setFormStatus({
         submitted: true,
         loading: false,
         success: false,
-        message: error instanceof Error ? error.message : 'Si è verificato un errore durante l\'invio. Riprova più tardi.'
+        message: 'Si è verificato un errore. Riprova più tardi.'
       });
     }
   };
@@ -264,8 +283,8 @@ export default function AnalisiIncentiviPage() {
                     type="text" 
                     id="nome" 
                     name="nome"
-                    value={formData.nome}
-                    onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
                     required
                   />
@@ -300,8 +319,8 @@ export default function AnalisiIncentiviPage() {
                     type="tel" 
                     id="telefono" 
                     name="telefono"
-                    value={formData.telefono}
-                    onChange={(e) => setFormData({...formData, telefono: e.target.value})}
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
                     required
                   />

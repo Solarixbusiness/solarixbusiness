@@ -2,6 +2,7 @@
 
 import React, { FormEvent, useState } from 'react';
 import { Roboto } from 'next/font/google';
+import { useLeadForm } from '@/hooks/useLeadForm';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -10,15 +11,17 @@ const roboto = Roboto({
 });
 
 interface FormData {
-  nome: string;
-  cognome: string;
+  name: string;
   email: string;
-  telefono: string;
+  phone: string;
+  message: string;
   conoscenzaFinanza: string;
-  motivoNonUso: string;
-  altroMotivo: string;
   interesseConsulente: string;
   progettoInCorso: string;
+  privacy: boolean;
+  cognome: string;
+  motivoNonUso: string;
+  altroMotivo: string;
   ambiti: string;
 }
 
@@ -46,17 +49,35 @@ const jsonLd = {
   'description': 'Servizio di simulazione per il recupero di incentivi e agevolazioni finanziarie per progetti energetici e aziendali.'
 };
 
+const sendEmail = async (formData: FormData) => {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  });
+
+  if (!response.ok) {
+    throw new Error('Errore nell\'invio dell\'email');
+  }
+
+  return response.json();
+};
+
 export default function SimulazioneRecuperoPage() {
   const [formData, setFormData] = useState<FormData>({
-    nome: '',
-    cognome: '',
+    name: '',
     email: '',
-    telefono: '',
+    phone: '',
+    message: '',
     conoscenzaFinanza: '',
-    motivoNonUso: '',
-    altroMotivo: '',
     interesseConsulente: '',
     progettoInCorso: '',
+    privacy: false,
+    cognome: '',
+    motivoNonUso: '',
+    altroMotivo: '',
     ambiti: ''
   });
 
@@ -67,77 +88,68 @@ export default function SimulazioneRecuperoPage() {
     message: ''
   });
 
+  const { submitLead, loading: leadLoading, error: leadError } = useLeadForm({
+    formType: 'simulazione_recupero'
+  });
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    // Validazione base
-    if (!formData.nome || !formData.email || !formData.telefono) {
-      setFormStatus({
-        submitted: true,
-        loading: false,
-        success: false,
-        message: 'Per favore, compila tutti i campi obbligatori.'
-      });
-      return;
-    }
-
+    setFormStatus({
+      submitted: true,
+      loading: true,
+      success: false,
+      message: 'Invio in corso...'
+    });
+    
     try {
-      setFormStatus({
-        submitted: true,
-        loading: true,
-        success: false,
-        message: 'Invio in corso...'
+      await sendEmail(formData);
+      
+      await submitLead({
+        nome: formData.name,
+        cognome: formData.cognome,
+        telefono: formData.phone,
+        email: formData.email,
+        note: formData.message,
+        form_type: 'simulazione_recupero',
+        additional_data: {
+          conoscenza_finanza: formData.conoscenzaFinanza,
+          interesse_consulente: formData.interesseConsulente,
+          progetto_in_corso: formData.progettoInCorso,
+          fonte: 'Pagina Simulazione di Recupero'
+        }
       });
-
-      const response = await fetch('/api/send-email-recupero', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Si è verificato un errore durante l\'invio');
-      }
 
       setFormStatus({
         submitted: true,
         loading: false,
         success: true,
-        message: 'Grazie! La tua richiesta è stata inviata con successo.'
+        message: 'Grazie! Ti contatteremo presto.'
       });
-      
+
       // Reset form
       setFormData({
-        nome: '',
-        cognome: '',
+        name: '',
         email: '',
-        telefono: '',
+        phone: '',
+        message: '',
         conoscenzaFinanza: '',
-        motivoNonUso: '',
-        altroMotivo: '',
         interesseConsulente: '',
         progettoInCorso: '',
+        privacy: false,
+        cognome: '',
+        motivoNonUso: '',
+        altroMotivo: '',
         ambiti: ''
       });
-      
-      // Reset status dopo 5 secondi
-      setTimeout(() => {
-        setFormStatus(prev => ({
-          ...prev,
-          submitted: false
-        }));
-      }, 5000);
+
     } catch (error) {
-      console.error('Errore durante l\'invio del form:', error);
+      console.error('Errore:', error);
       setFormStatus({
         submitted: true,
         loading: false,
         success: false,
-        message: error instanceof Error ? error.message : 'Si è verificato un errore durante l\'invio. Riprova più tardi.'
+        message: 'Si è verificato un errore. Riprova più tardi.'
       });
     }
   };
@@ -270,9 +282,9 @@ export default function SimulazioneRecuperoPage() {
                   <input 
                     type="text" 
                     id="nome" 
-                    name="nome"
-                    value={formData.nome}
-                    onChange={(e) => setFormData({...formData, nome: e.target.value})}
+                    name="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
                     required
                   />
@@ -306,9 +318,9 @@ export default function SimulazioneRecuperoPage() {
                   <input 
                     type="tel" 
                     id="telefono" 
-                    name="telefono"
-                    value={formData.telefono}
-                    onChange={(e) => setFormData({...formData, telefono: e.target.value})}
+                    name="phone"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
                     required
                   />

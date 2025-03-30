@@ -2,6 +2,7 @@
 
 import { useState, ChangeEvent, FormEvent } from 'react';
 import styles from './IncentiveForm.module.css';
+import { useLeadForm } from '@/hooks/useLeadForm';
 
 const companySizes = [
   { id: 'micro', label: 'Micro impresa (< 10 dipendenti)' },
@@ -17,6 +18,7 @@ interface FormData {
   companySize: string;
   interests: string[];
   message: string;
+  privacy: boolean;
 }
 
 interface FormStatus {
@@ -26,6 +28,22 @@ interface FormStatus {
   message: string;
 }
 
+const sendEmail = async (formData: any) => {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  });
+
+  if (!response.ok) {
+    throw new Error('Errore nell\'invio dell\'email');
+  }
+
+  return response.json();
+};
+
 export default function IncentiveForm() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -33,7 +51,8 @@ export default function IncentiveForm() {
     phone: '',
     companySize: '',
     interests: [],
-    message: ''
+    message: '',
+    privacy: false
   });
 
   const [formStatus, setFormStatus] = useState<FormStatus>({
@@ -41,6 +60,28 @@ export default function IncentiveForm() {
     loading: false,
     success: false,
     message: ''
+  });
+
+  const { submitLead, loading, error } = useLeadForm({
+    formType: 'incentivi_home',
+    onSuccess: () => {
+      setFormStatus({
+        submitted: true,
+        loading: false,
+        success: true,
+        message: 'Grazie! Ti contatteremo presto.'
+      });
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        companySize: '',
+        interests: [],
+        message: '',
+        privacy: false
+      });
+    }
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -71,70 +112,39 @@ export default function IncentiveForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    // Validazione base
-    if (!formData.name || !formData.email || !formData.phone || !formData.companySize) {
-      setFormStatus({
-        submitted: true,
-        loading: false,
-        success: false,
-        message: 'Per favore, compila tutti i campi obbligatori.'
-      });
-      return;
-    }
-
+    setFormStatus({
+      submitted: true,
+      loading: true,
+      success: false,
+      message: 'Invio in corso...'
+    });
+    
     try {
-      setFormStatus({
-        submitted: true,
-        loading: true,
-        success: false,
-        message: 'Invio in corso...'
-      });
-
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Si è verificato un errore durante l\'invio');
-      }
-
-      setFormStatus({
-        submitted: true,
-        loading: false,
-        success: true,
-        message: data.message || 'Grazie per la tua richiesta! Ti contatteremo al più presto per una consulenza personalizzata.'
-      });
+      // Prima invia l'email
+      await sendEmail(formData);
       
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        companySize: '',
-        interests: [],
-        message: ''
+      // Poi salva il lead direttamente qui
+      await submitLead({
+        nome: formData.name,
+        cognome: '',
+        telefono: formData.phone,
+        email: formData.email,
+        note: formData.message,
+        form_type: 'incentive_home',
+        additional_data: {
+          dimensione_azienda: formData.companySize,
+          interests: formData.interests,
+          fonte: 'Homepage'
+        }
       });
-      
-      // Reset status dopo 5 secondi
-      setTimeout(() => {
-        setFormStatus(prev => ({
-          ...prev,
-          submitted: false
-        }));
-      }, 5000);
-    } catch (error: unknown) {
-      console.error('Errore durante l\'invio del form:', error);
+
+    } catch (error) {
+      console.error('Errore:', error);
       setFormStatus({
         submitted: true,
         loading: false,
         success: false,
-        message: error instanceof Error ? error.message : 'Si è verificato un errore durante l\'invio. Riprova più tardi.'
+        message: 'Si è verificato un errore. Riprova più tardi.'
       });
     }
   };

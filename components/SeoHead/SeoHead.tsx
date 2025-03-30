@@ -23,7 +23,7 @@ export default function SeoHead({
   title = 'solariXbusiness - Soluzioni energetiche per aziende',
   description = 'Soluzioni fotovoltaiche personalizzate per aziende in tutta Italia. Massimizza il risparmio energetico e riduci i costi operativi con i nostri impianti industriali.',
   keywords = 'fotovoltaico aziende, pannelli solari industriali, energia solare business, impianti fotovoltaici aziendali, risparmio energetico',
-  ogImage = '/images/og-image.jpg',
+  ogImage = '/images/og/default.jpg',
   ogType = 'website',
   twitterCard = 'summary_large_image',
   canonicalUrl,
@@ -41,7 +41,7 @@ export default function SeoHead({
     '@type': 'Organization',
     name: 'SolariX Business',
     url: siteUrl,
-    logo: `${siteUrl}/images/logo.png`,
+    logo: `${siteUrl}/images/logo/logo.png`,
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: SEO_CONSTANTS.COMPANY_PHONE,

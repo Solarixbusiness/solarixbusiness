@@ -1,7 +1,72 @@
-Questa cartella contiene le immagini del sito solariXbusiness.
+# Struttura delle immagini solariXbusiness
 
-Ricordati di aggiungere qui:
-- Logo solariXbusiness
-- Immagini hero
-- Icone
-- Immagini per i widget e le sezioni
+## Struttura attuale
+```
+images/
+├── logo/           # Logo aziendali
+│   └── logo.png    # Logo principale 200x200px
+├── hero/           # Immagini delle sezioni principali
+│   └── hero.png    # Immagine hero 1920x1080px
+├── og/             # Immagini per Open Graph e Social Media
+│   └── default.jpg # Immagine SEO 1200x630px
+├── icons/          # Icone e simboli
+│   └── faviconbus.ico  # Icona browser 16x16px
+└── widgets/        # Immagini per i widget e le sezioni
+```
+
+## Linee guida
+
+### 1. Logo
+- Usa il file: `/images/logo/logo.png`
+- Dimensioni: 200x200px
+- Formato: PNG
+- Qualità: 100%
+- Usa sempre il logo principale
+
+### 2. Immagine Hero
+- Usa il file: `/images/hero/hero.png`
+- Dimensioni: 1920x1080px
+- Formato: PNG
+- Qualità: 80%
+- Ottimizza per il web
+
+### 3. Immagini SEO
+- Usa il file: `/images/og/default.jpg`
+- Dimensioni: 1200x630px
+- Formato: JPG
+- Qualità: 75%
+- Usa per Open Graph e Social Media
+
+### 4. Icone
+- Usa il file: `/images/icons/faviconbus.ico`
+- Dimensioni: 16x16px
+- Formato: ICO
+- Usa per il browser e le schede
+
+## Regole di ottimizzazione
+1. **Dimensioni**
+   - Usa sempre le dimensioni raccomandate
+   - Non caricare immagini troppo grandi
+   - Ottimizza per il web
+
+2. **Formati**
+   - PNG per immagini con trasparenza
+   - JPG per foto
+   - ICO per icone
+   - SVG per vettoriali
+
+3. **Nome file**
+   - Usa minuscole
+   - Usa trattini invece di spazi
+   - Descrizione chiara dell'immagine
+
+## Problemi conosciuti
+- Alcune immagini Open Graph potrebbero richiedere aggiornamenti
+- Il logo potrebbe richiedere una versione più alta
+- Le icone favicons potrebbero richiedere ottimizzazione
+
+## Prossime attività
+1. Aggiornare le immagini Open Graph
+2. Ottimizzare le icone favicons
+3. Aggiungere immagini per i widget
+4. Documentare le nuove procedure

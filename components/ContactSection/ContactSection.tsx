@@ -4,12 +4,12 @@ import React, { useState, FormEvent } from 'react'
 import Image from 'next/image'
 import styles from './ContactSection.module.css'
 import { SEO_CONSTANTS } from '../../utils/seoConstants'
+import { useLeadForm } from '@/hooks/useLeadForm'
 
 interface FormData {
   name: string;
   email: string;
   phone: string;
-  company: string;
   message: string;
   privacy: boolean;
 }
@@ -21,16 +21,31 @@ interface FormStatus {
   message: string;
 }
 
+const sendEmail = async (formData: FormData) => {
+  const response = await fetch('/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  });
+
+  if (!response.ok) {
+    throw new Error('Errore nell\'invio dell\'email');
+  }
+
+  return response.json();
+};
+
 export default function ContactSection() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
-    company: '',
     message: '',
     privacy: false
   });
-  
+
   const [formStatus, setFormStatus] = useState<FormStatus>({
     submitted: false,
     loading: false,
@@ -38,90 +53,58 @@ export default function ContactSection() {
     message: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-  
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: checked
-    }));
-  };
-  
+  const { submitLead, loading, error } = useLeadForm({
+    formType: 'contatto'
+  });
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    // Validazione base
-    if (!formData.name || !formData.email || !formData.company || !formData.message || !formData.privacy) {
-      setFormStatus({
-        submitted: true,
-        loading: false,
-        success: false,
-        message: 'Per favore, compila tutti i campi obbligatori.'
-      });
-      return;
-    }
-
+    setFormStatus({
+      submitted: true,
+      loading: true,
+      success: false,
+      message: 'Invio in corso...'
+    });
+    
     try {
-      setFormStatus({
-        submitted: true,
-        loading: true,
-        success: false,
-        message: 'Invio in corso...'
+      await sendEmail(formData);
+      
+      await submitLead({
+        nome: formData.name,
+        cognome: '',
+        telefono: formData.phone,
+        email: formData.email,
+        note: formData.message,
+        form_type: 'contatto',
+        additional_data: {
+          fonte: 'Pagina Contatti',
+          privacy_accepted: formData.privacy
+        }
       });
-
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Si è verificato un errore durante l\'invio');
-      }
 
       setFormStatus({
         submitted: true,
         loading: false,
         success: true,
-        message: 'Grazie per averci contattato! Ti risponderemo al più presto.'
+        message: 'Grazie! Ti contatteremo presto.'
       });
-      
-      // Reset form
+
       setFormData({
         name: '',
         email: '',
         phone: '',
-        company: '',
         message: '',
         privacy: false
       });
-      
-      // Reset status dopo 5 secondi
-      setTimeout(() => {
-        setFormStatus(prev => ({
-          ...prev,
-          submitted: false
-        }));
-      }, 5000);
 
     } catch (error) {
-      console.error('Errore durante l\'invio del form:', error);
+      console.error('Errore:', error);
       setFormStatus({
         submitted: true,
         loading: false,
         success: false,
-        message: error instanceof Error ? error.message : 'Si è verificato un errore durante l\'invio. Riprova più tardi.'
+        message: 'Si è verificato un errore. Riprova più tardi.'
       });
     }
   };
@@ -190,16 +173,23 @@ export default function ContactSection() {
           
           <div className={styles.contact_form_container}>
             <form className={styles.contact_form} onSubmit={handleSubmit}>
+              {formStatus.submitted && (
+                <div className={`${styles.message} ${formStatus.success ? styles.success : styles.error}`}>
+                  {formStatus.message}
+                </div>
+              )}
+              
               <div className={styles.form_group}>
-                <label htmlFor="name" className={styles.form_label}>Nome e Cognome*</label>
+                <label htmlFor="name" className={styles.form_label}>Nome*</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   value={formData.name}
-                  onChange={handleChange}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
                   className={styles.form_input}
                   required
+                  autoComplete="name"
                 />
               </div>
               
@@ -210,34 +200,24 @@ export default function ContactSection() {
                   id="email"
                   name="email"
                   value={formData.email}
-                  onChange={handleChange}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
                   className={styles.form_input}
                   required
+                  autoComplete="email"
                 />
               </div>
               
               <div className={styles.form_group}>
-                <label htmlFor="phone" className={styles.form_label}>Telefono</label>
+                <label htmlFor="phone" className={styles.form_label}>Telefono*</label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
                   value={formData.phone}
-                  onChange={handleChange}
-                  className={styles.form_input}
-                />
-              </div>
-              
-              <div className={styles.form_group}>
-                <label htmlFor="company" className={styles.form_label}>Azienda*</label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
                   className={styles.form_input}
                   required
+                  autoComplete="tel"
                 />
               </div>
               
@@ -247,47 +227,37 @@ export default function ContactSection() {
                   id="message"
                   name="message"
                   value={formData.message}
-                  onChange={handleChange}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
                   className={styles.form_textarea}
                   rows={5}
                   required
                 ></textarea>
               </div>
               
-              <div className={styles.form_group_checkbox}>
-                <input
-                  type="checkbox"
-                  id="privacy"
-                  name="privacy"
-                  checked={formData.privacy}
-                  onChange={handleCheckboxChange}
-                  className={styles.form_checkbox}
-                  required
-                />
-                <label htmlFor="privacy" className={styles.form_checkbox_label}>
-                  Acconsento al trattamento dei dati personali secondo la <a href="/privacy-policy" className={styles.privacy_link}>Privacy Policy</a>*
-                </label>
+              <div className={styles.form_group}>
+                <div className={styles.checkbox_container}>
+                  <input
+                    type="checkbox"
+                    id="privacy"
+                    name="privacy"
+                    checked={formData.privacy}
+                    onChange={(e) => setFormData({...formData, privacy: e.target.checked})}
+                    required
+                    className={styles.form_checkbox}
+                  />
+                  <label htmlFor="privacy" className={styles.checkbox_label}>
+                    Accetto la privacy policy*
+                  </label>
+                </div>
               </div>
               
               <button 
                 type="submit" 
                 className={styles.submit_button}
-                disabled={formStatus.submitted}
+                disabled={loading}
               >
-                {formStatus.submitted ? 'Invio in corso...' : 'Invia Richiesta'}
+                {loading ? 'Invio in corso...' : 'Invia'}
               </button>
-              
-              {formStatus.success && (
-                <div className={styles.success_message}>
-                  {formStatus.message}
-                </div>
-              )}
-              
-              {formStatus.submitted && !formStatus.success && (
-                <div className={styles.error_message}>
-                  {formStatus.message}
-                </div>
-              )}
             </form>
           </div>
         </div>
