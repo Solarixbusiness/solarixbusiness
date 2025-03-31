@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
         to: [recipientEmail],
         subject: emailSubject,
         html: emailHtml,
-        replyTo: email,
+        reply_to: email,
       });
 
       if (error) {
