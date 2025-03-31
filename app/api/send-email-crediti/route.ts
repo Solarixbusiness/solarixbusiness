@@ -33,7 +33,7 @@ export async function POST(request: Request) {
         <p><strong>Intervento Futuro:</strong><br>${interventoFuturo || 'Non specificato'}</p>
         <p><strong>Interesse Monetizzazione:</strong> ${interesseMonetizzazione || 'Non specificato'}</p>
       `,
-      replyTo: email,
+      reply_to: email,
     });
 
     return NextResponse.json({ message: 'Email inviata con successo' });

@@ -36,7 +36,7 @@ export async function POST(request: Request) {
         <p><strong>Superficie Disponibile:</strong><br>${superficieDisponibile || 'Non specificata'}</p>
         <p><strong>Preferenza Adesione:</strong> ${adesioneEsistente || 'Non specificata'}</p>
       `,
-      replyTo: email,
+      reply_to: email,
     });
 
     return NextResponse.json({ message: 'Email inviata con successo' });

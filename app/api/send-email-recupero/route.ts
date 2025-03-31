@@ -68,7 +68,7 @@ export async function POST(request: Request) {
         to: ['info@solarixbusiness.it'],
         subject: emailSubject,
         html: emailHtml,
-        replyTo: email,
+        reply_to: email,
       });
 
       if (error) {
