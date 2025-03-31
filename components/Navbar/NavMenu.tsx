@@ -3,9 +3,7 @@
 import { useState, useEffect, useRef, KeyboardEvent } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import clsx from 'clsx'
-import styles from './NavMenu.module.css'
-import navbarStyles from './Navbar.module.css'
+import styles from './Navbar.module.css'
 
 interface NavMenuProps {
   isOpen: boolean;
@@ -18,22 +16,14 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
   const menuItemRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const pathname = usePathname();
 
-  // Chiude il menu quando cambia la route
-  useEffect(() => {
-    onCloseAction();
-    setActiveDropdown(null);
-  }, [pathname, onCloseAction]);
-
-  // Chiude il dropdown quando si clicca fuori
+  // Chiude solo il dropdown quando si clicca fuori
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      // Verifica se il click è stato fatto su un pulsante del dropdown
       const target = event.target as HTMLElement;
       if (target.closest(`.${styles.dropdown_toggle}`)) {
         return;
       }
       
-      // Verifica se il click è stato fatto fuori dal menu
       if (dropdownRef.current && !dropdownRef.current.contains(target)) {
         setActiveDropdown(null);
       }
@@ -49,10 +39,10 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
 
-  // Chiude il dropdown quando si seleziona un link
+  // Chiude sia il dropdown che il menu quando si clicca su un link
   const handleLinkClick = () => {
     setActiveDropdown(null);
-    onCloseAction();
+    onCloseAction(); // Chiude il menu
   };
 
   const handleDropdownKeyDown = (e: KeyboardEvent<HTMLButtonElement>, dropdownName: string) => {
@@ -67,29 +57,43 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
   return (
     <nav 
       ref={dropdownRef} 
-      className={clsx(styles.navbar_menu, {
-        [styles['navbar_menu--active']]: isOpen
-      })}
+      className={`${styles.navbar_menu} ${isOpen ? styles.active : ''}`}
       aria-label="Menu principale"
       role="navigation"
     >
       <ul className={styles.menu_items} role="menubar">
         <li className={styles.menu_item} role="none">
-          <Link href="/" className={styles.menu_link} role="menuitem" tabIndex={0}>HOME</Link>
+          <Link 
+            href="/" 
+            className={styles.menu_link} 
+            role="menuitem" 
+            tabIndex={0}
+            onClick={handleLinkClick}
+          >
+            HOME
+          </Link>
         </li>
         <li className={styles.menu_item} role="none">
-          <Link href="/chi-siamo" className={styles.menu_link} role="menuitem" tabIndex={0}>CHI SIAMO</Link>
+          <Link 
+            href="/chi-siamo" 
+            className={styles.menu_link} 
+            role="menuitem" 
+            tabIndex={0}
+            onClick={handleLinkClick}
+          >
+            CHI SIAMO
+          </Link>
         </li>
         
         {/* Dropdown Servizi */}
-        <li className={clsx(styles.menu_item, styles.dropdown)} role="none">
+        <li className={`${styles.menu_item} ${styles.dropdown}`} role="none">
           <button 
             ref={(el) => {
               menuItemRefs.current['servizi'] = el;
             }}
             onClick={() => handleDropdownClick('servizi')}
             onKeyDown={(e) => handleDropdownKeyDown(e, 'servizi')}
-            className={clsx(styles.dropdown_toggle, navbarStyles.bold_link)}
+            className={`${styles.dropdown_toggle} ${styles.bold_link}`}
             aria-haspopup="true"
             aria-expanded={activeDropdown === 'servizi'}
             role="menuitem"
@@ -98,9 +102,7 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
             SERVIZI
           </button>
           <div 
-            className={clsx(styles.dropdown_menu, {
-              [styles.active]: activeDropdown === 'servizi'
-            })}
+            className={`${styles.dropdown_menu} ${activeDropdown === 'servizi' ? styles.active : ''}`}
           >
             <Link 
               href="/strategia-energetica" 
@@ -141,11 +143,27 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
         </li>
 
         <li className={styles.menu_item} role="none">
-          <Link href="/faq" className={styles.menu_link} role="menuitem" tabIndex={0}>FAQ</Link>
+          <Link 
+            href="/faq" 
+            className={styles.menu_link} 
+            role="menuitem" 
+            tabIndex={0}
+            onClick={handleLinkClick}
+          >
+            FAQ
+          </Link>
         </li>
         
         <li className={styles.menu_item} role="none">
-          <Link href="/contatti" className={styles.menu_link} role="menuitem" tabIndex={0}>CONTATTI</Link>
+          <Link 
+            href="/contatti" 
+            className={styles.menu_link} 
+            role="menuitem" 
+            tabIndex={0}
+            onClick={handleLinkClick}
+          >
+            CONTATTI
+          </Link>
         </li>
       </ul>
     </nav>
