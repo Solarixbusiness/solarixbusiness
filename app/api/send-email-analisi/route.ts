@@ -37,7 +37,7 @@ export async function POST(request: Request) {
         <p><strong>Obiettivi:</strong><br>${obiettivi || 'Non specificati'}</p>
         <p><strong>Richieste Specifiche:</strong><br>${richieste || 'Non specificate'}</p>
       `,
-      replyTo: email,
+      reply_to: email,
     });
 
     return NextResponse.json({ message: 'Email inviata con successo' });
