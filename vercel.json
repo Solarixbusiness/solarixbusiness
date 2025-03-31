@@ -6,24 +6,27 @@
   "framework": "nextjs",
   "regions": ["fra1"],
   "env": {
-    "NEXT_PUBLIC_API_URL": "http://localhost:3000/api",
-    "NEXT_PUBLIC_SITE_URL": "http://localhost:3000",
-    "NEXT_PUBLIC_SITE_NAME": "solariXbusiness",
-    "NEXT_PUBLIC_PRODUCTION_URL": "https://solariXbusiness.vercel.app",
-    "NEXT_PUBLIC_GOOGLE_ANALYTICS": "GA_MEASUREMENT_ID",
-    "RESEND_API_KEY": "your_resend_api_key"
+    "NEXT_PUBLIC_API_URL": "@next_public_api_url",
+    "NEXT_PUBLIC_SITE_URL": "@next_public_site_url",
+    "NEXT_PUBLIC_SITE_NAME": "@next_public_site_name",
+    "NEXT_PUBLIC_PRODUCTION_URL": "@next_public_production_url",
+    "NEXT_PUBLIC_GOOGLE_ANALYTICS": "@next_public_google_analytics",
+    "RESEND_API_KEY": "@resend_api_key"
   },
-  "redirects": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "solarixbusiness.it"
-        }
-      ],
-      "destination": "https://www.solarixbusiness.it/$1",
-      "permanent": true
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/sitemap.xml",
+      "dest": "/api/sitemap"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/api/robots"
     }
   ],
   "headers": [
@@ -41,6 +44,14 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
         }
       ]
     }
