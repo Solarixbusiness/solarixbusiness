@@ -1,28 +1,25 @@
 'use client'
 
 import React from 'react'
-import clsx from 'clsx'
-import styles from './HamburgerMenu.module.css'
+import styles from './Navbar.module.css'
 
 interface HamburgerMenuProps {
   isOpen: boolean;
-  toggleMenu: () => void;
+  toggleMenuAction: () => void;
 }
 
-export default function HamburgerMenu({ isOpen, toggleMenu }: HamburgerMenuProps) {
+export default function HamburgerMenu({ isOpen, toggleMenuAction }: HamburgerMenuProps) {
   return (
     <button 
-      className={clsx(styles.hamburger, {
-        [styles['hamburger--active']]: isOpen
-      })}
-      onClick={toggleMenu}
+      className={`${styles.hamburger} ${isOpen ? styles.active : ''}`}
+      onClick={toggleMenuAction}
       aria-label="Menu di navigazione"
       aria-expanded={isOpen}
       aria-controls="main-menu"
     >
-      <span className={styles.hamburger__line} aria-hidden="true"></span>
-      <span className={styles.hamburger__line} aria-hidden="true"></span>
-      <span className={styles.hamburger__line} aria-hidden="true"></span>
+      <span className={styles.hamburger_line} aria-hidden="true"></span>
+      <span className={styles.hamburger_line} aria-hidden="true"></span>
+      <span className={styles.hamburger_line} aria-hidden="true"></span>
     </button>
   )
 }

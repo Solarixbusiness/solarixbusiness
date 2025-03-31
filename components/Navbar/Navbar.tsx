@@ -52,20 +52,18 @@ export default function Navbar() {
           <Logo />
         </div>
 
-        {/* In desktop mostra sempre il menu, in mobile solo se aperto */}
-        {(!isMobile || isMenuOpen) && (
-          <NavMenu 
-            isOpen={isMenuOpen} 
-            onCloseAction={() => setIsMenuOpen(false)}
-          />
-        )}
+        {/* Il menu è sempre presente nel DOM */}
+        <NavMenu 
+          isOpen={isMenuOpen} 
+          onCloseAction={() => setIsMenuOpen(false)}
+        />
 
         <div className={styles.navbar_right}>
           {/* Mostra l'hamburger menu solo in modalità mobile */}
           {isMobile && (
             <HamburgerMenu 
               isOpen={isMenuOpen} 
-              toggleMenu={() => setIsMenuOpen(!isMenuOpen)} 
+              toggleMenuAction={() => setIsMenuOpen(!isMenuOpen)} 
             />
           )}
         </div>
