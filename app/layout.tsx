@@ -127,7 +127,7 @@ export default function RootLayout({
         <I18nProvider>
           <FontLoader />
           <Navbar />
-          <main className="min-h-screen">
+          <main className="min-h-screen pt-[60px]">
             <div className="container mx-auto px-4 py-8">
               {children}
             </div>
