@@ -175,8 +175,47 @@ export default function PolicyModal({ isOpen, onCloseAction, type }: PolicyModal
             </>
           ) : (
             <>
-              <h2>Terms of Service</h2>
-              <p>Terms of Service content will be added here.</p>
+              <h2>Termini e Condizioni di Servizio</h2>
+              <h3>1. Introduzione</h3>
+              <p>I presenti Termini e Condizioni regolano l'uso del sito web www.solarixbusiness.it (di seguito "Sito"), gestito da SolariX Business, con sede in Via Bertolotti 7, 10121 Torino (TO), Italia, P.IVA IT11130140012.</p>
+              <p>Accedendo e utilizzando il Sito, l'utente accetta integralmente i seguenti termini. Se non si accettano questi termini, si prega di non utilizzare il Sito.</p>
+
+              <h3>2. Servizi Offerti</h3>
+              <p>Solarix Business offre consulenza e soluzioni per l'installazione di impianti fotovoltaici, gestione dell'energia e commercializzazione di crediti di carbonio. I dettagli dei servizi sono descritti nel Sito e possono essere aggiornati periodicamente.</p>
+
+              <h3>3. Uso del Sito</h3>
+              <p>L'utente si impegna a:</p>
+              <ul>
+                <li>Utilizzare il Sito in conformità con le leggi vigenti e questi Termini.</li>
+                <li>Non tentare di accedere in modo non autorizzato ai server o ai sistemi del Sito.</li>
+                <li>Non diffondere contenuti illegali, offensivi o dannosi.</li>
+              </ul>
+              <p>Solarix Business si riserva il diritto di sospendere o terminare l'accesso al Sito in caso di violazione di questi Termini.</p>
+
+              <h3>4. Responsabilità e Limitazioni</h3>
+              <p>Solarix Business si impegna a fornire informazioni accurate sul Sito, ma non garantisce che siano prive di errori o sempre aggiornate.</p>
+              <p>L'uso del Sito è a rischio dell'utente. Non siamo responsabili per eventuali danni derivanti dall'utilizzo delle informazioni fornite.</p>
+              <p>Non siamo responsabili per eventuali interruzioni del Sito dovute a manutenzione, problemi tecnici o cause di forza maggiore.</p>
+
+              <h3>5. Proprietà Intellettuale</h3>
+              <p>Tutti i contenuti del Sito (testi, immagini, loghi, marchi, grafica) sono di proprietà di Solarix Business o concessi in licenza. È vietata la riproduzione, distribuzione o modifica senza autorizzazione scritta.</p>
+
+              <h3>6. Privacy e Cookie</h3>
+              <p>L'uso del Sito è soggetto alla nostra Privacy Policy e Cookie Policy, che spiegano come raccogliamo e trattiamo i dati personali.</p>
+
+              <h3>7. Modifiche ai Termini</h3>
+              <p>Solarix Business si riserva il diritto di modificare i presenti Termini in qualsiasi momento. Le modifiche saranno pubblicate sul Sito e l'uso continuato del Sito implica l'accettazione dei nuovi Termini.</p>
+
+              <h3>8. Legge Applicabile e Foro Competente</h3>
+              <p>I presenti Termini sono regolati dalla legge italiana. Eventuali controversie saranno di competenza del foro di Torino, Italia, salvo diversa disposizione di legge.</p>
+
+              <h3>9. Contatti</h3>
+              <p>Per qualsiasi informazione sui presenti Termini, puoi contattarci:</p>
+              <ul>
+                <li>Email: info@solarixbusiness.it</li>
+                <li>Telefono: 011 1883 7752</li>
+                <li>Indirizzo: Via Bertolotti 7, 10121 Torino (TO), Italia</li>
+              </ul>
             </>
           )}
         </div>
