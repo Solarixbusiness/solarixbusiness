@@ -133,7 +133,11 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className={styles.info_title}>Telefono</h3>
-                  <p className={styles.info_text}>{SEO_CONSTANTS.COMPANY_PHONE}</p>
+                  <p className={styles.info_text}>
+                    <a href="tel:3470087833" className={styles.contact_link}>+39 347 008 7833</a>
+                    <br />
+                    <a href="tel:01118837752" className={styles.contact_link}>011 1883 7752</a>
+                  </p>
                 </div>
               </div>
               
@@ -165,7 +169,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className={styles.info_title}>Sede</h3>
-                  <p className={styles.info_text}>Via Esempio, 123<br />10100 Torino (TO)</p>
+                  <p className={styles.info_text}>Via Bertolotti 7 | 10121 Torino (TO) | Italy</p>
                 </div>
               </div>
             </div>

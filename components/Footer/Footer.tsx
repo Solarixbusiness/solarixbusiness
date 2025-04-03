@@ -50,18 +50,20 @@ export default function Footer() {
             <div className={styles.footer_column}>
               <h3 className={styles.footer_title}>Servizi</h3>
               <ul className={styles.footer_menu}>
-                <li><Link href="/cer">Comunità Energetiche</Link></li>
-                <li><Link href="/conto-termico">Conto Termico 3.0</Link></li>
+                <li><Link href="/strategia-energetica">Strategia Energetica Aziendale</Link></li>
+                <li><Link href="/accesso-incentivi">Accesso agli Incentivi e Bandi</Link></li>
+                <li><Link href="/comunita-energetiche">Comunità Energetiche e Autoconsumo Incentivato</Link></li>
+                <li><Link href="/monetizzazione-ambientale">Monetizzazione Ambientale</Link></li>
+                <li><Link href="/consulenza-finanziaria">Consulenza Finanziaria Integrata</Link></li>
               </ul>
             </div>
             
             <div className={styles.footer_column}>
               <h3 className={styles.footer_title}>Contatti</h3>
               <address className={styles.contact_info}>
-                <p>Via Esempio, 123</p>
-                <p>10100 Torino (TO)</p>
-                <p>Email: <a href={`mailto:${SEO_CONSTANTS.COMPANY_PHONE}`}>{SEO_CONSTANTS.COMPANY_PHONE}</a></p>
-                <p>Tel: <a href={`tel:${SEO_CONSTANTS.COMPANY_PHONE.replace('-', '')}`}>{SEO_CONSTANTS.COMPANY_PHONE.replace('-', ' ')}</a></p>
+                <p>Via Bertolotti 7 | 10121 Torino (TO) | Italy</p>
+                <p>Email: <a href="mailto:info@solarixbusiness.it">info@solarixbusiness.it</a></p>
+                <p>Tel: <a href="tel:01118837752">011 1883 7752</a></p>
               </address>
             </div>
           </div>

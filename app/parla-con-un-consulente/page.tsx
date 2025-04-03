@@ -37,7 +37,7 @@ export default function ParlaConUnConsulente() {
           <p className="text-gray-700 mb-1"><strong>Nome:</strong> SolarixBusiness</p>
           <p className="text-gray-700 mb-1"><strong>Telefono:</strong> 347 008 7833</p>
           <p className="text-gray-700 mb-1"><strong>Email:</strong> info@solarixbusiness.it</p>
-          <p className="text-gray-700"><strong>Sede:</strong> Via Esempio, 123 - Torino</p>
+          <p className="text-gray-700"><strong>Sede:</strong> Via Bertolotti 7 | 10121 Torino (TO) | Italy</p>
         </div>
       </div>
     </section>

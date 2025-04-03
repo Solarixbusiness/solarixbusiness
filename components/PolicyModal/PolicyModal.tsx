@@ -104,9 +104,9 @@ export default function PolicyModal({ isOpen, onCloseAction, type }: PolicyModal
               <h3>Titolare del Trattamento dei Dati</h3>
               <p>
                 SolariX Business<br/>
-                Via San Baudolino 9, 15121 Alessandria (AL)<br/>
-                P.IVA: 02496320066<br/>
-                PEC: solarixbusiness@pec.it
+                Via Bertolotti 7 | 10121 Torino (TO) | Italy<br/>
+                P.IVA: IT11130140012<br/>
+                Tel: 011 1883 7752
               </p>
 
               <h3>Tipologie di Dati raccolti e tempi di conservazione</h3>
@@ -140,8 +140,8 @@ export default function PolicyModal({ isOpen, onCloseAction, type }: PolicyModal
               <h3>Come esercitare i tuoi diritti</h3>
               <p>Puoi esercitare i tuoi diritti contattando il Titolare:</p>
               <ul>
-                <li>PEC: solarixbusiness@pec.it</li>
-                <li>Posta: Via San Baudolino 9, 15121 Alessandria (AL)</li>
+                <li>Tel: 011 1883 7752</li>
+                <li>Posta: Via Bertolotti 7, 10121 Torino (TO)</li>
                 <li>Risponderemo entro 30 giorni dalla richiesta</li>
               </ul>
 

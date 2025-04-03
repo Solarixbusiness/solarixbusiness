@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  output: 'standalone', // Crea un pacchetto autonomo per il deployment su Infomaniak
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
@@ -15,6 +13,7 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    domains: ['solarixbusiness.it', 'www.solarixbusiness.it'],
   },
   async rewrites() {
     return [
@@ -62,7 +61,9 @@ const nextConfig = {
     ];
   },
   experimental: {
-    serverComponentsExternalPackages: ['redis', '@supabase/supabase-js'],
+    serverActions: {
+      allowedOrigins: ['solarixbusiness.it', 'www.solarixbusiness.it']
+    }
   },
 }
 
