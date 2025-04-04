@@ -35,6 +35,15 @@ export default function Documenti({ userId }: Props) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
 
+  const verifyFileExists = async (url: string) => {
+    try {
+      const response = await fetch(url, { method: 'HEAD' });
+      return response.status === 200;
+    } catch (error) {
+      return false;
+    }
+  };
+
   useEffect(() => {
     const fetchDocumenti = async () => {
       const { data, error } = await supabase
@@ -45,8 +54,19 @@ export default function Documenti({ userId }: Props) {
 
       if (error) {
         setError(error.message);
-      } else {
-        setDocumenti(data || []);
+      } else if (data) {
+        // Filtra i documenti verificando che il file esista
+        const documentiVerificati = [];
+        for (const doc of data) {
+          const exists = await verifyFileExists(doc.url_file);
+          if (exists) {
+            documentiVerificati.push(doc);
+          } else {
+            // Rimuovi il documento dal database se il file non esiste
+            await supabase.from("documenti_lead").delete().eq("id", doc.id);
+          }
+        }
+        setDocumenti(documentiVerificati);
       }
       setLoading(false);
     };
@@ -153,6 +173,33 @@ export default function Documenti({ userId }: Props) {
     const file = e.target.files?.[0];
     if (file) {
       handleFileUpload(file, true);
+    }
+  };
+
+  const deleteDocument = async (docId: string, filePath: string) => {
+    try {
+      // Prima elimina il file dallo storage
+      const { error: storageError } = await supabase.storage
+        .from("documenti")
+        .remove([filePath]);
+      
+      if (storageError) throw storageError;
+
+      // Poi elimina il record dal database
+      const { error: dbError } = await supabase
+        .from("documenti_lead")
+        .delete()
+        .eq("id", docId);
+      
+      if (dbError) throw dbError;
+
+      // Aggiorna la lista dei documenti
+      setDocumenti(documenti.filter(doc => doc.id !== docId));
+      
+      alert("Documento eliminato con successo");
+    } catch (error) {
+      console.error("Errore durante l'eliminazione:", error);
+      alert("Errore durante l'eliminazione del documento");
     }
   };
 
@@ -269,6 +316,12 @@ export default function Documenti({ userId }: Props) {
                       🖼️ Visualizza immagine
                     </a>
                   )}
+                  <button
+                    onClick={() => deleteDocument(doc.id, doc.url_file.split('/').pop() || '')}
+                    className="text-red-600 hover:underline text-sm"
+                  >
+                    🗑️ Elimina
+                  </button>
                 </div>
               </li>
             ))}
