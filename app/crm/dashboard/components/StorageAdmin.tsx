@@ -157,55 +157,80 @@ export default function StorageAdmin() {
         {loading ? (
           <div className="text-center py-8">Caricamento dei file...</div>
         ) : (
-          <div className="border rounded-lg overflow-hidden">
-            <table className="w-full">
-              <thead className="bg-gray-50 border-b">
-                <tr>
-                  <th className="p-3 text-left">Seleziona</th>
-                  <th className="p-3 text-left">Nome File</th>
-                  <th className="p-3 text-left">Stato</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y">
-                {files.length === 0 ? (
-                  <tr>
-                    <td colSpan={3} className="p-4 text-center text-gray-500">
-                      Nessun file trovato
-                    </td>
-                  </tr>
-                ) : (
-                  files.map((file) => (
-                    <tr 
-                      key={file.path} 
-                      className={`hover:bg-gray-50 ${!file.inDatabase ? 'bg-red-50' : ''}`}
-                    >
-                      <td className="p-3">
-                        <input
-                          type="checkbox"
-                          checked={selectedFiles.includes(file.path)}
-                          onChange={() => toggleFileSelection(file.path)}
-                          className="w-4 h-4"
-                        />
-                      </td>
-                      <td className="p-3 font-mono text-sm truncate max-w-xs">
-                        {file.path}
-                      </td>
-                      <td className="p-3">
-                        {file.inDatabase ? (
-                          <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
-                            Nel database
-                          </span>
-                        ) : (
-                          <span className="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">
-                            Orfano
-                          </span>
-                        )}
-                      </td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
+          <div>
+            {files.length === 0 ? (
+              <div className="text-center py-8 text-gray-500">
+                Nessun file trovato
+              </div>
+            ) : (
+              (() => {
+                // Raggruppa i file per lead
+                const filesByLead: { [key: string]: FileInfo[] } = {};
+                
+                files.forEach(file => {
+                  const parts = file.path.split('/');
+                  if (parts.length >= 1) {
+                    const leadName = parts[0];
+                    if (!filesByLead[leadName]) {
+                      filesByLead[leadName] = [];
+                    }
+                    filesByLead[leadName].push(file);
+                  }
+                });
+
+                return Object.entries(filesByLead).map(([leadName, leadFiles]) => (
+                  <div key={leadName} className="mb-6">
+                    <h3 className="text-lg font-medium mb-2">{leadName}</h3>
+                    <div className="border rounded-lg overflow-hidden">
+                      <table className="w-full">
+                        <thead className="bg-gray-50 border-b">
+                          <tr>
+                            <th className="p-3 text-left">Seleziona</th>
+                            <th className="p-3 text-left">Nome File</th>
+                            <th className="p-3 text-left">Tipo</th>
+                            <th className="p-3 text-left">Stato</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y">
+                          {leadFiles.map((file) => (
+                            <tr 
+                              key={file.path} 
+                              className={`hover:bg-gray-50 ${!file.inDatabase ? 'bg-red-50' : ''}`}
+                            >
+                              <td className="p-3">
+                                <input
+                                  type="checkbox"
+                                  checked={selectedFiles.includes(file.path)}
+                                  onChange={() => toggleFileSelection(file.path)}
+                                  className="w-4 h-4"
+                                />
+                              </td>
+                              <td className="p-3 font-mono text-sm truncate max-w-xs">
+                                {file.path.split('/').slice(1).join('/')}
+                              </td>
+                              <td className="p-3">
+                                {file.path.includes('/foto/') ? 'Foto' : 'Documento'}
+                              </td>
+                              <td className="p-3">
+                                {file.inDatabase ? (
+                                  <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">
+                                    Nel database
+                                  </span>
+                                ) : (
+                                  <span className="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">
+                                    Orfano
+                                  </span>
+                                )}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                ));
+              })()
+            )}
           </div>
         )}
       </div>

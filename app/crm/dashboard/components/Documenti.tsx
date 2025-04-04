@@ -11,6 +11,10 @@ interface Documento {
   tipo_file: string;
   url_file: string;
   caricato_da: string;
+  leads: {
+    nome: string;
+    cognome: string;
+  };
 }
 
 interface LeadOption {
@@ -46,27 +50,16 @@ export default function Documenti({ userId }: Props) {
 
   useEffect(() => {
     const fetchDocumenti = async () => {
-      const { data, error } = await supabase
+      const { data: docs, error } = await supabase
         .from("documenti_lead")
-        .select("*")
+        .select("*, leads(nome, cognome)")  // Join con tabella leads
         .eq("caricato_da", userId)
         .order("created_at", { ascending: false });
-
+      
       if (error) {
         setError(error.message);
-      } else if (data) {
-        // Filtra i documenti verificando che il file esista
-        const documentiVerificati = [];
-        for (const doc of data) {
-          const exists = await verifyFileExists(doc.url_file);
-          if (exists) {
-            documentiVerificati.push(doc);
-          } else {
-            // Rimuovi il documento dal database se il file non esiste
-            await supabase.from("documenti_lead").delete().eq("id", doc.id);
-          }
-        }
-        setDocumenti(documentiVerificati);
+      } else {
+        setDocumenti(docs || []);
       }
       setLoading(false);
     };
@@ -100,10 +93,24 @@ export default function Documenti({ userId }: Props) {
     setUploading(true);
 
     try {
+      // Ottieni i dettagli del lead selezionato per usarlo nel nome della cartella
+      const { data: leadData } = await supabase
+        .from("leads")
+        .select("nome, cognome")
+        .eq("id", selectedLeadId)
+        .single();
+      
+      // Crea un nome di cartella usando nome e cognome del lead
+      const leadFolder = leadData 
+        ? `${leadData.nome}_${leadData.cognome}`
+        : selectedLeadId;
+      
       // Genera un nome file unico
       const fileExt = file.name.split('.').pop();
       const fileName = `${Date.now()}.${fileExt}`;
-      const filePath = `${userId}/${selectedLeadId}/${fileName}`;
+      
+      // Usa questa struttura di cartelle: nome_lead/tipo_documento/file
+      const filePath = `${leadFolder}/${isCamera ? 'foto' : 'documenti'}/${fileName}`;
 
       // Carica il file nello storage di Supabase
       const { error: uploadError } = await supabase.storage
@@ -114,7 +121,7 @@ export default function Documenti({ userId }: Props) {
         throw uploadError;
       }
 
-      // Ottieni l'URL firmato del file (valido per 1 anno)
+      // Ottieni l'URL firmato del file
       const { data: signedUrlData, error: signedUrlError } = await supabase.storage
         .from("documenti")
         .createSignedUrl(filePath, 60 * 60 * 24 * 365); // URL valido per 1 anno
@@ -130,7 +137,7 @@ export default function Documenti({ userId }: Props) {
           lead_id: selectedLeadId,
           nome_file: isCamera ? `Foto ${new Date().toLocaleString()}` : file.name,
           tipo_file: isCamera ? "foto" : file.type,
-          url_file: signedUrlData.signedUrl, // Usa signedUrl invece di publicUrl
+          url_file: signedUrlData.signedUrl,
           caricato_da: userId,
           note: note
         });
@@ -142,7 +149,7 @@ export default function Documenti({ userId }: Props) {
       // Aggiorna la lista dei documenti
       const { data: updatedDocs, error: fetchError } = await supabase
         .from("documenti_lead")
-        .select("*")
+        .select("*, leads(nome, cognome)")
         .eq("caricato_da", userId)
         .order("created_at", { ascending: false });
 
@@ -199,6 +206,16 @@ export default function Documenti({ userId }: Props) {
       alert("Errore durante la rimozione del documento");
     }
   };
+
+  // Raggruppa i documenti per lead
+  const documentiByLead: { [key: string]: Documento[] } = {};
+  documenti.forEach((doc: Documento) => {
+    const leadName = doc.leads ? `${doc.leads.nome} ${doc.leads.cognome}` : 'Altro';
+    if (!documentiByLead[leadName]) {
+      documentiByLead[leadName] = [];
+    }
+    documentiByLead[leadName].push(doc);
+  });
 
   if (loading) {
     return <div className="p-4 text-gray-600">Caricamento documenti...</div>;
@@ -283,46 +300,48 @@ export default function Documenti({ userId }: Props) {
       {/* Lista documenti */}
       <div>
         <h3 className="text-lg font-medium mb-3">Documenti caricati</h3>
-        {documenti.length === 0 ? (
+        {Object.keys(documentiByLead).length === 0 ? (
           <p className="text-gray-500">Nessun documento disponibile.</p>
         ) : (
-          <ul className="space-y-3">
-            {documenti.map((doc) => (
-              <li
-                key={doc.id}
-                className="border p-4 rounded-lg shadow-sm bg-white hover:bg-gray-50"
-              >
-                <p className="font-semibold">{doc.nome_file}</p>
-                <p className="text-sm text-gray-600">Tipo: {doc.tipo_file}</p>
-                <div className="flex gap-2 mt-2">
-                  <a
-                    href={doc.url_file}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline text-sm"
-                  >
-                    🔗 Apri documento
-                  </a>
-                  {doc.tipo_file.startsWith('image/') && (
-                    <a
-                      href={doc.url_file}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green-600 hover:underline text-sm"
-                    >
-                      🖼️ Visualizza immagine
-                    </a>
-                  )}
-                  <button
-                    onClick={() => deleteDocument(doc.id)}
-                    className="text-red-600 hover:underline text-sm ml-auto"
-                  >
-                    🗑️ Elimina
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
+          Object.entries(documentiByLead).map(([leadName, leadDocs]) => (
+            <div key={leadName} className="mb-6">
+              <h4 className="font-medium text-gray-700 mb-2">{leadName}</h4>
+              <ul className="space-y-3">
+                {leadDocs.map((doc) => (
+                  <li key={doc.id} className="border p-4 rounded-lg shadow-sm bg-white hover:bg-gray-50">
+                    <p className="font-semibold">{doc.nome_file}</p>
+                    <p className="text-sm text-gray-600">Tipo: {doc.tipo_file}</p>
+                    <div className="flex gap-2 mt-2">
+                      <a
+                        href={doc.url_file}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:underline text-sm"
+                      >
+                        🔗 Apri documento
+                      </a>
+                      {doc.tipo_file.startsWith('image/') && (
+                        <a
+                          href={doc.url_file}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-green-600 hover:underline text-sm"
+                        >
+                          🖼️ Visualizza immagine
+                        </a>
+                      )}
+                      <button
+                        onClick={() => deleteDocument(doc.id)}
+                        className="text-red-600 hover:underline text-sm ml-auto"
+                      >
+                        🗑️ Elimina
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
         )}
       </div>
     </div>
