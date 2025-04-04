@@ -94,10 +94,14 @@ export default function Documenti({ userId }: Props) {
         throw uploadError;
       }
 
-      // Ottieni l'URL pubblico del file
-      const { data: urlData } = supabase.storage
+      // Ottieni l'URL firmato del file (valido per 1 anno)
+      const { data: signedUrlData, error: signedUrlError } = await supabase.storage
         .from("documenti")
-        .getPublicUrl(filePath);
+        .createSignedUrl(filePath, 60 * 60 * 24 * 365); // URL valido per 1 anno
+
+      if (signedUrlError) {
+        throw signedUrlError;
+      }
 
       // Inserisci i dettagli del documento nel database
       const { error: insertError } = await supabase
@@ -106,7 +110,7 @@ export default function Documenti({ userId }: Props) {
           lead_id: selectedLeadId,
           nome_file: isCamera ? `Foto ${new Date().toLocaleString()}` : file.name,
           tipo_file: isCamera ? "foto" : file.type,
-          url_file: urlData.publicUrl,
+          url_file: signedUrlData.signedUrl, // Usa signedUrl invece di publicUrl
           caricato_da: userId,
           note: note
         });
