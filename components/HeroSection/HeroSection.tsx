@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import styles from './HeroSection.module.css'
 
@@ -10,8 +10,23 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ title, subtitle }: HeroSectionProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/images/hero/hero.png';
+    img.onload = () => setIsLoaded(true);
+
+    // Fallback se l'immagine non si carica entro 3 secondi
+    const timeout = setTimeout(() => {
+      if (!isLoaded) setIsLoaded(true);
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
-    <div className={styles.hero}>
+    <div className={`${styles.hero} ${isLoaded ? styles.loaded : ''}`}>
       <div className={styles.hero_content}>
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>

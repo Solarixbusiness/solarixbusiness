@@ -6,12 +6,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero/hero.png');
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   color: white;
   text-align: center;
   padding: 0 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.hero.loaded {
+  opacity: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/hero/hero.png');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  will-change: transform;
+  transform: scale(1.1);
+  transition: transform 0.6s ease-out;
+}
+
+.hero.loaded::before {
+  transform: scale(1);
 }
 
 .hero_content {

@@ -64,6 +64,15 @@ const homeFaq: FaqItem[] = [
 export default function HomePage() {
   return (
     <>
+      <head>
+        <link 
+          rel="preload" 
+          href="/images/hero/hero.png" 
+          as="image" 
+          type="image/png"
+        />
+      </head>
+
       {/* SEO Manager - gestisce tutti i componenti SEO in modo centralizzato */}
       <SeoManager 
         organizationData={{
