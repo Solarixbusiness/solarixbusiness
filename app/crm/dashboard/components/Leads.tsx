@@ -13,6 +13,10 @@ interface Lead {
   additional_data?: any;
   created_at: string;
   assegnato_a?: string | null;
+  data_appuntamento?: string;
+  ora_appuntamento?: string;
+  indirizzo_appuntamento?: string;
+  note_appuntamento?: string;
 }
 
 interface Props {
@@ -105,6 +109,21 @@ export default function Leads({ userId }: Props) {
                 <p>Telefono: {lead.telefono}</p>
                 <p>Form: {lead.form_type}</p>
                 <p>Stato: <strong>{lead.stato}</strong></p>
+                
+                {/* Aggiungi questa sezione per mostrare i dettagli dell'appuntamento */}
+                {lead.data_appuntamento && (
+                  <div className="mt-3 pt-3 border-t border-green-200">
+                    <p className="font-medium">📅 Appuntamento:</p>
+                    <p>Data: {lead.data_appuntamento}</p>
+                    <p>Ora: {lead.ora_appuntamento}</p>
+                    {lead.indirizzo_appuntamento && (
+                      <p>Luogo: {lead.indirizzo_appuntamento}</p>
+                    )}
+                    {lead.note_appuntamento && (
+                      <p>Note: {lead.note_appuntamento}</p>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </div>

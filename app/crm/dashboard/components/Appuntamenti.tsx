@@ -78,29 +78,43 @@ export default function Appuntamenti({ userId }: Props) {
     if (!leadId || !data || !ora) return;
     setCreating(true);
 
-    // Inserimento dell'appuntamento nel database
-    const { error: insertError } = await supabase.from("appuntamenti").insert([
-      {
-        lead_id: leadId,
-        operatore_id: userId,
-        autore_id: userId,
-        data,
-        ora,
-        indirizzo,
-        note,
-      },
-    ]);
+    try {
+      // Inserimento dell'appuntamento nel database
+      const { data: newAppointment, error: insertError } = await supabase
+        .from("appuntamenti")
+        .insert([
+          {
+            lead_id: leadId,
+            operatore_id: userId,
+            autore_id: userId,
+            data,
+            ora,
+            indirizzo,
+            note,
+          },
+        ])
+        .select(); // Questo restituisce i dati inseriti
 
-    if (!insertError) {
+      if (insertError) throw insertError;
+
+      console.log("Appuntamento creato:", newAppointment);
+
       // Aggiornamento del lead associato con i dettagli dell'appuntamento
-      const { error: updateError } = await supabase.from("leads").update({
-        data_appuntamento: data,
-        ora_appuntamento: ora,
-        indirizzo_appuntamento: indirizzo,
-        note_appuntamento: note,
-      }).eq("id", leadId);
+      const { error: updateError } = await supabase
+        .from("leads")
+        .update({
+          data_appuntamento: data,
+          ora_appuntamento: ora,
+          indirizzo_appuntamento: indirizzo,
+          note_appuntamento: note,
+          stato: "appuntamento_fissato" // Aggiunto per cambiare lo stato del lead
+        })
+        .eq("id", leadId);
 
-      if (!updateError) {
+      if (updateError) {
+        console.error("Errore nell'aggiornamento del lead:", updateError);
+        alert("Errore durante l'aggiornamento del lead con i dettagli dell'appuntamento");
+      } else {
         // Se l'aggiornamento è avvenuto con successo, aggiorna la lista degli appuntamenti
         const { data: updatedAppuntamenti, error: fetchError } = await supabase
           .from("appuntamenti")
@@ -108,23 +122,26 @@ export default function Appuntamenti({ userId }: Props) {
           .or(`operatore_id.eq.${userId},autore_id.eq.${userId}`)
           .order("created_at", { ascending: false });
 
-        if (!fetchError) {
+        if (fetchError) {
+          console.error("Errore nel recupero degli appuntamenti:", fetchError);
+          setError("Errore durante il recupero degli appuntamenti");
+        } else {
           setAppuntamenti(updatedAppuntamenti || []);
+          // Reset dei campi del form
           setLeadId("");
           setData("");
           setOra("");
           setIndirizzo("");
           setNote("");
-        } else {
-          setError("Errore durante il recupero degli appuntamenti");
+          alert("Appuntamento creato e lead aggiornato con successo!");
         }
-      } else {
-        alert("Errore durante l'aggiornamento del lead con i dettagli dell'appuntamento");
       }
-    } else {
+    } catch (err) {
+      console.error("Errore generale:", err);
       alert("Errore durante la creazione dell'appuntamento");
+    } finally {
+      setCreating(false);
     }
-    setCreating(false);
   };
 
   if (loading) return <p>Caricamento appuntamenti...</p>;
