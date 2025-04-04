@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "@/utils/supabaseClient";
 
 interface Documento {
@@ -13,6 +13,13 @@ interface Documento {
   caricato_da: string;
 }
 
+interface LeadOption {
+  id: string;
+  nome: string;
+  cognome: string;
+  email: string;
+}
+
 interface Props {
   userId: string;
 }
@@ -21,6 +28,12 @@ export default function Documenti({ userId }: Props) {
   const [documenti, setDocumenti] = useState<Documento[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [leadOptions, setLeadOptions] = useState<LeadOption[]>([]);
+  const [selectedLeadId, setSelectedLeadId] = useState<string>("");
+  const [note, setNote] = useState<string>("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const fetchDocumenti = async () => {
@@ -41,6 +54,104 @@ export default function Documenti({ userId }: Props) {
     fetchDocumenti();
   }, [userId]);
 
+  useEffect(() => {
+    const fetchLeadOptions = async () => {
+      const { data, error } = await supabase
+        .from("leads")
+        .select("id, nome, cognome, email")
+        .eq("assegnato_a", userId);
+
+      if (!error) {
+        setLeadOptions(data || []);
+      } else {
+        console.error("Errore nel recupero dei lead:", error);
+      }
+    };
+
+    fetchLeadOptions();
+  }, [userId]);
+
+  const handleFileUpload = async (file: File, isCamera: boolean = false) => {
+    if (!selectedLeadId) {
+      alert("Seleziona un lead prima di caricare un documento");
+      return;
+    }
+
+    setUploading(true);
+
+    try {
+      // Genera un nome file unico
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}.${fileExt}`;
+      const filePath = `${userId}/${selectedLeadId}/${fileName}`;
+
+      // Carica il file nello storage di Supabase
+      const { error: uploadError } = await supabase.storage
+        .from("documenti")
+        .upload(filePath, file);
+
+      if (uploadError) {
+        throw uploadError;
+      }
+
+      // Ottieni l'URL pubblico del file
+      const { data: urlData } = supabase.storage
+        .from("documenti")
+        .getPublicUrl(filePath);
+
+      // Inserisci i dettagli del documento nel database
+      const { error: insertError } = await supabase
+        .from("documenti_lead")
+        .insert({
+          lead_id: selectedLeadId,
+          nome_file: isCamera ? `Foto ${new Date().toLocaleString()}` : file.name,
+          tipo_file: isCamera ? "foto" : file.type,
+          url_file: urlData.publicUrl,
+          caricato_da: userId,
+          note: note
+        });
+
+      if (insertError) {
+        throw insertError;
+      }
+
+      // Aggiorna la lista dei documenti
+      const { data: updatedDocs, error: fetchError } = await supabase
+        .from("documenti_lead")
+        .select("*")
+        .eq("caricato_da", userId)
+        .order("created_at", { ascending: false });
+
+      if (fetchError) {
+        throw fetchError;
+      }
+
+      setDocumenti(updatedDocs || []);
+      setSelectedLeadId("");
+      setNote("");
+      alert("Documento caricato con successo!");
+    } catch (err) {
+      console.error("Errore durante il caricamento:", err);
+      alert("Errore durante il caricamento del documento");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      handleFileUpload(file);
+    }
+  };
+
+  const handleCameraCapture = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      handleFileUpload(file, true);
+    }
+  };
+
   if (loading) {
     return <div className="p-4 text-gray-600">Caricamento documenti...</div>;
   }
@@ -54,34 +165,113 @@ export default function Documenti({ userId }: Props) {
   }
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-xl font-bold">📂 Documenti caricati</h2>
+    <div className="space-y-6">
+      <h2 className="text-xl font-bold">📂 Documenti</h2>
 
-      {documenti.length === 0 ? (
-        <p className="text-gray-500">Nessun documento disponibile.</p>
-      ) : (
-        <ul className="space-y-3">
-          {documenti.map((doc) => (
-            <li
-              key={doc.id}
-              className="border p-4 rounded-lg shadow-sm bg-white hover:bg-gray-50"
-            >
-              <p className="font-semibold">{doc.nome_file}</p>
-              <p className="text-sm text-gray-600">Tipo: {doc.tipo_file}</p>
-              <a
-                href={doc.url_file}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:underline text-sm"
-              >
-                🔗 Apri documento
-              </a>
-            </li>
+      {/* Form di caricamento */}
+      <div className="bg-white p-5 rounded-lg shadow-sm space-y-4">
+        <h3 className="text-lg font-medium">Carica nuovo documento</h3>
+        
+        <select
+          value={selectedLeadId}
+          onChange={(e) => setSelectedLeadId(e.target.value)}
+          className="w-full border border-gray-300 rounded px-3 py-2"
+          required
+        >
+          <option value="">Seleziona un lead...</option>
+          {leadOptions.map((lead) => (
+            <option key={lead.id} value={lead.id}>
+              {lead.nome} {lead.cognome} ({lead.email})
+            </option>
           ))}
-        </ul>
-      )}
+        </select>
+
+        <textarea
+          placeholder="Note sul documento (opzionale)"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          className="w-full border border-gray-300 rounded px-3 py-2"
+        />
+
+        <div className="flex flex-wrap gap-3">
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            className="hidden"
+          />
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            disabled={uploading || !selectedLeadId}
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:bg-blue-300"
+          >
+            📁 Seleziona file
+          </button>
+
+          <input
+            type="file"
+            accept="image/*"
+            capture="environment"
+            ref={cameraInputRef}
+            onChange={handleCameraCapture}
+            className="hidden"
+          />
+          <button
+            onClick={() => cameraInputRef.current?.click()}
+            disabled={uploading || !selectedLeadId}
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 disabled:bg-green-300"
+          >
+            📷 Scatta foto
+          </button>
+
+          {uploading && (
+            <span className="text-blue-600 animate-pulse ml-2 self-center">
+              Caricamento in corso...
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Lista documenti */}
+      <div>
+        <h3 className="text-lg font-medium mb-3">Documenti caricati</h3>
+        {documenti.length === 0 ? (
+          <p className="text-gray-500">Nessun documento disponibile.</p>
+        ) : (
+          <ul className="space-y-3">
+            {documenti.map((doc) => (
+              <li
+                key={doc.id}
+                className="border p-4 rounded-lg shadow-sm bg-white hover:bg-gray-50"
+              >
+                <p className="font-semibold">{doc.nome_file}</p>
+                <p className="text-sm text-gray-600">Tipo: {doc.tipo_file}</p>
+                <div className="flex gap-2 mt-2">
+                  <a
+                    href={doc.url_file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    🔗 Apri documento
+                  </a>
+                  {doc.tipo_file.startsWith('image/') && (
+                    <a
+                      href={doc.url_file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 hover:underline text-sm"
+                    >
+                      🖼️ Visualizza immagine
+                    </a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
-
 
