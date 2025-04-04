@@ -176,14 +176,26 @@ export default function Documenti({ userId }: Props) {
     }
   };
 
-  const deleteDocument = async (docId: string, filePath: string) => {
+  const deleteDocument = async (docId: string, docUrl: string) => {
     try {
+      // Ottieni il percorso del file dallo storage
+      // Da: https://...object/sign/documenti/userId/leadId/filename.jpg
+      // A: userId/leadId/filename.jpg
+      const urlParts = docUrl.split('/documenti/');
+      if (urlParts.length < 2) {
+        throw new Error("Formato URL non valido");
+      }
+      const filePath = urlParts[1]; // questa è la parte userId/leadId/filename.jpg
+      
       // Prima elimina il file dallo storage
       const { error: storageError } = await supabase.storage
         .from("documenti")
         .remove([filePath]);
       
-      if (storageError) throw storageError;
+      if (storageError) {
+        console.error("Errore nell'eliminazione dallo storage:", storageError);
+        // Continuiamo comunque a eliminare il riferimento dal database
+      }
 
       // Poi elimina il record dal database
       const { error: dbError } = await supabase
@@ -317,7 +329,7 @@ export default function Documenti({ userId }: Props) {
                     </a>
                   )}
                   <button
-                    onClick={() => deleteDocument(doc.id, doc.url_file.split('/').pop() || '')}
+                    onClick={() => deleteDocument(doc.id, doc.url_file)}
                     className="text-red-600 hover:underline text-sm"
                   >
                     🗑️ Elimina
