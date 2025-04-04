@@ -89,6 +89,17 @@ export default function CrmDashboard() {
           >
             📝 Note
           </button>
+
+          {/* Mostra il link admin solo all'utente admin */}
+          {user.id === 'ID_DELL_UTENTE_ADMIN' && (
+            <a
+              href="/crm/admin"
+              className="block w-full text-left px-4 py-2 rounded hover:bg-gray-100"
+            >
+              ⚙️ Admin
+            </a>
+          )}
+
           <button
             onClick={async () => {
               await supabase.auth.signOut();

@@ -176,45 +176,27 @@ export default function Documenti({ userId }: Props) {
     }
   };
 
-  const deleteDocument = async (docId: string, docUrl: string) => {
+  const deleteDocument = async (docId: string) => {
     try {
-      // Estrai il percorso del file dall'URL
-      const urlParts = docUrl.split('/documenti/');
-      if (urlParts.length < 2) {
-        throw new Error("Formato URL non valido");
-      }
-      const filePath = urlParts[1]; // questa è la parte userId/leadId/filename.jpg
-      
-      // Prima elimina il file dallo storage
-      const { error: storageError } = await supabase.storage
-        .from("documenti")
-        .remove([filePath]);
-      
-      if (storageError) {
-        console.error("Errore nell'eliminazione dallo storage:", storageError);
-        alert("Errore nell'eliminazione del file dallo storage. " + storageError.message);
+      if (!window.confirm("Sei sicuro di voler rimuovere questo documento?")) {
         return;
       }
-
-      // Poi elimina il record dal database
+      
+      // Elimina solo il record dal database
       const { error: dbError } = await supabase
         .from("documenti_lead")
         .delete()
         .eq("id", docId);
       
-      if (dbError) {
-        console.error("Errore nell'eliminazione dal database:", dbError);
-        alert("Errore nell'eliminazione del record dal database. " + dbError.message);
-        return;
-      }
+      if (dbError) throw dbError;
 
       // Aggiorna la lista dei documenti
       setDocumenti(documenti.filter(doc => doc.id !== docId));
       
-      alert("Documento eliminato completamente");
+      alert("Documento rimosso dalla lista");
     } catch (error) {
       console.error("Errore durante l'eliminazione:", error);
-      alert("Errore durante l'eliminazione del documento");
+      alert("Errore durante la rimozione del documento");
     }
   };
 
@@ -332,11 +314,7 @@ export default function Documenti({ userId }: Props) {
                     </a>
                   )}
                   <button
-                    onClick={() => {
-                      if (window.confirm("Sei sicuro di voler eliminare questo documento?")) {
-                        deleteDocument(doc.id, doc.url_file);
-                      }
-                    }}
+                    onClick={() => deleteDocument(doc.id)}
                     className="text-red-600 hover:underline text-sm ml-auto"
                   >
                     🗑️ Elimina
