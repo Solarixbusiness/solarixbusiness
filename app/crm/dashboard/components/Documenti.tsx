@@ -178,9 +178,7 @@ export default function Documenti({ userId }: Props) {
 
   const deleteDocument = async (docId: string, docUrl: string) => {
     try {
-      // Ottieni il percorso del file dallo storage
-      // Da: https://...object/sign/documenti/userId/leadId/filename.jpg
-      // A: userId/leadId/filename.jpg
+      // Estrai il percorso del file dall'URL
       const urlParts = docUrl.split('/documenti/');
       if (urlParts.length < 2) {
         throw new Error("Formato URL non valido");
@@ -194,7 +192,8 @@ export default function Documenti({ userId }: Props) {
       
       if (storageError) {
         console.error("Errore nell'eliminazione dallo storage:", storageError);
-        // Continuiamo comunque a eliminare il riferimento dal database
+        alert("Errore nell'eliminazione del file dallo storage. " + storageError.message);
+        return;
       }
 
       // Poi elimina il record dal database
@@ -203,12 +202,16 @@ export default function Documenti({ userId }: Props) {
         .delete()
         .eq("id", docId);
       
-      if (dbError) throw dbError;
+      if (dbError) {
+        console.error("Errore nell'eliminazione dal database:", dbError);
+        alert("Errore nell'eliminazione del record dal database. " + dbError.message);
+        return;
+      }
 
       // Aggiorna la lista dei documenti
       setDocumenti(documenti.filter(doc => doc.id !== docId));
       
-      alert("Documento eliminato con successo");
+      alert("Documento eliminato completamente");
     } catch (error) {
       console.error("Errore durante l'eliminazione:", error);
       alert("Errore durante l'eliminazione del documento");
@@ -329,8 +332,12 @@ export default function Documenti({ userId }: Props) {
                     </a>
                   )}
                   <button
-                    onClick={() => deleteDocument(doc.id, doc.url_file)}
-                    className="text-red-600 hover:underline text-sm"
+                    onClick={() => {
+                      if (window.confirm("Sei sicuro di voler eliminare questo documento?")) {
+                        deleteDocument(doc.id, doc.url_file);
+                      }
+                    }}
+                    className="text-red-600 hover:underline text-sm ml-auto"
                   >
                     🗑️ Elimina
                   </button>
