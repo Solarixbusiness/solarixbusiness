@@ -194,3 +194,16 @@ input:disabled + .slider {
     width: 100%;
   }
 }
+
+.privacyLink {
+  color: #007bff;
+  text-decoration: underline;
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  display: inline-block;
+}
+
+.privacyLink:hover {
+  color: #0056b3;
+  text-decoration: none;
+}

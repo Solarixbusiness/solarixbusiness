@@ -9,6 +9,9 @@ import { I18nProvider } from '@/i18n/I18nProvider'
 import PerformanceMetrics from '@/components/PerformanceMetrics/PerformanceMetrics'
 import { SEO_CONSTANTS } from '@/utils/seoConstants'
 import ClientProviders from '@/components/ClientProviders'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(SEO_CONSTANTS.SITE_URL),
@@ -84,7 +87,7 @@ export default function RootLayout({
         `}} />
         {/* End Google Tag Manager */}
       </head>
-      <body>
+      <body className={inter.className}>
         {/* Google Tag Manager (noscript) */}
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TV8D8Q7C"
         height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>

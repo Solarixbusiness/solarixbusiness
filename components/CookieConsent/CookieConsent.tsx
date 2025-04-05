@@ -178,6 +178,10 @@ export default function CookieConsent() {
               Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito. 
               I cookie necessari sono essenziali per il funzionamento del sito. 
               Puoi scegliere di accettare anche i cookie di analytics, marketing e preferenze.
+              <br />
+              <a href="/privacy-policy" className={styles.privacyLink}>
+                Leggi la nostra Privacy Policy
+              </a>
             </p>
             
             <div className={styles.cookieButtons}>
