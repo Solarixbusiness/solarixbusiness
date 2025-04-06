@@ -86,6 +86,9 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','GTM-TV8D8Q7C');
         `}} />
         {/* End Google Tag Manager */}
+        <link rel="icon" href="/favico/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favico/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favico/apple-touch-icon.png" />
       </head>
       <body className={inter.className}>
         {/* Google Tag Manager (noscript) */}
