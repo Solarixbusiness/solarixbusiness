@@ -22,6 +22,15 @@ export const metadata: Metadata = {
   },
   description: SEO_CONSTANTS.DEFAULT_DESCRIPTION,
   keywords: 'solariXbusiness, sito web',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    other: {
+      rel: 'icon',
+      url: '/favicon.ico',
+    },
+  },
   openGraph: {
     title: 'solariXbusiness',
     description: 'Sito web di solariXbusiness',
