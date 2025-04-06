@@ -7,6 +7,21 @@
   padding: 0.5rem;
 }
 
+.brandHeader {
+  width: 100%;
+  text-align: center;
+  padding: 0.75rem 0;
+  background: white;
+}
+
+.brandHeader h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FF6600;
+  letter-spacing: 0.5px;
+}
+
 .heroSection {
   width: 100%;
   padding: 0;
@@ -138,6 +153,91 @@
   font-size: 0.875rem;
 }
 
+/* Nuove sezioni */
+.benefitsSection,
+.incentivesSection {
+  width: 100%;
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sectionSubtitle {
+  font-size: 1rem;
+  color: #34495e;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefitsGrid,
+.incentivesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.benefitCard,
+.incentiveCard {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.benefitIcon,
+.incentiveIcon {
+  width: 40px;
+  height: 40px;
+  background-color: #FF6600;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.benefitIcon svg,
+.incentiveIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.benefitCard h4,
+.incentiveCard h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+}
+
+.benefitCard p,
+.incentiveCard p {
+  font-size: 0.9rem;
+  color: #34495e;
+  margin: 0;
+}
+
+.incentiveValue {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FF6600;
+  margin: 0.5rem 0;
+}
+
 /* Tablet styles */
 @media (min-width: 640px) {
   .container {
@@ -163,6 +263,20 @@
   
   .formGroup input, .submitButton {
     padding: 0.85rem;
+  }
+  
+  .benefitsGrid,
+  .incentivesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.1rem;
   }
 }
 
@@ -214,5 +328,61 @@
   
   .badge p {
     font-size: 0.9rem;
+  }
+  
+  .benefitsGrid,
+  .incentivesGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Ottimizzazioni per mobile molto piccoli */
+@media (max-width: 360px) {
+  .formContainer h1 {
+    font-size: 1.3rem;
+  }
+  
+  .formContainer h2 {
+    font-size: 0.9rem;
+  }
+  
+  .benefitCard,
+  .incentiveCard {
+    padding: 0.75rem;
+  }
+  
+  .benefitCard h4,
+  .incentiveCard h4 {
+    font-size: 1rem;
+  }
+  
+  .benefitCard p,
+  .incentiveCard p {
+    font-size: 0.8rem;
+  }
+  
+  .incentiveValue {
+    font-size: 1rem;
+  }
+  
+  .benefitIcon,
+  .incentiveIcon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .benefitIcon svg,
+  .incentiveIcon svg {
+    width: 18px;
+    height: 18px;
   }
 }

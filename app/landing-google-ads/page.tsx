@@ -177,6 +177,9 @@ export default function LandingPage() {
           }
         `}</style>
         <div className={styles.container}>
+          <div className={styles.brandHeader}>
+            <h1>SOLARIXBUSINESS</h1>
+          </div>
           <div className={styles.heroSection}>
             {/* Overlay azzurro-grigio */}
             <div 
@@ -203,8 +206,172 @@ export default function LandingPage() {
 
           <div className={styles.contentSection} style={{ position: 'relative', zIndex: 2 }}>
             <div className={styles.formContainer}>
-              <h1>Trasforma il tuo impianto fotovoltaico in un asset finanziario</h1>
-              <h2>Massimizza il ritorno del tuo investimento con la finanza agevolata</h2>
+              <h1>Fotovoltaico B2B: tecnologie avanzate e incentivi cumulabili</h1>
+              <h2>Impianti all'avanguardia con consulenza fiscale e finanziamento agevolato</h2>
+              
+              {/* NUOVA SEZIONE: Servizi Tecnici Avanzati */}
+              <div className={styles.benefitsSection}>
+                <h3 className={styles.sectionTitle}>Servizi Tecnici Avanzati</h3>
+                <div className={styles.benefitsGrid}>
+                  <div className={styles.benefitCard}>
+                    <div className={styles.benefitIcon}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                      </svg>
+                    </div>
+                    <h4>Tecnologie Fotovoltaiche</h4>
+                    <p>Moduli monocristallino PERC, HJT e TOPCon con garanzie estese fino a 30 anni</p>
+                  </div>
+                  
+                  <div className={styles.benefitCard}>
+                    <div className={styles.benefitIcon}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="3" y1="9" x2="21" y2="9"></line>
+                        <line x1="9" y1="21" x2="9" y2="9"></line>
+                      </svg>
+                    </div>
+                    <h4>Sistemi di Accumulo</h4>
+                    <p>Batterie LFP e NMC dimensionate per ottimizzare autoconsumo e peak shaving</p>
+                  </div>
+                  
+                  <div className={styles.benefitCard}>
+                    <div className={styles.benefitIcon}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                      </svg>
+                    </div>
+                    <h4>Monitoraggio AI</h4>
+                    <p>Analisi predittiva basata su AI per identificare anomalie e ottimizzare la produzione</p>
+                  </div>
+                  
+                  <div className={styles.benefitCard}>
+                    <div className={styles.benefitIcon}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+                      </svg>
+                    </div>
+                    <h4>Agrivoltaico</h4>
+                    <p>Sistemi bifacciali e tracker per massimizzare produzione preservando uso agricolo del terreno</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* NUOVA SEZIONE: Incentivi e Consulenza */}
+              <div className={styles.incentivesSection}>
+                <h3 className={styles.sectionTitle}>Incentivi Cumulabili e Consulenza Specializzata</h3>
+                <p className={styles.sectionSubtitle}>Massimizzazione degli incentivi e supporto completo per l'intero progetto</p>
+                <div className={styles.incentivesGrid}>
+                  <div className={styles.incentiveCard}>
+                    <h4>Transizione 5.0</h4>
+                    <div className={styles.incentiveValue}>Fino al 63%</div>
+                    <p>Credito d'imposta per investimenti in tecnologie sostenibili</p>
+                  </div>
+                  
+                  <div className={styles.incentiveCard}>
+                    <h4>SIMEST 4/394</h4>
+                    <div className={styles.incentiveValue}>Tasso agevolato</div>
+                    <p>Finanziamenti per progetti green e internazionalizzazione</p>
+                  </div>
+                  
+                  <div className={styles.incentiveCard}>
+                    <h4>Sabatini Green</h4>
+                    <div className={styles.incentiveValue}>Contributo in conto interessi</div>
+                    <p>Finanziamenti agevolati per investimenti in tecnologie sostenibili</p>
+                  </div>
+                  
+                  <div className={styles.incentiveCard}>
+                    <h4>CER</h4>
+                    <div className={styles.incentiveValue}>Incentivi dedicati</div>
+                    <p>Comunità Energetiche Rinnovabili con analisi di fattibilità e ottimizzazione</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* NUOVA SEZIONE: Sostenibilità e Carbon Credits */}
+              <div className={styles.benefitsSection}>
+                <h3 className={styles.sectionTitle}>Sostenibilità e Carbon Credits</h3>
+                <div className={styles.benefitsGrid}>
+                  <div className={styles.benefitCard}>
+                    <div className={styles.benefitIcon}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                        <path d="M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"></path>
+                      </svg>
+                    </div>
+                    <h4>Certificazione impianto</h4>
+                    <p>Implementazione meccanismo UNFCCC per certificazione e commercializzazione carbon credits</p>
+                  </div>
+                  
+                  <div className={styles.benefitCard}>
+                    <div className={styles.benefitIcon}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="1" y="3" width="15" height="13"></rect>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                      </svg>
+                    </div>
+                    <h4>Blockchain</h4>
+                    <p>Soluzioni blockchain per tracciabilità e trasparenza delle riduzioni di emissioni</p>
+                  </div>
+                  
+                  <div className={styles.benefitCard}>
+                    <div className={styles.benefitIcon}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                    </div>
+                    <h4>Carbon Insetting</h4>
+                    <p>Strategie di carbon insetting per integrare riduzione emissioni nella catena del valore</p>
+                  </div>
+                  
+                  <div className={styles.benefitCard}>
+                    <div className={styles.benefitIcon}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                      </svg>
+                    </div>
+                    <h4>EU Taxonomy & CBAM</h4>
+                    <p>Supporto per allineamento con EU Taxonomy e Carbon Border Adjustment Mechanism</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* NUOVA SEZIONE: Soluzioni Finanziarie */}
+              <div className={styles.incentivesSection}>
+                <h3 className={styles.sectionTitle}>Soluzioni Finanziarie</h3>
+                <p className={styles.sectionSubtitle}>Opzioni flessibili per ottimizzare l'investimento e accelerare il ROI</p>
+                <div className={styles.incentivesGrid}>
+                  <div className={styles.incentiveCard}>
+                    <h4>Leasing & Noleggio</h4>
+                    <div className={styles.incentiveValue}>Zero Anticipo</div>
+                    <p>Soluzioni finanziarie con canone che si ripaga con il risparmio energetico</p>
+                  </div>
+                  
+                  <div className={styles.incentiveCard}>
+                    <h4>PPA</h4>
+                    <div className={styles.incentiveValue}>Power Purchase Agreement</div>
+                    <p>Acquisto energia a prezzo fisso con stabilità dei costi energetici</p>
+                  </div>
+                  
+                  <div className={styles.incentiveCard}>
+                    <h4>Finanziamenti Agevolati</h4>
+                    <div className={styles.incentiveValue}>Tassi ridotti</div>
+                    <p>Accesso a linee di credito dedicate per investimenti green</p>
+                  </div>
+                  
+                  <div className={styles.incentiveCard}>
+                    <h4>Reportistica ESG</h4>
+                    <div className={styles.incentiveValue}>CSRD/SFDR Compliance</div>
+                    <p>Calcolo carbon footprint (Scope 1-2-3) e strategie di decarbonizzazione</p>
+                  </div>
+                </div>
+              </div>
 
               {!submitted ? (
                 <form onSubmit={handleSubmit} className={styles.form} aria-label="Form richiesta informazioni finanza agevolata">
@@ -313,7 +480,7 @@ export default function LandingPage() {
                         <div className="flex">
                           <div className="flex-shrink-0">
                             <svg className="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"></path>
                             </svg>
                           </div>
                           <div className="ml-3">
