@@ -53,6 +53,8 @@ export default function ContactSection() {
     message: ''
   });
 
+  const [showPrivacyAlert, setShowPrivacyAlert] = useState(false);
+
   const { submitLead, loading, error } = useLeadForm({
     formType: 'contatto'
   });
@@ -60,6 +62,15 @@ export default function ContactSection() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
+    if (!formData.privacy) {
+      setShowPrivacyAlert(true);
+      // Scroll al checkbox della privacy
+      const privacyCheckbox = document.getElementById('contact-privacy');
+      privacyCheckbox?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    
+    setShowPrivacyAlert(false);
     setFormStatus({
       submitted: true,
       loading: true,
@@ -169,7 +180,11 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className={styles.info_title}>Sede</h3>
-                  <p className={styles.info_text}>Via Bertolotti 7 | 10121 Torino (TO) | Italy</p>
+                  <p className={styles.info_text}>
+                    Via Bertolotti 7<br />
+                    10121 Torino (TO)<br />
+                    Italy
+                  </p>
                 </div>
               </div>
             </div>
@@ -194,6 +209,8 @@ export default function ContactSection() {
                   className={styles.form_input}
                   required
                   autoComplete="name"
+                  aria-required="true"
+                  aria-label="Nome completo"
                 />
               </div>
               
@@ -208,6 +225,8 @@ export default function ContactSection() {
                   className={styles.form_input}
                   required
                   autoComplete="email"
+                  aria-required="true"
+                  aria-label="Indirizzo email"
                 />
               </div>
               
@@ -222,6 +241,8 @@ export default function ContactSection() {
                   className={styles.form_input}
                   required
                   autoComplete="tel"
+                  aria-required="true"
+                  aria-label="Numero di telefono"
                 />
               </div>
               
@@ -235,24 +256,55 @@ export default function ContactSection() {
                   className={styles.form_textarea}
                   rows={5}
                   required
+                  autoComplete="off"
+                  aria-required="true"
+                  aria-label="Il tuo messaggio"
                 ></textarea>
               </div>
               
-              <div className={styles.form_group}>
-                <div className={styles.checkbox_container}>
-                  <input
-                    type="checkbox"
-                    id="privacy"
-                    name="privacy"
-                    checked={formData.privacy}
-                    onChange={(e) => setFormData({...formData, privacy: e.target.checked})}
-                    required
-                    className={styles.form_checkbox}
-                  />
-                  <label htmlFor="privacy" className={styles.checkbox_label}>
-                    Accetto la privacy policy*
-                  </label>
+              <div className="flex flex-col space-y-2">
+                <div className="flex items-start">
+                  <div className="flex items-center h-5">
+                    <input
+                      type="checkbox"
+                      id="contact-privacy"
+                      name="privacy"
+                      checked={formData.privacy}
+                      onChange={(e) => {
+                        setFormData({...formData, privacy: e.target.checked});
+                        if (e.target.checked) {
+                          setShowPrivacyAlert(false);
+                        }
+                      }}
+                      className="w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                      required
+                      aria-required="true"
+                      aria-label="Accetto la privacy policy"
+                    />
+                  </div>
+                  <div className="ml-3">
+                    <label htmlFor="contact-privacy" className="text-sm text-gray-700">
+                      Accetto la privacy policy *
+                    </label>
+                  </div>
                 </div>
+
+                {showPrivacyAlert && (
+                  <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-md" role="alert">
+                    <div className="flex">
+                      <div className="flex-shrink-0">
+                        <svg className="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div className="ml-3">
+                        <p className="text-sm text-orange-700">
+                          Per favore accetta la privacy policy prima di inviare il form
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
               
               <button 

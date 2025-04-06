@@ -41,7 +41,6 @@
 .hero_content {
   max-width: 800px;
   z-index: 2;
-  transform: translateY(-80px); /* Solleva il contenuto di 80px */
 }
 
 .title {
@@ -119,7 +118,6 @@
   }
   
   .hero_content {
-    transform: translateY(0);
     padding: 1rem;
     margin-top: 0; /* Rimosso il margin-top */
   }

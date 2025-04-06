@@ -5,10 +5,8 @@ import SolarBenefitsWidget from '@/components/SolarBenefitsWidget/SolarBenefitsW
 import IntroSection from '@/components/IntroSection/IntroSection'
 import IncentiveSection from '@/components/IncentiveSection/IncentiveSection'
 import GuaranteeWidget from '@/components/GuaranteeWidget/GuaranteeWidget'
-import FAQ from '@/components/FAQ/FAQ'
 import SeoManager from '@/components/SeoManager/SeoManager'
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs'
-import { FaqItem } from '@/components/FaqSchema/FaqSchema'
 import { SEO_CONSTANTS } from '@/utils/seoConstants'
 
 export const metadata: Metadata = {
@@ -45,34 +43,9 @@ export const metadata: Metadata = {
   },
 }
 
-// FAQ per la pagina home
-const homeFaq: FaqItem[] = [
-  {
-    question: "Quali sono i vantaggi del fotovoltaico per le aziende?",
-    answer: "I principali vantaggi includono: riduzione dei costi energetici, indipendenza energetica, valorizzazione dell'immobile, miglioramento dell'immagine aziendale e accesso a incentivi fiscali e contributi statali."
-  },
-  {
-    question: "Quali incentivi sono disponibili per le aziende?",
-    answer: "Le aziende possono accedere a diverse forme di incentivi: detrazioni fiscali, contributi in conto capitale, finanziamenti agevolati, e il meccanismo del Superbonus per specifici interventi di efficientamento energetico."
-  },
-  {
-    question: "Quanto tempo è necessario per l'installazione di un impianto fotovoltaico aziendale?",
-    answer: "I tempi di installazione variano in base alla dimensione dell'impianto. Mediamente, per un impianto aziendale di medie dimensioni, sono necessarie 2-4 settimane per l'installazione completa, a cui si aggiungono i tempi per le pratiche autorizzative."
-  }
-];
-
 export default function HomePage() {
   return (
     <>
-      <head>
-        <link 
-          rel="preload" 
-          href="/images/hero/hero.png" 
-          as="image" 
-          type="image/png"
-        />
-      </head>
-
       {/* SEO Manager - gestisce tutti i componenti SEO in modo centralizzato */}
       <SeoManager 
         organizationData={{
@@ -116,7 +89,6 @@ export default function HomePage() {
             SEO_CONSTANTS.SOCIAL_LINKEDIN,
           ],
         }}
-        faqItems={homeFaq}
         socialData={{
           title: 'solariXbusiness - Soluzioni energetiche per aziende',
           description: 'Soluzioni fotovoltaiche personalizzate per aziende in tutta Italia. Massimizza il risparmio energetico e riduci i costi operativi con i nostri impianti industriali.',
@@ -150,9 +122,6 @@ export default function HomePage() {
 
       {/* Widget delle garanzie - dettagli specifici */}
       <GuaranteeWidget />
-      
-      {/* FAQ - supporto informativo */}
-      <FAQ />
     </>
   )
 }

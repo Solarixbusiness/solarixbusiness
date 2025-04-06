@@ -11,8 +11,8 @@ export default function Logo() {
       <Image
         src="/images/logo/logo.png"
         alt="solariXbusiness Logo"
-        width={170}
-        height={100}
+        width={170} 
+        height={45}
         loading="eager"
         className={styles.logo_img}
       />

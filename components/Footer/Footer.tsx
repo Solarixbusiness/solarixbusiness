@@ -31,7 +31,7 @@ export default function Footer() {
                 src="/images/logo/logo.png"
                 alt="solariXbusiness Logo"
                 width={150}
-                height={80}
+                height={40}
                 className={styles.logo}
               />
             </Link>

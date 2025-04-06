@@ -31,7 +31,8 @@ export default function PolicyModal({ isOpen, onCloseAction, type }: PolicyModal
           className={styles.policyClose}
           onClick={onCloseAction}
         >
-          &times;
+          <span>&times;</span>
+          <span className={styles.closeText}>Chiudi</span>
         </button>
 
         <div className={styles.policyNav}>

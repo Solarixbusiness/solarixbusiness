@@ -22,6 +22,7 @@
     background-color: #ffffff;
     margin: 5% auto;
     padding: 40px;
+    padding-top: 60px;
     width: 80%;
     max-width: 800px;
     position: relative;
@@ -37,8 +38,8 @@
     position: absolute;
     right: 20px;
     top: 20px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
@@ -49,6 +50,18 @@
     align-items: center;
     justify-content: center;
     transition: color 0.2s ease;
+    z-index: 10; /* Assicura che sia sopra gli altri elementi */
+}
+
+.closeText {
+    display: none; /* Nascosto su desktop */
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.policyClose:hover {
+    color: #000;
 }
 
 .policyText {
@@ -129,31 +142,49 @@
 
 @media (max-width: 768px) {
     .policyContent {
-        margin: 0;
-        padding: 20px;
         width: 95%;
-        height: 100%;
-        max-height: 100%;
+        padding: 30px 20px;
+        padding-top: 50px;
+        margin: 2% auto;
     }
-
+    
+    .policyClose {
+        top: 10px;
+        right: 10px;
+        width: auto;
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 18px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        padding: 0 15px;
+        color: #333;
+        font-size: 24px;
+    }
+    
+    .closeText {
+        display: inline-block;
+    }
+    
+    .policyNav {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .policyNavButton {
+        width: 100%;
+        padding: 8px;
+    }
+    
+    .policyText {
+        padding-top: 10px;
+    }
+    
     .policyText h2 {
         font-size: 1.5rem;
     }
-
+    
     .policyText h3 {
         font-size: 1.3rem;
-    }
-
-    .policyText h4 {
-        font-size: 1.1rem;
-    }
-
-    .policyNav {
-        gap: 10px;
-    }
-
-    .policyNavButton {
-        font-size: 1rem;
-        padding: 8px 15px;
     }
 }

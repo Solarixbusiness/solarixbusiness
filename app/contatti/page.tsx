@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function ContattiPage() {
   return (
-    <section className="bg-white py-16 px-6 md:px-16 font-roboto">
+    <section className="bg-white py-2 px-3 md:py-16 md:px-6 font-roboto">
       <SeoManager 
         canonicalPath="/contatti"
         localBusinessData={{
@@ -66,7 +66,7 @@ export default function ContattiPage() {
           twitterCard: 'summary_large_image'
         }}
       />
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-2 pt-0 pb-2 md:px-4 md:py-8">
         <Breadcrumbs />
         <ContactSection />
         <div className="flex items-center space-x-4">

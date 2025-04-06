@@ -1,0 +1,218 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 0.5rem;
+}
+
+.heroSection {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
+
+.heroSection img {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* Riduzione dell'immagine al 65% solo su desktop */
+@media (min-width: 1024px) {
+  .heroSection img {
+    width: 65% !important;
+    margin: 0 auto !important;
+  }
+}
+
+.contentSection {
+  width: 100%;
+  padding: 0 0.5rem;
+  background: white;
+  margin-top: 1.5rem;
+}
+
+.formContainer {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.formContainer h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.formContainer h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #34495e;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 0.75rem;
+  background: #FF6600;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+
+.successMessage {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.successMessage h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.successMessage p {
+  color: #34495e;
+}
+
+.trustBadges {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.badgeItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #FF6600;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.badgeItem p {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 0.875rem;
+}
+
+/* Tablet styles */
+@media (min-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .heroSection {
+    margin-top: 1rem;
+    border-radius: 8px;
+  }
+  
+  .contentSection {
+    padding: 0 1rem;
+  }
+  
+  .formContainer h1 {
+    font-size: 1.8rem;
+  }
+  
+  .formContainer h2 {
+    font-size: 1.1rem;
+  }
+  
+  .formGroup input, .submitButton {
+    padding: 0.85rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .container {
+    padding: 2rem;
+  }
+  
+  .heroSection {
+    margin-top: 2rem;
+  }
+  
+  .contentSection {
+    padding: 0 2rem;
+    margin-top: 2rem;
+  }
+  
+  .formContainer {
+    max-width: 800px;
+  }
+  
+  .formContainer h1 {
+    font-size: 2.5rem;
+  }
+
+  .formContainer h2 {
+    font-size: 1.5rem;
+  }
+  
+  .formGroup input, .submitButton {
+    padding: 1rem;
+  }
+  
+  .submitButton {
+    font-size: 1.1rem;
+  }
+
+  .trustBadges {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+  }
+  
+  .badge span {
+    font-size: 1.5rem;
+  }
+  
+  .badge p {
+    font-size: 0.9rem;
+  }
+}

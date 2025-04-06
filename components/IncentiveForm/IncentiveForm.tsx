@@ -62,6 +62,8 @@ export default function IncentiveForm() {
     message: ''
   });
 
+  const [showPrivacyAlert, setShowPrivacyAlert] = useState(false);
+
   const { submitLead, loading, error } = useLeadForm({
     formType: 'incentivi_home',
     onSuccess: () => {
@@ -112,6 +114,15 @@ export default function IncentiveForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
+    if (!formData.privacy) {
+      setShowPrivacyAlert(true);
+      // Scroll al checkbox della privacy
+      const privacyCheckbox = document.getElementById('incentive-privacy');
+      privacyCheckbox?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    
+    setShowPrivacyAlert(false);
     setFormStatus({
       submitted: true,
       loading: true,
@@ -166,7 +177,7 @@ export default function IncentiveForm() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className={styles.form} aria-label="Form di contatto">
+      <form onSubmit={handleSubmit} className={styles.form} aria-label="Form richiesta incentivi">
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
             <label htmlFor="name" id="name-label">Nome e Cognome *</label>
@@ -180,6 +191,8 @@ export default function IncentiveForm() {
               disabled={formStatus.loading}
               aria-labelledby="name-label"
               aria-required="true"
+              autoComplete="name"
+              aria-label="Nome e cognome completo"
             />
           </div>
           
@@ -195,6 +208,8 @@ export default function IncentiveForm() {
               disabled={formStatus.loading}
               aria-labelledby="email-label"
               aria-required="true"
+              autoComplete="email"
+              aria-label="Indirizzo email aziendale"
             />
           </div>
         </div>
@@ -212,9 +227,11 @@ export default function IncentiveForm() {
               disabled={formStatus.loading}
               aria-labelledby="phone-label"
               aria-required="true"
+              autoComplete="tel"
+              aria-label="Numero di telefono"
             />
           </div>
-          
+
           <div className={styles.formGroup}>
             <label htmlFor="companySize" id="companySize-label">Dimensione Azienda *</label>
             <select
@@ -226,8 +243,10 @@ export default function IncentiveForm() {
               disabled={formStatus.loading}
               aria-labelledby="companySize-label"
               aria-required="true"
+              autoComplete="organization"
+              aria-label="Dimensione dell'azienda"
             >
-              <option value="">Seleziona...</option>
+              <option value="">Seleziona dimensione</option>
               {companySizes.map(size => (
                 <option key={size.id} value={size.id}>{size.label}</option>
               ))}
@@ -292,30 +311,75 @@ export default function IncentiveForm() {
         </div>
 
         <div className={styles.formGroup}>
-          <label htmlFor="message">Messaggio</label>
+          <label htmlFor="message" id="message-label">Messaggio</label>
           <textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            rows={4}
-            placeholder="Scrivi qui eventuali dettagli o domande..."
             disabled={formStatus.loading}
+            aria-labelledby="message-label"
+            autoComplete="off"
+            aria-label="Dettagli aggiuntivi o domande"
+            rows={4}
           ></textarea>
         </div>
 
-        <div className={styles.formFooter}>
-          <button 
-            type="submit" 
-            className={styles.submitButton}
-            disabled={formStatus.loading}
-          >
-            {formStatus.loading ? 'Invio in corso...' : 'Richiedi Informazioni'}
-          </button>
-          <p className={styles.disclaimer}>
-            * Campi obbligatori. I dati saranno trattati in conformità con la nostra politica sulla privacy.
-          </p>
+        <div className={styles.formGroup}>
+          <div className="flex flex-col space-y-2">
+            <div className="flex items-start">
+              <div className="flex items-center h-5">
+                <input
+                  type="checkbox"
+                  id="incentive-privacy"
+                  name="privacy"
+                  checked={formData.privacy}
+                  onChange={(e) => {
+                    setFormData({...formData, privacy: e.target.checked});
+                    if (e.target.checked) {
+                      setShowPrivacyAlert(false);
+                    }
+                  }}
+                  className="w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-green-500"
+                  required
+                  aria-required="true"
+                  aria-label="Accetto la privacy policy"
+                />
+              </div>
+              <div className="ml-3">
+                <label htmlFor="incentive-privacy" className="text-sm text-gray-700">
+                  Accetto la privacy policy *
+                </label>
+              </div>
+            </div>
+
+            {showPrivacyAlert && (
+              <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-md" role="alert">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <svg className="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm text-orange-700">
+                      Per favore accetta la privacy policy prima di inviare il form
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
+
+        <button
+          type="submit"
+          className={styles.submitButton}
+          disabled={formStatus.loading}
+          aria-label={formStatus.loading ? 'Invio in corso...' : 'Invia richiesta'}
+        >
+          {formStatus.loading ? 'Invio in corso...' : 'Richiedi Analisi'}
+        </button>
       </form>
     </div>
   );

@@ -1,3 +1,30 @@
+/* Dichiarazioni Font */
+/* Open Sans */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/open sans/open-sans-v40-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat Variable Font */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrant/Montserrat-VF.woff2') format('woff2');
+  font-weight: 100 900; /* Supporta tutti i pesi */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/montserrant/Montserrat-Italic-VF.woff2') format('woff2');
+  font-weight: 100 900; /* Supporta tutti i pesi */
+  font-style: italic;
+  font-display: swap;
+}
+
 /* Tailwind CSS */
 @tailwind base;
 @tailwind components;
@@ -31,9 +58,22 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  font-family: 'Orbitron', sans-serif;
+/* Questa regola ad alta specificità sovrascrive tutte le dichiarazioni di font nei componenti */
+h1:not(.hero-title), 
+h2:not(.hero-title), 
+h3:not(.hero-title), 
+h4:not(.hero-title), 
+h5:not(.hero-title), 
+h6:not(.hero-title),
+[class*="title"]:not(.hero-title),
+[class*="subtitle"]:not(.hero-title),
+[class*="heading"]:not(.hero-title) {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+/* Classe specifica per il titolo hero che mantiene Orbitron */
+.hero-title {
+  font-family: 'Orbitron', sans-serif !important;
 }
 
 a {

@@ -4,8 +4,6 @@ const CACHE_NAME = 'solarix-business-cache-v1';
 // Risorse da mettere in cache all'installazione
 const PRECACHE_RESOURCES = [
   '/',
-  '/index.html',
-  '/manifest.json',
   '/images/logobus.png',
   '/images/faviconbus.ico',
   '/icons/shield.svg',

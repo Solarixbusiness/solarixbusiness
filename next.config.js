@@ -12,8 +12,14 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'solarixbusiness.it',
+        port: '',
+        pathname: '/**',
+      },
     ],
-    domains: ['solarixbusiness.it', 'www.solarixbusiness.it'],
+    // domains è deprecato, tutti i domini sono stati migrati a remotePatterns
   },
   async rewrites() {
     return [

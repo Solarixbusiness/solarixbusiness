@@ -127,3 +127,44 @@
     box-shadow: none !important;
   }
 }
+
+/* Ottimizzazioni per dispositivi mobili */
+@media (max-width: 768px) {
+  /* Riduce il padding superiore del main container per tutte le pagine */
+  main.min-h-screen {
+    padding-top: 0;
+  }
+  
+  /* Riduce lo spazio tra le sezioni nelle pagine interne */
+  .section {
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+  
+  /* Modifica il padding dei titoli di pagina su mobile */
+  h1, h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Rimuove lo spazio superiore in tutte le pagine che contengono testo */
+  section:first-of-type {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  /* Rimuove margini superiori dai container principali */
+  .container {
+    margin-top: 0 !important;
+  }
+  
+  /* Elimina lo spazio superiore negli elementi che iniziano le pagine */
+  .page-heading, 
+  .section-heading, 
+  .content-section > *:first-child,
+  article > *:first-child,
+  .row > *:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+}

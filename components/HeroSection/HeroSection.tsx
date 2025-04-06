@@ -28,7 +28,7 @@ export default function HeroSection({ title, subtitle }: HeroSectionProps) {
   return (
     <div className={`${styles.hero} ${isLoaded ? styles.loaded : ''}`}>
       <div className={styles.hero_content}>
-        <h1 className={styles.title}>{title}</h1>
+        <h1 className={`${styles.title} hero-title`}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
         <div className={styles.cta_container}>
           <Link href="/contatti" className={styles.cta_button}>

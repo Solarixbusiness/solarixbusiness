@@ -104,7 +104,7 @@ export default function AboutSection() {
         </div>
         
         <div className={styles.cta_container}>
-          <Link href="/contatti" className={styles.cta_button}>
+          <Link href="/landing-google-ads" className={styles.cta_button} id="chi-siamo-cta">
             Contattaci per una consulenza
           </Link>
         </div>

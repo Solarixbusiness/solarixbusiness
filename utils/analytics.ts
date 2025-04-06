@@ -87,52 +87,78 @@ export function measureWebVitals() {
   }
 }
 
-// Funzione per il tipo gtag
-type GtagFunction = (command: string, ...args: any[]) => void;
-
-/**
- * Inizializza Google Analytics
- */
+// Configurazione del Consent Mode v2 e Privacy-Preserving Analytics
 export function initializeAnalytics() {
-  if (typeof window !== 'undefined') {
-    try {
-      const measurementId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
-      
-      if (!measurementId) {
-        console.warn('ID di Google Analytics non configurato');
-        return;
-      }
+  if (typeof window === 'undefined') return;
 
-      // Aggiungi il script di Google Analytics
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-      script.onload = () => {
-        // Inizializza Google Analytics
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = window.gtag || function() {
-          window.dataLayer.push(arguments);
-        };
-        
-        window.gtag('js', new Date());
-        window.gtag('config', measurementId, {
-          send_page_view: true,
-          anonymize_ip: true,
-          cookie_flags: 'SameSite=None;Secure;Partitioned',
-          cookie_domain: 'auto',
-          cookie_update: false,
-          cookie_prefix: 'ga_',
-          cookie_expires: 2592000, // 30 giorni
+  // Carica lo script di Google Tag Manager con le nuove impostazioni di privacy
+  const script = document.createElement('script');
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`;
+  script.async = true;
+  script.setAttribute('data-cookieconsent', 'statistics');
+  script.setAttribute('type', 'text/partytown');
+  
+  // Inizializza gtag con le impostazioni moderne
+  window.dataLayer = window.dataLayer || [];
+  const gtag: GtagFunction = function(...args: any[]) {
+    window.dataLayer?.push(arguments);
+  } as any;
+  window.gtag = gtag;
+
+  // Aspetta che lo script sia caricato prima di configurare
+  script.onload = () => {
+    // Configura il Consent Mode v2
+    gtag('consent', 'default', {
+      'ad_storage': 'granted',
+      'analytics_storage': 'granted',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+
+    gtag('js', new Date());
+    gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS || '', {
+      anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+      restricted_data_processing: true,
+      cookie_flags: 'SameSite=None;Secure;Partitioned',
+      privacy_sandbox: true
+    });
+
+    // Implementa il supporto per le nuove API di privacy
+    if (typeof document !== 'undefined' && 'browsingTopics' in document) {
+      (document as any).browsingTopics?.()
+        .then((topics: Array<{ topic: string; taxonomyVersion: string }>) => {
+          if (topics && topics.length > 0) {
+            gtag('event', 'topics_available', {
+              topics: topics.map(t => t.topic),
+              non_interaction: true
+            });
+          }
+        })
+        .catch(() => {
+          // Topics API non disponibile o negata
+          console.debug('Topics API not available');
         });
-
-        // Misura e invia le metriche Web Vitals
-        measureWebVitals();
-      };
-      
-      // Aggiungi lo script alla pagina
-      document.head.appendChild(script);
-    } catch (error) {
-      console.error('Errore durante l\'inizializzazione di Google Analytics:', error);
     }
+  };
+
+  document.head.appendChild(script);
+}
+
+// Tipo per la funzione gtag
+interface GtagFunction {
+  (command: 'js', date: Date): void;
+  (command: 'config', targetId: string, config?: object): void;
+  (command: 'event', eventName: string, params?: object): void;
+  (command: 'consent', type: string, params: object): void;
+}
+
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
   }
 }
