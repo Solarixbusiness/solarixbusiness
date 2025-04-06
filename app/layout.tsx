@@ -10,6 +10,7 @@ import PerformanceMetrics from '@/components/PerformanceMetrics/PerformanceMetri
 import { SEO_CONSTANTS } from '@/utils/seoConstants'
 import ClientProviders from '@/components/ClientProviders'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -78,14 +79,44 @@ export default function RootLayout({
     <html lang="it">
       <head>
         {/* Google Tag Manager */}
-        <script dangerouslySetInnerHTML={{ __html: `
+        <Script id="google-tag-manager" strategy="afterInteractive">{`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-TV8D8Q7C');
-        `}} />
+        `}</Script>
         {/* End Google Tag Manager */}
+        
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-MB624KV3DS"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-MB624KV3DS');
+          `}
+        </Script>
+        {/* End Google Analytics 4 */}
+        
+        {/* Google Ads */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16979483829"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16979483829');
+          `}
+        </Script>
+        {/* End Google Ads */}
         <link rel="icon" href="/favico/favicon.ico" sizes="any" />
         <link rel="icon" href="/favico/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favico/apple-touch-icon.png" />

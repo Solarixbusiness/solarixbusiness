@@ -100,9 +100,9 @@ export function initializeAnalytics() {
   
   // Inizializza gtag con le impostazioni moderne
   window.dataLayer = window.dataLayer || [];
-  const gtag: GtagFunction = function(...args: any[]) {
+  const gtag = function(command: string, action: string, params?: any) {
     window.dataLayer?.push(arguments);
-  } as any;
+  };
   window.gtag = gtag;
 
   // Aspetta che lo script sia caricato prima di configurare
@@ -117,7 +117,7 @@ export function initializeAnalytics() {
       'wait_for_update': 500
     });
 
-    gtag('js', new Date());
+    gtag('js', new Date().toISOString());
     gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS || '', {
       anonymize_ip: true,
       allow_google_signals: false,
@@ -148,17 +148,9 @@ export function initializeAnalytics() {
   document.head.appendChild(script);
 }
 
-// Tipo per la funzione gtag
-interface GtagFunction {
-  (command: 'js', date: Date): void;
-  (command: 'config', targetId: string, config?: object): void;
-  (command: 'event', eventName: string, params?: object): void;
-  (command: 'consent', type: string, params: object): void;
-}
-
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (command: string, action: string, params?: any) => void;
     dataLayer: any[];
   }
 }

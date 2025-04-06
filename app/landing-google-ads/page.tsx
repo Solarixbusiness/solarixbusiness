@@ -69,6 +69,14 @@ export default function LandingPage() {
 
       if (response.ok) {
         setSubmitted(true);
+        // Google Ads Conversion Tracking
+        if (typeof window.gtag !== 'undefined') {
+          window.gtag('event', 'conversion', {
+            'send_to': 'AW-16979483829/3Ga0CJ27rrQaELW5uaA_',
+            'value': 1.0,
+            'currency': 'EUR'
+          });
+        }
         // Redirect to WhatsApp
         const whatsappMessage = `Ciao, sono ${formData.nome} dell'azienda ${formData.azienda}. Vorrei maggiori informazioni sulla finanza agevolata per il fotovoltaico.`;
         const whatsappUrl = `https://wa.me/+393792591471?text=${encodeURIComponent(whatsappMessage)}`;
@@ -116,6 +124,18 @@ export default function LandingPage() {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-MB624KV3DS');
+        `}
+      </Script>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-11466621392"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics-ads" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-11466621392');
         `}
       </Script>
       
