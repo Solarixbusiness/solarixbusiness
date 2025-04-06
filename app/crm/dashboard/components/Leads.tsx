@@ -17,6 +17,12 @@ interface Lead {
   ora_appuntamento?: string;
   indirizzo_appuntamento?: string;
   note_appuntamento?: string;
+  // Nuovi campi aggiunti
+  carica?: string;
+  nome_azienda?: string;
+  altri_numeri_di_telefono?: string;
+  linkedin_url?: string;
+  città?: string; // Senza accento per mantenere coerenza con il database
 }
 
 interface Props {
@@ -81,14 +87,39 @@ export default function Leads({ userId }: Props) {
             {leadNonAssegnati.map((lead) => (
               <div key={lead.id} className="bg-white border p-4 rounded shadow-sm">
                 <p><strong>{lead.nome} {lead.cognome}</strong> - {lead.email}</p>
+                {lead.carica && <p>Ruolo: {lead.carica}</p>}
+                {lead.nome_azienda && <p>Azienda: {lead.nome_azienda}</p>}
                 <p>Telefono: {lead.telefono}</p>
+                {lead.altri_numeri_di_telefono && (
+                  <div className="mt-1">
+                    <p className="text-sm text-gray-600">Altri contatti:</p>
+                    {lead.altri_numeri_di_telefono.split(',').map((numero, index) => (
+                      <a key={index} href={`tel:${numero.trim()}`} className="text-sm text-blue-600 hover:underline block">
+                        {numero.trim()}
+                      </a>
+                    ))}
+                  </div>
+                )}
+                {lead.città && <p>Città: {lead.città}</p>}
                 <p>Form: {lead.form_type}</p>
-                <button
-                  onClick={() => assegnaLead(lead.id)}
-                  className="mt-2 px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
-                >
-                  ➕ Assegna a me
-                </button>
+                <div className="flex gap-2 mt-2">
+                  <button
+                    onClick={() => assegnaLead(lead.id)}
+                    className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  >
+                    ➕ Assegna a me
+                  </button>
+                  {lead.linkedin_url && (
+                    <a 
+                      href={lead.linkedin_url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="px-3 py-1 bg-blue-100 text-blue-600 rounded hover:bg-blue-200 flex items-center"
+                    >
+                      LinkedIn
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -106,11 +137,34 @@ export default function Leads({ userId }: Props) {
             {leadMiei.map((lead) => (
               <div key={lead.id} className="bg-green-50 border border-green-200 p-4 rounded shadow-sm">
                 <p><strong>{lead.nome} {lead.cognome}</strong> - {lead.email}</p>
+                {lead.carica && <p>Ruolo: {lead.carica}</p>}
+                {lead.nome_azienda && <p>Azienda: {lead.nome_azienda}</p>}
                 <p>Telefono: {lead.telefono}</p>
+                {lead.altri_numeri_di_telefono && (
+                  <div className="mt-1">
+                    <p className="text-sm text-gray-600">Altri contatti:</p>
+                    {lead.altri_numeri_di_telefono.split(',').map((numero, index) => (
+                      <a key={index} href={`tel:${numero.trim()}`} className="text-sm text-blue-600 hover:underline block">
+                        {numero.trim()}
+                      </a>
+                    ))}
+                  </div>
+                )}
+                {lead.città && <p>Città: {lead.città}</p>}
+                {lead.linkedin_url && (
+                  <a 
+                    href={lead.linkedin_url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline text-sm block mt-1"
+                  >
+                    LinkedIn
+                  </a>
+                )}
                 <p>Form: {lead.form_type}</p>
                 <p>Stato: <strong>{lead.stato}</strong></p>
                 
-                {/* Aggiungi questa sezione per mostrare i dettagli dell'appuntamento */}
+                {/* Appuntamenti */}
                 {lead.data_appuntamento && (
                   <div className="mt-3 pt-3 border-t border-green-200">
                     <p className="font-medium">📅 Appuntamento:</p>
