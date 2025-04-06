@@ -5,20 +5,30 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#00A651",
+  "theme_color": "#FF6600",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/images/icon-192x192.png",
+      "src": "/favico/favicon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/favico/web-app-manifest-192x192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "/images/icon-512x512.png",
+      "src": "/favico/web-app-manifest-512x512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/favico/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
     }
   ]
 }

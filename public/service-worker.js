@@ -4,12 +4,17 @@ const CACHE_NAME = 'solarix-business-cache-v1';
 // Risorse da mettere in cache all'installazione
 const PRECACHE_RESOURCES = [
   '/',
-  '/images/logobus.png',
-  '/images/faviconbus.ico',
+  '/favico/favicon.ico',
+  '/favico/favicon.svg',
+  '/favico/favicon-96x96.png',
+  '/favico/web-app-manifest-192x192.png',
+  '/favico/web-app-manifest-512x512.png',
+  '/favico/apple-touch-icon.png',
   '/icons/shield.svg',
   '/icons/tools.svg',
   '/icons/certificate.svg',
   '/icons/performance.svg',
+  '/manifest.json'
 ];
 
 // Installazione del service worker
@@ -49,6 +54,11 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+// Funzione per verificare se il client è Safari
+function isSafari(userAgent) {
+  return /^((?!chrome|android).)*safari/i.test(userAgent);
+}
+
 // Intercetta le richieste di rete
 self.addEventListener('fetch', (event) => {
   // Ignora le richieste non GET
@@ -60,43 +70,79 @@ self.addEventListener('fetch', (event) => {
   // Ignora le richieste di API
   if (event.request.url.includes('/api/')) return;
 
+  // Ignora le richieste chrome-extension
+  if (event.request.url.startsWith('chrome-extension://')) return;
+
+  // Verifica che lo schema della richiesta sia supportato (http o https)
+  const url = new URL(event.request.url);
+  if (!['http:', 'https:'].includes(url.protocol)) return;
+
+  // Gestione speciale per Safari
+  const isSafariRequest = event.request.headers && event.request.headers.get('user-agent') && 
+                         isSafari(event.request.headers.get('user-agent'));
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
         // Cache hit - restituisci la risposta dalla cache
         if (response) {
+          // Per Safari, verifica che la risposta non sia scaduta
+          if (isSafariRequest) {
+            const responseDate = response.headers.get('date');
+            if (responseDate) {
+              const date = new Date(responseDate);
+              if ((new Date().getTime() - date.getTime()) > (24 * 60 * 60 * 1000)) {
+                // Se la risposta è più vecchia di 24 ore, ricarica
+                return fetchAndCache(event.request);
+              }
+            }
+          }
           return response;
         }
 
-        // Clona la richiesta perché è un flusso che può essere consumato solo una volta
-        const fetchRequest = event.request.clone();
-
-        return fetch(fetchRequest)
-          .then((response) => {
-            // Controlla se abbiamo ricevuto una risposta valida
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-
-            // Clona la risposta perché è un flusso che può essere consumato solo una volta
-            const responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                // Metti la risposta nella cache
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
-          })
-          .catch(() => {
-            // Se la rete fallisce, prova a restituire la pagina offline
-            if (event.request.mode === 'navigate') {
-              return caches.match('/offline.html');
-            }
-          });
+        return fetchAndCache(event.request);
       })
   );
+});
+
+// Funzione per fetchare e cachare una risorsa
+function fetchAndCache(request) {
+  const fetchRequest = request.clone();
+
+  return fetch(fetchRequest)
+    .then((response) => {
+      if (!response || response.status !== 200 || response.type !== 'basic') {
+        return response;
+      }
+
+      const responseToCache = response.clone();
+
+      try {
+        caches.open(CACHE_NAME)
+          .then((cache) => {
+            if (['http:', 'https:'].includes(new URL(request.url).protocol)) {
+              // Aggiungi headers per Safari
+              const headers = new Headers(responseToCache.headers);
+              headers.append('date', new Date().toUTCString());
+              const responseWithDate = new Response(responseToCache.body, {
+                status: responseToCache.status,
+                statusText: responseToCache.statusText,
+                headers: headers
+              });
+              cache.put(request, responseWithDate);
+            }
+          });
+      } catch (error) {
+        console.warn('Errore durante il caching:', error);
+      }
+
+      return response;
+    })
+    .catch(() => {
+      if (request.mode === 'navigate') {
+        return caches.match('/offline.html');
+      }
+    });
 });
 
 // Gestione dei messaggi
