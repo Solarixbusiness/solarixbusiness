@@ -88,8 +88,8 @@ export default function SeoHead({
         )}
         
         {/* Favicon */}
-        <link rel="icon" href="/images/faviconbus.ico" />
-        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+        <link rel="icon" href="/favico/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favico/apple-touch-icon.png" />
         
         {/* Alternate languages */}
         <link rel="alternate" hrefLang="it" href={`${siteUrl}${pathname}`} />

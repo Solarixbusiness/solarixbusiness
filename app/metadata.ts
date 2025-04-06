@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     images: [SEO_CONSTANTS.DEFAULT_OG_IMAGE],
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: '/favico/favicon.ico',
+    shortcut: '/favico/favicon.ico',
+    apple: '/favico/apple-touch-icon.png',
   },
 }
 
