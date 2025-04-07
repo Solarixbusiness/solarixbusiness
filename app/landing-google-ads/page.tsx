@@ -209,50 +209,33 @@ export default function LandingPage() {
               <h1>Fotovoltaico B2B: tecnologie avanzate e incentivi cumulabili</h1>
               <h2>Impianti all'avanguardia con consulenza fiscale e finanziamento agevolato</h2>
               
-              {/* NUOVA SEZIONE: Servizi Tecnici Avanzati */}
-              <div className={styles.benefitsSection}>
-                <h3 className={styles.sectionTitle}>Servizi Tecnici Avanzati</h3>
-                <div className={styles.benefitsGrid}>
-                  <div className={styles.benefitCard}>
-                    <div className={styles.benefitIcon}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
-                      </svg>
-                    </div>
-                    <h4>Tecnologie Fotovoltaiche</h4>
-                    <p>Moduli monocristallino PERC, HJT e TOPCon con garanzie estese fino a 30 anni</p>
+              {/* NUOVA SEZIONE: Soluzioni Finanziarie */}
+              <div className={styles.incentivesSection}>
+                <h3 className={styles.sectionTitle}>Soluzioni Finanziarie</h3>
+                <p className={styles.sectionSubtitle}>Opzioni flessibili per ottimizzare l'investimento e accelerare il ROI</p>
+                <div className={styles.incentivesGrid}>
+                  <div className={styles.incentiveCard}>
+                    <h4>Leasing & Noleggio</h4>
+                    <div className={styles.incentiveValue}>Zero Anticipo</div>
+                    <p>Soluzioni finanziarie con canone che si ripaga con il risparmio energetico</p>
                   </div>
                   
-                  <div className={styles.benefitCard}>
-                    <div className={styles.benefitIcon}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="3" y1="9" x2="21" y2="9"></line>
-                        <line x1="9" y1="21" x2="9" y2="9"></line>
-                      </svg>
-                    </div>
-                    <h4>Sistemi di Accumulo</h4>
-                    <p>Batterie LFP e NMC dimensionate per ottimizzare autoconsumo e peak shaving</p>
+                  <div className={styles.incentiveCard}>
+                    <h4>PPA</h4>
+                    <div className={styles.incentiveValue}>Power Purchase Agreement</div>
+                    <p>Acquisto energia a prezzo fisso con stabilità dei costi energetici</p>
                   </div>
                   
-                  <div className={styles.benefitCard}>
-                    <div className={styles.benefitIcon}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                      </svg>
-                    </div>
-                    <h4>Monitoraggio AI</h4>
-                    <p>Analisi predittiva basata su AI per identificare anomalie e ottimizzare la produzione</p>
+                  <div className={styles.incentiveCard}>
+                    <h4>Finanziamenti Agevolati</h4>
+                    <div className={styles.incentiveValue}>Tassi ridotti</div>
+                    <p>Accesso a linee di credito dedicate per investimenti green</p>
                   </div>
                   
-                  <div className={styles.benefitCard}>
-                    <div className={styles.benefitIcon}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
-                      </svg>
-                    </div>
-                    <h4>Agrivoltaico</h4>
-                    <p>Sistemi bifacciali e tracker per massimizzare produzione preservando uso agricolo del terreno</p>
+                  <div className={styles.incentiveCard}>
+                    <h4>Reportistica ESG</h4>
+                    <div className={styles.incentiveValue}>CSRD/SFDR Compliance</div>
+                    <p>Calcolo carbon footprint (Scope 1-2-3) e strategie di decarbonizzazione</p>
                   </div>
                 </div>
               </div>
@@ -342,37 +325,46 @@ export default function LandingPage() {
                 </div>
               </div>
               
-              {/* NUOVA SEZIONE: Soluzioni Finanziarie */}
-              <div className={styles.incentivesSection}>
-                <h3 className={styles.sectionTitle}>Soluzioni Finanziarie</h3>
-                <p className={styles.sectionSubtitle}>Opzioni flessibili per ottimizzare l'investimento e accelerare il ROI</p>
-                <div className={styles.incentivesGrid}>
-                  <div className={styles.incentiveCard}>
-                    <h4>Leasing & Noleggio</h4>
-                    <div className={styles.incentiveValue}>Zero Anticipo</div>
-                    <p>Soluzioni finanziarie con canone che si ripaga con il risparmio energetico</p>
-                  </div>
-                  
-                  <div className={styles.incentiveCard}>
-                    <h4>PPA</h4>
-                    <div className={styles.incentiveValue}>Power Purchase Agreement</div>
-                    <p>Acquisto energia a prezzo fisso con stabilità dei costi energetici</p>
-                  </div>
-                  
-                  <div className={styles.incentiveCard}>
-                    <h4>Finanziamenti Agevolati</h4>
-                    <div className={styles.incentiveValue}>Tassi ridotti</div>
-                    <p>Accesso a linee di credito dedicate per investimenti green</p>
-                  </div>
-                  
-                  <div className={styles.incentiveCard}>
-                    <h4>Reportistica ESG</h4>
-                    <div className={styles.incentiveValue}>CSRD/SFDR Compliance</div>
-                    <p>Calcolo carbon footprint (Scope 1-2-3) e strategie di decarbonizzazione</p>
-                  </div>
+              {/* NUOVA SEZIONE: Testimonianza Cliente */}
+            </div>
+          </div>
+        </div>
+        
+        {/* NUOVA SEZIONE: Testimonianza Cliente */}
+        <div className={styles.testimonialSection}>
+          <h3 className={styles.sectionTitle}>La storia di successo di Tornerie Piemontesi</h3>
+          <div className={styles.testimonialCard}>
+            <div className={styles.testimonialContent}>
+              <div className={styles.testimonialQuote}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="#FF6600" opacity="0.2">
+                  <path d="M10 11l-2.8-2.8a4.005 4.005 0 0 1 5.6-5.7l.2.1L18 7.6a4.025 4.025 0 0 1-5.6 5.7l-.2-.1L10 11zm-3.5 3c.4.3.8.8 1.2 1.2l4-4c.4-.4.9-.8 1.3-1.2L9 6c-.4.4-.9.8-1.3 1.2l-4 4c.5.4.9.8 1.3 1.3zM21 12v10H3V2h10v2H5v16h14v-8h2z"/>
+                </svg>
+              </div>
+              <div className={styles.testimonialTextContainer}>
+                <p className={styles.testimonialText}>
+                  Quest'anno abbiamo installato un impianto fotovoltaico da 300kW con SolariX Business, usufruendo del credito d'imposta al 63% della Transizione 5.0. Ma il vero valore è emerso nella consulenza continuativa. Il team di SolariX ci ha permesso di accedere a incentivi che non conoscevamo: abbiamo ottenuto fondi SIMEST per l'internazionalizzazione green. A fine anno avremo completamente azzerato i costi energetici con un piccolo guadagno extra sulle eccedenze. Inoltre, ci hanno guidato nella valorizzazione dei carbon credits generati, aprendo un flusso di ricavi completamente inaspettato. In pochi mesi, oltre al risparmio energetico immediato, abbiamo già recuperato oltre 220.000€ tra incentivi e monetizzazione ambientale, senza contare i futuri ricavi dai crediti carbonici.
+                </p>
+              </div>
+              <div className={styles.testimonialAuthor}>
+                <div className={styles.authorImage}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FF6600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div className={styles.authorInfo}>
+                  <h4>Franco S.</h4>
+                  <p>Direttore Operativo, Tornerie Piemontesi</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
 
+        {/* Contenitore principale con z-index elevato */}
+        <div className={styles.container} style={{ marginTop: '-20px' }}>
+          <div className={styles.contentSection} style={{ position: 'relative', zIndex: 2 }}>
+            <div className={styles.formContainer}>
               {!submitted ? (
                 <form onSubmit={handleSubmit} className={styles.form} aria-label="Form richiesta informazioni finanza agevolata">
                   <div className={styles.formGroup}>
