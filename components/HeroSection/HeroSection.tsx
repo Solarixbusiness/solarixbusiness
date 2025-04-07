@@ -72,10 +72,10 @@ export default function HeroSection({ title, subtitle }: HeroSectionProps) {
   return (
     <div className={`${styles.hero} ${isLoaded ? styles.loaded : ''}`}>
       <div className={styles.hero_content}>
-        <h1 className={`${styles.title} ${animationsStarted ? styles.title_animate : ''}`}>{title}</h1>
+        <h1 className={`${styles.title} ${animationsStarted ? styles.title_animate : ''}`}>{title.toUpperCase()}</h1>
         <h2 className={`${styles.subtitle} ${animationsStarted ? styles.subtitle_animate : ''}`}>{subtitle}</h2>
         <div className={styles.cta_container}>
-          <Link href="/parla-con-un-consulente" className={`${styles.main_cta_button} ${animationsStarted ? styles.cta_animate : ''}`}>
+          <Link href="/parla-con-un-consulente" className={`${styles.main_cta_button} ${animationsStarted ? styles.cta_animate : ''} ${styles.cta_button_animate}`}>
             CONTATTACI ORA!
           </Link>
         </div>
