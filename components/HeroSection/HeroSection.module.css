@@ -45,11 +45,15 @@
 
 .title {
   font-size: 3.5rem;
-  font-weight: 900;
+  font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font-family: 'Orbitron', sans-serif;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  letter-spacing: 1px;
 }
 
 .subtitle {
@@ -59,6 +63,9 @@
   opacity: 0.9;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   font-family: 'Roboto', sans-serif;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .cta_container {
@@ -104,6 +111,110 @@
   background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.main_cta_button {
+  display: inline-block;
+  background-color: #FF6600;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 16px 36px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInButton 0.7s ease forwards;
+  animation-delay: 400ms;
+}
+
+.main_cta_button:hover {
+  background-color: #FF7F1C;
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.main_cta_button:active {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main_cta_button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  animation: pulse 2s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSubtitle {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.title_animate {
+  animation: fadeInTitle 0.8s ease forwards;
+  animation-delay: 800ms;
+}
+
+.subtitle_animate {
+  animation: fadeInSubtitle 0.8s ease forwards;
+  animation-delay: 900ms;
 }
 
 @media (max-width: 768px) {
