@@ -63,6 +63,10 @@ export default function CookieConsent() {
       setPreferences(allAccepted);
       setShowConsent(false);
       
+      // Emetti un evento custom per segnalare che i cookie sono stati accettati
+      const cookieEvent = new CustomEvent('cookieConsentAccepted');
+      window.dispatchEvent(cookieEvent);
+      
       // Attiva gli script di analytics se consentito
       if (allAccepted.analytics) {
         enableAnalytics();
@@ -86,6 +90,10 @@ export default function CookieConsent() {
       localStorage.setItem('cookie-consent', JSON.stringify(necessaryOnly));
       setPreferences(necessaryOnly);
       setShowConsent(false);
+      
+      // Emetti un evento custom per segnalare che i cookie sono stati accettati
+      const cookieEvent = new CustomEvent('cookieConsentAccepted');
+      window.dispatchEvent(cookieEvent);
     } catch (error) {
       console.error('Errore durante l\'accettazione dei cookie necessari:', error);
     }
@@ -98,6 +106,10 @@ export default function CookieConsent() {
       localStorage.setItem('cookie-consent', JSON.stringify(preferences));
       setShowConsent(false);
       setShowPreferences(false);
+      
+      // Emetti un evento custom per segnalare che i cookie sono stati accettati
+      const cookieEvent = new CustomEvent('cookieConsentAccepted');
+      window.dispatchEvent(cookieEvent);
       
       // Attiva gli script di analytics se consentito
       if (preferences.analytics) {
