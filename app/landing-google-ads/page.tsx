@@ -70,12 +70,11 @@ export default function LandingPage() {
       if (response.ok) {
         setSubmitted(true);
         // Google Ads Conversion Tracking
-        if (typeof window.gtag !== 'undefined') {
-          window.gtag('event', 'conversion', {
-            'send_to': 'AW-16979483829/3Ga0CJ27rrQaELW5uaA_',
-            'value': 1.0,
-            'currency': 'EUR'
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'conversion', {
+            'send_to': 'AW-16979483829/3Ga0CJ27rrQaELW5uaA_'
           });
+          console.log('Conversione tracciata su Google Ads');
         }
         // Redirect to WhatsApp
         const whatsappMessage = `Ciao, sono ${formData.nome} dell'azienda ${formData.azienda}. Vorrei maggiori informazioni sulla finanza agevolata per il fotovoltaico.`;
