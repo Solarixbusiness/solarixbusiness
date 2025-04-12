@@ -26,6 +26,15 @@ export function IncentiveForm() {
     }
     
     setShowPrivacyAlert(false);
+    
+    // Tracciamento conversione Google Ads
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-16979483829/8kRVCPDUkJQZEOXdvv4p'
+      });
+      console.log('Conversione tracciata su Google Ads');
+    }
+    
     // Implementa qui la logica di invio del form
     console.log('Form submitted:', formData);
   };
