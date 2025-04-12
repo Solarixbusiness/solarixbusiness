@@ -56,6 +56,18 @@ export default function ServiceForm({ title, formType }: ServiceFormProps) {
           error: false,
           message: 'Grazie! Ti contatteremo presto.'
         })
+        
+        // Tracciamento conversione Google Ads
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'conversion', {
+            'send_to': 'AW-16979483829/8kRVCPDUkJQZEOXdvv4p',
+            'value': 1.0,
+            'currency': 'EUR',
+            'transaction_id': new Date().getTime().toString()
+          });
+          console.log('Conversione tracciata su Google Ads');
+        }
+        
         setFormData({ name: '', email: '', phone: '', company: '', message: '', privacy: false })
       } else {
         throw new Error(data.error || 'Errore durante l\'invio')
