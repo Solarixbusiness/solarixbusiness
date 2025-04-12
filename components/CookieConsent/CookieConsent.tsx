@@ -7,8 +7,9 @@ interface WindowWithDataLayer {
 
 // Estendiamo l'oggetto Window globale
 declare global {
-  interface Window extends WindowWithDataLayer {
+  interface Window {
     dataLayer: any[];
+    gtag: (command: string, action: string, params?: any) => void;
   }
 }
 
@@ -63,6 +64,17 @@ export default function CookieConsent() {
       setPreferences(allAccepted);
       setShowConsent(false);
       
+      // Aggiorna il consenso per Google
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'analytics_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+        console.log('Consenso aggiornato: tutti i cookie accettati');
+      }
+      
       // Emetti un evento custom per segnalare che i cookie sono stati accettati
       const cookieEvent = new CustomEvent('cookieConsentAccepted');
       window.dispatchEvent(cookieEvent);
@@ -91,6 +103,17 @@ export default function CookieConsent() {
       setPreferences(necessaryOnly);
       setShowConsent(false);
       
+      // Aggiorna il consenso per Google - mantieni tutto denied
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied'
+        });
+        console.log('Consenso aggiornato: solo cookie necessari');
+      }
+      
       // Emetti un evento custom per segnalare che i cookie sono stati accettati
       const cookieEvent = new CustomEvent('cookieConsentAccepted');
       window.dispatchEvent(cookieEvent);
@@ -106,6 +129,20 @@ export default function CookieConsent() {
       localStorage.setItem('cookie-consent', JSON.stringify(preferences));
       setShowConsent(false);
       setShowPreferences(false);
+      
+      // Aggiorna il consenso per Google in base alle preferenze selezionate
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          // analytics_storage controlla i cookie di analisi
+          'analytics_storage': preferences.analytics ? 'granted' : 'denied',
+          // ad_storage controlla i cookie pubblicitari
+          'ad_storage': preferences.marketing ? 'granted' : 'denied',
+          // ad_user_data e ad_personalization per la personalizzazione degli annunci
+          'ad_user_data': preferences.marketing ? 'granted' : 'denied',
+          'ad_personalization': preferences.marketing ? 'granted' : 'denied'
+        });
+        console.log('Consenso aggiornato in base alle preferenze utente');
+      }
       
       // Emetti un evento custom per segnalare che i cookie sono stati accettati
       const cookieEvent = new CustomEvent('cookieConsentAccepted');
@@ -152,13 +189,14 @@ export default function CookieConsent() {
           // Inizializza dataLayer se non esiste
           window.dataLayer = window.dataLayer || [];
           
-          const gtag = (...args: any[]) => {
-            window.dataLayer.push(args);
-          };
-          
           // Inizializza Google Analytics
-          gtag('js', new Date());
-          gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
+          window.gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 1000,
+          });
+          window.gtag('js', new Date() as any);
+          window.gtag('config', process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS, {
             page_path: window.location.pathname,
             cookie_flags: 'SameSite=None;Secure;Partitioned',
             cookie_domain: 'auto',
@@ -167,9 +205,6 @@ export default function CookieConsent() {
             cookie_expires: 2592000, // 30 giorni
             anonymize_ip: true,
           });
-          
-          // Aggiungi gtag all'oggetto window
-          (window as any).gtag = gtag;
         }
       }
     } catch (error) {
