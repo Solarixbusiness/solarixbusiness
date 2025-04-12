@@ -76,10 +76,25 @@ export default function IncentiveForm() {
       
       // Tracciamento conversione Google Ads
       if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-16979483829/8kRVCPDUkJQZEOXdvv4p'
-        });
-        console.log('Conversione tracciata su Google Ads');
+        try {
+          console.log('Tentativo di tracciamento conversione Google Ads');
+          (window as any).gtag('event', 'conversion', {
+            'send_to': 'AW-16979483829/8kRVCPDUkJQZEOXdvv4p'
+          });
+          console.log('Conversione tracciata su Google Ads con successo');
+          
+          // Tracciamento evento form_submit in Google Analytics
+          (window as any).gtag('event', 'form_submit', {
+            'form_name': 'incentivi_home',
+            'form_id': 'incentive_form',
+            'form_success': true
+          });
+          console.log('Evento form_submit tracciato in Google Analytics');
+        } catch (error) {
+          console.error('Errore durante il tracciamento della conversione:', error);
+        }
+      } else {
+        console.warn('gtag non disponibile per il tracciamento della conversione');
       }
       
       // Reset form
