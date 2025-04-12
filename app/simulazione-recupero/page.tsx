@@ -127,6 +127,14 @@ export default function SimulazioneRecuperoPage() {
         message: 'Grazie! Ti contatteremo presto.'
       });
 
+      // Tracciamento conversione Google Ads
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-16979483829/8kRVCPDUkJQZEOXdvv4p'
+        });
+        console.log('Conversione tracciata su Google Ads');
+      }
+
       // Reset form
       setFormData({
         name: '',
