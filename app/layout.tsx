@@ -100,6 +100,89 @@ export default function RootLayout({
             'analytics_storage': 'denied',
             'wait_for_update': 1000
           });
+          
+          // Imposta il trattamento dati limitato di default (per CCPA)
+          gtag('set', 'restricted_data_processing', true);
+          
+          // Imposta la stringa us_privacy di default (per IAB CCPA)
+          gtag('set', 'us_privacy', '1YNN');
+          
+          // Supporto per IAB TCF
+          window.__tcfapi = function(command, version, callback) {
+            if (command === 'addEventListener') {
+              // Simuliamo una risposta TCF
+              const tcData = {
+                gdprApplies: true,
+                eventStatus: 'tcloaded',
+                purpose: {
+                  consents: {
+                    1: false, // Memorizzazione/accesso informazioni
+                    2: false, // Personalizzazione
+                    3: false, // Selezione, consegna e report degli annunci
+                    4: false, // Selezione, consegna e report dei contenuti
+                    5: false, // Misurazione
+                    6: false, // Altro
+                    7: false, // Altro
+                    8: false, // Altro
+                    9: false, // Altro
+                    10: false // Altro
+                  }
+                },
+                vendor: {
+                  consents: {}
+                }
+              };
+              
+              callback(tcData, true);
+              
+              // Memorizziamo il callback per chiamarlo quando l'utente aggiorna il consenso
+              window.tcfCallbacks = window.tcfCallbacks || [];
+              window.tcfCallbacks.push(callback);
+            } else if (command === 'removeEventListener') {
+              // Rimuovi il listener
+              callback({}, true);
+            } else if (command === 'getTCData') {
+              // Restituisci i dati TCF attuali
+              const tcData = {
+                gdprApplies: true,
+                eventStatus: 'tcloaded',
+                purpose: {
+                  consents: {}
+                },
+                vendor: {
+                  consents: {}
+                }
+              };
+              
+              // Leggi il consenso dal localStorage
+              try {
+                const storedConsent = localStorage.getItem('cookie-consent');
+                if (storedConsent) {
+                  const parsedConsent = JSON.parse(storedConsent);
+                  
+                  // Imposta i consensi in base alle preferenze dell'utente
+                  if (parsedConsent.iabTcfAccepted) {
+                    tcData.purpose.consents = {
+                      1: true,
+                      2: parsedConsent.preferences,
+                      3: parsedConsent.marketing,
+                      4: parsedConsent.preferences,
+                      5: parsedConsent.analytics,
+                      6: parsedConsent.necessary,
+                      7: parsedConsent.necessary,
+                      8: parsedConsent.necessary,
+                      9: parsedConsent.necessary,
+                      10: parsedConsent.necessary
+                    };
+                  }
+                }
+              } catch (e) {
+                console.error('Errore durante la lettura del consenso TCF:', e);
+              }
+              
+              callback(tcData, true);
+            }
+          };
         `}</Script>
         
         {/* Google Tag Manager */}

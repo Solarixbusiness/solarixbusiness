@@ -10,42 +10,83 @@ declare global {
   interface Window {
     dataLayer: any[];
     gtag: (command: string, action: string, params?: any) => void;
+    addConsentListener: (callback: (consent: any) => void) => void;
+    consentListeners: ((consent: any) => void)[];
+    __tcfapi?: (command: string, version: number, callback: (response: any) => void, parameter?: any) => void;
   }
 }
 
 import { useState, useEffect } from 'react';
 import styles from './CookieConsent.module.css';
 
+// Interfaccia per le preferenze di consenso
+interface ConsentPreferences {
+  necessary: boolean;
+  analytics: boolean;
+  marketing: boolean;
+  preferences: boolean;
+  // Aggiungiamo campi per IAB TCF
+  iabTcfAccepted?: boolean;
+  // Aggiungiamo campi per CCPA
+  ccpaOptOut?: boolean;
+}
+
 export default function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false);
-  const [preferences, setPreferences] = useState({
+  const [preferences, setPreferences] = useState<ConsentPreferences>({
     necessary: true, // Sempre attivo
     analytics: false,
     marketing: false,
-    preferences: false
+    preferences: false,
+    iabTcfAccepted: false,
+    ccpaOptOut: false
   });
   const [showPreferences, setShowPreferences] = useState(false);
 
   useEffect(() => {
-    // Verifica se siamo in ambiente browser
-    if (typeof window === 'undefined' || !localStorage) return;
-    
     try {
-      // Controlla se l'utente ha già dato il consenso
-      const consent = localStorage.getItem('cookie-consent');
-      if (!consent) {
-        setShowConsent(true);
-      } else {
-        try {
-          setPreferences(JSON.parse(consent));
-        } catch (e) {
-          // Se c'è un errore nel parsing, mostra di nuovo il consenso
-          console.error('Errore nel parsing del consenso cookie:', e);
+      // Controlla se il consenso è già stato dato
+      if (typeof window !== 'undefined' && localStorage) {
+        const storedConsent = localStorage.getItem('cookie-consent');
+        
+        if (storedConsent) {
+          try {
+            const parsedConsent = JSON.parse(storedConsent);
+            setPreferences(parsedConsent);
+            setShowConsent(false);
+            
+            // Attiva gli script di analytics se consentito
+            if (parsedConsent.analytics) {
+              enableAnalytics();
+            }
+          } catch (error) {
+            console.error('Errore durante il parsing del consenso memorizzato:', error);
+            setShowConsent(true);
+          }
+        } else {
           setShowConsent(true);
         }
+        
+        // Aggiungi la funzione addConsentListener all'oggetto window
+        // Questa funzione verrà chiamata dal modello GTM per ricevere gli aggiornamenti del consenso
+        window.addConsentListener = function(callback) {
+          // Memorizza il callback per chiamarlo quando cambia il consenso
+          window.consentListeners = window.consentListeners || [];
+          window.consentListeners.push(callback);
+          
+          // Se abbiamo già un consenso memorizzato, chiama immediatamente il callback
+          if (storedConsent) {
+            try {
+              const parsedConsent = JSON.parse(storedConsent);
+              callback(parsedConsent);
+            } catch (error) {
+              console.error('Errore durante il callback del consenso:', error);
+            }
+          }
+        };
       }
     } catch (error) {
-      console.error('Errore durante il controllo del consenso cookie:', error);
+      console.error('Errore durante il controllo del consenso:', error);
     }
   }, []);
 
@@ -53,11 +94,13 @@ export default function CookieConsent() {
     if (typeof window === 'undefined' || !localStorage) return;
     
     try {
-      const allAccepted = {
+      const allAccepted: ConsentPreferences = {
         necessary: true,
         analytics: true,
         marketing: true,
-        preferences: true
+        preferences: true,
+        iabTcfAccepted: true,
+        ccpaOptOut: false
       };
       
       localStorage.setItem('cookie-consent', JSON.stringify(allAccepted));
@@ -83,6 +126,11 @@ export default function CookieConsent() {
       if (allAccepted.analytics) {
         enableAnalytics();
       }
+      
+      // Chiama i callback di aggiornamento del consenso
+      if (window.consentListeners) {
+        window.consentListeners.forEach(callback => callback(allAccepted));
+      }
     } catch (error) {
       console.error('Errore durante l\'accettazione di tutti i cookie:', error);
     }
@@ -92,11 +140,13 @@ export default function CookieConsent() {
     if (typeof window === 'undefined' || !localStorage) return;
     
     try {
-      const necessaryOnly = {
+      const necessaryOnly: ConsentPreferences = {
         necessary: true,
         analytics: false,
         marketing: false,
-        preferences: false
+        preferences: false,
+        iabTcfAccepted: false,
+        ccpaOptOut: true
       };
       
       localStorage.setItem('cookie-consent', JSON.stringify(necessaryOnly));
@@ -117,6 +167,11 @@ export default function CookieConsent() {
       // Emetti un evento custom per segnalare che i cookie sono stati accettati
       const cookieEvent = new CustomEvent('cookieConsentAccepted');
       window.dispatchEvent(cookieEvent);
+      
+      // Chiama i callback di aggiornamento del consenso
+      if (window.consentListeners) {
+        window.consentListeners.forEach(callback => callback(necessaryOnly));
+      }
     } catch (error) {
       console.error('Errore durante l\'accettazione dei cookie necessari:', error);
     }
@@ -152,12 +207,17 @@ export default function CookieConsent() {
       if (preferences.analytics) {
         enableAnalytics();
       }
+      
+      // Chiama i callback di aggiornamento del consenso
+      if (window.consentListeners) {
+        window.consentListeners.forEach(callback => callback(preferences));
+      }
     } catch (error) {
       console.error('Errore durante il salvataggio delle preferenze cookie:', error);
     }
   };
 
-  const handlePreferenceChange = (key: keyof typeof preferences) => {
+  const handlePreferenceChange = (key: keyof ConsentPreferences) => {
     setPreferences(prev => ({
       ...prev,
       [key]: !prev[key]
@@ -319,6 +379,38 @@ export default function CookieConsent() {
                 <div>
                   <h3>Cookie per le preferenze</h3>
                   <p>Permettono al sito di ricordare le tue preferenze e personalizzazioni.</p>
+                </div>
+              </div>
+              
+              <div className={styles.preferenceItem}>
+                <label className={styles.switch}>
+                  <input 
+                    type="checkbox" 
+                    checked={preferences.iabTcfAccepted} 
+                    onChange={() => handlePreferenceChange('iabTcfAccepted')}
+                    aria-label="Accetta IAB TCF"
+                  />
+                  <span className={styles.slider}></span>
+                </label>
+                <div>
+                  <h3>IAB TCF</h3>
+                  <p>Accetta le condizioni di IAB TCF per la gestione dei cookie.</p>
+                </div>
+              </div>
+              
+              <div className={styles.preferenceItem}>
+                <label className={styles.switch}>
+                  <input 
+                    type="checkbox" 
+                    checked={!preferences.ccpaOptOut} 
+                    onChange={() => handlePreferenceChange('ccpaOptOut')}
+                    aria-label="Accetta CCPA"
+                  />
+                  <span className={styles.slider}></span>
+                </label>
+                <div>
+                  <h3>CCPA</h3>
+                  <p>Accetta le condizioni di CCPA per la gestione dei dati personali.</p>
                 </div>
               </div>
             </div>
