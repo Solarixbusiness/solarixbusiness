@@ -1,0 +1,576 @@
+GUIDA COMPLETA SIMEST FONDO 394/81
+STRUMENTI FINANZIARI PER L'INTERNAZIONALIZZAZIONE DELLE IMPRESE
+PARTE 2: SPESE AMMISSIBILI, RENDICONTAZIONE ED EROGAZIONI
+
+1. SPESE AMMISSIBILI
+1.1 Categorie di Spese Finanziabili
+A) Investimenti per Sostenibilità Ambientale e Sociale
+
+Efficientamento energetico (anche in Italia)
+Efficientamento idrico (anche in Italia)
+Mitigazione impatti climatici (anche in Italia)
+Altri investimenti sostenibili ambientali e sociali
+
+B) Certificazioni Ambientali
+
+Ottenimento certificazioni ambientali connesse agli investimenti
+Mantenimento certificazioni già ottenute
+Certificazioni riconosciute: ISO 45001, ISO 14001, SA8000 (per punteggio aggiuntivo)
+
+C) Investimenti per Rafforzamento Patrimoniale
+
+Immobilizzazioni materiali (anche in Italia)
+Immobilizzazioni immateriali (escluso avviamento, anche in Italia)
+Immobilizzazioni finanziarie per:
+
+Incrementi capitale sociale a controllate
+Finanziamenti soci a controllate
+
+
+Devono risultare nell'attivo patrimoniale o essere asseverate da revisore
+Altre immobilizzazioni finanziarie sono escluse
+
+D) Consulenze Specialistiche
+
+Presentazione e gestione della richiesta
+Asseverazioni del Revisore
+Limite: fino al 5% dell'importo deliberato, comunque non superiori a €100.000
+Richiedono: contratto e dichiarazione di indipendenza del consulente
+Eccezione temporale: consulenze per la sola presentazione ammissibili anche se svolte prima della domanda, purché pagate dopo il CUP e nel Periodo di Realizzazione
+
+E) Spese Specifiche per E-commerce (per intervento dedicato)
+
+Creazione/miglioramento piattaforma propria
+Accesso a piattaforme di terzi/marketplace
+Non è possibile destinare l'intero finanziamento ad attività di consulenza
+Almeno una spesa deve riguardare la piattaforma stessa
+
+F) Spese per Transizione Digitale (PNRR)
+
+Macchinari e impianti per digitalizzazione
+Software e licenze per processi digitali
+Consulenza specialistica con contratto, durata e corrispettivo definiti
+Formazione Industria 4.0 (solo se erogata da fornitore terzo con fattura)
+Verifica DNSH obbligatoria per macchinari/impianti
+
+1.2 Spese Non Ammissibili
+Spese Commerciali Escluse
+
+Spese direttamente connesse all'attività commerciale:
+
+Assistenza post-vendita
+Trasporto merci
+Stoccaggio merci
+
+
+
+Spese Correnti Escluse
+
+Personale dell'Impresa Richiedente o soggetti ad essa riferibili
+Attività correnti non connesse agli investimenti
+
+Altre Esclusioni
+
+Spese non conformi al cumulo (Reg. UE n. 2831/2023)
+Costituzione o potenziamento di reti di distribuzione
+Spese promozionali o social media (per Transizione Digitale)
+Spese già sostenute prima del rilascio del CUP
+
+
+2. TIMING E SOSTENIBILITÀ DELLE SPESE
+2.1 Regole Temporali Fondamentali
+Data di Sostenimento
+
+Le spese sono ammissibili solo se sostenute DOPO la data di presentazione della domanda
+Eccezione: diversa data stabilita da circolare operativa
+Per PNRR: spese sostenibili dalla data di ricezione del CUP
+
+Periodo di Realizzazione
+
+Inizio: dalla ricezione del CUP
+Fine: 24 mesi dopo la Data di Stipula
+Proroga possibile: 6 mesi aggiuntivi
+Tutte le attività devono essere svolte in questo periodo
+
+2.2 Definizione di "Spesa Sostenuta"
+Criteri di Sostenimento
+
+Si considera sostenuta alla data dell'effettivo pagamento
+Tramite il Conto Corrente Dedicato
+Pagamenti per compensazione NON ammissibili
+
+Eccezione per Consulenze Pre-Domanda
+
+Attività svolta prima della domanda: ammissibile
+Condizioni: pagamento dopo il CUP e nel Periodo di Realizzazione
+Solo per consulenze relative alla presentazione della domanda
+
+2.3 Gestione degli Acconti
+Acconti Versati
+
+Acconti versati possono essere integrati
+Condizione: restante fattura emessa nel Periodo di Realizzazione
+Coerenza temporale richiesta tra acconto e saldo
+
+
+3. CONTO CORRENTE DEDICATO
+3.1 Caratteristiche e Obblighi
+Utilizzo Esclusivo
+
+Solo per spese ammissibili relative al progetto
+Solo per ricezione erogazioni SIMEST
+Può essere condiviso con altri Interventi Agevolativi SIMEST gestiti
+
+Apertura e Comunicazione
+
+Apertura prima di sostenere le spese ammissibili
+Contratto caricato sul Portale SIMEST
+Comunicazione obbligatoria a SIMEST
+
+3.2 Modifica del Conto Corrente
+Procedura di Modifica
+
+Richiesta motivata tramite PEC
+Firma digitale obbligatoria
+Dichiarazione di assenza di chiusura unilaterale del conto originario
+Attestazione bancaria o dichiarazione con funzionario bancario
+SIMEST verifica l'ammissibilità del nuovo conto
+
+3.3 Modalità di Alimentazione
+Fonti Consentite
+
+Giroconti dall'impresa richiedente
+Giroconti da controllate dell'impresa richiedente
+Nessuna altra fonte è ammessa
+
+3.4 Gestione delle Anomalie
+Tolleranza per Spese Non Inerenti
+Durante il Periodo di Realizzazione:
+
+Sotto il 5% delle spese rendicontate: verifica previa ripristino somme
+Sopra il 5% delle spese rendicontate: revoca dell'intervento
+Sempre richiesta evidenza documentale per verifica anomalie
+
+Prima o Dopo il Periodo
+
+Evidenza documentale obbligatoria per tutti i movimenti anomali
+Verifica specifica da parte di SIMEST
+
+3.5 Deroghe alle Modalità di Pagamento
+A) Carta di Credito
+
+Ammissibile solo se bonifico da conto dedicato non possibile
+Carta collegata al conto corrente aziendale (NON al dedicato)
+Giroconto obbligatorio dal Conto Dedicato al conto aziendale
+Timing: entro il Periodo di Realizzazione
+Causale: deve includere CUP e riferimenti fatture
+Importi: spesa, giroconto e fattura devono coincidere
+Documentazione: estratti conto di entrambi i conti
+
+B) Addebiti Diretti
+
+Ammissibile solo se bonifico da conto dedicato non possibile
+Addebito su conto corrente aziendale (NON sul dedicato)
+Giroconto obbligatorio dal Conto Dedicato al conto aziendale
+Stesse regole della carta di credito per timing, causale e documentazione
+
+C) Spese tramite Controllata Estera
+
+Conto dedicato intestato all'impresa richiedente
+Controllata può sostenere spese dal proprio conto aziendale
+Documentazione richiesta:
+
+Fatture con CUP/riferimenti
+Titoli di pagamento con riferimenti/CUP
+Dichiarazioni fornitori
+Evidenza rifatturazione 100% dalla controllata all'impresa richiedente
+
+
+Estratti conto: sia del conto dedicato che della controllata
+
+
+4. OBBLIGHI DI RENDICONTAZIONE
+4.1 Tempistiche di Rendicontazione
+Prima Rendicontazione
+
+Obbligatoria entro 12 mesi dalla Data di Stipula
+Può essere richiesta anche se non si intende richiedere erogazioni intermedie
+
+Rendicontazione Finale
+
+Obbligatoria entro 30 giorni dal termine del Periodo di Realizzazione
+Propedeutica al Consolidamento
+Spese sostenute dopo la Rendicontazione Finale non sono riconosciute
+
+4.2 Contenuto della Rendicontazione
+Documenti Obbligatori
+
+Fatture o documenti fiscalmente validi
+
+Dettaglio delle spese
+CUP obbligatorio (assenza = inammissibilità)
+
+
+Titoli di Pagamento
+
+Causale con riferimenti fatture (numero e data)
+CUP obbligatorio
+
+
+Estratto Conto del Conto Corrente Dedicato
+
+Tutti i movimenti del periodo
+Alternativa: lista movimenti con specifiche modalità di attestazione
+
+
+Dichiarazione di Conformità Ambientale
+
+Dell'Impresa Richiedente
+Per tutte le spese sostenute
+
+
+
+4.3 Documentazione Aggiuntiva per Spese Specifiche
+Per Controllate (anche estere)
+
+Evidenze dalla controllata:
+
+Fatture con CUP
+Titoli di pagamento con riferimenti/CUP
+Dichiarazioni fornitori
+
+
+Evidenza rifatturazione 100% e relativi pagamenti
+
+Per Ulteriori Investimenti
+
+Nota integrativa al bilancio
+Asseverazione revisore (alternativa)
+
+Per Incrementi Costi Energetici
+
+Asseverazione revisore su confronto bilanci
+Incremento ≥100% per accesso a Cofinanziamento elevato
+
+Per Imprese con SPP (Sustainability Performance Price)
+
+Evidenza principi ESG rispettati da almeno 5 fornitori
+Mancata applicazione da almeno 5 fornitori = revoca Cofinanziamento
+
+4.4 Dichiarazioni dei Fornitori
+Chi Deve Fornirla
+
+Tutti i fornitori delle spese rendicontate
+Esentate: imprese con >250 dipendenti o quotate
+
+Contenuto
+
+Attestazione dell'effettiva fornitura
+Coerenza con fatturazione
+
+Modalità
+
+Firma digitale (preferibile)
+Firma autografa ammessa per fornitori esteri con copia documento identità
+
+4.5 Conseguenze del Mancato Rispetto
+Regola Generale
+
+Mancato rispetto anche parziale dei requisiti = non ammissibilità delle spese
+Nessuna tolleranza per omissioni documentali
+Verifica rigorosa di tutti gli elementi richiesti
+
+
+5. EROGAZIONI
+5.1 Struttura delle Erogazioni
+Modalità di Erogazione
+
+Erogazioni a tranche (es. 1ª, 2ª, 3ª tranche a saldo)
+Ciascuna tranche pro quota Finanziamento/Cofinanziamento
+Possibilità di richiedere solo erogazione a saldo (se 2ª tranche non richiesta)
+
+5.2 Tempistiche di Erogazione
+Erogazione a Saldo (3ª tranche)
+
+Entro 4 mesi dal termine del Periodo di Realizzazione
+Condizione: spese rendicontate entro 30 giorni dal termine
+Subordinata al completamento del Consolidamento
+
+Erogazioni Intermedie
+
+Tempistiche stabilite in base alle rendicontazioni parziali
+Proporzionali alle spese effettivamente sostenute e rendicontate
+
+5.3 Condizioni per l'Erogazione
+Verifiche Preliminari
+
+Regolarità DURC (Documento Unico di Regolarità Contributiva)
+Verifica spese ammissibili rendicontate
+Conformità alla documentazione richiesta
+
+Per il Cofinanziamento
+
+Verifica delle condizioni specifiche (Par. 3.2 della Circolare)
+Revoca integrale se requisiti specifici vengono meno entro la data di prima erogazione
+Eccezione: imprese con SPP secondo disciplina specifica
+
+5.4 Erogazione PNRR - Doppia Valutazione
+Processo di Validazione Specifico
+
+Valutazione SIMEST (prima fase)
+Valutazione del titolare della misura PNRR (seconda fase)
+Obiettivo: garantire trasparenza e coerenza con obiettivi PNRR
+
+Gestione dei Tempi
+
+Possibili rallentamenti dovuti all'elevato numero di pratiche
+Contatto tempestivo in caso di elementi ostativi
+Richieste di integrazioni comunicate direttamente al beneficiario
+
+
+6. CONSOLIDAMENTO
+6.1 Processo di Consolidamento
+Definizione di Consolidamento
+
+Atto che conferma le condizioni di rimborso degli importi erogati
+Fino a concorrenza degli importi rendicontati
+Consolidamento totale: conferma di tutti gli importi rendicontati
+Consolidamento parziale: revoca dell'importo non consolidato
+
+Finalità
+
+Verifica finale delle Spese Ammissibili rendicontate
+Propedeutico all'erogazione a saldo
+Definizione delle condizioni di rimborso del Finanziamento
+
+6.2 Tempistiche del Consolidamento
+Documentazione Finale
+
+Entro 30 giorni dal termine del Periodo di Realizzazione
+Rendicontazione Finale dettagliata con tutta la documentazione
+Relazione finale sull'attività svolta
+Dati del titolare effettivo aggiornati
+Altri documenti specificamente richiesti
+
+Comunicazione SIMEST
+
+Entro 6 mesi dal termine del Periodo di Realizzazione
+Comunicazione delle condizioni di rimborso del Finanziamento
+Eventuale revoca degli importi non consolidati
+
+6.3 Effetti del Consolidamento
+Per gli Importi Consolidati
+
+Conferma definitiva dell'erogazione
+Definizione del piano di rimborso del Finanziamento
+Mantenimento delle condizioni agevolate
+
+Per gli Importi Non Consolidati
+
+Revoca automatica da parte del Comitato Agevolazioni
+Restituzione obbligatoria secondo le modalità previste
+Applicazione di maggiorazioni e interessi
+
+
+7. OBBLIGHI DELL'IMPRESA RICHIEDENTE
+7.1 Obblighi di Conservazione
+Documentazione da Conservare
+
+Documentazione bancaria completa
+Fatture originali con CUP
+Certificazioni ambientali ottenute
+Contratti con fornitori e consulenti
+Ordini e corrispondenza commerciale
+Altra documentazione probatoria
+
+Durata della Conservazione
+
+Fino all'integrale rimborso del Finanziamento
+In formato originale (non sono ammesse copie)
+Accessibilità immediata per controlli SIMEST
+
+7.2 Obblighi di Collaborazione
+Con SIMEST
+
+Fornire documentazione richiesta entro 15 giorni
+Consentire controlli, indagini e perizie e fornirne i costi
+Rispondere tempestivamente alle richieste di chiarimenti
+
+Deposito Bilanci
+
+Depositare annualmente il proprio Bilancio nei termini di legge
+Comunicare variazioni di dati societari rilevanti
+
+Titolare Effettivo
+
+Fornire i dati del titolare effettivo nella Rendicontazione Finale
+Aggiornamento tramite Portale SIMEST
+Comunicazione di variazioni successive
+
+7.3 Obblighi di Comunicazione
+Modalità Generali
+
+Comunicazioni dell'Impresa a SIMEST: tramite PEC
+Comunicazioni di SIMEST all'Impresa: tramite PEC
+Avvisi generali: pubblicazione sul sito SIMEST
+
+Comunicazioni Specifiche
+
+Richiesta modifica Conto Corrente: tramite PEC con firma digitale
+Comunicazioni urgenti: secondo modalità stabilite nel Contratto
+Riscontri a richieste SIMEST: entro i termini specificati (generalmente 15 giorni)
+
+
+8. CUMULABILITÀ CON ALTRI AIUTI
+8.1 Principi Generali di Cumulabilità
+Regime "De Minimis"
+
+Nuove misure sono aiuti "de minimis"
+Cumulabilità consentita nel rispetto della normativa europea e nazionale
+Rispetto dei limiti di intensità di aiuto previsti
+
+Compatibilità con Altri Strumenti
+
+Industria 4.0: compatibile nel rispetto dei limiti
+Nuova Sabatini: compatibile nel rispetto dei limiti
+Altri aiuti di Stato: verifica caso per caso
+
+8.2 Cumulabilità PNRR - Assenza Doppio Finanziamento
+Principio Fondamentale
+
+Divieto assoluto di doppia copertura degli stessi costi/spese
+Obbligo di assenza del "doppio finanziamento"
+
+Cumulabilità Ammessa
+
+Con altre fonti finanziarie pubbliche (RRF, risorse europee, nazionali)
+Per costi diversi o diverse quote parti del costo dello stesso bene/progetto
+Non coperti dalla misura PNRR SIMEST/Fondo 394
+Limite massimo: 100% del costo sostenuto
+
+8.3 Cumulabilità Specifica con Transizione 4.0
+Condizioni di Cumulabilità
+
+Per progetti PNRR che incrociano la Misura "Transizione 4.0"
+Cumulabilità ammissibile in fase di rendicontazione
+Limiti: 100% del costo sostenuto
+
+Modalità di Applicazione
+
+Quota non coperta dall'agevolazione PNRR può essere oggetto di credito d'imposta
+Beneficio aggiuntivo: non concorrenza del credito d'imposta alla formazione del reddito e dell'IRAP
+Verifica obbligatoria della somma totale dei benefici
+
+8.4 Strumenti di Calcolo
+Tool SIMEST
+
+Simulazione assorbimento plafond "de minimis"
+Calcolo automatico delle intensità di aiuto
+Verifica compatibilità con altri strumenti
+
+Documentazione Richiesta
+
+Dichiarazione di altri aiuti ricevuti
+Calcolo cumulativo degli aiuti "de minimis"
+Attestazione di rispetto dei limiti normativi
+
+
+9. ASPETTI OPERATIVI SPECIFICI
+9.1 Fatturazione e CUP
+Obblighi del Beneficiario
+
+CUP su tutte le fatture relative alle spese ammissibili
+Comunicazione del CUP ai fornitori prima dell'emissione fatture
+Verifica presenza CUP prima del pagamento
+
+Conseguenze della Mancanza
+
+Inammissibilità automatica della spesa senza CUP
+Nessuna sanatoria possibile per omissioni
+Perdita definitiva della spesa dal computo ammissibile
+
+9.2 Gestione dei Contratti con Fornitori
+Contratti E-commerce
+
+Presentazione obbligatoria per prima erogazione
+Informazioni complete (servizio, corrispettivo, modalità pagamento, durata)
+Coerenza con fatture di rendicontazione
+
+Contratti Consulenza
+
+Durata definita del servizio
+Corrispettivo dettagliato
+Dichiarazione di indipendenza del consulente
+Evidenze specifiche in fase di rendicontazione
+
+9.3 Certificazioni Ambientali per Punteggio
+Certificazioni Riconosciute
+
+ISO 45001 (Sistemi di gestione per la salute e sicurezza sul lavoro)
+ISO 14001 (Sistemi di gestione ambientale)
+SA8000 (Responsabilità sociale)
+
+Requisiti per il Punteggio
+
+Almeno una certificazione tra quelle elencate
+Certificazione valida alla data di presentazione domanda
+Documentazione probatoria da allegare alla domanda
+
+9.4 Spese per Controllate Estere
+Documentazione Specifica
+
+Fatture emesse alla controllata con CUP o riferimenti
+Titoli di pagamento della controllata con riferimenti/CUP
+Dichiarazioni dei fornitori alla controllata
+Evidenza completa della rifatturazione 100% delle spese
+Pagamenti dalla controllata all'impresa richiedente
+
+Verifiche Aggiuntive
+
+Controllo della sussistenza del rapporto di controllo
+Verifica coerenza tra spese sostenute e rifatturate
+Controllo tempistiche di rifatturazione e pagamento
+
+
+10. CONSIDERAZIONI PRATICHE E RACCOMANDAZIONI
+10.1 Check-list Pre-Sostenimento Spese
+Prima di Ogni Spesa
+
+✅ Verifica ammissibilità della tipologia di spesa
+✅ Presenza CUP su fattura e ordine
+✅ Conto Corrente Dedicato operativo
+✅ Contratto con fornitore conforme ai requisiti
+✅ Periodo di Realizzazione ancora valido
+
+10.2 Gestione Documentale Ottimale
+Organizzazione Consigliata
+
+Cartella per ogni fornitore con sub-cartelle per fatture/pagamenti
+Log delle spese con riferimenti incrociati
+Backup digitale di tutta la documentazione
+Controllo periodico della completezza documentale
+
+10.3 Monitoraggio Continuo
+Indicatori da Controllare
+
+% di avanzamento spese vs. budget approvato
+Scadenze di rendicontazione
+Tempi residui del Periodo di Realizzazione
+Coerenza con obiettivi del progetto
+
+10.4 Errori Comuni da Evitare
+Errori Fatali
+
+❌ Pagamenti senza CUP (inammissibilità automatica)
+❌ Spese non dal Conto Dedicato (salvo deroghe specifiche)
+❌ Mancata conservazione documentazione originale
+❌ Ritardi nelle rendicontazioni obbligatorie
+
+Errori Rischiosi
+
+⚠️ Documentazione incompleta dai fornitori
+⚠️ Spese non coerenti con il progetto approvato
+⚠️ Modifiche non comunicati a SIMEST
+⚠️ Accumulo ritardi nella gestione amministrativa
+
+Questa PARTE 2 costituisce la guida operativa completa per la gestione di tutte le fasi successive all'approvazione del finanziamento SIMEST, dalla pianificazione delle spese alla loro rendicontazione e al consolidamento finale.

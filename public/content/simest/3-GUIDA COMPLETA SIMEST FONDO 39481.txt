@@ -1,0 +1,482 @@
+GUIDA COMPLETA SIMEST FONDO 394/81
+STRUMENTI FINANZIARI PER L'INTERNAZIONALIZZAZIONE DELLE IMPRESE
+PARTE 3: REVOCA, RESTITUZIONE E ASPETTI PROCEDURALI
+
+1. REVOCA DELL'INTERVENTO AGEVOLATIVO
+1.1 Tipologie di Revoca
+Revoca Totale
+
+Perdita completa del beneficio concesso
+Restituzione integrale degli importi erogati
+Applicazione di maggiorazioni e interessi
+
+Revoca Parziale
+
+Riduzione proporzionale del beneficio
+Restituzione della quota revocata
+Mantenimento della quota non revocata
+
+1.2 Cause di Revoca - Requisiti Iniziali
+A) Assenza Requisiti di Ammissibilità
+
+Verifica successiva dell'assenza di requisiti alla data di presentazione domanda
+Dichiarazioni non veritiere sui requisiti posseduti
+Documentazione falsificata o alterata
+
+B) Perdita Requisiti Fondamentali
+
+Perdita della sede legale in Italia
+Perdita delle condizioni di ammissibilità specifiche (punti a, b, c, g, h del Par. 2.2)
+Ricorrenza di una delle Esclusioni durante il rapporto
+
+1.3 Cause di Revoca - Documentazione e Dichiarazioni
+A) Documentazione Irregolare
+
+Documentazione incompleta nonostante le richieste di integrazione
+Documentazione irregolare o non conforme
+Documentazione reticente o parzialmente mendace
+
+B) Dichiarazioni Mendaci
+
+False dichiarazioni in qualsiasi fase del processo
+Omissioni rilevanti nelle comunicazioni a SIMEST
+Attestazioni non veritiere su requisiti o condizioni
+
+1.4 Cause di Revoca - Realizzazione del Progetto
+A) Vincoli di Destinazione
+
+Mancato rispetto dei vincoli di destinazione delle spese
+Utilizzo improprio delle erogazioni ricevute
+Spese diverse da quelle ammissibili previste
+
+B) Rendicontazione
+
+Mancata rendicontazione nei termini stabiliti
+Rendicontazione irregolare o incompleta
+Mancata presentazione della documentazione finale
+
+C) Realizzazione del Programma
+
+Mancata realizzazione del programma approvato
+Realizzazione parziale significativamente difforme
+Modifica sostanziale non autorizzata del progetto
+
+1.5 Cause di Revoca - Obblighi Specifici
+A) Quote Minime per PNRR
+
+Quota spese transizione digitale/ecologica inferiore alle percentuali minime richieste
+Mancato raggiungimento degli obiettivi PNRR specifici
+
+B) Inadempienza agli Obblighi
+
+Mancata conservazione della documentazione
+Rifiuto dei controlli o impedimento alle verifiche
+Mancato deposito del bilancio nei termini
+Mancata comunicazione dei dati del titolare effettivo
+
+1.6 Cause di Revoca - Rapporti con SIMEST
+A) Risoluzione Contrattuale
+
+Risoluzione del Contratto da parte di SIMEST per inadempimento
+Recesso dal Contratto in presenza di cause specifiche
+
+B) Inadempienza verso SIMEST
+
+Inadempienza ad altre obbligazioni verso SIMEST come gestore di fondi pubblici
+Mancato rispetto degli impegni assunti
+Comportamenti ostativi all'attività di gestione
+
+1.7 Cause di Revoca - Situazioni Legali
+A) Normativa Antimafia
+
+Accertata causa ostativa ai sensi della normativa antimafia
+Inserimento in liste di soggetti non affidabili
+Provvedimenti dell'Autorità competente
+
+B) Sanzioni Aziendali
+
+Sanzione interdittiva (art. 9, comma 2, lett. d, D.lgs. 231/2001)
+Altre cause di incapacità a beneficiare di agevolazioni pubbliche
+
+C) Paradisi Fiscali
+
+Controllo o collegamento con società in Paesi/territori non cooperativi a fini fiscali
+Verifica applicabile in qualsiasi fase del rapporto
+
+1.8 Cause di Revoca - Rinuncia ed Estinzione
+A) Rinuncia Volontaria
+
+Rinuncia espressa all'Intervento Agevolativo prima del Consolidamento
+Comunicazione formale di rinuncia tramite PEC
+
+B) Estinzione Anticipata
+
+Estinzione anticipata del Finanziamento prima del Consolidamento
+Considerata automaticamente come rinuncia all'intervento
+
+1.9 Revoca del Cofinanziamento
+Cause Specifiche
+
+Assenza dei requisiti specifici per il Cofinanziamento
+Perdita dei requisiti entro la data di prima erogazione
+Mancata applicazione policy ESG da almeno 5 fornitori (per SPP)
+
+Eccezioni per SPP
+
+Disciplina specifica per imprese con Sustainability Performance Price
+Verifica periodica dell'applicazione dei principi ESG
+
+
+2. CONSEGUENZE DELLA REVOCA
+2.1 Obblighi di Restituzione
+Restituzione Base
+
+Entro 30 giorni dalla comunicazione di revoca
+Importi erogati non rimborsati alla data di revoca
+Più interessi calcolati secondo le modalità stabilite
+
+2.2 Maggiorazioni per Revoca Prima del Consolidamento
+Applicazione della Maggiorazione
+
+Tasso di Riferimento UE + 2% (maggiorazione)
+Decorrenza: dalla data di erogazione di ciascuna tranche
+Fino alla data di effettiva restituzione
+
+Casi di Applicazione
+
+Revoca prima del Consolidamento
+Mancanza di requisiti accertata successivamente
+Fatti incidenti sul programma approvato
+
+2.3 Trattamento Differenziato del Cofinanziamento
+Cofinanziamento Non Soggetto a Rimborso
+
+Per cause di revoca g) e h) (specifiche del Par. 7.1)
+Se avvenute dopo il Consolidamento
+Mantenimento definitivo della quota a fondo perduto consolidata
+
+Cofinanziamento Soggetto a Rimborso
+
+Per tutte le altre cause di revoca
+Restituzione integrale con maggiorazioni applicabili
+
+2.4 Rimborso del Finanziamento a Tasso di Riferimento
+Condizioni di Applicazione
+
+Spese consolidate ammissibili inferiori alla 1ª tranche erogata in anticipo
+Rimborso a Tasso di Riferimento UE (senza agevolazione)
+Perdita del beneficio del tasso agevolato
+
+2.5 Interessi di Mora
+Applicazione
+
+In caso di ritardato pagamento delle somme dovute
+Tasso: tasso indicato nel Contratto + 4%
+Decorrenza: dal giorno successivo alla scadenza del termine di pagamento
+
+
+3. PROCEDURA DI REVOCA
+3.1 Avvio del Procedimento
+Comunicazione di Avvio
+
+Invio tramite PEC della comunicazione di avvio procedimento
+Indicazione specifica delle cause di revoca contestate
+Termine per presentare memorie e documentazione (non inferiore a 15 giorni)
+
+3.2 Diritto di Difesa
+Facoltà dell'Impresa
+
+Presentazione di memorie difensive entro il termine stabilito
+Produzione di documentazione a supporto delle proprie ragioni
+Richiesta di audizione (se prevista)
+
+Modalità
+
+Invio tramite PEC della documentazione difensiva
+Rispetto rigoroso dei termini stabiliti
+Completezza delle argomentazioni e documenti
+
+3.3 Decisione Finale
+Valutazione SIMEST
+
+Esame delle memorie e documentazione prodotta
+Verifica tecnica degli elementi addotti
+Decisione motivata sulla revoca
+
+Comunicazione dell'Esito
+
+Comunicazione formale della decisione tramite PEC
+Motivazione specifica della decisione adottata
+Indicazione delle modalità di restituzione (se dovuta)
+
+
+4. CONTROLLI E VERIFICHE
+4.1 Tipologie di Controllo
+Controlli Documentali
+
+Verifica della documentazione presentata nelle rendicontazioni
+Controllo di coerenza tra spese dichiarate e documenti probatori
+Verifica conformità alle prescrizioni della Circolare
+
+Controlli in Loco
+
+Verifiche presso la sede dell'impresa
+Controllo fisico degli investimenti realizzati
+Verifica dell'effettiva realizzazione del programma
+
+Controlli a Campione
+
+Selezione casuale di pratiche da verificare
+Controlli approfonditi su aspetti specifici
+Verifica trasversale di elementi comuni
+
+4.2 Obblighi dell'Impresa durante i Controlli
+Collaborazione Obbligatoria
+
+Consentire l'accesso ai locali aziendali
+Fornire tutta la documentazione richiesta
+Mettere a disposizione il personale per le verifiche
+Sostenere i costi delle verifiche richieste da SIMEST
+
+Conseguenze del Rifiuto
+
+Causa automatica di revoca dell'intervento
+Restituzione immediata degli importi erogati
+Applicazione delle maggiorazioni previste
+
+4.3 Esiti dei Controlli
+Esito Positivo
+
+Conferma della regolarità dell'intervento
+Prosecuzione normale del rapporto
+Nessuna conseguenza aggiuntiva
+
+Esito Negativo
+
+Avvio procedimento di revoca
+Quantificazione degli importi da recuperare
+Applicazione sanzioni previste
+
+
+5. COMUNICAZIONI E RAPPORTI CON SIMEST
+5.1 Modalità di Comunicazione
+Principio Generale
+
+Tutte le comunicazioni avvengono tramite Posta Elettronica Certificata (PEC)
+Sia dall'impresa verso SIMEST che viceversa
+Eccezione: avvisi di contenuto generale pubblicati sul sito
+
+5.2 Comunicazioni dall'Impresa a SIMEST
+Tipologie Principali
+
+Richieste di modifica (es. Conto Corrente Dedicato)
+Comunicazioni obbligatorie (variazioni societarie, titolare effettivo)
+Riscontri a richieste di SIMEST
+Rendicontazioni e documentazione integrativa
+
+Requisiti Formali
+
+Firma digitale obbligatoria per tutte le comunicazioni rilevanti
+Oggetto chiaro che identifichi il codice pratica
+Allegati in formato leggibile e non modificabile
+
+5.3 Comunicazioni da SIMEST all'Impresa
+Tipologie Principali
+
+Comunicazioni procedurali (richieste documentazione, preavvisi)
+Comunicazioni di esito (delibere, consolidamenti, revoche)
+Comunicazioni Post-Stipula (perfezionamento contratto)
+Richieste di chiarimenti e integrazioni
+
+Effetti Legali
+
+Valore di notificazione per tutti gli effetti di legge
+Decorrenza termini dalla data di invio PEC
+Onere di controllo della casella PEC da parte dell'impresa
+
+5.4 Gestione delle Richieste di Chiarimenti
+Da Parte di SIMEST
+
+Termine di 15 giorni per il riscontro dell'impresa
+Specificazione chiara degli elementi richiesti
+Possibilità di proroga in casi motivati
+
+Da Parte dell'Impresa
+
+Utilizzo dei canali di Customer Care indicati
+Riferimento sempre al codice pratica
+Documentazione completa a supporto della richiesta
+
+
+6. STIPULA E PERFEZIONAMENTO DEL CONTRATTO
+6.1 Condizioni Sospensive
+Adempimento Obbligatorio
+
+Soddisfacimento entro 3 mesi dal ricevimento dell'Esito della Domanda
+Condizioni stabilite dal Comitato Agevolazioni caso per caso
+
+Esempi di Condizioni
+
+Copia delibera garanzia (se richiesta)
+Compilazione dati su sostenibilità ambientale
+Schema articolazione dipendenti per classi di età e genere (PNRR)
+Documentazione integrativa specifica
+
+6.2 Proposta di Contratto
+Invio da SIMEST
+
+Solo dopo delibera positiva del Comitato Agevolazioni
+Soddisfatte le condizioni sospensive
+Tramite PEC all'impresa
+
+Contenuto
+
+Termini e condizioni dell'intervento deliberato
+Modalità di erogazione e rimborso
+Obblighi specifici dell'impresa
+Clausole di revoca e restituzione
+
+6.3 Sottoscrizione del Contratto
+Modalità Unica
+
+Esclusivamente tramite Portale SIMEST
+Restituzione dell'accettazione firmata digitalmente
+Termine di 30 giorni dalla ricezione della proposta via PEC
+
+Perfezionamento
+
+Data di Stipula: data di ricezione da parte di SIMEST del contratto sottoscritto
+Comunicazione Post-Stipula: lettera che comunica la data di perfezionamento
+Decorrenza obblighi: dalla Data di Stipula
+
+6.4 Conseguenze della Mancata Sottoscrizione
+Decadenza Automatica
+
+Decorso il termine di 30 giorni senza sottoscrizione
+Perdita del diritto all'intervento agevolativo
+Archiviazione della pratica
+
+Nessuna Proroga
+
+Termine perentorio non prorogabile
+Decadenza di diritto senza necessità di ulteriori comunicazioni
+
+
+7. REGISTRO NAZIONALE AIUTI E PUBBLICITÀ
+7.1 Obblighi di Pubblicità
+Responsabilità Istituzionali
+
+Ministero e SIMEST garantiscono l'adempimento degli obblighi
+Tramite Registro Nazionale Aiuti (RNA)
+Secondo normativa sulla trasparenza degli aiuti di Stato
+
+7.2 Informazioni Pubblicate
+Dati dell'Impresa
+
+Denominazione sociale e codice fiscale
+Dimensione aziendale (micro, PMI, altra impresa)
+Settore di attività economica
+
+Dati dell'Aiuto
+
+Tipologia di aiuto concesso (de minimis)
+Importo complessivo dell'agevolazione
+Data di concessione dell'aiuto
+Autorità concedente (SIMEST per conto del Ministero)
+
+
+8. DISPOSIZIONI TRANSITORIE E FINALI
+8.1 Regime Transitorio
+Domande Precedenti
+
+Domande e contratti presentati prima dell'entrata in vigore del nuovo Decreto
+Regolati dalla disciplina previgente
+Nessun effetto retroattivo delle nuove disposizioni
+
+8.2 Termini di Adeguamento
+Comitato Agevolazioni
+
+Approvazione circolari operative entro 60 giorni dall'entrata in vigore
+Determinazione data di apertura sportello telematico
+Definizione modalità operative di transizione
+
+8.3 Abrogazioni
+Decreti Precedenti
+
+Abrogazione dei precedenti decreti sulla materia
+Mantenimento validità per rapporti in corso
+Applicazione nuova disciplina solo per nuove domande
+
+
+9. STRUMENTI DI SUPPORTO
+9.1 Format e Modulistica
+Format Disponibili sul Sito SIMEST
+
+Dichiarazioni settori esclusi
+Dichiarazioni conformità ambientale
+Dichiarazioni fornitori
+Dichiarazioni indipendenza consulenti
+Asseverazioni revisore
+Asseverazione Balcani Occidentali
+Richiesta proroga Periodo di Realizzazione
+
+9.2 Tool di Calcolo
+Simulatori SIMEST
+
+Tool stima plafond "de minimis" assorbito
+Calcolo automatico intensità di aiuto
+Simulazione struttura finanziamento/cofinanziamento
+
+9.3 Supporto Operativo
+Customer Care SIMEST
+
+Assistenza telefonica per questioni operative
+Supporto tecnico per utilizzo Portale
+Chiarimenti su aspetti procedurali
+
+Documentazione di Riferimento
+
+Decreto ministeriale sempre aggiornato
+Circolari operative per ciascun intervento
+FAQ specifiche per tematiche ricorrenti
+Guide operative per PNRR
+
+
+10. CONSIDERAZIONI FINALI
+10.1 Punti di Attenzione Critica
+Aspetti Inderogabili
+
+CUP obbligatorio su tutte le spese (nessuna tolleranza)
+Firma digitale su tutta la documentazione rilevante
+Rispetto rigoroso dei termini procedurali
+Utilizzo esclusivo del Conto Corrente Dedicato
+
+Verifiche Preventive Essenziali
+
+Sussistenza requisiti prima della presentazione domanda
+Disponibilità plafond "de minimis"
+Coerenza con altri aiuti ricevuti
+Capacità di realizzazione del programma nei tempi previsti
+
+10.2 Raccomandazioni Operative
+Fase di Progettazione
+
+Analisi accurata delle spese ammissibili
+Verifica compatibilità con normative settoriali
+Valutazione realistica dei tempi di realizzazione
+
+Fase di Gestione
+
+Monitoraggio costante degli adempimenti
+Conservazione scrupolosa della documentazione
+Comunicazione tempestiva con SIMEST per qualsiasi problematica
+
+Fase di Rendicontazione
+
+Preparazione accurata della documentazione
+Verifica completezza prima dell'invio
+Rispetto assoluto dei termini di rendicontazione
+
+La presente guida costituisce uno strumento di orientamento basato sulla normativa vigente. Per approfondimenti specifici e aggiornamenti, si raccomanda la consultazione diretta della documentazione ufficiale disponibile sui siti istituzionali del Ministero e di SIMEST.
+
+IMPORTANTE: Questa guida è basata sulla documentazione fornita e aggiornata al momento della sua redazione. Le normative e le procedure possono subire modifiche. Si raccomanda sempre la verifica delle disposizioni vigenti sui siti ufficiali prima di procedere con qualsiasi domanda o adempimento.

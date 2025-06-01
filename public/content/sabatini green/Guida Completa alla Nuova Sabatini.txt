@@ -1,0 +1,1169 @@
+Guida Completa alla Nuova Sabatini - Parte 1
+Fondamenti e Soggetti Beneficiari
+1. Che cos'è la Nuova Sabatini
+La misura "Beni strumentali", conosciuta come "Nuova Sabatini", è un'agevolazione istituita dal Ministero delle Imprese e del Made in Italy con l'obiettivo di:
+
+Facilitare l'accesso al credito per le imprese
+Incrementare la competitività del sistema produttivo nazionale
+Sostenere gli investimenti per l'acquisto o acquisizione in leasing di beni strumentali specifici
+
+2. Varianti della Misura
+Esistono due versioni principali:
+Nuova Sabatini Ordinaria
+La versione standard della misura per investimenti in beni strumentali.
+Nuova Sabatini Capitalizzazione
+Versione specifica che incentiva i processi di capitalizzazione delle PMI che intendono realizzare programmi di investimento negli stessi tipi di beni. È disciplinata dal decreto interministeriale 19 gennaio 2024, n. 43 e dalle istruzioni della circolare direttoriale 22 luglio 2024, n. 1115.
+3. Chi Può Accedere alla Misura
+Tipologia di Imprese Ammesse
+La Nuova Sabatini si rivolge esclusivamente alle Micro, Piccole e Medie Imprese (PMI).
+Determinazione della Dimensione d'Impresa
+La classificazione viene determinata:
+
+Sulla base dell'ultimo esercizio contabile chiuso e approvato prima della sottoscrizione della domanda
+Applicando i parametri dimensionali dell'appendice al decreto ministeriale 18 aprile 2005
+Per imprese esonerate dalla contabilità ordinaria:
+
+Fatturato: ultima dichiarazione dei redditi presentata
+Attivo patrimoniale: prospetto con attività e passività
+
+
+Tolleranza: Se si superano le soglie dimensionali, questo non deve verificarsi per due esercizi consecutivi
+
+Settori Ammessi
+
+Tutti i settori produttivi, inclusi agricoltura e pesca
+Unica eccezione: settore attività finanziarie e assicurative
+
+Requisiti Specifici per il Settore Agricolo
+L'investimento deve:
+
+Rispettare limiti e condizioni del regolamento ABER
+Perseguire obiettivi dell'articolo 14 (investimenti nelle aziende agricole per produzione primaria) o articolo 17 (investimenti nella trasformazione/commercializzazione prodotti agricoli) del regolamento
+
+4. Requisiti dell'Impresa Richiedente
+Situazione Aziendale
+L'impresa deve attestare:
+
+Non essere sottoposta a procedure concorsuali con finalità liquidatoria
+Non essere in liquidazione volontaria
+Avere posizione contributiva vigente regolare
+
+Posizione Debitoria
+
+Nessuna posizione debitoria presso Agenzia delle Entrate – Riscossione per importi superiori a €5.000,00 (se la quota di erogazione richiesta supera tale importo)
+Per contributi superiori a €150.000,00: necessarie informazioni antimafia
+
+Vincolo di Esclusività
+Un'impresa non può presentare un'altra domanda per la Nuova Sabatini (ordinaria o Capitalizzazione) per gli stessi beni oggetto della domanda attuale.
+5. Punti Chiave da Ricordare
+
+Solo PMI possono accedere alla misura
+La dimensione viene calcolata sull'ultimo bilancio approvato
+Quasi tutti i settori sono ammessi (escluso solo finanziario/assicurativo)
+L'impresa deve essere in situazione regolare (contributiva, fiscale, non in liquidazione)
+Una sola domanda per gli stessi beni
+Per importi elevati servono verifiche antimafia
+Guida Completa alla Nuova Sabatini - Parte 2
+Beni Ammissibili e Tipologie di Investimenti
+1. Cosa Finanzia la Nuova Sabatini
+L'agevolazione copre investimenti per acquisto o acquisizione in leasing di:
+Beni Materiali
+
+Macchinari
+Attrezzature
+Impianti
+Beni strumentali ad uso produttivo
+Hardware
+
+Beni Immateriali
+
+Software
+Tecnologie digitali
+
+2. Classificazione Contabile dei Beni
+I beni devono essere:
+
+Nuovi (requisito fondamentale)
+Riferiti alle immobilizzazioni materiali classificabili nell'attivo dello stato patrimoniale alle voci:
+
+B.II.2 - "Impianti e macchinari"
+B.II.3 - "Attrezzature industriali e commerciali"
+B.II.4 - "Altri beni"
+
+
+
+Secondo l'articolo 2424 del codice civile e principio contabile n.16 dell'OIC
+3. Investimenti Ammessi con Moduli Aggiuntivi
+Sono ammissibili anche investimenti in:
+
+Beni strumentali che integrano con nuovi moduli un impianto o macchinario preesistente
+Devono introdurre una nuova funzionalità nel ciclo produttivo
+Nel rispetto del principio dell'autonomia funzionale
+
+⚠️ Raccomandazione: Evitare di frazionare il programma d'investimento su più domande per prevenire comportamenti elusivi.
+4. Cosa NON È Ammissibile
+Beni Esclusi
+
+Terreni e fabbricati
+Beni usati o rigenerati
+"Immobilizzazioni in corso e acconti"
+Componenti o parti di macchinari che non soddisfano il requisito dell'autonomia funzionale
+
+Eccezioni per Beni "Usati"
+Sono ammessi beni:
+
+"Ad uso mostra" (utilizzati dal rivenditore solo per scopi dimostrativi)
+Venduti "con riserva di gradimento"
+Venduti "a prova"
+
+5. Beni Industria 4.0
+Per i beni nell'ottica "4.0" sono richiesti:
+Esempi di Beni 4.0
+
+Sistemi di misura coordinati e non coordinati per verifica e tracciabilità qualità
+Filtri e sistemi di trattamento e recupero (acqua, aria, olio) integrati con sistema di fabbrica
+Dispositivi per interazione uomo-macchina e miglioramento ergonomia/sicurezza
+
+Requisiti Tecnici Specifici
+
+Interconnessione al sistema aziendale di gestione della produzione o alla rete di fornitura
+Analisi tecnica o attestato di conformità necessari
+
+6. Investimenti Green
+Per investimenti in beni "a basso impatto ambientale":
+
+I beni devono soddisfare specifiche condizioni ambientali
+Necessaria attestazione da parte dei fornitori
+Dichiarazioni liberatorie specifiche richieste
+
+7. Linee Guida e Chiarimenti
+Riferimenti Tecnici
+Per maggiori chiarimenti su caratteristiche tecniche e riconducibilità dei beni:
+
+Linee guida tecniche: Circolare Mise - Agenzia delle entrate del 30 marzo 2017, n. 4/E (parte terza)
+
+Richiesta Parere Tecnico
+Possibilità di richiedere parere tecnico autonomo al Ministero delle Imprese e del Made in Italy:
+
+Tramite PEC
+Per verificare riconducibilità dei beni tra quelli elencati negli allegati
+
+8. Modalità di Acquisizione
+Acquisto Diretto
+
+Contratto di compravendita tradizionale
+Pagamento con modalità tracciabili
+
+Leasing Finanziario
+
+Acquisizione tramite contratto di leasing
+Stesse regole per ammissibilità e tracciabilità
+
+9. Checklist Beni Ammissibili
+✅ Verificare che il bene sia:
+
+Nuovo di fabbrica
+Classificabile nelle categorie B.II.2, B.II.3, B.II.4
+Dotato di autonomia funzionale
+Non sia terreno, fabbricato o bene usato
+
+✅ Per beni 4.0 verificare:
+
+Interconnessione al sistema aziendale
+Disponibilità analisi tecnica/attestato conformità
+
+✅ Per beni Green verificare:
+
+Conformità ai requisiti ambientali
+Disponibilità dichiarazioni fornitori
+
+10. Punti di Attenzione
+
+Autonomia funzionale: Il bene deve essere in grado di funzionare autonomamente
+Novità: Requisito essenziale, con eccezioni limitate per beni "a mostra"
+Classificazione contabile: Fondamentale per l'ammissibilità
+Documentazione tecnica: Necessaria per beni 4.0 e Green
+Non frazionare: Evitare di dividere un investimento unitario in più domande
+
+Guida Completa alla Nuova Sabatini - Parte 3
+Presentazione della Domanda di Agevolazione
+1. Modalità Obbligatoria di Compilazione
+Esclusivamente Telematica
+
+La domanda DEVE essere compilata in via telematica
+Attraverso la piattaforma informatica dedicata alla misura
+Sezione: "COMPILAZIONE DOMANDA DI AGEVOLAZIONE"
+⚠️ ATTENZIONE: Modalità diverse rendono la domanda invalida o improcedibile
+
+Piattaforme Specifiche
+
+Nuova Sabatini Ordinaria: Piattaforma standard
+Nuova Sabatini Capitalizzazione: Sezione dedicata sulla stessa piattaforma
+
+2. Tempistiche di Applicazione
+Dal 1° gennaio 2023
+
+Domande secondo circolare n. 410823 del 6 dicembre 2022
+Nuova Sabatini Ordinaria: sempre disponibile
+
+Dal 1° ottobre 2024
+
+Nuova Sabatini Capitalizzazione: utilizzando schema Allegato n. 1 Bis
+Programma d'investimento finalizzato esclusivamente al contributo Capitalizzazione
+
+3. Generazione del Codice Unico di Progetto (CUP)
+Processo Automatico
+
+Al completamento della compilazione telematica
+Il sistema rende disponibile il CUP associato all'istanza
+Fondamentale per tutte le fasi successive
+
+Utilizzo del CUP
+Il CUP deve essere riportato:
+
+Su tutte le fatture elettroniche (acconto e saldo) dei beni agevolati
+Nell'apposito campo delle fatture
+Insieme al riferimento normativo: "art. 2, c. 4, D.L. n. 69/2013"
+
+4. Firma e Sottoscrizione
+Chi Può Firmare
+
+Legale rappresentante dell'impresa
+Procuratore (con specifica dichiarazione dei dati e estremi dell'atto di nomina)
+
+Modalità di Firma
+
+Firma digitale obbligatoria
+Sul modulo generato dalla piattaforma:
+
+Allegato n. 1 (Nuova Sabatini Ordinaria)
+Allegato n. 1 Bis (Nuova Sabatini Capitalizzazione)
+
+
+
+5. Invio della Domanda
+Esclusivamente via PEC
+
+Posta Elettronica Certificata obbligatoria
+All'indirizzo PEC della banca o intermediario finanziario scelto
+Tra quelli aderenti all'iniziativa (elenco sul sito Ministero)
+
+Documentazione da Allegare
+
+Domanda firmata digitalmente
+Richiesta di finanziamento correlata
+Documentazione richiesta specifica
+
+⚠️ Conseguenze Invio Non Conforme
+Invio con modalità diverse = domanda non procedibile
+6. Contenuto della Domanda
+Dati Anagrafici Richiesti
+
+Dati del firmatario (legale rappresentante o procuratore)
+Eventuale soggetto autorizzato all'accesso in piattaforma
+Referente per comunicazioni
+Dati sede legale
+Dati unità locale dove si realizzerà l'investimento (se diversa e in Italia)
+
+Informazioni Aziendali
+
+Dimensione d'impresa (Micro/Piccola/Media)
+Codice attività ATECO
+Prospetto importi richiesti per diverse linee d'intervento:
+
+Beni Strumentali
+4.0
+Green
+
+
+
+Dichiarazioni Sostitutive
+L'impresa rende diverse dichiarazioni, tra cui:
+
+Consapevolezza sull'origine della provvista (CDP o diversa)
+Impegno a non alienare i beni nei 3 anni successivi
+Impegno a consentire controlli
+Impegno a riportare CUP e riferimento normativo sulle fatture
+(Solo Capitalizzazione) Rispetto requisiti specifici e aumento di capitale
+
+7. Timing Cruciale: Avvio Investimento
+Regola Fondamentale
+Il programma d'investimento NON DEVE essere avviato prima della data di trasmissione via PEC della domanda al soggetto finanziatore.
+Cosa Significa "Avvio"
+L'investimento si considera avviato se l'impresa:
+
+Assume impegni giuridicamente vincolanti (contratti, conferme d'ordine)
+Riceve fatture per i beni
+Effettua pagamenti (anche acconti) per i beni
+
+⚠️ Conseguenze Violazione
+Avvio prima della trasmissione = REVOCA TOTALE delle agevolazioni
+8. Gestione Integrazioni
+Richieste di Chiarimento
+
+Il soggetto finanziatore può richiedere integrazioni
+30 giorni per fornire la documentazione richiesta
+Decadenza in caso di mancata risposta nei termini
+
+Modifiche Post-Invio
+
+L'istanza non può essere modificata dopo l'invio PEC
+Eccezione: informazioni oggetto di specifica richiesta di integrazione
+
+9. Verifiche Preliminari
+Completezza Documentale
+
+Dichiarazioni complete e corrette
+Presenza di tutta la documentazione richiesta
+Non procedibilità in caso di incompletezza
+
+Aggiornamento Registro Imprese
+
+Informazioni devono essere aggiornate
+Obbligo di rettifica se necessario
+
+10. Checklist Pre-Invio
+✅ Prima di inviare verificare:
+
+Compilazione telematica completata
+CUP generato e annotato
+Domanda firmata digitalmente
+Investimento NON ancora avviato
+Documentazione completa allegata
+PEC del soggetto finanziatore corretta
+Registro imprese aggiornato
+
+✅ Documenti essenziali:
+
+Modulo domanda firmato (All. 1 o 1 Bis)
+Richiesta finanziamento
+Documentazione specifica richiesta
+(Se procuratore) Atto di nomina
+
+11. Punti Critici di Attenzione
+
+Modalità esclusiva: Solo telematico + PEC
+Timing investimento: Mai prima dell'invio
+Firma digitale: Obbligatoria
+CUP: Fondamentale per tutto il processo
+Soggetto finanziatore: Solo tra quelli aderenti
+Integrazioni: Risposta entro 30 giorni
+Immodificabilità: Dopo invio PEC non si può cambiare
+
+Guida Completa alla Nuova Sabatini - Parte 4
+Valutazione e Concessione dell'Agevolazione
+1. Il Ruolo del Soggetto Finanziatore
+Prima Fase di Valutazione
+Il soggetto finanziatore (banca o intermediario) ricevuta la domanda via PEC:
+
+Svolge propria istruttoria autonoma
+Effettua valutazione creditizia sulla richiesta di finanziamento
+Applica le proprie procedure interne
+Segue criteri di prudente gestione
+
+Processo Decisionale
+
+L'operazione è perfezionata solo dopo approvazione del Comitato Crediti
+Nel rispetto delle procedure del soggetto finanziatore
+Valutazione autonoma e indipendente
+
+Richieste di Integrazione
+Il soggetto finanziatore può:
+
+Richiedere chiarimenti all'impresa
+Chiedere documentazione aggiuntiva
+30 giorni per la risposta dell'impresa
+Decadenza automatica se non rispettata la tempistica
+
+2. Gestione Importi Inferiori
+Quando l'Importo è Ridotto
+Se il finanziamento e/o programma d'investimento deliberato è inferiore a quello richiesto:
+
+Il soggetto finanziatore trasmette apposita dichiarazione
+A firma della PMI che prende atto della riduzione
+Insieme alla restante documentazione
+
+3. La Provvista CDP
+Fonte di Finanziamento
+
+Operazioni spesso a valere sulla provvista CDP (Cassa Depositi e Prestiti)
+Costituita presso la gestione separata di CDP
+Subordinazione: Concessione finanziamento subordinata alla disponibilità provvista
+
+Rischio Indisponibilità
+Se CDP non mette a disposizione la provvista per:
+
+Indisponibilità della stessa
+Altre motivazioni relative alla fonte di provvista
+Il finanziamento non potrà essere concesso
+
+4. Il Ruolo del Ministero
+Verifiche Amministrative
+Il Ministero ricevuta la documentazione procede a:
+
+Verifiche amministrative necessarie
+Controllo aggiornamento Registro imprese
+Obbligo di rettifiche se informazioni non aggiornate
+
+Verifiche Antimafia
+Per agevolazioni superiori a €150.000:
+
+Acquisizione informazioni antimafia
+Secondo D.Lgs. n. 159/2011 ("Codice leggi antimafia")
+Obbligatorie nei casi previsti dal decreto
+Modulo domanda deve includere dichiarazioni richieste
+
+Registrazione negli Aiuti
+Prima della concessione, registrazione dell'aiuto su:
+
+Registro Nazionale Aiuti (RNA)
+Registri SIAN (settore agricolo)
+Registri SIPA (settore pesca)
+
+5. Provvedimento di Concessione
+Adozione del Decreto
+Completate tutte le verifiche, il Ministero:
+
+Adotta il provvedimento di concessione
+Trasmette il decreto alla PMI beneficiaria
+Invia copia al soggetto finanziatore
+
+Contenuto del Decreto
+Il provvedimento specifica:
+
+Importo del contributo concesso
+Piano temporale di erogazione (se a rate)
+Condizioni e vincoli specifici
+Obblighi dell'impresa beneficiaria
+
+6. Requisiti Specifici Nuova Sabatini Capitalizzazione
+Tempistica Delibera
+
+Domanda non antecedente all'adozione della delibera di aumento capitale
+Dichiarazione di rispetto requisiti soggettivi art. 4 del D.M. 43/2024
+Impegno alla sottoscrizione e versamento aumento capitale
+
+Obblighi Aggiuntivi
+
+Sottoscrizione nei termini previsti
+Versamento nelle modalità stabilite
+Rispetto requisiti specifici della capitalizzazione
+
+7. Gestione delle Rinunce
+Nuova Procedura
+Per domande senza decreto di concessione ancora adottato:
+
+Comunicazione al Ministero tramite piattaforma
+Non più solo al soggetto finanziatore via PEC
+Liberazione risorse per altre richieste in attesa
+
+8. Ordine Cronologico e Graduatorie
+Principio Base
+
+Ammissione alla fase istruttoria in ordine cronologico giornaliero
+Domande stesso giorno considerate pervenute nello stesso istante
+
+Formazione Graduatoria
+Se risorse residue insufficienti per tutte le domande dello stesso giorno:
+
+Graduatoria basata su punteggio solidità economico-finanziaria
+Dichiarato dall'impresa in domanda
+Parità: prevale progetto con minor costo
+Rideterminazione possibile dopo accertamenti istruttori
+
+9. Timeline del Processo
+Fase 1: Soggetto Finanziatore
+
+Ricezione domanda via PEC
+Istruttoria creditizia
+Eventuale richiesta integrazioni (30 giorni risposta)
+Approvazione Comitato Crediti
+Trasmissione documentazione al Ministero
+
+Fase 2: Ministero
+
+Verifiche amministrative
+Controllo Registro imprese
+Acquisizione informazioni antimafia (se necessarie)
+Registrazione RNA/SIAN/SIPA
+Adozione provvedimento concessione
+Trasmissione decreto a PMI e finanziatore
+
+10. Fattori di Successo
+Per l'Impresa
+
+Documentazione completa e corretta
+Solidità economico-finanziaria documentata
+Registro imprese aggiornato
+Rispetto tempistiche per integrazioni
+
+Criticità da Evitare
+
+Documentazione incompleta
+Ritardi nelle risposte alle integrazioni
+Avvio investimento prima dell'invio domanda
+Informazioni non aggiornate nel Registro imprese
+
+11. Checklist Post-Invio
+✅ Dopo l'invio monitorare:
+
+Comunicazioni dal soggetto finanziatore
+Eventuali richieste di integrazioni
+Tempi di risposta (30 giorni)
+Aggiornamento Registro imprese se richiesto
+
+✅ Preparare per fase successiva:
+
+Documentazione per verifiche antimafia (se > €150k)
+Aggiornamenti situazione aziendale
+Pianificazione avvio investimento post-concessione
+
+Guida Completa alla Nuova Sabatini - Parte 5
+Realizzazione dell'Investimento ed Erogazione del Contributo
+1. Realizzazione del Programma d'Investimento
+Tempistiche Obbligatorie
+
+Completamento entro 12 mesi dalla stipula del contratto di finanziamento
+Data di riferimento: ultimo titolo di spesa del programma o ultimo verbale di consegna (per leasing)
+⚠️ Conseguenza: Mancato rispetto = REVOCA TOTALE dell'agevolazione
+
+Avvio Investimento
+
+DOPO la data di trasmissione PEC della domanda al soggetto finanziatore
+PRIMA: impegni vincolanti, fatture, pagamenti (anche acconti) = REVOCA TOTALE
+
+2. Modalità di Pagamento Obbligatorie
+Tracciabilità Totale
+Le spese devono essere pagate esclusivamente tramite:
+
+Bonifici bancari
+SEPA Credit Transfer
+Ricevute bancarie (RI.BA.)
+
+⚠️ Modalità NON Ammesse
+
+Compensazione di crediti verso fornitori
+Pagamenti in contanti
+Qualsiasi modalità non tracciabile
+
+3. Gestione Fatture Elettroniche
+Obblighi di Indicazione
+Su TUTTE le fatture elettroniche (acconto e saldo) riportare:
+1. Codice Unico di Progetto (CUP)
+
+Nell'apposito campo della fattura
+Quello generato in fase di domanda
+
+2. Riferimento Normativo
+
+"art. 2, c. 4, D.L. n. 69/2013"
+In maniera separata dal CUP
+Su ogni singola fattura
+
+4. Richiesta di Erogazione (Modulo RU)
+Prerequisiti
+
+Programma d'investimento ultimato
+Pagamento a saldo di tutti i beni
+Entro 120 giorni dal termine ultimo per conclusione investimento
+
+Modalità di Compilazione
+
+Esclusivamente telematica su piattaforma dedicata
+Nuova Sabatini Ordinaria: piattaforma standard
+Nuova Sabatini Capitalizzazione: piattaforma dedicata specifica
+
+Accesso alla Piattaforma
+
+Credenziali trasmesse via PEC dal Ministero
+Modalità alternative comunicate sul sito web del Ministero
+
+5. Contenuto del Modulo RU
+Dichiarazione Sostitutiva di Atto Notorio
+L'impresa attesta:
+
+Ultimazione del programma d'investimento e sua articolazione
+Pagamento a saldo di tutti i beni
+Corrispondenza titoli di spesa al programma ammesso
+Presenza CUP e riferimento normativo su tutte le fatture
+(Se unità locale non attiva) Attivazione nel Registro imprese
+(Se impresa estera) Regolare costituzione e iscrizione
+(Solo Capitalizzazione) Versamento quote aumento capitale
+
+6. Generazione e Invio Modulo RU
+Processo
+
+Compilazione telematica completata
+Generazione automatica del modulo:
+
+Allegato n. 2 (Ordinaria)
+Allegato n. 2 Bis (Capitalizzazione)
+
+
+Firma digitale obbligatoria (legale rappresentante o procuratore)
+Invio tramite piattaforma al Ministero
+
+⚠️ Modalità Non Ammesse
+
+Moduli non compilati telematicamente
+Invio non tramite piattaforma
+Qualsiasi altra modalità = irricevibile
+
+7. Documentazione da Allegare
+Dichiarazioni Liberatorie Fornitori
+Schema Allegato n. 4 - Dichiarazioni sostitutive attestanti:
+
+Requisito nuovo di fabbrica del bene
+(Per investimenti Green) Conformità ai requisiti ambientali
+
+Documentazione Aggiuntiva
+
+Eventuali certificazioni richieste
+Verbali di consegna (per leasing)
+Attestazioni specifiche per beni 4.0 (se applicabile)
+
+8. Verifiche e Erogazione
+Verifiche Ministeriali
+Prima dell'erogazione il Ministero verifica:
+
+Completezza documentazione
+DURC regolare e valido
+Certificazioni da altri soggetti pubblici
+Banche dati esterne:
+
+Registro imprese
+RNA, SIAN/SIPA
+DURC On Line
+Agenzia Entrate-Riscossione
+Banca Dati Antimafia
+
+
+
+Modalità di Erogazione
+
+Quote annuali secondo piano temporale del decreto di concessione
+Unica soluzione per domande con requisiti specifici
+
+9. Richieste di Pagamento Successive (Modulo RP)
+Quando Necessario
+Per erogazioni in più quote annuali dopo la prima quota (RU)
+Tempistiche
+
+Cadenza annuale obbligatoria
+Non prima di 12 mesi dalla precedente richiesta
+Entro i 12 mesi successivi al termine
+⚠️ Mancato rispetto = revoca parziale quote residue
+
+Contenuto Modulo RP
+
+Conferma assenza variazioni rispetto a informazioni precedenti
+Non più richiesta conferma regolarità piano rimborso finanziamento
+(Solo Capitalizzazione) Dichiarazione versamento aumento capitale
+
+10. Gestione delle Variazioni
+Variazioni Ammesse
+L'impresa può variare l'oggetto del programma senza preventiva autorizzazione se:
+
+Programma realizzato possiede tutti i requisiti di ammissibilità
+Variazioni nella stessa linea d'intervento (Beni Strumentali, 4.0, Green)
+Nessun incremento del contributo concesso
+
+Comunicazione Variazioni
+
+Tempestiva al Ministero tramite piattaforma
+Prima della presentazione di RU e RP
+Possibile interruzione termini per erogazione per verifiche ministeriali
+
+11. Timeline Fase Post-Concessione
+Mesi 1-12: Realizzazione
+
+Avvio investimento (dopo concessione)
+Acquisto/leasing beni con pagamenti tracciabili
+Apposizione CUP su tutte le fatture
+Ultimazione entro 12 mesi da contratto finanziamento
+
+Entro 120 giorni dall'ultimazione
+
+Compilazione telematica Modulo RU
+Firma digitale e invio tramite piattaforma
+Allegare dichiarazioni liberatorie fornitori
+
+Verifiche Ministeriali
+
+Controllo completezza documentazione
+Verifiche DURC e banche dati
+Eventuale richiesta integrazioni
+
+Erogazione
+
+Prima quota o unica soluzione
+(Se a rate) Successive quote con Modulo RP annuale
+
+12. Checklist Realizzazione Investimento
+✅ Durante la realizzazione:
+
+Pagamenti solo con modalità tracciabili
+CUP + riferimento normativo su ogni fattura
+Conservazione di tutta la documentazione
+Rispetto tempistiche (12 mesi)
+
+✅ Per il Modulo RU:
+
+Completamento programma d'investimento
+Pagamento a saldo di tutti i beni
+Compilazione telematica entro 120 giorni
+Firma digitale e invio su piattaforma
+Allegare dichiarazioni liberatorie fornitori
+
+✅ Per i Moduli RP successivi:
+
+Rispetto cadenza annuale (12 mesi ±12 mesi)
+Compilazione telematica
+(Capitalizzazione) Conferma versamento aumento capitale
+
+13. Vincoli e Obblighi Post-Erogazione
+Vincolo di Destinazione
+I beni oggetto dell'agevolazione NON DEVONO essere:
+
+Alienati
+Ceduti
+Distratti dall'uso produttivo
+
+Per almeno 3 anni dalla data di completamento dell'investimento.
+Controlli e Monitoraggi
+L'impresa deve:
+
+Consentire e favorire controlli disposti dal Ministero
+Conservare documentazione per verifiche
+Comunicare eventuali variazioni rilevanti
+
+Guida Completa alla Nuova Sabatini - Parte 6
+Cumulabilità e Nuova Sabatini Capitalizzazione
+1. Cumulabilità con Altri Aiuti di Stato
+Principio Generale
+Le agevolazioni della Nuova Sabatini sono cumulabili con altri aiuti di Stato relativi agli stessi costi ammissibili, MA:
+
+Non devono superare l'intensità di aiuto o l'importo più elevato applicabile
+Secondo i regolamenti di esenzione UE in base all'attività dell'impresa
+
+Controllo e Rideterminazione
+Il Ministero:
+
+Procede alla rideterminazione dell'Equivalent Subsidy Level (ESL)
+Se necessario per effetto del cumulo con altre agevolazioni pubbliche
+Include quelle a valere sul Fondo di garanzia
+ESL rideterminato nella misura massima consentita
+
+2. Obblighi Dichiarativi per la Cumulabilità
+In Fase di Domanda
+L'impresa deve dichiarare se per gli stessi beni ha:
+
+Richiesto ma non ottenuto altre agevolazioni
+È stata assegnataria di altre agevolazioni di qualsiasi natura:
+
+Statali
+Regionali
+Unionali
+Da istituzioni/enti pubblici
+Incluse quelle "de minimis"
+
+
+
+Informazioni da Fornire
+Tabelle specifiche con:
+
+Tipologia bene agevolato
+Importo dell'investimento
+Legge/strumento/intervento di riferimento
+Data e numero decreto di concessione
+Importo concesso
+Intensità di aiuto applicata e massima applicabile
+
+Nel Modulo RU
+Dichiarazione di non aver fruito di agevolazioni pubbliche per medesimi beni oltre i limiti delle intensità massime previste dai regolamenti unionali.
+3. Cumulabilità con Benefici Fiscali
+Super Ammortamento (40%)
+
+Misura generale fruibile anche con altre misure
+Salvo espresso divieto di cumulo nelle norme specifiche
+Non incide sul costo fiscalmente rilevante per plusvalenze
+
+Iper Ammortamento (150%)
+
+Per beni dell'allegato A
+Non si cumula con Super Ammortamento (40%)
+Applicabile a quote ammortamento e canoni leasing
+
+Principi Generali
+
+Benefici fiscali cumulabili se non classificabili come aiuti di Stato
+Limite: spese sostenute complessivamente
+Impossibile cumulare per medesime spese se una misura esclude il cumulo
+
+4. Nuova Sabatini Capitalizzazione - Caratteristiche Distintive
+Normativa di Riferimento
+
+Decreto interministeriale 19 gennaio 2024, n. 43
+Entrata in vigore: 20 aprile 2024
+Istruzioni: Circolare direttoriale 22 luglio 2024, n. 1115
+
+Obiettivo Specifico
+Incentivare i processi di capitalizzazione delle PMI che realizzano programmi di investimento in beni strumentali.
+Disponibilità
+
+Dal 1° ottobre 2024
+Schema domanda: Allegato n. 1 Bis
+Programma d'investimento esclusivamente per contributo Capitalizzazione
+
+5. Requisiti Specifici Capitalizzazione
+Aumento di Capitale
+Connessione obbligatoria con aumento di capitale da parte dei soci dell'impresa beneficiaria.
+Tempistiche Delibera
+
+Domanda non antecedente all'adozione della delibera di aumento capitale
+Dichiarazione di rispetto requisiti soggettivi (art. 4 D.M. 43/2024)
+Impegno alla sottoscrizione e versamento nei termini previsti
+
+Modalità di Versamento
+
+Termini e modalità previsti dal punto 5.4 della circolare
+Integrato dalla circolare 1115/2024
+
+6. Casi Specifici di Versamento Capitale
+Caso 1: Punto 13.2 della Circolare
+
+Aumento capitale deve risultare interamente sottoscritto e versato
+Prima della richiesta di erogazione
+Pena revoca del contributo
+
+Caso 2: Punto 13.6 della Circolare
+
+Aumento capitale versato almeno proporzionalmente
+Alle quote di contributo previste
+Versamento progressivo ammesso
+
+7. Documentazione Aggiuntiva Capitalizzazione
+Nel Modulo RU (Allegato 2 Bis)
+Oltre alle dichiarazioni standard:
+
+Attestazione versamento quote aumento capitale
+Nei termini e modalità previste
+Dichiarazione sostitutiva di atto notorio
+
+Nel Modulo RP (per quote successive)
+
+Conferma versamento aumento capitale sociale
+Allegato 5: Dichiarazione specifica
+Importo versato dell'aumento capitale
+
+8. Subentro di Nuovo Soggetto
+Requisiti per Subentro
+In caso di subentro nell'agevolazione Capitalizzazione:
+
+Requisiti richiesti: articolo 4 del decreto Capitalizzazione
+Valutazione specifica caso per caso
+Mantenimento delle condizioni di capitalizzazione
+
+9. Controlli Specifici Capitalizzazione
+Verifiche Aggiuntive
+Il Ministero verifica:
+
+Effettivo versamento dell'aumento di capitale
+Rispetto tempistiche previste
+Conformità alle modalità stabilite
+Proporzionalità tra versamenti e quote contributo
+
+Conseguenze Inadempimento
+
+Revoca parziale o totale del contributo
+Recupero somme già erogate
+Interessi e sanzioni previste
+
+10. Differenze Operative Capitalizzazione vs Ordinaria
+AspettoOrdinariaCapitalizzazioneSchema domandaAllegato 1Allegato 1 BisPiattaformaStandardDedicataRequisito aggiuntivoNessunoAumento capitaleModulo RUAllegato 2Allegato 2 BisVerifiche extraStandardVersamento capitaleDisponibilitàSempreDal 1° ottobre 2024
+11. Best Practices per la Cumulabilità
+Prima della Domanda
+
+Mappatura completa di tutti gli aiuti richiesti/ottenuti
+Calcolo intensità aiuti complessiva
+Verifica compatibilità con regolamenti UE
+Consulenza specialistica se necessario
+
+Durante il Procedimento
+
+Aggiornamento dichiarazioni in caso di nuovi aiuti
+Comunicazione tempestiva al Ministero
+Conservazione documentazione di tutti gli aiuti
+
+12. Checklist Cumulabilità
+✅ Verificare sempre:
+
+Intensità aiuto massima applicabile al settore
+Altri aiuti richiesti/ottenuti per stessi beni
+Compatibilità con regolamenti UE
+Limiti "de minimis" se applicabili
+Dichiarazioni complete e aggiornate
+
+✅ Per Capitalizzazione verificare:
+
+Delibera aumento capitale adottata
+Tempistiche versamento compatibili
+Documentazione societaria completa
+Piattaforma dedicata utilizzata
+Allegati specifici (1 Bis, 2 Bis)
+
+Guida Completa alla Nuova Sabatini - Parte 7
+Controlli, Revoche e Aspetti Operativi
+1. Obblighi di Controllo e Monitoraggio
+Impegni dell'Impresa
+Durante tutte le fasi del procedimento, l'impresa deve:
+
+Consentire e favorire lo svolgimento dei controlli
+Agevolare i monitoraggi disposti dal Ministero
+Fornire documentazione richiesta per verifiche
+Garantire accesso ai locali dove sono ubicati i beni
+
+Tipologie di Controlli
+
+Documentali: Verifica completezza e correttezza documentazione
+In loco: Sopralluoghi per verificare esistenza e utilizzo beni
+Amministrativi: Controlli incrociati con banche dati pubbliche
+Tecnici: Verifica conformità beni agli standard richiesti
+
+2. Tracciabilità dei Pagamenti
+Requisiti Obbligatori
+
+Piena tracciabilità di tutti i pagamenti relativi all'investimento
+Modalità ammesse:
+
+Bonifici bancari
+SEPA Credit Transfer
+Ricevute bancarie (RI.BA.)
+
+
+
+⚠️ Modalità Vietate
+
+Compensazione crediti verso fornitori
+Pagamenti in contanti
+Assegni non tracciabili
+Qualsiasi modalità non documentabile
+
+3. Vincoli sui Beni Agevolati
+Vincolo di Destinazione
+I beni oggetto dell'agevolazione NON POSSONO essere:
+
+Alienati (venduti)
+Ceduti a terzi
+Distratti dall'uso produttivo
+
+Durata del Vincolo
+
+3 anni dalla data di completamento dell'investimento
+Decorrenza: data ultimo titolo di spesa o verbale consegna
+Controllo continuo durante tutto il periodo
+
+Conseguenze Violazione
+
+Revoca totale dell'agevolazione
+Recupero di tutte le somme erogate
+Interessi e sanzioni
+
+4. Cause di Revoca dell'Agevolazione
+Revoca Totale
+Scatta automaticamente per:
+
+Avvio investimento prima dell'invio domanda
+Mancato completamento entro 12 mesi da contratto finanziamento
+Mancata richiesta erogazione entro 120 giorni dall'ultimazione
+Alienazione/cessione beni durante periodo vincolo
+False dichiarazioni o documentazione non veritiera
+
+Revoca Parziale
+Per:
+
+Mancato rispetto termine annuale Modulo RP
+Variazioni investimento che comportano perdita requisiti
+Cumulo irregolare con altri aiuti oltre limiti
+
+5. Controlli del Ministero
+Verifiche Propedeutiche al Pagamento
+
+Completezza documentazione inviata dall'impresa
+DURC regolare e valido alla data erogazione
+Certificazioni da altri soggetti pubblici
+Consultazione banche dati esterne
+
+Banche Dati Consultate
+
+Registro delle Imprese
+RNA (Registro Nazionale Aiuti)
+SIAN/SIPA (settori agricoltura/pesca)
+DURC On Line
+Agenzia Entrate-Riscossione
+Banca Dati Antimafia
+
+6. Gestione Inadempimenti e Recuperi
+Procedura di Revoca
+
+Accertamento inadempimento
+Comunicazione all'impresa con contestazione
+Termine per controdeduzioni (di norma 30 giorni)
+Valutazione controdeduzioni
+Decreto di revoca se confermato inadempimento
+
+Recupero delle Somme
+
+Restituzione integrale contributi erogati
+Interessi legali dalla data erogazione
+Eventuali sanzioni previste dalla normativa
+Iscrizione nel registro dei debitori
+
+7. Controlli sui Confidi
+Responsabilità del Confidi
+L'Amministrazione verifica che il confidi (se coinvolto):
+
+Abbia agito con dovuta diligenza professionale
+Abbia tutelato il credito pubblico
+Abbia seguito procedure appropriate
+
+Conseguenze per Confidi
+In caso di inadempimenti dell'impresa, verifica se il confidi:
+
+Ha monitorato adeguatamente l'operazione
+Ha attivato le procedure di recupero
+Ha rispettato gli obblighi contrattuali
+
+8. Gestione delle Variazioni
+Variazioni Ammesse
+
+Modifica oggetto investimento senza preventiva autorizzazione
+Condizioni:
+
+Mantenimento tutti i requisiti di ammissibilità
+Stessa linea d'intervento (Beni Strumentali, 4.0, Green)
+Nessun incremento contributo concesso
+
+
+
+Comunicazione Obbligatoria
+
+Tempestiva al Ministero tramite piattaforma
+Prima di presentare RU/RP
+Possibile interruzione termini erogazione per verifiche
+
+Verifiche sulle Variazioni
+Il Ministero valuta se le variazioni:
+
+Evidenziano cause di revoca
+Mantengono requisiti originari
+Rispettano finalità dell'agevolazione
+
+9. Procedure di Emergenza e Sospensioni
+Casi di Sospensione
+Erogazione sospesa in caso di:
+
+Contenziosi in corso relativi all'agevolazione
+Verifiche approfondite in corso
+Dubbi sulla regolarità documentazione
+Procedure concorsuali avviate
+
+Ripristino Erogazione
+Dopo chiarimento delle situazioni dubbie e conferma regolarità.
+10. Aspetti Operativi Finali
+Conservazione Documentazione
+L'impresa deve conservare per almeno 10 anni:
+
+Tutta la documentazione relativa all'agevolazione
+Fatture con CUP e riferimento normativo
+Contratti di acquisto/leasing
+Documentazione pagamenti tracciabili
+Dichiarazioni e attestazioni
+
+Comunicazioni con il Ministero
+
+Solo tramite piattaforma dedicata
+PEC istituzionale per comunicazioni ufficiali
+Tempestività nelle risposte richieste
+Completezza nelle informazioni fornite
+
+11. Checklist Finale Compliance
+✅ Durante tutto il procedimento:
+
+Mantenere documentazione completa e aggiornata
+Rispettare tutti i termini procedurali
+Garantire tracciabilità totale dei pagamenti
+Apporre CUP su tutte le fatture
+Non alienare beni per 3 anni post-completamento
+
+✅ In caso di controlli:
+
+Collaborare pienamente con verificatori
+Fornire tempestivamente documentazione richiesta
+Garantire accesso ai locali e ai beni
+Conservare evidenze per almeno 10 anni
+
+✅ Per evitare revoche:
+
+Completare investimento entro 12 mesi
+Richiedere erogazione entro 120 giorni
+Presentare Moduli RP nei termini annuali
+Comunicare tempestivamente variazioni
+Mantenere requisiti per tutto il periodo
+
+12. Soggetti di Riferimento e Contatti
+Ministero delle Imprese e del Made in Italy
+
+Piattaforma telematica: Per domande e comunicazioni
+Sito web: Informazioni e aggiornamenti normativi
+PEC istituzionale: Per comunicazioni ufficiali
+
+Soggetti Finanziatori
+
+Banche e intermediari finanziari aderenti
+Elenco aggiornato sul sito del Ministero
+Valutazione creditizia e gestione finanziamento
+
+Supporto Tecnico
+
+Pareri tecnici: Richieste via PEC al Ministero
+Consulenza specialistica: Per casi complessi
+Associazioni di categoria: Per supporto operativo
+
+13. Considerazioni Finali
+La Nuova Sabatini rappresenta un'importante opportunità per le PMI italiane per:
+
+Modernizzare il parco macchine
+Digitalizzare i processi produttivi
+Accedere a finanziamenti agevolati
+Migliorare la competitività aziendale
+
+Fattori di Successo
+
+Pianificazione accurata dell'investimento
+Documentazione completa e tempestiva
+Rispetto rigoroso di tutti gli obblighi
+Monitoraggio continuo delle scadenze
+Comunicazione proattiva con il Ministero
+
+Raccomandazioni Operative
+
+Studiare attentamente tutta la normativa prima di avviare
+Consultare esperti per casi complessi
+Pianificare tutti gli aspetti temporali
+Mantenere documentazione sempre aggiornata
+Monitorare costantemente obblighi e scadenze
+
+
+Riepilogo della Guida Completa
+Questa guida ha coperto tutti gli aspetti fondamentali della Nuova Sabatini:
+
+Parte 1: Fondamenti e soggetti beneficiari
+Parte 2: Beni ammissibili e tipologie investimenti
+Parte 3: Presentazione della domanda
+Parte 4: Valutazione e concessione
+Parte 5: Realizzazione investimento ed erogazione
+Parte 6: Cumulabilità e Capitalizzazione
+Parte 7: Controlli, revoche e aspetti operativi
+
+Per un utilizzo efficace di questa misura agevolativa, è fondamentale mantenere sempre aggiornate le proprie conoscenze consultando il sito ufficiale del Ministero delle Imprese e del Made in Italy per eventuali modifiche normative e procedurali.

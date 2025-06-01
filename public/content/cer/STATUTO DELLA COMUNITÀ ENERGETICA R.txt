@@ -1,0 +1,269 @@
+STATUTO DELLA COMUNITÀ ENERGETICA RINNOVABILE
+"COMUNITÀ ENERGETICA RINNOVABILE [NOME TERRITORIO]"
+
+TITOLO I - DISPOSIZIONI GENERALI
+Articolo 1 - Denominazione e natura giuridica
+È costituita una Comunità Energetica Rinnovabile (CER) quale società consortile a responsabilità limitata ai sensi degli articoli 2615-ter e 2462 del Codice Civile, denominata "[DENOMINAZIONE SPECIFICA]" - Comunità Energetica Rinnovabile.
+L'ente è costituito in conformità alle disposizioni del Decreto Legislativo 8 novembre 2021, n. 199, del Decreto MASE n. 414 del 7 dicembre 2023 e successive modificazioni e integrazioni.
+Articolo 2 - Sede legale e durata
+
+La società consortile ha sede legale nel Comune di [COMUNE], Provincia di [PROVINCIA], Regione [REGIONE], all'indirizzo risultante dalla apposita iscrizione eseguita presso il Registro delle Imprese ai sensi dell'art. 111-ter delle disposizioni di attuazione del Codice Civile.
+Il Consiglio di Amministrazione ha facoltà di istituire e sopprimere ovunque unità locali operative (uffici amministrativi senza stabile rappresentanza) ovvero di trasferire la sede sociale nell'ambito della Provincia.
+La durata della società consortile è fissata sino al 31 dicembre 2054 e può essere prorogata o sciolta anticipatamente dall'Assemblea con il consenso di almeno i tre quarti del capitale sociale.
+
+Articolo 3 - Finalità e oggetto sociale
+
+La società consortile avente scopo mutualistico fra i soci persegue, senza fini di lucro, finalità civiche, solidaristiche e di utilità sociale mediante l'esercizio, in via esclusiva o principale, a favore dei propri soci, di loro filiali, ovvero di interventi e servizi finalizzati alla salvaguardia e al miglioramento delle condizioni e all'utilizzazione accorta e razionale dell'ambiente e delle risorse naturali.
+L'obiettivo principale della società consortile è fornire benefici ambientali, economici e sociali a livello di comunità ai soci e alle aree locali in cui opera, promuovendo l'installazione di impianti a fonte rinnovabile e la riduzione dei costi energetici dei soci.
+Per raggiungere lo scopo suddetto, la società consortile potrà svolgere le seguenti attività principali:
+a) Organizzazione della condivisione energetica: organizzare la condivisione dell'energia elettrica rinnovabile prodotta dalle unità di produzione detenute dalla società consortile ai sensi dell'art. 31 del D.Lgs 199/2021, qualora la proprietà, la gestione o la qualifica di produttore per tali impianti siano di soci, fatti salvi gli altri requisiti previsti e il mantenimento dei diritti e degli obblighi dei soci come clienti;
+b) Gestione rapporti con GSE: gestire i rapporti con il Gestore dei Servizi Energetici (GSE); monitorare produzione e consumi dei propri soci con finalità di verifica e rendicontazione; accedere agli incentivi ed ai rimborsi connessi alla condivisione dell'energia tra i soci; ripartire i benefici economici tra i soci nel rispetto delle modalità definite nell'apposito regolamento;
+c) Produzione e gestione energetica: produrre, consumare, immagazzinare e vendere l'energia elettrica rinnovabile, anche tramite accordi di compravendita di energia elettrica rinnovabile e mediante la realizzazione di impianti a fonti rinnovabili, di proprietà o comunque detenuti dalla Comunità;
+d) Accesso ai mercati energetici: accedere a tutti i mercati dell'energia elettrica, direttamente o mediante aggregazione e fornire servizi di efficienza energetica o servizi energetici, anche sui mercati del dispacciamento o a favore dei gestori delle reti di trasmissione/distribuzione.
+La società consortile potrà svolgere anche le seguenti attività complementari:
+
+Promozione e collaborazione nell'ambito di attività di ricerca su tematiche coerenti con il proprio oggetto sociale;
+Sviluppo di modelli di governance di generazione distribuita e nuove applicazioni tecnologiche per la diffusione dell'uso di energia da fonti rinnovabili;
+Individuazione di opportunità di finanziamento e inserimento delle attività sviluppate in reti di competenza regionali, nazionali ed europee;
+Pianificazione territoriale per l'energia a beneficio di altri enti territoriali;
+Organizzazione di servizi accessori e complementari alla distribuzione elettrica;
+Prestazione di qualsiasi servizio collegato all'attività della CER.
+
+
+La società consortile non ha fini di lucro e pertanto non potranno essere distribuiti utili o avanzi di esercizio di ogni genere e sotto qualsiasi forma ai soci neppure in caso di scioglimento.
+La società è autonoma ed ha una partecipazione aperta e volontaria nei limiti previsti dalle normative vigenti.
+
+
+TITOLO II - SOCI E PARTECIPAZIONE
+Articolo 4 - Categorie di soci
+
+I soci si distinguono in:
+
+Soci fondatori: coloro che hanno sottoscritto l'atto costitutivo;
+Soci ordinari: coloro che aderiscono successivamente alla costituzione.
+
+
+I soci ordinari si distinguono ulteriormente in:
+
+Soci produttori: titolari di impianti di produzione di energia da fonti rinnovabili;
+Soci consumatori: titolari di punti di prelievo senza impianti di produzione;
+Soci prosumer: soggetti che sono contemporaneamente produttori e consumatori;
+Soci concedenti: enti territoriali o autorità locali proprietari di immobili che concedono diritti di superficie per la realizzazione di impianti.
+
+
+
+Articolo 5 - Requisiti di ammissione
+
+Possono essere ammessi come soci esclusivamente i soggetti aventi i requisiti previsti dalla normativa vigente:
+a) Persone fisiche residenti nel territorio dei Comuni sottesi alla medesima cabina primaria;
+b) Piccole e medie imprese (PMI) secondo la definizione dell'Allegato della Raccomandazione 2003/361/CE della Commissione Europea, per le quali la partecipazione alla CER non costituisce l'attività commerciale e industriale principale;
+c) Enti territoriali e autorità locali, ivi incluse le amministrazioni comunali;
+d) Enti di ricerca e formazione, enti religiosi, del terzo settore e di protezione ambientale;
+e) Amministrazioni locali contenute nell'elenco ISTAT secondo l'art. 1, comma 3, della legge 31 dicembre 2009, n. 196;
+f) Associazioni con personalità giuridica di diritto privato.
+I soggetti devono essere situati nel territorio degli stessi Comuni in cui sono ubicati gli impianti di produzione detenuti dalla CER e sottesi alla medesima cabina primaria (codice identificativo: [CODICE CABINA]).
+Non possono essere ammessi:
+
+Le imprese la cui partecipazione costituisca attività commerciale e industriale principale;
+Le imprese in difficoltà secondo la definizione della Comunicazione della Commissione Europea;
+I soggetti per i quali ricorre una delle cause di esclusione di cui agli artt. 94-98 del D.Lgs. 31 marzo 2023, n. 36;
+I soggetti assoggettati alle cause di divieto, decadenza o sospensione di cui all'art. 67 del D.Lgs. 6 settembre 2011, n. 159;
+Le imprese con ordine di recupero per decisione della Commissione Europea sui precedenti incentivi illegali.
+
+
+
+Articolo 6 - Capitale sociale e conferimenti
+
+Il capitale sociale è di euro [IMPORTO] (€ [CIFRA IN LETTERE]) integralmente versato all'atto della costituzione dai Soci Fondatori. Le quote di conferimento dei soci possono essere di diverso ammontare ma non inferiori a euro 1,00.
+I futuri aumenti di capitale potranno essere liberati in denaro o conferimenti in natura secondo le decisioni dell'Assemblea dei soci.
+La partecipazione dei soci è rappresentata da quote di partecipazione:
+
+I soci consumatori conferiscono un punto di prelievo di energia elettrica (POD) sotteso alla medesima cabina primaria;
+I soci produttori conferiscono l'impianto di produzione di energia elettrica alimentato da fonti rinnovabili connesso alla rete di distribuzione sottesa alla medesima cabina primaria;
+I soci concedenti conferiscono il diritto di superficie su specifiche aree per la realizzazione di impianti.
+
+
+Ai sensi dell'art. 2254 c.c., per le cose conferite in proprietà la garanzia dovuta dal socio e il passaggio dei rischi sono regolati dalle norme sulla vendita. Il rischio delle cose conferite in godimento resta a carico del socio conferente.
+I diritti sociali spettano ai soci, con diritti di voto differenziati per i soci produttori ai sensi dell'art. 2468, comma 3, c.c.
+
+
+TITOLO III - AMMISSIONE, DIRITTI E DOVERI, RECESSO ED ESCLUSIONE
+Articolo 7 - Procedura di ammissione
+
+I soggetti che desiderano aderire alla società devono presentare domanda scritta all'organo amministrativo, dichiarando:
+
+La titolarità di un punto di prelievo di energia elettrica sotteso alla medesima cabina primaria denominata "[DENOMINAZIONE CABINA]";
+La titolarità o disponibilità di un impianto di produzione di energia elettrica alimentato da fonti rinnovabili (per i soci produttori);
+La concessione del diritto di superficie per enti territoriali (per i soci concedenti);
+La compatibilità dell'attività svolta con le finalità sociali;
+Di conferire mandato esclusivo per la richiesta di accesso alla valorizzazione e incentivazione dell'energia elettrica condivisa;
+Di condividere gli scopi sociali e accettare il presente Statuto e il Regolamento interno.
+
+
+L'ammissione di nuovi soci è subordinata alla verifica da parte del Consiglio di Amministrazione della sussistenza dei requisiti previsti. Il Consiglio provvede entro 30 giorni dal ricevimento della domanda.
+La procedura di ammissione è gestita attraverso una Piattaforma gestionale secondo le modalità del Regolamento interno.
+L'acquisizione della qualità di socio comporta il conferimento alla società di mandato irrevocabile con rappresentanza per tutti i poteri necessari per il compimento delle attività concernenti l'attività sociale, mantenendo i diritti di cliente finale.
+
+Articolo 8 - Diritti e doveri dei soci
+
+Tutti i soci hanno diritto a:
+
+Eleggere gli organi sociali ed essere eletti negli stessi;
+Ricoprire le cariche sociali;
+Partecipare all'Assemblea dei soci;
+Mantenere i propri diritti come clienti finali, compreso quello di scegliere il proprio venditore di energia elettrica;
+Ricevere dalla società i benefici relativi all'energia elettrica condivisa secondo il Regolamento interno.
+
+
+I soci sono tenuti a:
+
+Rispettare l'atto costitutivo, lo Statuto, i regolamenti interni e le deliberazioni degli organi sociali;
+Versare il contributo annuale se deliberato;
+Conformare il proprio comportamento a principi di correttezza reciproca.
+
+
+
+Articolo 9 - Recesso, sospensione ed esclusione
+
+Gli associati possono recedere dalla società in qualsiasi momento dandone comunicazione scritta con preavviso di 180 giorni.
+La sospensione è deliberata dall'organo amministrativo in caso di mancata osservanza delle condizioni previste per l'ingresso nella compagine sociale.
+L'esclusione è deliberata dall'Assemblea ordinaria su proposta dell'organo amministrativo per:
+
+Gravi inadempienze alle obbligazioni derivanti dalla legge;
+Perdita dei requisiti previsti dallo statuto;
+Sopravvenuta impossibilità di partecipare al raggiungimento dello scopo sociale;
+Interdizione o inabilitazione per persone fisiche;
+Condanna con interdizione dai pubblici uffici;
+Dichiarazione di fallimento o ammissione a procedura concorsuale;
+Inadempimento dei contributi consortili;
+Modifica dell'oggetto sociale che comporti cambiamento significativo dell'attività.
+
+
+In caso di recesso od esclusione, i consorziati hanno diritto di ottenere dalla società soltanto il valore nominale corrispondente alla quota di partecipazione sottoscritta.
+
+
+TITOLO IV - ORGANIZZAZIONE
+Articolo 10 - Organi della società
+La struttura organizzativa è costituita da:
+
+Assemblea dei Soci (ordinaria e straordinaria);
+Consiglio di Amministrazione;
+Collegio Sindacale (ove occorra ai sensi dell'art. 2477 c.c.);
+Revisore Legale (ove nominato).
+
+Articolo 11 - Assemblea dei soci
+
+L'Assemblea dei soci delibera in conformità alle disposizioni di legge e dello statuto. Sono riservate alla competenza dell'assemblea ordinaria:
+
+L'approvazione del bilancio;
+La nomina e revoca degli amministratori e dei sindaci;
+La determinazione del compenso degli amministratori e sindaci;
+La deliberazione sulla responsabilità degli amministratori e sindaci;
+L'approvazione dell'eventuale regolamento dell'organizzazione;
+L'utilizzo degli importi derivanti dagli incentivi per la destinazione alla riduzione dei costi energetici degli associati o per iniziative sociali e ambientali.
+
+
+L'Assemblea è convocata almeno una volta all'anno entro 120 giorni dalla chiusura dell'esercizio sociale.
+L'avviso di convocazione deve essere comunicato ai soci almeno 8 giorni prima tramite raccomandata, PEC o Piattaforma gestionale.
+
+Articolo 12 - Quorum costitutivi e deliberativi
+
+L'assemblea ordinaria è regolarmente costituita:
+
+Prima convocazione: presenza dei soci fondatori, 35% dei soci produttori, 15% dei soci consumatori e percentuale stabilita dei soci concedenti;
+Seconda convocazione: presenza dei soci fondatori, 20% dei soci produttori, 10% dei soci consumatori.
+
+
+L'assemblea ordinaria delibera con il voto favorevole dei soci fondatori, 35% dei soci produttori e 15% dei soci consumatori.
+Per le delibere su ripartizione degli incentivi e per le delibere straordinarie è richiesto il voto favorevole dei soci fondatori, 50% dei soci produttori e 25% dei soci consumatori.
+
+Articolo 13 - Diritto di voto
+
+I soci hanno diritti di voto differenziati ai sensi dell'art. 2468, comma 3, c.c.:
+
+Soci produttori: 60% dei voti ripartiti proporzionalmente alla potenza degli impianti conferiti secondo la formula:
+Voto = 60% × (P_Impianti_Socio / P_Totale_Società)
+
+Soci consumatori: 40% dei voti proporzionalmente alla partecipazione (1 POD = 0,4%);
+Soci concedenti: percentuale stabilita proporzionalmente alla superficie concessa.
+
+
+Il voto è palese e può essere esercitato anche tramite delega scritta.
+
+Articolo 14 - Consiglio di Amministrazione
+
+L'amministrazione è affidata a un Consiglio di Amministrazione di 3-5 membri eletti dall'Assemblea:
+
+3 consiglieri tra i candidati designati dai soci;
+1 consigliere e il Presidente tra i candidati designati dal socio di maggioranza o ente pubblico principale.
+
+
+I Consiglieri durano in carica 3 esercizi e sono rieleggibili. Devono avere esperienza nel settore energetico, amministrativo o tecnico.
+Il Consiglio si riunisce almeno ogni 4 mesi e delibera a maggioranza assoluta dei presenti. In caso di parità prevale il voto del Presidente.
+
+Articolo 15 - Presidente
+
+Il Presidente ha la rappresentanza legale della società e coordina le attività del Consiglio e dell'Assemblea.
+Il Presidente può adottare provvedimenti urgenti sottoponendoli a ratifica nella prima riunione successiva.
+
+Articolo 16 - Collegio Sindacale
+
+Ove richiesto dalla legge, il Collegio Sindacale è composto da 3 sindaci effettivi e 2 supplenti nominati dall'Assemblea.
+I sindaci devono possedere i requisiti di cui all'art. 2399 c.c. e durano in carica 3 esercizi.
+
+
+TITOLO V - BILANCIO E GESTIONE ECONOMICA
+Articolo 17 - Esercizio sociale e bilancio
+
+L'esercizio sociale decorre dal 1° gennaio al 31 dicembre di ogni anno.
+Il bilancio d'esercizio è predisposto dal Consiglio di Amministrazione e depositato almeno 15 giorni prima dell'Assemblea.
+
+Articolo 18 - Gestione degli utili e benefici
+
+La società non persegue finalità di lucro e non può distribuire utili sotto qualsiasi forma ai soci.
+Eventuali utili di gestione sono destinati:
+
+Almeno 5% a riserva legale fino al quinto del capitale sociale;
+Almeno 20% a riserva ordinaria;
+Il rimanente per la realizzazione delle finalità statutarie.
+
+
+Non costituisce distribuzione di utili la corresponsione ai soci degli incentivi previsti dalla normativa vigente per l'energia condivisa, secondo le modalità stabilite nel Regolamento interno approvato dall'Assemblea.
+L'eventuale importo della tariffa premio eccedentario rispetto al valore soglia del 55% di quota energia condivisa è destinato ai soli consumatori diversi dalle imprese e/o utilizzato per finalità sociali sui territori ove sono ubicati gli impianti.
+
+
+TITOLO VI - DISPOSIZIONI FINALI
+Articolo 19 - Scioglimento e liquidazione
+
+La società si scioglie per le cause previste dalla legge e per deliberazione dell'Assemblea straordinaria con i quorum rafforzati previsti.
+L'Assemblea straordinaria nomina uno o più liquidatori e delibera sulla destinazione del patrimonio residuo a soggetti che svolgono attività rispondenti alle finalità della società.
+
+Articolo 20 - Controversie
+Qualsiasi controversia relativa al presente Statuto sarà devoluta alla competenza del Tribunale di [CITTÀ COMPETENTE].
+Articolo 21 - Regolamento interno
+Il funzionamento della CER, le modalità di ripartizione dei benefici economici e la gestione degli impianti sono disciplinati da apposito Regolamento interno approvato dall'Assemblea, modificabile solo con delibera straordinaria.
+Articolo 22 - Rinvio normativo
+Per tutto quanto non espressamente previsto nel presente Statuto si fa riferimento alle norme del Codice Civile, al D.Lgs. 199/2021, al Decreto MASE n. 414/2023, alle delibere ARERA e alle altre disposizioni normative vigenti in materia.
+Articolo 23 - Privacy e trattamento dati
+La società è titolare del trattamento dei dati personali dei soci e si impegna al rispetto del Regolamento UE 2016/679 (GDPR) secondo le modalità definite nell'informativa privacy e nel registro dei trattamenti.
+
+ALLEGATI INTEGRANTI
+
+Regolamento Interno per la gestione operativa della CER
+Schema di ripartizione benefici economici secondo la normativa vigente
+Modello di adesione per nuovi soci
+Informativa Privacy ai sensi del GDPR
+Contratto tipo per la condivisione dell'energia
+Piano di monitoraggio produzione e consumi
+
+
+Data di approvazione: __________________
+Firme dei soci fondatori:
+
+-----------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------
+
+Il presente Statuto è redatto in conformità al Decreto Legislativo 8 novembre 2021, n. 199, al Decreto MASE n. 414 del 7 dicembre 2023, alle Regole Operative del GSE e alla normativa vigente in materia di Comunità Energetiche Rinnovabili.

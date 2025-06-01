@@ -1,0 +1,331 @@
+GUIDA COMPLETA SIMEST FONDO 394/81
+STRUMENTI FINANZIARI PER L'INTERNAZIONALIZZAZIONE DELLE IMPRESE
+PARTE 1: QUADRO NORMATIVO E CONDIZIONI DI AMMISSIBILITÀ
+
+1. INTRODUZIONE AL QUADRO NORMATIVO
+1.1 Base Normativa e Riferimenti Legislativi
+Il Fondo 394/81 rappresenta uno strumento strategico per l'internazionalizzazione delle imprese italiane, disciplinato da un quadro normativo complesso che include:
+
+Decreto del 1° giugno 2023: Disciplina principale del Fondo 394/81
+Circolare 4/394/2023-DE-28.02.2025: Documento operativo dettagliato
+Regolamento UE n. 2831/2023: Normativa "de minimis" (sostituisce il precedente n. 1407/2013)
+Regolamento UE n. 651/2014: GBER (General Block Exemption Regulation)
+Regolamento UE 2021/523: InvestEU (con relative esclusioni nell'Allegato V - Lettera B)
+Operatività PNRR: Circolari specifiche per Transizione Digitale ed Ecologica
+
+1.2 Quadro degli Aiuti di Stato
+Gli interventi sono concessi esclusivamente:
+
+Nei limiti della normativa europea sugli aiuti "de minimis"
+In conformità con la normativa europea sugli aiuti di Stato
+Rispettando il principio di assenza del "doppio finanziamento" (per risorse PNRR)
+
+1.3 Gestione del Fondo
+SIMEST opera come gestore del Fondo 394/81 con le seguenti caratteristiche:
+
+Patrimonio autonomo e distinto da quello di SIMEST
+Contabilità separata con rendiconto annuale sottoposto al Comitato Agevolazioni
+Risorse derivanti da: versamenti al Fondo, entrate imputate al medesimo, stanziamenti normativi
+
+
+2. DEFINIZIONI FONDAMENTALI
+2.1 Tipologie di Imprese
+PMI (Piccole e Medie Imprese)
+
+Dipendenti: < 250
+Fatturato annuo: < €50 milioni OPPURE totale bilancio: < €43 milioni
+
+Micro Impresa
+
+PMI con fatturato/totale bilancio ≤ €2 milioni
+Dipendenti: < 10
+
+PMI Innovativa
+
+PMI costituita come società di capitali
+Rispetta parametri di innovazione tecnologica
+Iscritta in sezione speciale del registro imprese
+
+Start Up Innovativa
+
+Società di capitali non quotata
+Possiede requisiti specifici di innovazione
+Iscritta in sezione speciale del registro imprese
+
+Altra Impresa
+
+Qualsiasi impresa non qualificabile come PMI
+
+2.2 Elementi Operativi Chiave
+CUP (Codice Unico di Progetto)
+
+Codice comunicato da SIMEST
+OBBLIGATORIO su tutte le fatture e bonifici relativi alle spese ammissibili
+L'assenza del CUP comporta l'inammissibilità della spesa
+
+Conto Corrente Dedicato
+
+Conto bancario da aprire prima di sostenere le spese ammissibili
+Utilizzo esclusivo per spese ammissibili ed erogazioni SIMEST
+Può essere condiviso con altri Interventi Agevolativi SIMEST
+Contratto deve essere caricato sul Portale
+
+Periodo di Realizzazione
+
+Decorre dalla ricezione del CUP
+Termina 24 mesi dopo la Data di Stipula
+Possibile proroga di 6 mesi
+Tutte le spese devono essere sostenute in questo periodo
+
+
+3. CONDIZIONI DI AMMISSIBILITÀ DELL'IMPRESA
+3.1 Requisiti Fondamentali (alla data di presentazione domanda)
+Requisiti di Base
+
+Sede legale in Italia
+Regolarmente costituita e iscritta nel registro delle imprese in stato di attività
+Almeno due Bilanci relativi a due esercizi completi precedenti depositati
+
+Per imprese senza obbligo di deposito: dichiarazioni redditi e prospetti economico-patrimoniali
+
+
+Pieno e libero esercizio dei propri diritti
+Conformità alle normative ambientali
+Regolarità con normativa del lavoro e obblighi contributivi (DURC)
+
+Requisiti Finanziari e Legali
+7. Non aver ricevuto/rimborsato aiuti illegali o incompatibili
+8. Non risultare inadempiente verso SIMEST per fondi pubblici
+9. Aver integralmente restituito importi oggetto di revoca/restituzione da Fondo 394/81
+10. Non essere in procedure concorsuali o stati equivalenti:
+- Fallimento, liquidazione, amministrazione controllata/straordinaria
+- Concordato preventivo o equivalenti
+- Accesso a strumenti di crisi/insolvenza
+- Composizione negoziata
+Requisiti di Compliance
+11. Non rientrare in specifici Scoring (10, 11, 12)
+12. Non essere in difficoltà (art. 2, punto 18, Reg. UE n. 651/2014)
+13. Società controllate (anche estere) non devono:
+- Rientrare nelle esclusioni
+- Trovarsi in difficoltà
+- Svolgere attività di esportazione se collegate a costituzione/gestione reti di distribuzione
+3.2 Requisiti Specifici per Tipologia di Intervento
+"Inserimento mercati"
+
+Almeno due bilanci completi depositati
+
+"Transizione digitale o ecologica"
+
+Almeno due bilanci completi depositati
+Quota minima di fatturato estero (stabilita da circolare operativa)
+
+"Fiere ed eventi"
+
+Almeno un bilancio completo depositato
+
+"E-commerce"
+
+Almeno due bilanci completi depositati
+Finalizzato a commercio elettronico all'estero per beni/servizi prodotti in Italia o con marchio italiano
+
+"Certificazioni e consulenze"
+
+Almeno due bilanci completi depositati
+
+"Temporary manager"
+
+Inserimento temporaneo di figure specializzate in innovazione per internazionalizzazione
+
+
+4. ESCLUSIONI SETTORIALI E SOGGETTIVE
+4.1 Esclusioni Settoriali
+Settori Completamente Esclusi
+
+Settore bancario, finanziario e assicurativo
+Attività escluse da InvestEU (Allegato V - Lettera B, Reg. UE 2021/523)
+Settori "de minimis" esclusi:
+
+Pesca e acquacoltura
+Produzione primaria di prodotti agricoli (Sezione A - Agricoltura, Silvicoltura, Pesca)
+Specifiche classi manifatturiere: 10.11 (carne non volatili), 10.12 (carne volatili)
+
+
+
+Settori ATECO Specificamente Esclusi (PNRR)
+
+Categoria B: Estrazione di minerali
+Categoria 19: Fabbricazione di coke e prodotti derivanti dalla raffinazione del petrolio
+Categoria 35.2: Produzione di gas, distribuzione di combustibili gassosi
+Categoria 38.21: Trattamento e smaltimento di rifiuti non pericolosi
+Categoria 38.22: Trattamento e smaltimento di rifiuti pericolosi
+
+Eccezione per Settori Secondari
+
+Imprese attive solo secondariamente in settori esclusi possono accedere
+Condizione: dichiarare che l'Intervento Agevolativo non riguarda tali settori
+
+4.2 Esclusioni Soggettive
+Sanzioni e Black List
+
+Imprese destinatarie di sanzioni economiche/commerciali (UE, OFAC, UK, UN)
+Imprese inserite nelle Black List internazionali
+Misure restrittive di qualsiasi natura
+
+Condanne e Sanzioni Amministrative
+
+Legali rappresentanti/amministratori con condanne definitive per reati che costituiscono motivo di esclusione dagli appalti pubblici
+Imprese con sanzione interdittiva (art. 9, comma 2, lett. d, D.lgs. 231/2001)
+
+Paradisi Fiscali
+
+Imprese controllanti o controllate da società residenti in Paesi/territori non cooperativi a fini fiscali (lista UE)
+Verifica applicata in qualsiasi fase del rapporto
+
+Altre Cause Ostative
+
+Qualsiasi condizione prevista dalla legge che osti alla concessione di benefici pubblici
+Cause ostative antimafia accertate
+
+
+5. FORMA SINGOLA O ASSOCIATA
+5.1 Partecipazione Singola
+
+Impresa individuale che presenta domanda autonomamente
+Deve possedere tutti i requisiti di ammissibilità
+
+5.2 Partecipazione Associata - Contratto di Rete
+Requisiti per la Rete
+
+Contratto di rete con autonoma soggettività giuridica
+Tutte le imprese associate devono soddisfare i requisiti di ammissibilità
+Rete soggetto deve essere regolarmente costituita e iscritta
+
+Obblighi delle Imprese in Rete
+
+Ciascuna impresa deve mantenere i requisiti per tutta la durata dell'intervento
+Responsabilità solidale per gli obblighi derivanti dall'intervento agevolativo
+
+
+6. IMPORTI E LIMITI DELL'INTERVENTO AGEVOLATIVO
+6.1 Calcolo dell'Esposizione Complessiva
+Formula di Calcolo
+L'esposizione complessiva verso il Fondo 394/81 non può superare il 35% dei ricavi medi degli ultimi due Bilanci alla data di delibera.
+Componenti dell'Esposizione
+
+Interventi richiesti (incluso quello attuale)
+Interventi concessi non ancora rimborsati
+Al netto del fondo perduto consolidato
+
+6.2 Limiti Massimi per Classe Dimensionale
+Micro Impresa
+
+Importo massimo: €500.000
+
+PMI e PMI Innovative
+
+Importo massimo: €2.500.000
+
+Altre Imprese
+
+Importo massimo: €5.000.000
+
+Importo Minimo Generale
+
+€10.000 per tutti i tipi di intervento
+
+6.3 Struttura dell'Intervento
+Finanziamento
+
+Quota a tasso agevolato in regime "de minimis"
+Tasso ridotto del 10%, 50% o 80% rispetto al tasso UE di riferimento
+
+Cofinanziamento
+
+Quota a fondo perduto in regime "de minimis"
+Rispetto dei limiti del Regolamento UE n. 2831/2023
+Può essere elevato fino al 70% per incrementi costi energetici ≥100% (asseverato)
+
+Ottimizzazione del Plafond
+Se il plafond "de minimis" non è sufficiente:
+
+La quota di Cofinanziamento viene ridotta
+La quota di Finanziamento viene incrementata
+Obiettivo: massimizzare l'importo totale nei limiti disponibili
+
+
+7. BENEFICI AGGIUNTIVI PER IMPRESE ENERGIVORE
+7.1 Esenzione Garanzie e Fondo Perduto Aggiuntivo
+Condizioni di Accesso (per domande entro 31.12.2026)
+
+Imprese energivore certificate
+Imprese con percorsi certificati di efficientamento energetico
+
+Benefici Ottenibili
+
+Esenzione dalla prestazione delle garanzie
+Quota a fondo perduto fino al 20% aggiuntiva
+Base normativa: art. 1 della legge 30 dicembre 2024, n. 207
+
+7.2 Requisiti per Imprese con Interesse nei Balcani Occidentali
+Impresa con Interesse Diretto
+
+Esporta e/o importa da Paesi Balcani Occidentali
+Attestazione tramite asseverazione di revisore
+
+Impresa con Presenza Attuale
+
+Sede commerciale, rappresentanza o produttiva nei Balcani Occidentali
+Presenza da almeno 6 mesi documentata
+Documentazione richiesta per la verifica
+
+
+8. PROCEDURE DI ACCESSO
+8.1 Modalità di Presentazione
+Portale SIMEST
+
+Unica modalità di presentazione della domanda
+Accesso tramite credenziali digitali
+Compilazione integrale obbligatoria
+
+Firma Digitale
+
+Tutti i documenti devono essere firmati digitalmente
+Domanda non sottoscritta digitalmente = inammissibile
+Sottoscrizione da parte del Legale Rappresentante
+
+8.2 Documentazione Obbligatoria
+Documenti da Allegare
+
+Documentazione prevista dalla Circolare
+Informazioni legale rappresentante
+Informazioni titolare effettivo
+Contratto Conto Corrente Dedicato
+Statuto societario
+Documentazione specifica per tipologia di intervento
+
+Controllo Completezza
+
+SIMEST può richiedere chiarimenti/documentazione integrativa entro 15 giorni
+Preavviso di archiviazione con termine di 10 giorni per riscontro tramite PEC
+Archiviazione automatica in caso di mancato riscontro o documentazione incompleta
+
+8.3 Procedura Valutativa
+Modalità di Valutazione
+
+Procedura valutativa a sportello
+Basata sulla disponibilità finanziaria
+Ordine cronologico di presentazione delle domande
+
+Fasi dell'Istruttoria
+
+Valutazione amministrativa
+Valutazione patrimoniale
+Valutazione economico-finanziaria
+Valutazione legale
+Verifica compliance
+
+Delibera del Comitato Agevolazioni
+
+Le domande sono sottoposte secondo l'ordine di completamento dell'istruttoria
+Delibera subordinata all'effettiva disponibilità delle risorse
+La presentazione della domanda non garantisce la concessione

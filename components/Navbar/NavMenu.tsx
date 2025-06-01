@@ -142,6 +142,75 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
           </div>
         </li>
 
+        {/* Dropdown Strumenti */}
+        <li className={`${styles.menu_item} ${styles.dropdown}`} role="none">
+          <button 
+            ref={(el) => {
+              menuItemRefs.current['strumenti'] = el;
+            }}
+            onClick={() => handleDropdownClick('strumenti')}
+            onKeyDown={(e) => handleDropdownKeyDown(e, 'strumenti')}
+            className={`${styles.dropdown_toggle} ${styles.bold_link}`}
+            aria-haspopup="true"
+            aria-expanded={activeDropdown === 'strumenti'}
+            role="menuitem"
+            tabIndex={0}
+          >
+            STRUMENTI
+          </button>
+          <div 
+            className={`${styles.dropdown_menu} ${activeDropdown === 'strumenti' ? styles.active : ''}`}
+          >
+            <Link 
+              href="/sabatini-green" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              Sabatini GREEN
+            </Link>
+            <Link 
+              href="/transizione-5-0" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              TRANSIZIONE 5.0
+            </Link>
+            <Link 
+              href="/transizione-4-0" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              TRANSIZIONE 4.0
+            </Link>
+            <Link 
+              href="/simest" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              SIMEST
+            </Link>
+            <Link 
+              href="/strumenti/fondo-perduto-cer" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              Fondo Perduto CER e tariffa incentivante
+            </Link>
+          </div>
+        </li>
+
+        <li className={styles.menu_item} role="none">
+          <Link 
+            href="/rating-esg" 
+            className={styles.menu_link} 
+            role="menuitem" 
+            tabIndex={0}
+            onClick={handleLinkClick}
+          >
+            RATING ESG
+          </Link>
+        </li>
+        
         <li className={styles.menu_item} role="none">
           <Link 
             href="/faq" 

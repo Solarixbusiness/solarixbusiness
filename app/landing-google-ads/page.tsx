@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './landing.module.css';
 import Script from 'next/script';
 import CookieConsent from '@/components/CookieConsent/CookieConsent';
+import { motion } from 'framer-motion';
 
 export default function LandingPage() {
   const [formData, setFormData] = useState({
@@ -18,6 +19,135 @@ export default function LandingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [showPrivacyAlert, setShowPrivacyAlert] = useState(false);
+  const [socialProofIndex, setSocialProofIndex] = useState(0);
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  
+  const socialProofItems = [
+    { 
+      image: '/landing/carosel/1c.jpg', 
+      title: 'SIMEST+Transizione 5.0', 
+      percentage: '-64%', 
+      text: '',
+      testimonial: {
+        name: 'Mario L. – Alessandria',
+        quote: '"Ottimizzato l\'investimento con due bandi combinati. Tempistiche rispettate."',
+        sector: 'Settore: stampaggio materie plastiche'
+      }
+    },
+    { 
+      image: '/landing/carosel/2c.jpg', 
+      title: 'Fondo Perduto CER+MIMIT', 
+      percentage: '-64%', 
+      text: '',
+      testimonial: {
+        name: 'Valentina P. – Castellero (AT)',
+        quote: '"In un comune piccolo come il nostro, i fondi CER hanno fatto la differenza."',
+        sector: 'Settore: produzione conserve alimentari'
+      }
+    },
+    { 
+      image: '/landing/carosel/3c.jpg', 
+      title: 'Fondo Perduto CER + Transizione 5.0', 
+      percentage: '-76%', 
+      text: '',
+      testimonial: {
+        name: 'Luca B. – Caravino (TO)',
+        quote: '"Oltre i due terzi del progetto coperti da contributi. Un\'occasione concreta."',
+        sector: 'Settore: officina meccanica di precisione'
+      }
+    },
+    { 
+      image: '/landing/carosel/4c.jpg', 
+      title: 'Sabatini GREEN + MIMIT', 
+      percentage: '-40%', 
+      text: '',
+      testimonial: {
+        name: 'Francesco D. – Biella',
+        quote: '"Abbiamo investito in tecnologia pulita con copertura finanziaria sicura."',
+        sector: 'Settore: produzione tessuti industriali'
+      }
+    },
+    { 
+      image: '/landing/carosel/5c.jpg', 
+      title: 'SIMEST + Fondo Perduto CER', 
+      percentage: '-46%', 
+      text: '',
+      testimonial: {
+        name: 'Anna G. – Cavaglio d\'Agogna (NO)',
+        quote: '"Non pensavamo di rientrare nei fondi. Invece l\'impianto è quasi a metà prezzo."',
+        sector: 'Settore: torneria automatica'
+      }
+    },
+    { 
+      image: '/landing/carosel/6c.jpg', 
+      title: 'Fondo Perduto CER + Transizione 5.0', 
+      percentage: '-67%', 
+      text: '',
+      testimonial: {
+        name: 'Marco T. – Piasco (CN)',
+        quote: '"Progetto su misura e contributi gestiti da A a Z."',
+        sector: 'Settore: falegnameria industriale'
+      }
+    },
+    { 
+      image: '/landing/carosel/7c.jpg', 
+      title: 'SIMEST + MIMIT', 
+      percentage: '-46%', 
+      text: '',
+      testimonial: {
+        name: 'Cliente soddisfatto',
+        quote: '"Soluzione personalizzata per le nostre esigenze aziendali."',
+        sector: 'Settore: manifatturiero'
+      }
+    },
+    { 
+      image: '/landing/carosel/8c.jpg', 
+      title: 'Transizione 5.0', 
+      percentage: '-60%', 
+      text: '',
+      testimonial: {
+        name: 'Cliente soddisfatto',
+        quote: '"Abbiamo modernizzato l\'azienda con un investimento sostenibile."',
+        sector: 'Settore: automazione industriale'
+      }
+    },
+    { 
+      image: '/landing/carosel/9c.jpg', 
+      title: 'transizione 5.0', 
+      percentage: '-67,5%', 
+      text: '',
+      testimonial: {
+        name: 'Cliente soddisfatto',
+        quote: '"Risultati superiori alle aspettative con un supporto costante."',
+        sector: 'Settore: lavorazione metalli'
+      }
+    },
+    { 
+      image: '/landing/carosel/10c.jpg', 
+      title: 'rating ESG Ecomate', 
+      percentage: '', 
+      text: '',
+      testimonial: {
+        name: 'Cliente soddisfatto',
+        quote: '"Migliorato il nostro rating ESG con un approccio strutturato."',
+        sector: 'Settore: servizi alle imprese'
+      }
+    }
+  ];
+  
+  const visibleItems = 5; // Numero di elementi visibili contemporaneamente
+  
+  const handlePrev = () => {
+    setSocialProofIndex(prev => 
+      prev === 0 ? socialProofItems.length - visibleItems : prev - 1
+    );
+  };
+  
+  const handleNext = () => {
+    setSocialProofIndex(prev => 
+      prev === socialProofItems.length - visibleItems ? 0 : prev + 1
+    );
+  };
 
   useEffect(() => {
     // Disabilita le interazioni con navbar e footer
@@ -42,6 +172,24 @@ export default function LandingPage() {
         (footer as HTMLElement).style.pointerEvents = '';
       }
     };
+  }, []);
+
+  // Gestione della responsività
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Imposta lo stato iniziale
+    handleResize();
+    
+    // Aggiungi event listener per il resize
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -175,351 +323,599 @@ export default function LandingPage() {
             display: none;
           }
         `}</style>
-        <div className={styles.container}>
-          <div className={styles.brandHeader}>
-            <h1>SOLARIXBUSINESS</h1>
-          </div>
-          <div className={styles.heroSection}>
-            {/* Overlay azzurro-grigio */}
-            <div 
-              style={{
+        <div className={styles.container} style={{ 
+          width: '100vw', 
+          maxWidth: '100%', 
+          margin: 0, 
+          padding: 0, 
+          overflow: 'hidden',
+          marginTop: '-40px' // Aumentato il margine negativo per eliminare completamente lo spazio superiore
+        }}>
+          {/* Hero section con sfondo e overlay scuro */}
+          <div className={styles.heroSection} style={{ 
+            position: 'relative', 
+            width: '100%', 
+            height: '100vh',
+            minHeight: '600px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden'
+          }}>
+            {/* Immagine di sfondo */}
+            <div style={{ 
+              position: 'absolute', 
+              top: 0, 
+              left: 0, 
+              width: '100%', 
+              height: '100%', 
+              zIndex: 0 
+            }}>
+              <Image
+                src="/landing/sfondohero landing.jpg"
+                alt="Pannelli solari"
+                fill
+                style={{ 
+                  objectFit: 'cover',
+                  transform: 'scale(1.3)', // Ingrandisco l'immagine del 30%
+                  transformOrigin: 'center' 
+                }}
+                priority
+                quality={100}
+              />
+              {/* Overlay scuro al 60% per garantire contrasto AA */}
+              <div style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: 'rgba(176, 196, 222, 0.45)', // Aumentato a 0.45 per maggiore opacità
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(0, 0, 0, 0.6)',
                 zIndex: 1
-              }}
-            />
-            <Image
-              src="/images/landing/sfondo landing.png"
-              alt="Business Professional"
-              width={2560}
-              height={800}
-              priority
-              quality={100}
-              style={{ position: 'relative', zIndex: 0 }}
-            />
-          </div>
-
-          <div className={styles.contentSection} style={{ position: 'relative', zIndex: 2 }}>
-            <div className={styles.formContainer}>
-              <h1>Fotovoltaico B2B: tecnologie avanzate e incentivi cumulabili</h1>
-              <h2>Impianti all'avanguardia con consulenza fiscale e finanziamento agevolato</h2>
+              }} />
+            </div>
+            
+            {/* Logo e testo SOLARIXBUSINESS in alto */}
+            <div style={{
+              position: 'absolute',
+              top: '40px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              zIndex: 2,
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: isMobile ? '5px' : '15px',
+              width: isMobile ? 'auto' : 'auto'
+            }}>
+              <Image
+                src="/landing/logoqr-removebg-preview.png"
+                alt="Logo SolariX"
+                width={isMobile ? 25 : 80}
+                height={isMobile ? 25 : 80}
+                priority
+                quality={100}
+              />
+              <h2 style={{
+                margin: 0,
+                fontSize: isMobile ? '0.6rem' : 'clamp(1.5rem, 4vw, 2.5rem)',
+                fontWeight: 'bold',
+                color: '#FF6600',
+                textTransform: 'uppercase',
+                textAlign: 'center'
+              }}>
+                SOLARIXBUSINESS
+              </h2>
+            </div>
+            
+            {/* Contenuto hero */}
+            <div style={{ 
+              position: 'relative', 
+              zIndex: 2, 
+              textAlign: 'center',
+              color: 'white',
+              padding: '0 20px',
+              maxWidth: '1200px',
+              width: '100%'
+            }}>
+              <h1 style={{ 
+                fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
+                fontWeight: 'bold',
+                marginBottom: '1rem',
+                lineHeight: 1.2
+              }}>
+                Ottieni fino al 70% di contributo pubblico per il tuo impianto oltre 100 kWp
+              </h1>
               
-              {/* NUOVA SEZIONE: Soluzioni Finanziarie */}
-              <div className={styles.incentivesSection}>
-                <h3 className={styles.sectionTitle}>Soluzioni Finanziarie</h3>
-                <p className={styles.sectionSubtitle}>Opzioni flessibili per ottimizzare l'investimento e accelerare il ROI</p>
-                <div className={styles.incentivesGrid}>
-                  <div className={styles.incentiveCard}>
-                    <h4>Leasing & Noleggio</h4>
-                    <div className={styles.incentiveValue}>Zero Anticipo</div>
-                    <p>Soluzioni finanziarie con canone che si ripaga con il risparmio energetico</p>
-                  </div>
-                  
-                  <div className={styles.incentiveCard}>
-                    <h4>PPA</h4>
-                    <div className={styles.incentiveValue}>Power Purchase Agreement</div>
-                    <p>Acquisto energia a prezzo fisso con stabilità dei costi energetici</p>
-                  </div>
-                  
-                  <div className={styles.incentiveCard}>
-                    <h4>Finanziamenti Agevolati</h4>
-                    <div className={styles.incentiveValue}>Tassi ridotti</div>
-                    <p>Accesso a linee di credito dedicate per investimenti green</p>
-                  </div>
-                  
-                  <div className={styles.incentiveCard}>
-                    <h4>Reportistica ESG</h4>
-                    <div className={styles.incentiveValue}>CSRD/SFDR Compliance</div>
-                    <p>Calcolo carbon footprint (Scope 1-2-3) e strategie di decarbonizzazione</p>
-                  </div>
-                </div>
-              </div>
+              <p style={{ 
+                fontSize: 'clamp(1rem, 2vw, 1.5rem)',
+                marginBottom: '2rem',
+                maxWidth: '800px',
+                margin: '0 auto 2rem',
+                lineHeight: '1.8', // Aumentato lo spazio tra le righe
+                whiteSpace: 'pre-line' // Mantiene gli a capo
+              }}>
+                {'Riduci i costi energetici:\ngestiamo bandi, installazione e collaudo.\nNessun anticipo.'}
+              </p>
               
-              {/* NUOVA SEZIONE: Incentivi e Consulenza */}
-              <div className={styles.incentivesSection}>
-                <h3 className={styles.sectionTitle}>Incentivi Cumulabili e Consulenza Specializzata</h3>
-                <p className={styles.sectionSubtitle}>Massimizzazione degli incentivi e supporto completo per l'intero progetto</p>
-                <div className={styles.incentivesGrid}>
-                  <div className={styles.incentiveCard}>
-                    <h4>Transizione 5.0</h4>
-                    <div className={styles.incentiveValue}>Fino al 63%</div>
-                    <p>Credito d'imposta per investimenti in tecnologie sostenibili</p>
-                  </div>
-                  
-                  <div className={styles.incentiveCard}>
-                    <h4>SIMEST 4/394</h4>
-                    <div className={styles.incentiveValue}>Tasso agevolato</div>
-                    <p>Finanziamenti per progetti green e internazionalizzazione</p>
-                  </div>
-                  
-                  <div className={styles.incentiveCard}>
-                    <h4>Sabatini Green</h4>
-                    <div className={styles.incentiveValue}>Contributo in conto interessi</div>
-                    <p>Finanziamenti agevolati per investimenti in tecnologie sostenibili</p>
-                  </div>
-                  
-                  <div className={styles.incentiveCard}>
-                    <h4>CER</h4>
-                    <div className={styles.incentiveValue}>Incentivi dedicati</div>
-                    <p>Comunità Energetiche Rinnovabili con analisi di fattibilità e ottimizzazione</p>
-                  </div>
-                </div>
-              </div>
+              <button 
+                onClick={() => {
+                  const formElement = document.getElementById('contact-form');
+                  formElement?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                style={{
+                  backgroundColor: '#FF6600',
+                  color: 'white',
+                  border: 'none',
+                  padding: '1rem 2rem',
+                  fontSize: 'clamp(1rem, 1.5vw, 1.2rem)',
+                  fontWeight: 'bold',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                SCOPRI I TUOI CONTRIBUTI
+              </button>
               
-              {/* NUOVA SEZIONE: Sostenibilità e Carbon Credits */}
-              <div className={styles.benefitsSection}>
-                <h3 className={styles.sectionTitle}>Sostenibilità e Carbon Credits</h3>
-                <div className={styles.benefitsGrid}>
-                  <div className={styles.benefitCard}>
-                    <div className={styles.benefitIcon}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-                        <path d="M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"></path>
-                      </svg>
-                    </div>
-                    <h4>Certificazione impianto</h4>
-                    <p>Implementazione meccanismo UNFCCC per certificazione e commercializzazione carbon credits</p>
-                  </div>
-                  
-                  <div className={styles.benefitCard}>
-                    <div className={styles.benefitIcon}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="1" y="3" width="15" height="13"></rect>
-                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                      </svg>
-                    </div>
-                    <h4>Blockchain</h4>
-                    <p>Soluzioni blockchain per tracciabilità e trasparenza delle riduzioni di emissioni</p>
-                  </div>
-                  
-                  <div className={styles.benefitCard}>
-                    <div className={styles.benefitIcon}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                      </svg>
-                    </div>
-                    <h4>Carbon Insetting</h4>
-                    <p>Strategie di carbon insetting per integrare riduzione emissioni nella catena del valore</p>
-                  </div>
-                  
-                  <div className={styles.benefitCard}>
-                    <div className={styles.benefitIcon}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                      </svg>
-                    </div>
-                    <h4>EU Taxonomy & CBAM</h4>
-                    <p>Supporto per allineamento con EU Taxonomy e Carbon Border Adjustment Mechanism</p>
-                  </div>
-                </div>
-              </div>
-              
-              {/* NUOVA SEZIONE: Testimonianza Cliente */}
+              <p style={{ 
+                fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
+                marginTop: '2rem',
+                opacity: 0.9
+              }}>
+                147 domande finanziate - ROI medio 2,8 anni
+              </p>
             </div>
           </div>
-        </div>
-        
-        {/* NUOVA SEZIONE: Testimonianza Cliente */}
-        <div className={styles.testimonialSection}>
-          <h3 className={styles.sectionTitle}>La storia di successo di Tornerie Piemontesi</h3>
-          <div className={styles.testimonialCard}>
-            <div className={styles.testimonialContent}>
-              <div className={styles.testimonialQuote}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="#FF6600" opacity="0.2">
-                  <path d="M10 11l-2.8-2.8a4.005 4.005 0 0 1 5.6-5.7l.2.1L18 7.6a4.025 4.025 0 0 1-5.6 5.7l-.2-.1L10 11zm-3.5 3c.4.3.8.8 1.2 1.2l4-4c.4-.4.9-.8 1.3-1.2L9 6c-.4.4-.9.8-1.3 1.2l-4 4c.5.4.9.8 1.3 1.3zM21 12v10H3V2h10v2H5v16h14v-8h2z"/>
-                </svg>
-              </div>
-              <div className={styles.testimonialTextContainer}>
-                <p className={styles.testimonialText}>
-                  Quest'anno abbiamo installato un impianto fotovoltaico da 300kW con SolariX Business, usufruendo del credito d'imposta al 63% della Transizione 5.0. Ma il vero valore è emerso nella consulenza continuativa. Il team di SolariX ci ha permesso di accedere a incentivi che non conoscevamo: abbiamo ottenuto fondi SIMEST per l'internazionalizzazione green. A fine anno avremo completamente azzerato i costi energetici con un piccolo guadagno extra sulle eccedenze. Inoltre, ci hanno guidato nella valorizzazione dei carbon credits generati, aprendo un flusso di ricavi completamente inaspettato. In pochi mesi, oltre al risparmio energetico immediato, abbiamo già recuperato oltre 220.000€ tra incentivi e monetizzazione ambientale, senza contare i futuri ricavi dai crediti carbonici.
-                </p>
-              </div>
-              <div className={styles.testimonialAuthor}>
-                <div className={styles.authorImage}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FF6600" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                </div>
-                <div className={styles.authorInfo}>
-                  <h4>Franco S.</h4>
-                  <p>Direttore Operativo, Tornerie Piemontesi</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Contenitore principale con z-index elevato */}
-        <div className={styles.container} style={{ marginTop: '-20px' }}>
-          <div className={styles.contentSection} style={{ position: 'relative', zIndex: 2 }}>
-            <div className={styles.formContainer}>
-              {!submitted ? (
-                <form onSubmit={handleSubmit} className={styles.form} aria-label="Form richiesta informazioni finanza agevolata">
-                  <div className={styles.formGroup}>
-                    <label htmlFor="nome" className="sr-only">Nome e Cognome</label>
-                    <input
-                      type="text"
-                      id="nome"
-                      name="nome"
-                      placeholder="Nome e Cognome"
-                      required
-                      value={formData.nome}
-                      onChange={handleChange}
-                      autoComplete="name"
-                      aria-required="true"
-                      aria-label="Il tuo nome e cognome"
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="email" className="sr-only">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="Email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      autoComplete="email"
-                      aria-required="true"
-                      aria-label="Il tuo indirizzo email"
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="telefono" className="sr-only">Telefono</label>
-                    <input
-                      type="tel"
-                      id="telefono"
-                      name="telefono"
-                      placeholder="Telefono"
-                      required
-                      value={formData.telefono}
-                      onChange={handleChange}
-                      autoComplete="tel"
-                      aria-required="true"
-                      aria-label="Il tuo numero di telefono"
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="azienda" className="sr-only">Nome Azienda</label>
-                    <input
-                      type="text"
-                      id="azienda"
-                      name="azienda"
-                      placeholder="Nome Azienda"
-                      required
-                      value={formData.azienda}
-                      onChange={handleChange}
-                      autoComplete="organization"
-                      aria-required="true"
-                      aria-label="Il nome della tua azienda"
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label htmlFor="messaggio" className="sr-only">Messaggio (opzionale)</label>
-                    <textarea
-                      id="messaggio"
-                      name="messaggio"
-                      placeholder="Messaggio (opzionale)"
-                      value={formData.messaggio}
-                      onChange={handleChange}
-                      autoComplete="off"
-                      aria-label="Messaggio aggiuntivo (opzionale)"
-                      rows={4}
-                    ></textarea>
-                  </div>
-
-                  <div className="flex flex-col space-y-2">
-                    <div className="flex items-start">
-                      <div className="flex items-center h-5">
-                        <input
-                          type="checkbox"
-                          id="privacy"
-                          name="privacy"
-                          checked={formData.privacy}
-                          onChange={handleChange}
-                          className="w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-green-500"
-                          required
-                          aria-required="true"
-                          aria-label="Accetto la privacy policy"
-                        />
-                      </div>
-                      <div className="ml-3">
-                        <label htmlFor="privacy" className="text-sm text-gray-700">
-                          Accetto la privacy policy *
-                        </label>
-                      </div>
-                    </div>
-                    
-                    {showPrivacyAlert && (
-                      <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-md" role="alert">
-                        <div className="flex">
-                          <div className="flex-shrink-0">
-                            <svg className="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"></path>
-                            </svg>
-                          </div>
-                          <div className="ml-3">
-                            <p className="text-sm text-orange-700">
-                              Per favore accetta la privacy policy prima di inviare il form
-                            </p>
-                          </div>
-                        </div>
+          
+          {/* Social Proof Section */}
+          <div style={{
+            backgroundColor: '#f8f9fa',
+            padding: isMobile ? '15px 0' : '20px 0',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              maxWidth: '1200px',
+              margin: '0 auto',
+              position: 'relative',
+              width: '100%'
+            }}>
+              {/* Pulsante Precedente */}
+              <button 
+                onClick={handlePrev}
+                style={{
+                  background: '#FF6600',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: isMobile ? '30px' : '40px',
+                  height: isMobile ? '30px' : '40px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  zIndex: 2,
+                  marginRight: isMobile ? '5px' : '10px',
+                  fontSize: isMobile ? '16px' : '18px'
+                }}
+              >
+                &#8249;
+              </button>
+              
+              {/* Container delle miniature */}
+              <div style={{
+                display: 'flex',
+                gap: isMobile ? '5px' : '35px',
+                transition: 'transform 0.3s ease',
+                padding: '10px 0',
+                width: isMobile ? 'calc(100% - 70px)' : 'auto',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                height: isMobile ? 'auto' : 'auto',
+                minHeight: isMobile ? '80px' : 'auto'
+              }}>
+                {socialProofItems.slice(socialProofIndex, socialProofIndex + (isMobile ? 2 : visibleItems)).map((item, index) => (
+                  <div key={index} style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: isMobile ? '156px' : '120px', 
+                    textAlign: 'center',
+                    position: 'relative',
+                    cursor: 'pointer',
+                    padding: isMobile ? '0' : '0'
+                  }}
+                  onMouseEnter={() => setHoveredItem(socialProofIndex + index)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                  >
+                    {/* Testimonial overlay */}
+                    {hoveredItem === socialProofIndex + index && (
+                      <div 
+                        style={{
+                          position: 'absolute',
+                          top: isMobile ? '-5px' : '-20px',
+                          left: isMobile ? '-20px' : '-50px',
+                          width: isMobile ? '160px' : '220px',
+                          minHeight: isMobile ? '100px' : '180px',
+                          backgroundColor: 'rgba(255, 102, 0, 0.95)',
+                          borderRadius: '8px',
+                          padding: isMobile ? '6px' : '15px',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          zIndex: 10,
+                          color: 'white',
+                          fontSize: isMobile ? '7px' : '12px',
+                          fontStyle: 'italic',
+                          textAlign: 'center',
+                          boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        <p style={{ 
+                          margin: '0 0 4px', 
+                          fontWeight: 'bold', 
+                          fontSize: isMobile ? '8px' : '13px' 
+                        }}>
+                          {item.testimonial?.name}
+                        </p>
+                        <p style={{ 
+                          margin: '0 0 4px',
+                          lineHeight: isMobile ? '1.1' : '1.4'
+                        }}>
+                          {item.testimonial?.quote}
+                        </p>
+                        <p style={{ 
+                          margin: 0, 
+                          fontSize: isMobile ? '6px' : '11px',
+                          fontWeight: 'bold'
+                        }}>
+                          {item.testimonial?.sector}
+                        </p>
                       </div>
                     )}
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={isMobile ? 65 : 64} 
+                      height={isMobile ? 65 : 64} 
+                      style={{ 
+                        borderRadius: '8px',
+                        objectFit: 'cover'
+                      }}
+                    />
+                    <div style={{
+                      height: 'auto',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginTop: '5px'
+                    }}>
+                      <p style={{ 
+                        fontSize: '7px',
+                        margin: '0 0 2px',
+                        color: '#333',
+                        lineHeight: '1',
+                        textAlign: 'center',
+                        maxWidth: '100%'
+                      }}>
+                        {item.title}
+                      </p>
+                      {item.percentage && (
+                        <p style={{ 
+                          fontSize: '12px',
+                          fontWeight: 'bold',
+                          margin: 0,
+                          color: '#FF6600',
+                          lineHeight: '1'
+                        }}>
+                          {item.percentage}
+                        </p>
+                      )}
+                    </div>
                   </div>
+                ))}
+              </div>
+              
+              {/* Pulsante Successivo */}
+              <button 
+                onClick={handleNext}
+                style={{
+                  background: '#FF6600',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: isMobile ? '30px' : '40px',
+                  height: isMobile ? '30px' : '40px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  zIndex: 2,
+                  marginLeft: isMobile ? '5px' : '10px',
+                  fontSize: isMobile ? '16px' : '18px'
+                }}
+              >
+                &#8250;
+              </button>
+            </div>
+          </div>
 
-                  <button
-                    type="submit"
-                    className={styles.submitButton}
-                    disabled={isSubmitting}
-                    aria-label={isSubmitting ? 'Invio in corso...' : 'Invia richiesta'}
-                  >
-                    {isSubmitting ? 'Invio in corso...' : 'Richiedi Informazioni'}
-                  </button>
+          <div className={styles.contentSection} style={{ position: 'relative', zIndex: 2, backgroundColor: 'white', padding: '3rem 1rem' }}>
+            <div id="contact-form" className={styles.formContainer} style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <h2 style={{ 
+                fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', 
+                fontWeight: 'bold',
+                marginBottom: '1rem',
+                textAlign: 'center',
+                color: '#333'
+              }}>
+                Richiedi una consulenza gratuita
+              </h2>
+              
+              <p style={{ 
+                fontSize: 'clamp(1rem, 1.5vw, 1.2rem)',
+                marginBottom: '2rem',
+                textAlign: 'center',
+                color: '#555',
+                maxWidth: '600px',
+                margin: '0 auto 2rem'
+              }}>
+                Compila il form per scoprire gli incentivi disponibili per la tua azienda
+              </p>
+              
+              {!submitted ? (
+                <form className={styles.form} onSubmit={handleSubmit}>
+                  <div className="space-y-4">
+                    <div>
+                      <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Nome e Cognome *"
+                        value={formData.nome}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        aria-required="true"
+                        aria-label="Nome e Cognome"
+                      />
+                    </div>
+                    
+                    <div>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email *"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        aria-required="true"
+                        aria-label="Email"
+                      />
+                    </div>
+                    
+                    <div>
+                      <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="Telefono *"
+                        value={formData.telefono}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        aria-required="true"
+                        aria-label="Telefono"
+                      />
+                    </div>
+                    
+                    <div>
+                      <input
+                        type="text"
+                        id="azienda"
+                        name="azienda"
+                        placeholder="Nome Azienda *"
+                        value={formData.azienda}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        aria-required="true"
+                        aria-label="Nome Azienda"
+                      />
+                    </div>
+                    
+                    <div>
+                      <textarea
+                        id="messaggio"
+                        name="messaggio"
+                        placeholder="Messaggio (opzionale)"
+                        value={formData.messaggio}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        rows={4}
+                        aria-label="Messaggio (opzionale)"
+                      ></textarea>
+                    </div>
+
+                    <div className="flex flex-col space-y-2">
+                      <div className="flex items-start">
+                        <div className="flex items-center h-5">
+                          <input
+                            type="checkbox"
+                            id="privacy"
+                            name="privacy"
+                            checked={formData.privacy}
+                            onChange={handleChange}
+                            className="w-4 h-4 border-gray-300 rounded focus:ring-2 focus:ring-orange-500"
+                            required
+                            aria-required="true"
+                            aria-label="Accetto la privacy policy"
+                          />
+                        </div>
+                        <div className="ml-3">
+                          <label htmlFor="privacy" className="text-sm text-gray-700">
+                            Accetto la privacy policy *
+                          </label>
+                        </div>
+                      </div>
+                      
+                      {showPrivacyAlert && (
+                        <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-md" role="alert">
+                          <div className="flex">
+                            <div className="flex-shrink-0">
+                              <svg className="h-5 w-5 text-orange-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"></path>
+                              </svg>
+                            </div>
+                            <div className="ml-3">
+                              <p className="text-sm text-orange-700">
+                                Per favore accetta la privacy policy prima di inviare il form
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <button
+                      type="submit"
+                      style={{
+                        backgroundColor: '#FF6600',
+                        color: 'white',
+                        border: 'none',
+                        padding: '1rem 2rem',
+                        fontSize: '1.1rem',
+                        fontWeight: 'bold',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        width: '100%',
+                        marginTop: '1rem',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        transition: 'all 0.2s ease'
+                      }}
+                      disabled={isSubmitting}
+                      aria-label={isSubmitting ? 'Invio in corso...' : 'Invia richiesta'}
+                    >
+                      {isSubmitting ? 'Invio in corso...' : 'Richiedi Informazioni'}
+                    </button>
+                  </div>
                 </form>
               ) : (
-                <div className={styles.successMessage}>
-                  <h3>Grazie per averci contattato!</h3>
-                  <p>Sarai reindirizzato a WhatsApp, altrimenti clicca <a href={`https://wa.me/+393792591471?text=${encodeURIComponent(`Ciao, sono ${formData.nome} dell'azienda ${formData.azienda}. Vorrei maggiori informazioni sulla finanza agevolata per il fotovoltaico.`)}`} target="_blank" rel="noopener noreferrer">qui</a>.</p>
+                <div className={styles.successMessage} style={{
+                  textAlign: 'center',
+                  padding: '2rem',
+                  backgroundColor: '#f8f9fa',
+                  borderRadius: '8px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
+                }}>
+                  <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#2c3e50' }}>Grazie per averci contattato!</h3>
+                  <p style={{ fontSize: '1.1rem', color: '#34495e' }}>
+                    Sarai reindirizzato a WhatsApp, altrimenti clicca <a 
+                      href={`https://wa.me/+393792591471?text=${encodeURIComponent(`Ciao, sono ${formData.nome} dell'azienda ${formData.azienda}. Vorrei maggiori informazioni sulla finanza agevolata per il fotovoltaico.`)}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      style={{ color: '#FF6600', textDecoration: 'underline' }}
+                    >qui</a>.
+                  </p>
                 </div>
               )}
             </div>
 
-            <div className={styles.trustBadges}>
-              <div className={styles.badgeItem}>
-                <div className={styles.badge}>✓</div>
-                <p>Consulenza specializzata nel settore fotovoltaico</p>
+            <div style={{ 
+              maxWidth: '800px', 
+              margin: '3rem auto 0',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '1.5rem'
+            }}>
+              <div style={{
+                backgroundColor: '#f8f9fa',
+                padding: '1.5rem',
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem'
+              }}>
+                <div style={{
+                  backgroundColor: '#FF6600',
+                  color: 'white',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 'bold',
+                  fontSize: '1.2rem'
+                }}>✓</div>
+                <p style={{ margin: 0, color: '#2c3e50', fontSize: '0.95rem' }}>Consulenza specializzata nel settore fotovoltaico</p>
               </div>
-              <div className={styles.badgeItem}>
-                <div className={styles.badge}>✓</div>
-                <p>Esperti in finanza agevolata per le imprese</p>
+              
+              <div style={{
+                backgroundColor: '#f8f9fa',
+                padding: '1.5rem',
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem'
+              }}>
+                <div style={{
+                  backgroundColor: '#FF6600',
+                  color: 'white',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 'bold',
+                  fontSize: '1.2rem'
+                }}>✓</div>
+                <p style={{ margin: 0, color: '#2c3e50', fontSize: '0.95rem' }}>Esperti in finanza agevolata per le imprese</p>
               </div>
-              <div className={styles.badgeItem}>
-                <div className={styles.badge}>✓</div>
-                <p>Supporto continuo e personalizzato</p>
+              
+              <div style={{
+                backgroundColor: '#f8f9fa',
+                padding: '1.5rem',
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '1rem'
+              }}>
+                <div style={{
+                  backgroundColor: '#FF6600',
+                  color: 'white',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 'bold',
+                  fontSize: '1.2rem'
+                }}>✓</div>
+                <p style={{ margin: 0, color: '#2c3e50', fontSize: '0.95rem' }}>Supporto continuo e personalizzato</p>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Cookie Consent */}
-        <CookieConsent />
+          {/* Cookie Consent */}
+          <CookieConsent />
+        </div>
       </div>
     </>
   );

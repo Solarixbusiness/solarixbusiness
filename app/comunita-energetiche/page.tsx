@@ -51,7 +51,7 @@ export default function ComunitaEnergetichePage() {
           <div className="mb-12">
             <h2 className="text-2xl font-semibold text-green-600 mb-3">Autoconsumo incentivato: il futuro della tua impresa</h2>
             <p className="mb-4">Non tutto l'autoconsumo è uguale. Esistono incentivi specifici che premiano chi consuma direttamente l'energia prodotta dal proprio impianto, o da impianti a cui è connesso in una logica di CER. Questo significa abbattere il prezzo dell'energia e ottenere rientri extra, calcolabili nel piano economico dell'investimento.</p>
-            <p className="mb-4">Inoltre, se sei in un comune sotto i 5.000 abitanti (e presto anche sotto i 30.000), puoi accedere a una maggiorazione dell'incentivo, rendendo il progetto ancora più sostenibile e redditizio.</p>
+            <p className="mb-4">Inoltre, se sei in un comune sotto i 50.000 abitanti, puoi accedere a un contributo a fondo perduto del 40% sul costo dell'impianto, con la possibilità di richiederne il 30% come anticipo, rendendo il progetto ancora più sostenibile e redditizio.</p>
             <p>Con SolarixBusiness analizziamo la tua posizione, verifichiamo la rete, i consumi e costruiamo un piano CER adatto alla tua impresa, integrato con altri incentivi come la Transizione 5.0 o i bandi regionali.</p>
           </div>
 
