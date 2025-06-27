@@ -61,9 +61,11 @@ export default function Footer() {
             <div className={styles.footer_column}>
               <h3 className={styles.footer_title}>Contatti</h3>
               <address className={styles.contact_info}>
-                <p>Via Bertolotti 7 | 10121 Torino (TO) | Italy</p>
+                <p><strong>Sede Piemonte:</strong> Via Bertolotti 7 | 10121 Torino (TO)</p>
+                <p><strong>Sede Lombardia:</strong> Via delle Scuole 1G | 25128 Brescia (BS)</p>
                 <p>Email: <a href="mailto:info@solarixbusiness.it">info@solarixbusiness.it</a></p>
                 <p>Tel: <a href="tel:01118837752">011 1883 7752</a></p>
+                <p>P.IVA: <span className={styles.vat_number}>IT04696370982</span></p>
               </address>
             </div>
           </div>

@@ -104,6 +104,12 @@
   color: white;
 }
 
+.vat_number {
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
 .footer_bottom {
   display: flex;
   flex-wrap: wrap;
