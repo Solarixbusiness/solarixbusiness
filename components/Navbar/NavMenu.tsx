@@ -156,7 +156,7 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
             role="menuitem"
             tabIndex={0}
           >
-            STRUMENTI
+            BANDI/INCENTIVI<br />NAZIONALI
           </button>
           <div 
             className={`${styles.dropdown_menu} ${activeDropdown === 'strumenti' ? styles.active : ''}`}
