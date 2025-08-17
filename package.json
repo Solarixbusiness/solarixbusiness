@@ -17,7 +17,7 @@
     "analyze-bundle": "node scripts/simple-coverage.js"
   },
   "engines": {
-    "node": ">=18.17 <21"
+    "node": ">=18.17 <22"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
