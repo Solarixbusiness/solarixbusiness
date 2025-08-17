@@ -87,7 +87,7 @@ export const preloadCriticalResources = () => {
   const criticalResources = [
     { href: '/images/hero/heroweb.webp', as: 'image', type: 'image/webp' },
     { href: '/fonts/orbitron/Orbitron-Bold.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' },
-    { href: '/fonts/montserrant/Montserrat-SemiBold.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }
+    { href: '/fonts/montserrant/Montserrat-VF.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }
   ];
   
   criticalResources.forEach(resource => {

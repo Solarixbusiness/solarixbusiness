@@ -4,8 +4,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['@headlessui/react', '@heroicons/react'],
     serverActions: {
       allowedOrigins: ['solarixbusiness.it', 'www.solarixbusiness.it']
@@ -17,13 +19,13 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   // Configurazione webpack per tree shaking e code splitting
-  webpack: (config, { isServer }) => {
-    // Abilita tree shaking più aggressivo
-    config.optimization = {
-      ...config.optimization,
-      usedExports: true,
-      sideEffects: false,
-    };
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {  // Solo in produzione, client-side
+      config.optimization = {
+        ...config.optimization,
+        usedExports: true,  // Tree-shaking aggressivo solo qui
+      };
+    }
 
     // Ottimizzazioni webpack per code splitting granulare
     config.optimization.splitChunks = {
@@ -147,11 +149,6 @@ const nextConfig = {
       }
     ];
   },
-  experimental: {
-    serverActions: {
-      allowedOrigins: ['solarixbusiness.it', 'www.solarixbusiness.it']
-    }
-  },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

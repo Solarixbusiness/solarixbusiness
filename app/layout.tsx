@@ -92,7 +92,7 @@ export default function RootLayout({
         {/* Preload risorse critiche */}
         <link rel="preload" href="/images/hero/heroweb.webp" as="image" type="image/webp" />
         <link rel="preload" href="/fonts/orbitron/Orbitron-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/montserrant/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/montserrant/Montserrat-VF.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         
         {/* DNS prefetch per risorse esterne */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
