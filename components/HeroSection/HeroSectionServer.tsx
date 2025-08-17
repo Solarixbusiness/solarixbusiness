@@ -12,7 +12,7 @@ export default function HeroSectionServer({ title, subtitle }: HeroSectionProps)
   return (
     <div className={`${styles.hero} ${styles.loaded}`}>
       <Image
-        src="/images/hero/hero.png"
+        src="/images/hero/heroweb.webp"
         alt="Pannelli solari per aziende - SolariX Business"
         fill
         priority
