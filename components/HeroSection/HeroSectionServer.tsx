@@ -16,13 +16,13 @@ export default function HeroSectionServer({ title, subtitle }: HeroSectionProps)
         alt="Pannelli solari per aziende - SolariX Business"
         fill
         priority
-        sizes="100vw"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
         style={{
           objectFit: 'cover',
           objectPosition: 'center',
           zIndex: -1
         }}
-        quality={60}
+        quality={75}
       />
       <div className={styles.hero_overlay}></div>
       <div className={styles.hero_content}>
