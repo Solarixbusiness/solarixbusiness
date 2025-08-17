@@ -88,7 +88,7 @@ export default function RootLayout({
     <html lang="it">
       <head>
         {/* Define dataLayer and the gtag function */}
-        <Script id="consent-mode-setup" strategy="beforeInteractive">{`
+        <Script id="consent-mode-setup" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
 
