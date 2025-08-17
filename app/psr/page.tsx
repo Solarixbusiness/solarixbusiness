@@ -1,14 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import SeoHead from '../../components/SeoHead/SeoHead';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 
-export default function PSRPage() {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+// Lazy load components
+const FundingStructure = lazy(() => import('./components/FundingStructure'));
+const ProcessTimeline = lazy(() => import('./components/ProcessTimeline'));
 
-  const toggleSection = (section: string) => {
-    setExpandedSection(expandedSection === section ? null : section);
+export default function PSRPage() {
+  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
+
+  const toggleSection = (sectionId: string) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [sectionId]: !prev[sectionId]
+    }));
   };
 
   return (
@@ -56,285 +63,35 @@ export default function PSRPage() {
             </div>
           </div>
 
-          {/* Struttura Finanziamenti */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <button
-              onClick={() => toggleSection('struttura')}
-              className="w-full flex justify-between items-center text-left"
-            >
-              <h2 className="text-3xl font-bold text-green-800">💰 Struttura dei Finanziamenti a Fondo Perduto</h2>
-              <span className="text-3xl text-green-600">{expandedSection === 'struttura' ? '−' : '+'}</span>
-            </button>
-            
-            {expandedSection === 'struttura' && (
-              <div className="mt-6">
-                <div className="bg-green-50 p-6 rounded-xl mb-6">
-                  <h3 className="text-2xl font-bold text-green-800 mb-4">L'Europa finanzia dal 40% al 60% dei vostri investimenti agricoli a fondo perduto</h3>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse border border-green-300">
-                      <thead>
-                        <tr className="bg-green-600 text-white">
-                          <th className="border border-green-300 p-3 text-left">Tipo Intervento</th>
-                          <th className="border border-green-300 p-3 text-left">Contributo a Fondo Perduto</th>
-                          <th className="border border-green-300 p-3 text-left">Budget Tipico</th>
-                          <th className="border border-green-300 p-3 text-left">Durata</th>
-                          <th className="border border-green-300 p-3 text-left">Chi Può Accedere</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-white">
-                          <td className="border border-green-300 p-3 font-bold text-green-700">Efficientamento Energetico</td>
-                          <td className="border border-green-300 p-3 font-bold text-blue-600">40-60% a fondo perduto</td>
-                          <td className="border border-green-300 p-3">20.000-200.000€</td>
-                          <td className="border border-green-300 p-3">2-3 anni</td>
-                          <td className="border border-green-300 p-3">Aziende agricole, allevamenti</td>
-                        </tr>
-                        <tr className="bg-green-50">
-                          <td className="border border-green-300 p-3 font-bold text-green-700">Energie Rinnovabili</td>
-                          <td className="border border-green-300 p-3 font-bold text-blue-600">40-50% a fondo perduto</td>
-                          <td className="border border-green-300 p-3">50.000-500.000€</td>
-                          <td className="border border-green-300 p-3">3-5 anni</td>
-                          <td className="border border-green-300 p-3">Imprese agricole, cooperative</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-green-300 p-3 font-bold text-green-700">Automazione e Digitale</td>
-                          <td className="border border-green-300 p-3 font-bold text-blue-600">50-60% a fondo perduto</td>
-                          <td className="border border-green-300 p-3">30.000-300.000€</td>
-                          <td className="border border-green-300 p-3">2-4 anni</td>
-                          <td className="border border-green-300 p-3">Aziende innovative</td>
-                        </tr>
-                        <tr className="bg-green-50">
-                          <td className="border border-green-300 p-3 font-bold text-green-700">Edilizia Rurale</td>
-                          <td className="border border-green-300 p-3 font-bold text-blue-600">40-50% a fondo perduto</td>
-                          <td className="border border-green-300 p-3">100.000-1.000.000€</td>
-                          <td className="border border-green-300 p-3">3-7 anni</td>
-                          <td className="border border-green-300 p-3">Imprese agricole, agriturismi</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <div className="mt-6 grid md:grid-cols-2 gap-6">
-                    <div className="bg-green-100 p-4 rounded-lg">
-                      <h4 className="font-bold text-green-800 mb-2">Caratteristiche dei contributi:</h4>
-                      <ul className="text-green-700">
-                        <li>• 100% a fondo perduto - nessun rimborso richiesto</li>
-                        <li>• Gestione regionale con criteri territoriali specifici</li>
-                        <li>• Maggiorazioni per giovani agricoltori, aree svantaggiate</li>
-                        <li>• Accesso continuo con bandi periodici durante l'anno</li>
-                      </ul>
-                    </div>
-                    <div className="bg-emerald-100 p-4 rounded-lg">
-                      <h4 className="font-bold text-emerald-800 mb-2">Budget e Portata:</h4>
-                      <ul className="text-emerald-700">
-                        <li>• Budget totale italiano 2023-2027: 8 miliardi di euro</li>
-                        <li>• Range progetti: Da 10.000€ a diversi milioni</li>
-                        <li>• Settori: Efficientamento, rinnovabili, automazione</li>
-                        <li>• Gestione: Regionale autonoma con priorità territoriali</li>
-                      </ul>
-                    </div>
-                  </div>
+          {/* Funding Structure Component */}
+          <Suspense fallback={
+            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <div className="animate-pulse">
+                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+                <div className="space-y-3">
+                  <div className="h-4 bg-gray-200 rounded"></div>
+                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          }>
+            <FundingStructure openSections={openSections} toggleSectionAction={toggleSection} />
+          </Suspense>
 
-          {/* Settori di Intervento */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <button
-              onClick={() => toggleSection('settori')}
-              className="w-full flex justify-between items-center text-left"
-            >
-              <h2 className="text-3xl font-bold text-green-800">🎯 Settori di Intervento: Le Vostre Opportunità di Modernizzazione</h2>
-              <span className="text-3xl text-green-600">{expandedSection === 'settori' ? '−' : '+'}</span>
-            </button>
-            
-            {expandedSection === 'settori' && (
-              <div className="mt-6">
-                <div className="bg-blue-50 p-6 rounded-xl mb-6">
-                  <h3 className="text-2xl font-bold text-blue-800 mb-4">Mappatura Completa delle Opportunità</h3>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse border border-blue-300">
-                      <thead>
-                        <tr className="bg-blue-600 text-white">
-                          <th className="border border-blue-300 p-3 text-left">Settore</th>
-                          <th className="border border-blue-300 p-3 text-left">Soluzioni Solarix</th>
-                          <th className="border border-blue-300 p-3 text-left">Budget Tipico</th>
-                          <th className="border border-blue-300 p-3 text-left">Contributo</th>
-                          <th className="border border-blue-300 p-3 text-left">Durata</th>
-                          <th className="border border-blue-300 p-3 text-left">Priorità</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-white">
-                          <td className="border border-blue-300 p-3 font-bold text-blue-700">Efficientamento Energetico</td>
-                          <td className="border border-blue-300 p-3">Isolamento, pompe di calore, controlli</td>
-                          <td className="border border-blue-300 p-3">20.000-200.000€</td>
-                          <td className="border border-blue-300 p-3 font-bold text-green-600">40-60% a fondo perduto</td>
-                          <td className="border border-blue-300 p-3">2-3 anni</td>
-                          <td className="border border-blue-300 p-3 font-bold text-red-600">MOLTO ALTA</td>
-                        </tr>
-                        <tr className="bg-blue-50">
-                          <td className="border border-blue-300 p-3 font-bold text-blue-700">Energie Rinnovabili</td>
-                          <td className="border border-blue-300 p-3">Fotovoltaico, biomasse, geotermico</td>
-                          <td className="border border-blue-300 p-3">50.000-500.000€</td>
-                          <td className="border border-blue-300 p-3 font-bold text-green-600">40-50% a fondo perduto</td>
-                          <td className="border border-blue-300 p-3">3-5 anni</td>
-                          <td className="border border-blue-300 p-3 font-bold text-red-600">MOLTO ALTA</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-blue-300 p-3 font-bold text-blue-700">Automazione e Digitale</td>
-                          <td className="border border-blue-300 p-3">Sensori IoT, robot, sistemi gestione</td>
-                          <td className="border border-blue-300 p-3">30.000-300.000€</td>
-                          <td className="border border-blue-300 p-3 font-bold text-green-600">50-60% a fondo perduto</td>
-                          <td className="border border-blue-300 p-3">2-4 anni</td>
-                          <td className="border border-blue-300 p-3 font-bold text-orange-600">ALTA</td>
-                        </tr>
-                        <tr className="bg-blue-50">
-                          <td className="border border-blue-300 p-3 font-bold text-blue-700">Infrastrutture Irrigue</td>
-                          <td className="border border-blue-300 p-3">Sistemi irrigazione efficiente</td>
-                          <td className="border border-blue-300 p-3">40.000-400.000€</td>
-                          <td className="border border-blue-300 p-3 font-bold text-green-600">50-60% a fondo perduto</td>
-                          <td className="border border-blue-300 p-3">3-5 anni</td>
-                          <td className="border border-blue-300 p-3 font-bold text-yellow-600">MEDIA</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+          {/* Process Timeline Component */}
+          <Suspense fallback={
+            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <div className="animate-pulse">
+                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
+                <div className="space-y-3">
+                  <div className="h-4 bg-gray-200 rounded"></div>
+                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
                 </div>
               </div>
-            )}
-          </div>
-
-          {/* Tempi di Processo */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <button
-              onClick={() => toggleSection('tempi')}
-              className="w-full flex justify-between items-center text-left"
-            >
-              <h2 className="text-3xl font-bold text-green-800">⏱️ Tempi di Processo che Monitoriamo</h2>
-              <span className="text-3xl text-green-600">{expandedSection === 'tempi' ? '−' : '+'}</span>
-            </button>
-            
-            {expandedSection === 'tempi' && (
-              <div className="mt-6">
-                <div className="bg-orange-50 p-6 rounded-xl mb-6">
-                  <h3 className="text-2xl font-bold text-orange-800 mb-4">Il Nostro Processo Completo per i PSR</h3>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse border border-orange-300">
-                      <thead>
-                        <tr className="bg-orange-600 text-white">
-                          <th className="border border-orange-300 p-3 text-left">Fase</th>
-                          <th className="border border-orange-300 p-3 text-left">Durata</th>
-                          <th className="border border-orange-300 p-3 text-left">Attività</th>
-                          <th className="border border-orange-300 p-3 text-left">Nostro Supporto</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-white">
-                          <td className="border border-orange-300 p-3 font-bold text-orange-700">Preparazione</td>
-                          <td className="border border-orange-300 p-3">2-4 settimane</td>
-                          <td className="border border-orange-300 p-3">Valutazione eleggibilità</td>
-                          <td className="border border-orange-300 p-3 text-green-600">Analisi strategica completa</td>
-                        </tr>
-                        <tr className="bg-orange-50">
-                          <td className="border border-orange-300 p-3 font-bold text-orange-700">Progettazione</td>
-                          <td className="border border-orange-300 p-3">4-6 settimane</td>
-                          <td className="border border-orange-300 p-3">Sviluppo progetto tecnico</td>
-                          <td className="border border-orange-300 p-3 text-green-600">Progettazione professionale</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-orange-300 p-3 font-bold text-orange-700">Presentazione</td>
-                          <td className="border border-orange-300 p-3">2-3 settimane</td>
-                          <td className="border border-orange-300 p-3">Submission domanda</td>
-                          <td className="border border-orange-300 p-3 text-green-600">Gestione documentazione</td>
-                        </tr>
-                        <tr className="bg-orange-50">
-                          <td className="border border-orange-300 p-3 font-bold text-orange-700">Valutazione</td>
-                          <td className="border border-orange-300 p-3">60-120 giorni</td>
-                          <td className="border border-orange-300 p-3">Istruttoria tecnico-amministrativa</td>
-                          <td className="border border-orange-300 p-3 text-green-600">Monitoraggio e supporto</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-orange-300 p-3 font-bold text-orange-700">Realizzazione</td>
-                          <td className="border border-orange-300 p-3">6-24 mesi</td>
-                          <td className="border border-orange-300 p-3">Implementazione progetto</td>
-                          <td className="border border-orange-300 p-3 text-green-600">Coordinamento completo</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Errori che Vi Evitiamo */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <button
-              onClick={() => toggleSection('errori')}
-              className="w-full flex justify-between items-center text-left"
-            >
-              <h2 className="text-3xl font-bold text-green-800">⚠️ Errori che Vi Evitiamo</h2>
-              <span className="text-3xl text-green-600">{expandedSection === 'errori' ? '−' : '+'}</span>
-            </button>
-            
-            {expandedSection === 'errori' && (
-              <div className="mt-6">
-                <div className="bg-red-50 p-6 rounded-xl mb-6">
-                  <h3 className="text-2xl font-bold text-red-800 mb-4">Come SolariX Business Previene i Problemi Comuni</h3>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse border border-red-300">
-                      <thead>
-                        <tr className="bg-red-600 text-white">
-                          <th className="border border-red-300 p-3 text-left">Errore Critico</th>
-                          <th className="border border-red-300 p-3 text-left">Impatto</th>
-                          <th className="border border-red-300 p-3 text-left">Nostra Soluzione</th>
-                          <th className="border border-red-300 p-3 text-left">Successo %</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-white">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Domanda incompleta</td>
-                          <td className="border border-red-300 p-3">Esclusione automatica</td>
-                          <td className="border border-red-300 p-3 text-green-600">Checklist pre-invio completa</td>
-                          <td className="border border-red-300 p-3 font-bold text-green-600">75%</td>
-                        </tr>
-                        <tr className="bg-red-50">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Budget sovrastimato</td>
-                          <td className="border border-red-300 p-3">Riduzione contributo</td>
-                          <td className="border border-red-300 p-3 text-green-600">Preventivi realistici multipli</td>
-                          <td className="border border-red-300 p-3 font-bold text-green-600">80%</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Mancato rispetto tempi</td>
-                          <td className="border border-red-300 p-3">Revoca finanziamento</td>
-                          <td className="border border-red-300 p-3 text-green-600">Pianificazione realistica</td>
-                          <td className="border border-red-300 p-3 font-bold text-green-600">85%</td>
-                        </tr>
-                        <tr className="bg-red-50">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Variazioni non autorizzate</td>
-                          <td className="border border-red-300 p-3">Recupero contributi</td>
-                          <td className="border border-red-300 p-3 text-green-600">Comunicazione preventiva</td>
-                          <td className="border border-red-300 p-3 font-bold text-green-600">88%</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Documentazione inadeguata</td>
-                          <td className="border border-red-300 p-3">Ritardi o esclusione</td>
-                          <td className="border border-red-300 p-3 text-green-600">Consulenza specializzata</td>
-                          <td className="border border-red-300 p-3 font-bold text-green-600">82%</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+            </div>
+          }>
+            <ProcessTimeline openSections={openSections} toggleSectionAction={toggleSection} />
+          </Suspense>
 
           {/* WhatsApp CTA */}
           <div className="text-center mt-12">

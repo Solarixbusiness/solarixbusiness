@@ -1,8 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import SeoHead from '../../components/SeoHead/SeoHead';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+
+// Lazy load components
+const ProgrammeInfo = lazy(() => import('./components/ProgrammeInfo'));
+const OpportunityMapping = lazy(() => import('./components/OpportunityMapping'));
+const ErrorPrevention = lazy(() => import('./components/ErrorPrevention'));
 
 export default function EurostarsPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
@@ -39,278 +44,49 @@ export default function EurostarsPage() {
               La Nostra Guida all'Innovazione Tecnologica Europea Collaborativa
             </p>
             
-            {/* Key Stats */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="bg-white p-6 rounded-2xl shadow-lg border-2 border-blue-200">
-                <div className="text-3xl font-bold text-blue-600">Fino al 60%</div>
-                <div className="text-lg text-gray-700">Contributi a Fondo Perduto</div>
-              </div>
-              <div className="bg-white p-6 rounded-2xl shadow-lg border-2 border-indigo-200">
-                <div className="text-3xl font-bold text-indigo-600">2-3 Milioni €</div>
-                <div className="text-lg text-gray-700">Budget Massimo per Progetto</div>
-              </div>
-              <div className="bg-white p-6 rounded-2xl shadow-lg border-2 border-purple-200">
-                <div className="text-3xl font-bold text-purple-600">37 Paesi</div>
-                <div className="text-lg text-gray-700">Network Europeo</div>
-              </div>
+          </div>
+
+          {/* Programme Info Component */}
+          <Suspense fallback={
+            <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 animate-pulse">
+              <div className="h-8 bg-gray-200 rounded mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
             </div>
-          </div>
+          }>
+            <ProgrammeInfo 
+              expandedSection={expandedSection} 
+              toggleSectionAction={toggleSection} 
+            />
+          </Suspense>
 
-          {/* Caratteristiche Distintive */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <button
-              onClick={() => toggleSection('caratteristiche')}
-              className="w-full flex justify-between items-center text-left"
-            >
-              <h2 className="text-3xl font-bold text-indigo-800">🎯 Caratteristiche Distintive del Programma</h2>
-              <span className="text-3xl text-indigo-600">{expandedSection === 'caratteristiche' ? '−' : '+'}</span>
-            </button>
-            
-            {expandedSection === 'caratteristiche' && (
-              <div className="mt-6">
-                <div className="bg-blue-50 p-6 rounded-xl mb-6">
-                  <h3 className="text-2xl font-bold text-blue-800 mb-4">Progettato specificamente per PMI innovative come la vostra</h3>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse border border-blue-300">
-                      <thead>
-                        <tr className="bg-blue-600 text-white">
-                          <th className="border border-blue-300 p-3 text-left">Caratteristica</th>
-                          <th className="border border-blue-300 p-3 text-left">Vantaggio per Voi</th>
-                          <th className="border border-blue-300 p-3 text-left">Dettagli</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-white">
-                          <td className="border border-blue-300 p-3 font-bold text-blue-700">Focus PMI innovative</td>
-                          <td className="border border-blue-300 p-3">Progettato per aziende come la vostra</td>
-                          <td className="border border-blue-300 p-3 font-bold text-green-600">&lt;250 dipendenti, orientamento commerciale</td>
-                        </tr>
-                        <tr className="bg-blue-50">
-                          <td className="border border-blue-300 p-3 font-bold text-blue-700">Collaborazione internazionale</td>
-                          <td className="border border-blue-300 p-3">Accesso a competenze europee</td>
-                          <td className="border border-blue-300 p-3">Minimo 2 partner da 2 paesi diversi</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-blue-300 p-3 font-bold text-blue-700">Orientamento al mercato</td>
-                          <td className="border border-blue-300 p-3">Prodotti commercializzabili</td>
-                          <td className="border border-blue-300 p-3">Progetti devono portare a soluzioni vendibili</td>
-                        </tr>
-                        <tr className="bg-blue-50">
-                          <td className="border border-blue-300 p-3 font-bold text-blue-700">Finanziamento sostanziale</td>
-                          <td className="border border-blue-300 p-3">Contributi a fondo perduto fino al 60%</td>
-                          <td className="border border-blue-300 p-3 font-bold text-green-600">Massimo 2-3 milioni € per progetto</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-blue-300 p-3 font-bold text-blue-700">Network di 37 paesi</td>
-                          <td className="border border-blue-300 p-3">Mercati europei accessibili</td>
-                          <td className="border border-blue-300 p-3">Competenze e clienti in tutta Europa</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <div className="mt-6 grid md:grid-cols-2 gap-6">
-                    <div className="bg-blue-100 p-4 rounded-lg">
-                      <h4 className="font-bold text-blue-800 mb-2">Finanziamento nazionale italiano:</h4>
-                      <ul className="text-blue-700">
-                        <li>• Contributo a fondo perduto: Fino al 60% dei costi ammissibili</li>
-                        <li>• Cofinanziamento aziendale: Minimo 40% con vostre risorse</li>
-                        <li>• Range di investimento: Da 500.000€ a 2-3 milioni €</li>
-                        <li>• Durata tipica: 24-36 mesi di sviluppo</li>
-                      </ul>
-                    </div>
-                    <div className="bg-indigo-100 p-4 rounded-lg">
-                      <h4 className="font-bold text-indigo-800 mb-2">Gestione finanziaria:</h4>
-                      <ul className="text-indigo-700">
-                        <li>• Erogazione diretta dal Ministero Università e Ricerca (MUR)</li>
-                        <li>• Distribuzione proporzionale nel consorzio internazionale</li>
-                        <li>• Partner italiano può ricevere 40-70% del budget totale</li>
-                        <li>• Nessun prestito agevolato - solo contributi a fondo perduto</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+          {/* Opportunity Mapping Component */}
+          <Suspense fallback={
+            <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 animate-pulse">
+              <div className="h-8 bg-gray-200 rounded mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
+            </div>
+          }>
+            <OpportunityMapping 
+              expandedSection={expandedSection} 
+              toggleSectionAction={toggleSection} 
+            />
+          </Suspense>
 
-          {/* Mappatura Opportunità */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <button
-              onClick={() => toggleSection('opportunita')}
-              className="w-full flex justify-between items-center text-left"
-            >
-              <h2 className="text-3xl font-bold text-indigo-800">🗺️ Mappatura Completa delle Opportunità</h2>
-              <span className="text-3xl text-indigo-600">{expandedSection === 'opportunita' ? '−' : '+'}</span>
-            </button>
-            
-            {expandedSection === 'opportunita' && (
-              <div className="mt-6">
-                <div className="bg-purple-50 p-6 rounded-xl mb-6">
-                  <h3 className="text-2xl font-bold text-purple-800 mb-4">Settori di Innovazione: Le Vostre Opportunità Tecnologiche</h3>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse border border-purple-300">
-                      <thead>
-                        <tr className="bg-purple-600 text-white">
-                          <th className="border border-purple-300 p-3 text-left">Settore</th>
-                          <th className="border border-purple-300 p-3 text-left">Soluzioni Innovative</th>
-                          <th className="border border-purple-300 p-3 text-left">Budget Tipico</th>
-                          <th className="border border-purple-300 p-3 text-left">Durata</th>
-                          <th className="border border-purple-300 p-3 text-left">Priorità</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-white">
-                          <td className="border border-purple-300 p-3 font-bold text-purple-700">Energie Rinnovabili</td>
-                          <td className="border border-purple-300 p-3">Fotovoltaico avanzato, sistemi accumulo, smart grid</td>
-                          <td className="border border-purple-300 p-3">300-800k€</td>
-                          <td className="border border-purple-300 p-3">24-36 mesi</td>
-                          <td className="border border-purple-300 p-3 font-bold text-red-600">MOLTO ALTA</td>
-                        </tr>
-                        <tr className="bg-purple-50">
-                          <td className="border border-purple-300 p-3 font-bold text-purple-700">Efficientamento Energetico</td>
-                          <td className="border border-purple-300 p-3">Materiali isolanti, controllo climatico, automazione</td>
-                          <td className="border border-purple-300 p-3">200-600k€</td>
-                          <td className="border border-purple-300 p-3">18-30 mesi</td>
-                          <td className="border border-purple-300 p-3 font-bold text-red-600">MOLTO ALTA</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-purple-300 p-3 font-bold text-purple-700">IoT e Digitale</td>
-                          <td className="border border-purple-300 p-3">Sensori smart, piattaforme controllo, AI per energia</td>
-                          <td className="border border-purple-300 p-3">250-700k€</td>
-                          <td className="border border-purple-300 p-3">24-32 mesi</td>
-                          <td className="border border-purple-300 p-3 font-bold text-orange-600">ALTA</td>
-                        </tr>
-                        <tr className="bg-purple-50">
-                          <td className="border border-purple-300 p-3 font-bold text-purple-700">Robotica Collaborativa</td>
-                          <td className="border border-purple-300 p-3">Cobot specializzati, automazione intelligente</td>
-                          <td className="border border-purple-300 p-3">400-1000k€</td>
-                          <td className="border border-purple-300 p-3">30-42 mesi</td>
-                          <td className="border border-purple-300 p-3 font-bold text-orange-600">ALTA</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-purple-300 p-3 font-bold text-purple-700">Tecnologie Ambientali</td>
-                          <td className="border border-purple-300 p-3">Monitoraggio emissioni, economia circolare</td>
-                          <td className="border border-purple-300 p-3">200-500k€</td>
-                          <td className="border border-purple-300 p-3">20-28 mesi</td>
-                          <td className="border border-purple-300 p-3 font-bold text-orange-600">ALTA</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <div className="mt-6 bg-gradient-to-r from-blue-100 to-purple-100 p-6 rounded-lg">
-                    <h4 className="text-xl font-bold text-indigo-800 mb-4">🎯 Energie Rinnovabili: Il Vostro Territorio di Eccellenza</h4>
-                    <p className="text-indigo-700 mb-4">
-                      <strong>Allineamento perfetto con le competenze Solarix:</strong> Questo settore rappresenta l'opportunità più diretta per sviluppare tecnologie proprietarie che vi distinguono dalla concorrenza tradizionale.
-                    </p>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <h5 className="font-bold text-blue-700 mb-2">Tecnologie Fotovoltaiche Avanzate:</h5>
-                        <ul className="text-blue-600 text-sm">
-                          <li>• Perovskite, tandem, concentrazione solare</li>
-                          <li>• Sistemi agrivoltaici con monitoring intelligente</li>
-                          <li>• Fotovoltaico galleggiante per bacini industriali</li>
-                          <li>• Building-integrated PV ottimizzati</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h5 className="font-bold text-purple-700 mb-2">Sistemi di Accumulo e Gestione:</h5>
-                        <ul className="text-purple-600 text-sm">
-                          <li>• Batterie beyond-lithium per lunga durata</li>
-                          <li>• Smart grid locali per comunità energetiche</li>
-                          <li>• Vehicle-to-grid per mobilità elettrica</li>
-                          <li>• Sistemi ibridi con AI per ottimizzazione</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Errori che Vi Evitiamo */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <button
-              onClick={() => toggleSection('errori')}
-              className="w-full flex justify-between items-center text-left"
-            >
-              <h2 className="text-3xl font-bold text-indigo-800">⚠️ Errori che Vi Evitiamo</h2>
-              <span className="text-3xl text-indigo-600">{expandedSection === 'errori' ? '−' : '+'}</span>
-            </button>
-            
-            {expandedSection === 'errori' && (
-              <div className="mt-6">
-                <div className="bg-red-50 p-6 rounded-xl mb-6">
-                  <h3 className="text-2xl font-bold text-red-800 mb-4">Come SolariX Business Previene i Problemi Critici</h3>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-collapse border border-red-300">
-                      <thead>
-                        <tr className="bg-red-600 text-white">
-                          <th className="border border-red-300 p-3 text-left">Errore Fatale</th>
-                          <th className="border border-red-300 p-3 text-left">Frequenza</th>
-                          <th className="border border-red-300 p-3 text-left">Impatto</th>
-                          <th className="border border-red-300 p-3 text-left">Nostra Soluzione</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-white">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Partner inadeguato</td>
-                          <td className="border border-red-300 p-3 font-bold">35%</td>
-                          <td className="border border-red-300 p-3">Esclusione automatica</td>
-                          <td className="border border-red-300 p-3 text-green-600">Due diligence approfondita partner</td>
-                        </tr>
-                        <tr className="bg-red-50">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Innovazione insufficiente</td>
-                          <td className="border border-red-300 p-3 font-bold">28%</td>
-                          <td className="border border-red-300 p-3">Punteggio basso</td>
-                          <td className="border border-red-300 p-3 text-green-600">Analisi stato dell'arte rigorosa</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Business case debole</td>
-                          <td className="border border-red-300 p-3 font-bold">25%</td>
-                          <td className="border border-red-300 p-3">Rigetto commerciale</td>
-                          <td className="border border-red-300 p-3 text-green-600">Market research professionale</td>
-                        </tr>
-                        <tr className="bg-red-50">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Budget irrealistico</td>
-                          <td className="border border-red-300 p-3 font-bold">20%</td>
-                          <td className="border border-red-300 p-3">Riduzione finanziamento</td>
-                          <td className="border border-red-300 p-3 text-green-600">Benchmarking costi industria</td>
-                        </tr>
-                        <tr className="bg-white">
-                          <td className="border border-red-300 p-3 font-bold text-red-700">Timeline non credibile</td>
-                          <td className="border border-red-300 p-3 font-bold">18%</td>
-                          <td className="border border-red-300 p-3">Dubbi su feasibility</td>
-                          <td className="border border-red-300 p-3 text-green-600">Pianificazione bottom-up dettagliata</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  
-                  <div className="mt-6 bg-green-100 p-4 rounded-lg">
-                    <h4 className="font-bold text-green-800 mb-2">Best Practices che Applichiamo:</h4>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <ul className="text-green-700">
-                        <li>• <strong>Start early:</strong> Iniziamo preparazione 6 mesi prima deadline</li>
-                        <li>• <strong>Multiple partners:</strong> Valutiamo 5-7 partner prima di scegliere</li>
-                        <li>• <strong>Technology validation:</strong> Proof-of-concept preliminare</li>
-                      </ul>
-                      <ul className="text-green-700">
-                        <li>• <strong>Market research:</strong> Analisi quantitativa mercato e competitori</li>
-                        <li>• <strong>Storytelling compelling:</strong> Narrativa chiara problema e soluzione</li>
-                        <li>• <strong>European dimension:</strong> Valore aggiunto collaborazione transnazionale</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+          {/* Error Prevention Component */}
+          <Suspense fallback={
+            <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 animate-pulse">
+              <div className="h-8 bg-gray-200 rounded mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
+            </div>
+          }>
+            <ErrorPrevention 
+              expandedSection={expandedSection} 
+              toggleSectionAction={toggleSection} 
+            />
+          </Suspense>
 
           {/* WhatsApp CTA */}
           <div className="text-center mt-12">

@@ -1,6 +1,11 @@
 'use client';
 
-import { useState } from 'react'
+import { useState, Suspense, lazy } from 'react';
+
+// Lazy load components
+const FundingStructure = lazy(() => import('./components/FundingStructure'));
+const OpportunitiesTimeline = lazy(() => import('./components/OpportunitiesTimeline'));
+const ProjectExamples = lazy(() => import('./components/ProjectExamples'));
 
 export default function InnovationFundPage() {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({})
@@ -36,323 +41,47 @@ export default function InnovationFundPage() {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           
-          {/* Introduzione */}
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <div 
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => toggleSection('introduzione')}
-            >
-              <h2 className="text-2xl font-bold text-blue-700">Introduzione all'Innovation Fund</h2>
-              <span className="text-2xl text-blue-600">
-                {openSections['introduzione'] ? '−' : '+'}
-              </span>
+          {/* Funding Structure Component */}
+          <Suspense fallback={
+            <div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse">
+              <div className="h-8 bg-gray-200 rounded mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
             </div>
-            
-            {openSections['introduzione'] && (
-              <div className="mt-6 space-y-4 text-gray-700">
-                <p>
-                  L'Innovation Fund è il programma dell'Unione Europea progettato per finanziare progetti su larga scala che riducono drasticamente le emissioni di carbonio e promuovono tecnologie pulite rivoluzionarie. Noi di Solarix Business vi guidiamo in questo programma d'élite che finanzia impianti innovativi per l'energia rinnovabile e processi industriali a basso impatto ambientale.
-                </p>
-                <p>
-                  Per la vostra azienda, rappresenta l'opportunità di realizzare progetti di efficientamento energetico, termico o comunità energetiche di scala industriale, permettendovi di passare da iniziative locali a strategie complete per la crescita sostenibile europea.
-                </p>
-                <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-6 rounded-lg border-l-4 border-blue-500">
-                  <h4 className="text-lg font-bold text-blue-800 mb-3">🚀 MEGA-PROGETTI EUROPEI - SCALA INDUSTRIALE!</h4>
-                  <p className="mb-3"><strong>📅 Finestre Continue:</strong> Bandi annuali garantiti fino al 2030 con budget crescenti</p>
-                  <p className="mb-3"><strong>💰 FONDO PERDUTO GARANTITO:</strong> <span className="bg-blue-200 px-2 py-1 rounded font-bold text-blue-800">Fino al 60% del budget totale NON si restituisce mai</span></p>
-                  <p><strong>🎯 La nostra strategia:</strong> Vi trasformiamo da azienda locale a leader europeo nei mega-progetti!</p>
-                </div>
-              </div>
-            )}
-          </div>
+          }>
+            <FundingStructure 
+              openSections={openSections} 
+              toggleSectionAction={toggleSection} 
+            />
+          </Suspense>
 
-          {/* Struttura dei Finanziamenti */}
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <div 
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => toggleSection('struttura-finanziamenti')}
-            >
-              <h2 className="text-2xl font-bold text-blue-700">💰 Struttura dei Finanziamenti a Fondo Perduto</h2>
-              <span className="text-2xl text-blue-600">
-                {openSections['struttura-finanziamenti'] ? '−' : '+'}
-              </span>
+          {/* Opportunities Timeline Component */}
+          <Suspense fallback={
+            <div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse">
+              <div className="h-8 bg-gray-200 rounded mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
             </div>
-            
-            {openSections['struttura-finanziamenti'] && (
-              <div className="mt-6">
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse border border-gray-300">
-                    <thead>
-                      <tr className="bg-blue-100">
-                        <th className="border border-gray-300 p-3 text-left font-bold">Tipologia Progetto</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Contributo a Fondo Perduto</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Budget Minimo</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Durata</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Budget Tipico</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Settori</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-green-50">
-                        <td className="border border-gray-300 p-3 font-semibold">Progetti Standard</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">40-50% a fondo perduto</strong></td>
-                        <td className="border border-gray-300 p-3"><strong>7,5 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">5-10 anni</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-blue-600">10-50 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">Industria, energia, mobilità</td>
-                      </tr>
-                      <tr>
-                        <td className="border border-gray-300 p-3 font-semibold">Progetti Innovativi</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">50-55% a fondo perduto</strong></td>
-                        <td className="border border-gray-300 p-3"><strong>7,5 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">5-10 anni</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-blue-600">20-100 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">Tecnologie avanzate</td>
-                      </tr>
-                      <tr className="bg-purple-50">
-                        <td className="border border-gray-300 p-3 font-semibold">Progetti Pionieri</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-purple-600">60% a fondo perduto</strong></td>
-                        <td className="border border-gray-300 p-3"><strong>7,5 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">5-10 anni</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-blue-600">50-500 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">Tecnologie rivoluzionarie</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                
-                <div className="bg-gradient-to-r from-yellow-100 to-blue-100 p-8 rounded-lg mt-6 border-2 border-blue-400">
-                  <h3 className="text-2xl font-bold text-blue-800 mb-4 text-center">🎯 FINO AL 60% A FONDO PERDUTO = MEGA-FINANZIAMENTI EUROPEI!</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-white p-4 rounded-lg shadow">
-                      <h4 className="font-bold text-blue-700 mb-2">💶 ESEMPIO MEGA-PROGETTO:</h4>
-                      <p>Progetto da <strong>30.000.000 €</strong></p>
-                      <p className="text-blue-600 font-bold text-lg">✅ Europa paga: 18.000.000 € GRATIS</p>
-                      <p>Voi investite: 12.000.000 €</p>
-                    </div>
-                    <div className="bg-white p-4 rounded-lg shadow">
-                      <h4 className="font-bold text-purple-700 mb-2">🔒 CARATTERISTICHE:</h4>
-                      <p>✅ 100% a fondo perduto - nessun rimborso</p>
-                      <p>✅ Copertura costi capitali e operativi</p>
-                      <p>✅ Nessun prestito agevolato</p>
-                      <p className="text-blue-600 font-bold">✅ Solo contributi diretti!</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+          }>
+            <OpportunitiesTimeline 
+              openSections={openSections} 
+              toggleSectionAction={toggleSection} 
+            />
+          </Suspense>
 
-          {/* Finestre Future */}
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <div 
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => toggleSection('finestre-future')}
-            >
-              <h2 className="text-2xl font-bold text-blue-700">📅 Finestre Immediate e Future 2025-2030</h2>
-              <span className="text-2xl text-blue-600">
-                {openSections['finestre-future'] ? '−' : '+'}
-              </span>
+          {/* Project Examples Component */}
+          <Suspense fallback={
+            <div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse">
+              <div className="h-8 bg-gray-200 rounded mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
             </div>
-            
-            {openSections['finestre-future'] && (
-              <div className="mt-6">
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse border border-gray-300">
-                    <thead>
-                      <tr className="bg-purple-100">
-                        <th className="border border-gray-300 p-3 text-left font-bold">Call</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Apertura</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Scadenza</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Budget</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Focus Settoriale</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-yellow-50">
-                        <td className="border border-gray-300 p-3 font-semibold">IF24</td>
-                        <td className="border border-gray-300 p-3">Apr 2024</td>
-                        <td className="border border-gray-300 p-3">Apr 2024</td>
-                        <td className="border border-gray-300 p-3"><strong>4,8 miliardi €</strong></td>
-                        <td className="border border-gray-300 p-3">Industria pesante</td>
-                        <td className="border border-gray-300 p-3 text-orange-600">Valutazione in corso</td>
-                      </tr>
-                      <tr className="bg-green-50">
-                        <td className="border border-gray-300 p-3 font-semibold">IF25</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">Dic 2025</strong></td>
-                        <td className="border border-gray-300 p-3"><strong className="text-red-600">Apr 2026</strong></td>
-                        <td className="border border-gray-300 p-3"><strong>1 miliardo €</strong></td>
-                        <td className="border border-gray-300 p-3">Batterie, rinnovabili</td>
-                        <td className="border border-gray-300 p-3 text-green-600">Preparazione</td>
-                      </tr>
-                      <tr className="bg-blue-50">
-                        <td className="border border-gray-300 p-3 font-semibold">IF26</td>
-                        <td className="border border-gray-300 p-3">Apr 2026</td>
-                        <td className="border border-gray-300 p-3">Set 2026</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-blue-600">5+ miliardi €</strong></td>
-                        <td className="border border-gray-300 p-3">Da definire</td>
-                        <td className="border border-gray-300 p-3 text-blue-600">Pianificazione</td>
-                      </tr>
-                      <tr className="bg-purple-50">
-                        <td className="border border-gray-300 p-3 font-semibold">IF27-30</td>
-                        <td className="border border-gray-300 p-3">Annuale</td>
-                        <td className="border border-gray-300 p-3">Annuale</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-purple-600">6+ miliardi €/anno</strong></td>
-                        <td className="border border-gray-300 p-3">Evoluzione tecnologie</td>
-                        <td className="border border-gray-300 p-3 text-purple-600">Programmate</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Settori */}
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <div 
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => toggleSection('settori')}
-            >
-              <h2 className="text-2xl font-bold text-blue-700">I Settori dove Vi Possiamo Supportare</h2>
-              <span className="text-2xl text-blue-600">
-                {openSections['settori'] ? '−' : '+'}
-              </span>
-            </div>
-            
-            {openSections['settori'] && (
-              <div className="mt-6">
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse border border-gray-300">
-                    <thead>
-                      <tr className="bg-blue-100">
-                        <th className="border border-gray-300 p-3 text-left font-bold">Settore</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Soluzioni Solarix</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Budget Tipico</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Durata</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Riduzione CO2</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Opportunità</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-red-50">
-                        <td className="border border-gray-300 p-3 font-semibold">Decarbonizzazione Industriale</td>
-                        <td className="border border-gray-300 p-3">Processi termici efficienti con cobot</td>
-                        <td className="border border-gray-300 p-3"><strong>10-50 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">5-8 anni</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">&gt;50%</strong></td>
-                        <td className="border border-gray-300 p-3">Alta - efficientamento + robot</td>
-                      </tr>
-                      <tr>
-                        <td className="border border-gray-300 p-3 font-semibold">Energia Rinnovabile</td>
-                        <td className="border border-gray-300 p-3">Fotovoltaico + accumulo + comunità</td>
-                        <td className="border border-gray-300 p-3"><strong>7,5-100 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">5-10 anni</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">&gt;60%</strong></td>
-                        <td className="border border-gray-300 p-3">Molto alta - core business</td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="border border-gray-300 p-3 font-semibold">Mobilità Elettrica</td>
-                        <td className="border border-gray-300 p-3">Sistemi ricarica + efficientamento</td>
-                        <td className="border border-gray-300 p-3"><strong>15-80 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">5-7 anni</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">&gt;50%</strong></td>
-                        <td className="border border-gray-300 p-3">Media - integrazione digitale</td>
-                      </tr>
-                      <tr>
-                        <td className="border border-gray-300 p-3 font-semibold">Idrogeno Verde</td>
-                        <td className="border border-gray-300 p-3">Produzione e uso energetico</td>
-                        <td className="border border-gray-300 p-3"><strong>25-150 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">5-10 anni</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">&gt;60%</strong></td>
-                        <td className="border border-gray-300 p-3">Alta - integrazione rinnovabili</td>
-                      </tr>
-                      <tr className="bg-yellow-50">
-                        <td className="border border-gray-300 p-3 font-semibold">Materiali Sostenibili</td>
-                        <td className="border border-gray-300 p-3">Innovazioni costruzione + automazione</td>
-                        <td className="border border-gray-300 p-3"><strong>10-60 milioni €</strong></td>
-                        <td className="border border-gray-300 p-3">5-8 anni</td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">&gt;50%</strong></td>
-                        <td className="border border-gray-300 p-3">Alta - cobot + efficienza</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Progetti */}
-          <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-            <div 
-              className="flex items-center justify-between cursor-pointer"
-              onClick={() => toggleSection('progetti')}
-            >
-              <h2 className="text-2xl font-bold text-blue-700">Esempi di Mega-Progetti che Realizziamo</h2>
-              <span className="text-2xl text-blue-600">
-                {openSections['progetti'] ? '−' : '+'}
-              </span>
-            </div>
-            
-            {openSections['progetti'] && (
-              <div className="mt-6">
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse border border-gray-300">
-                    <thead>
-                      <tr className="bg-purple-100">
-                        <th className="border border-gray-300 p-3 text-left font-bold">Progetto</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Budget Totale</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Contributo UE a Fondo Perduto</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Vostro Investimento</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Durata</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">CO2 Evitata</th>
-                        <th className="border border-gray-300 p-3 text-left font-bold">Settore</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="bg-red-50">
-                        <td className="border border-gray-300 p-3 font-semibold">ThermoCobot Industrial</td>
-                        <td className="border border-gray-300 p-3"><strong>15.000.000 €</strong></td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">9.000.000 € a fondo perduto (60%)</strong></td>
-                        <td className="border border-gray-300 p-3">6.000.000 €</td>
-                        <td className="border border-gray-300 p-3">6 anni</td>
-                        <td className="border border-gray-300 p-3">2.000 ton/anno</td>
-                        <td className="border border-gray-300 p-3">Industria + Robot</td>
-                      </tr>
-                      <tr>
-                        <td className="border border-gray-300 p-3 font-semibold">MegaSolar Community</td>
-                        <td className="border border-gray-300 p-3"><strong>25.000.000 €</strong></td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">12.500.000 € a fondo perduto (50%)</strong></td>
-                        <td className="border border-gray-300 p-3">12.500.000 €</td>
-                        <td className="border border-gray-300 p-3">8 anni</td>
-                        <td className="border border-gray-300 p-3">5.000 ton/anno</td>
-                        <td className="border border-gray-300 p-3">Fotovoltaico + CER</td>
-                      </tr>
-                      <tr className="bg-blue-50">
-                        <td className="border border-gray-300 p-3 font-semibold">SmartAccumulo Hub</td>
-                        <td className="border border-gray-300 p-3"><strong>20.000.000 €</strong></td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">11.000.000 € a fondo perduto (55%)</strong></td>
-                        <td className="border border-gray-300 p-3">9.000.000 €</td>
-                        <td className="border border-gray-300 p-3">7 anni</td>
-                        <td className="border border-gray-300 p-3">3.500 ton/anno</td>
-                        <td className="border border-gray-300 p-3">Accumulo + Digitale</td>
-                      </tr>
-                      <tr>
-                        <td className="border border-gray-300 p-3 font-semibold">GreenFactory AI</td>
-                        <td className="border border-gray-300 p-3"><strong>30.000.000 €</strong></td>
-                        <td className="border border-gray-300 p-3"><strong className="text-green-600">18.000.000 € a fondo perduto (60%)</strong></td>
-                        <td className="border border-gray-300 p-3">12.000.000 €</td>
-                        <td className="border border-gray-300 p-3">9 anni</td>
-                        <td className="border border-gray-300 p-3">8.000 ton/anno</td>
-                        <td className="border border-gray-300 p-3">AI + Efficienza</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-          </div>
+          }>
+            <ProjectExamples 
+              openSections={openSections} 
+              toggleSectionAction={toggleSection} 
+            />
+          </Suspense>
 
           {/* CTA Section */}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 text-center">
