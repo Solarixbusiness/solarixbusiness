@@ -22,7 +22,7 @@ export default function HeroSectionServer({ title, subtitle }: HeroSectionProps)
           objectPosition: 'center',
           zIndex: -1
         }}
-        quality={85}
+        quality={60}
       />
       <div className={styles.hero_overlay}></div>
       <div className={styles.hero_content}>
