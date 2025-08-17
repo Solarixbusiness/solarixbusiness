@@ -106,7 +106,7 @@
 
 .main_cta_button {
   display: inline-block;
-  background-color: #FF6600;
+  background-color: #E55A00;
   color: white;
   font-weight: 700;
   font-size: 1.2rem;
@@ -114,7 +114,7 @@
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.4s ease;
-  border: none;
+  border: 2px solid #E55A00;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0.5px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);

@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import HeroSection from '@/components/HeroSection/HeroSection'
+import HeroSectionServer from '@/components/HeroSection/HeroSectionServer'
 import SolarBenefitsWidget from '@/components/SolarBenefitsWidget/SolarBenefitsWidget'
 import IntroSection from '@/components/IntroSection/IntroSection'
 import IncentiveSection from '@/components/IncentiveSection/IncentiveSection'
@@ -110,7 +110,7 @@ export default function HomePage() {
       />
 
       {/* Hero Section con CTA */}
-      <HeroSection 
+      <HeroSectionServer 
         title="IL FOTOVOLTAICO NON È UNA SPESA. È LA TUA LEVA FINANZIARIA"
         subtitle="Accedi a incentivi cumulabili, ritorno immediato entra nel mercato dei carbon credits, Il tuo impianto inizia a guadagnare da subito"
       />
