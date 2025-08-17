@@ -43,6 +43,10 @@ export const metadata: Metadata = {
   },
 }
 
+// Forza la generazione statica per migliorare performance
+export const dynamic = 'force-static'
+export const revalidate = 3600 // Rivalidazione ogni ora
+
 export default function HomePage() {
   return (
     <>

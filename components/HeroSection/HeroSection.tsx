@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import styles from './HeroSection.module.css'
 
 interface HeroSectionProps {
@@ -40,20 +41,8 @@ export default function HeroSection({ title, subtitle }: HeroSectionProps) {
   }, []);
 
   useEffect(() => {
-    const img = new Image();
-    img.src = '/images/hero/hero.png';
-    img.onload = () => {
-      setIsLoaded(true);
-    };
-
-    // Fallback se l'immagine non si carica entro 3 secondi
-    const timeout = setTimeout(() => {
-      if (!isLoaded) {
-        setIsLoaded(true);
-      }
-    }, 3000);
-
-    return () => clearTimeout(timeout);
+    // Rimuovo il preload manuale, Next.js Image lo gestisce automaticamente
+    setIsLoaded(true);
   }, []);
 
   // Controlla quando avviare le animazioni
@@ -71,6 +60,20 @@ export default function HeroSection({ title, subtitle }: HeroSectionProps) {
 
   return (
     <div className={`${styles.hero} ${isLoaded ? styles.loaded : ''}`}>
+      <Image
+        src="/images/hero/hero.png"
+        alt="Pannelli solari per aziende - SolariX Business"
+        fill
+        priority
+        sizes="100vw"
+        style={{
+          objectFit: 'cover',
+          objectPosition: 'center',
+          zIndex: -1
+        }}
+        quality={85}
+      />
+      <div className={styles.hero_overlay}></div>
       <div className={styles.hero_content}>
         <h1 className={`${styles.title} ${animationsStarted ? styles.title_animate : ''}`}>{title.toUpperCase()}</h1>
         <h2 className={`${styles.subtitle} ${animationsStarted ? styles.subtitle_animate : ''}`}>{subtitle}</h2>

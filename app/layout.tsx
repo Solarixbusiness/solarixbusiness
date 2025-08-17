@@ -11,6 +11,7 @@ import { SEO_CONSTANTS } from '@/utils/seoConstants'
 import ClientProviders from '@/components/ClientProviders'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -245,6 +246,7 @@ export default function RootLayout({
             <Footer />
             <CookieConsent />
             <PerformanceMetrics />
+            <SpeedInsights />
           </I18nProvider>
         </ClientProviders>
       </body>
