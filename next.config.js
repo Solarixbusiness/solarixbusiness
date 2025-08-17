@@ -2,6 +2,41 @@
 const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
+  // Ottimizzazioni bundle JavaScript
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  // Configurazione webpack per tree shaking e code splitting
+  webpack: (config, { isServer }) => {
+    // Abilita tree shaking più aggressivo
+    config.optimization = {
+      ...config.optimization,
+      usedExports: true,
+      sideEffects: false,
+    };
+
+    // Code splitting più granulare
+    if (!isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            priority: 10,
+            chunks: 'all',
+          },
+          common: {
+            minChunks: 2,
+            priority: 5,
+            reuseExistingChunk: true,
+          },
+        },
+      };
+    }
+
+    return config;
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],

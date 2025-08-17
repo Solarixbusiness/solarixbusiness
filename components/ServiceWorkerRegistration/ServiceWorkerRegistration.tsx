@@ -41,13 +41,21 @@ export default function ServiceWorkerRegistration() {
             console.error('Errore durante la registrazione del Service Worker:', error);
           });
           
-        // Controlla gli aggiornamenti ogni ora
-        setInterval(() => {
-          navigator.serviceWorker.getRegistration().then(registration => {
+        // Controlla gli aggiornamenti ogni ora con yielding
+        const checkForUpdates = async () => {
+          try {
+            const registration = await navigator.serviceWorker.getRegistration();
             if (registration) {
-              registration.update();
+              await registration.update();
             }
-          });
+          } catch (error) {
+            console.error('Errore durante l\'aggiornamento del service worker:', error);
+          }
+        };
+
+        setInterval(() => {
+          // Usa setTimeout per non bloccare il thread principale
+          setTimeout(checkForUpdates, 0);
         }, 60 * 60 * 1000);
         
         // Ascolta i messagi di controllo

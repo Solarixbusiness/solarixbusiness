@@ -39,13 +39,24 @@ export default function SocialMeta({
     // Verifica se siamo in ambiente browser
     if (typeof window === 'undefined' || !document) return;
     
-    try {
-      // Rimuovi eventuali meta tag social esistenti in modo sicuro
-      document.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]').forEach(el => {
-        if (el && el.parentNode) {
-          el.parentNode.removeChild(el);
+    const updateMetaTags = async () => {
+      try {
+        // Rimuovi eventuali meta tag social esistenti in modo sicuro con yielding
+        const existingTags = document.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]');
+        for (let i = 0; i < existingTags.length; i++) {
+          const el = existingTags[i];
+          if (el && el.parentNode) {
+            el.parentNode.removeChild(el);
+          }
+          
+          // Yield ogni 5 elementi per evitare blocchi
+          if (i % 5 === 0 && i > 0) {
+            if (typeof window !== 'undefined' && 'scheduler' in window && 
+                typeof (window as any).scheduler?.yield === 'function') {
+              await (window as any).scheduler.yield();
+            }
+          }
         }
-      });
       
       // Funzione per creare e aggiungere meta tag
       const addMetaTag = (attributes: Record<string, string>) => {
@@ -78,30 +89,33 @@ export default function SocialMeta({
         addMetaTag({ property: 'article:author', content: authorName });
       }
       
-      // Twitter Card meta tags
-      addMetaTag({ name: 'twitter:card', content: twitterCard });
-      addMetaTag({ name: 'twitter:title', content: title });
-      addMetaTag({ name: 'twitter:description', content: description });
-      addMetaTag({ name: 'twitter:image', content: fullImageUrl });
-      addMetaTag({ name: 'twitter:url', content: pageUrl });
-    } catch (error) {
-      console.error('Errore durante la creazione dei SocialMeta:', error);
-    }
-    
-    // Pulizia quando il componente viene smontato
-    return () => {
-      if (typeof window === 'undefined' || !document) return;
-      
-      try {
-        document.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]').forEach(el => {
-          if (el && el.parentNode) {
-            el.parentNode.removeChild(el);
-          }
-        });
+        // Twitter Card meta tags
+        addMetaTag({ name: 'twitter:card', content: twitterCard });
+        addMetaTag({ name: 'twitter:title', content: title });
+        addMetaTag({ name: 'twitter:description', content: description });
+        addMetaTag({ name: 'twitter:image', content: fullImageUrl });
+        addMetaTag({ name: 'twitter:url', content: pageUrl });
       } catch (error) {
-        console.error('Errore durante la rimozione dei SocialMeta:', error);
+        console.error('Errore durante la creazione dei SocialMeta:', error);
       }
+      
+      // Pulizia quando il componente viene smontato
+      return () => {
+        if (typeof window === 'undefined' || !document) return;
+        
+        try {
+          document.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]').forEach(el => {
+            if (el && el.parentNode) {
+              el.parentNode.removeChild(el);
+            }
+          });
+        } catch (error) {
+          console.error('Errore durante la rimozione dei SocialMeta:', error);
+        }
+      };
     };
+    
+    updateMetaTags();
   }, [title, description, ogImage, ogType, twitterCard, pageUrl, fullImageUrl, publishedTime, modifiedTime, authorName, siteName, locale]);
   
   // Non renderizza nulla, è solo un componente funzionale

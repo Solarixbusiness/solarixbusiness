@@ -45,14 +45,20 @@ export default function HeroSection({ title, subtitle }: HeroSectionProps) {
     setIsLoaded(true);
   }, []);
 
-  // Controlla quando avviare le animazioni
+  // Controlla quando avviare le animazioni con yielding
   useEffect(() => {
     if (isLoaded && cookiesAccepted) {
-      // Se l'immagine è caricata e i cookie sono stati accettati (o erano già accettati)
-      // avvia le animazioni con un breve ritardo
-      const animationTimeout = setTimeout(() => {
+      // Usa scheduler.yield() per evitare blocco del thread principale
+      const startAnimations = async () => {
+        // Yield per permettere altre operazioni
+        if (typeof window !== 'undefined' && 'scheduler' in window && 
+            typeof (window as any).scheduler?.yield === 'function') {
+          await (window as any).scheduler.yield();
+        }
         setAnimationsStarted(true);
-      }, 200);
+      };
+      
+      const animationTimeout = setTimeout(startAnimations, 200);
       
       return () => clearTimeout(animationTimeout);
     }

@@ -1,17 +1,16 @@
+import { Inter } from 'next/font/google'
 import './globals.css'
-import './mobile.css'
 import { Metadata, Viewport } from 'next'
-import Navbar from '@/components/Navbar/Navbar'
-import Footer from '@/components/Footer/Footer'
-import FontLoader from '@/components/FontLoader/FontLoader'
+import Script from 'next/script'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { criticalCSS } from '../utils/criticalCSS'
 import CookieConsent from '@/components/CookieConsent/CookieConsent'
 import { I18nProvider } from '@/i18n/I18nProvider'
 import PerformanceMetrics from '@/components/PerformanceMetrics/PerformanceMetrics'
 import { SEO_CONSTANTS } from '@/utils/seoConstants'
 import ClientProviders from '@/components/ClientProviders'
-import { Inter } from 'next/font/google'
-import Script from 'next/script'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import Navbar from '@/components/Navbar/Navbar'
+import Footer from '@/components/Footer/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -87,6 +86,20 @@ export default function RootLayout({
   return (
     <html lang="it">
       <head>
+        {/* Critical CSS inline per ottimizzare Critical Rendering Path */}
+        <style dangerouslySetInnerHTML={{ __html: criticalCSS }} />
+        
+        {/* Preload risorse critiche */}
+        <link rel="preload" href="/images/hero/heroweb.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/fonts/orbitron/Orbitron-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/montserrant/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
+        {/* DNS prefetch per risorse esterne */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        
         {/* Define dataLayer and the gtag function */}
         <Script id="consent-mode-setup" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];

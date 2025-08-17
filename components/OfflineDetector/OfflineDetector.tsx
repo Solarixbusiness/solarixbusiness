@@ -18,9 +18,17 @@ export default function OfflineDetector() {
       } else {
         // Se torniamo online, mostriamo un messaggio di conferma per qualche secondo
         setShowBanner(true);
-        setTimeout(() => {
+        // Usa scheduler.yield() per non bloccare il thread principale
+        const hideBanner = async () => {
+          // Yield per permettere altre operazioni
+          if (typeof window !== 'undefined' && 'scheduler' in window && 
+              typeof (window as any).scheduler?.yield === 'function') {
+            await (window as any).scheduler.yield();
+          }
           setShowBanner(false);
-        }, 3000);
+        };
+        
+        setTimeout(hideBanner, 3000);
       }
     };
 
