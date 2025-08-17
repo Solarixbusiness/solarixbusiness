@@ -224,6 +224,13 @@ export default function RootLayout({
           `}
         </Script>
         {/* End Google Ads */}
+        {/* Font Preloads - Critical for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/roboto/Roboto-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/roboto/Roboto-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/orbitron/Orbitron-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
         <link rel="icon" href="/favico/favicon.ico" sizes="any" />
         <link rel="icon" href="/favico/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favico/apple-touch-icon.png" />
@@ -235,7 +242,7 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
         <ClientProviders>
           <I18nProvider>
-            <FontLoader />
+            {/* FontLoader rimosso - preload ora nel head */}
             <Navbar />
             <main className="min-h-screen pt-[60px]">
               <div className="container mx-auto px-4 py-8">
