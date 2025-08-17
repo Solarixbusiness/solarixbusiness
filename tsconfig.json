@@ -12,7 +12,7 @@
     "incremental": true,
     "module": "esnext",
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",  // Cambiato da "node" per migliore supporto bundler
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -25,7 +25,9 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "target": "es5",  // Aggiunto per compatibilità browser
+    "forceConsistentCasingInFileNames": true  // Aggiunto per prevenire errori case-sensitive
   },
   "include": [
     "next-env.d.ts",
