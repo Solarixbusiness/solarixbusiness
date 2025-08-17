@@ -190,6 +190,13 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
               SIMEST
             </Link>
             <Link 
+              href="/bando-invitalia" 
+              className={styles.dropdown_link}
+              onClick={handleLinkClick}
+            >
+              BANDO INVITALIA
+            </Link>
+            <Link 
               href="/strumenti/fondo-perduto-cer" 
               className={styles.dropdown_link}
               onClick={handleLinkClick}
@@ -199,6 +206,33 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
           </div>
         </li>
 
+        {/* Dropdown Incentivi Europei */}
+        <li className={`${styles.menu_item} ${styles.dropdown}`} role="none">
+          <button 
+            ref={(el) => {
+              menuItemRefs.current['incentivi-europei'] = el;
+            }}
+            onClick={() => handleDropdownClick('incentivi-europei')}
+            onKeyDown={(e) => handleDropdownKeyDown(e, 'incentivi-europei')}
+            className={`${styles.dropdown_toggle} ${styles.bold_link}`}
+            aria-haspopup="true"
+            aria-expanded={activeDropdown === 'incentivi-europei'}
+            role="menuitem" 
+            tabIndex={0}
+          >
+            BANDI/INCENTIVI<br />EUROPEI
+          </button>
+          <div className={`${styles.dropdown_menu} ${activeDropdown === 'incentivi-europei' ? styles.active : ''}`}>
+            <Link href="/horizon-europe" className={styles.dropdown_link} onClick={handleLinkClick}>HORIZON EUROPE</Link>
+            <Link href="/life-programme" className={styles.dropdown_link} onClick={handleLinkClick}>LIFE PROGRAMME</Link>
+            <Link href="/innovation-fund" className={styles.dropdown_link} onClick={handleLinkClick}>INNOVATION FUND</Link>
+            <Link href="/eic" className={styles.dropdown_link} onClick={handleLinkClick}>EIC</Link>
+            <Link href="/investeu" className={styles.dropdown_link} onClick={handleLinkClick}>INVESTEU</Link>
+            <Link href="/psr" className={styles.dropdown_link} onClick={handleLinkClick}>PSR</Link>
+            <Link href="/eurostars" className={styles.dropdown_link} onClick={handleLinkClick}>EUROSTARS</Link>
+          </div>
+        </li>
+        
         <li className={styles.menu_item} role="none">
           <Link 
             href="/rating-esg" 

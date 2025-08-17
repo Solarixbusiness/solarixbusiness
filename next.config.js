@@ -41,12 +41,22 @@ const nextConfig = {
         source: '/_next/static/:path*',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-          { key: 'X-Content-Type-Options', value: 'nosniff' }
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' }
         ]
       },
       // Immagini ottimizzate
       {
         source: '/_next/image',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' }
+        ]
+      },
+      // Font e asset pubblici - regex corretta senza gruppi di cattura
+      {
+        source: '/:path*.(svg|png|jpg|jpeg|gif|webp|avif|ico|css|js|woff2|woff|ttf|eot)',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
           { key: 'X-Content-Type-Options', value: 'nosniff' }
