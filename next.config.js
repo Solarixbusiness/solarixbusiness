@@ -2,7 +2,15 @@
 const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
-  // Ottimizzazioni bundle JavaScript
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['@headlessui/react', '@heroicons/react'],
+    serverActions: {
+      allowedOrigins: ['solarixbusiness.it', 'www.solarixbusiness.it']
+    }
+  },
+  // Riduce polyfill per browser moderni
+  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
@@ -15,23 +23,50 @@ const nextConfig = {
       sideEffects: false,
     };
 
-    // Code splitting più granulare
-    if (!isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: 10,
-            chunks: 'all',
-          },
-          common: {
-            minChunks: 2,
-            priority: 5,
-            reuseExistingChunk: true,
-          },
+    // Ottimizzazioni webpack per code splitting granulare
+    config.optimization.splitChunks = {
+      chunks: 'all',
+      minSize: 20000,
+      maxSize: 150000, // Limita chunk a 150KB max
+      cacheGroups: {
+        // React in chunk separato
+        react: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'react',
+          chunks: 'all',
+          priority: 20,
         },
+        // UI Libraries separate
+        ui: {
+          test: /[\\/]node_modules[\\/](@headlessui|@radix-ui|@heroicons)[\\/]/,
+          name: 'ui-libs',
+          chunks: 'all',
+          priority: 15,
+        },
+        // Next.js framework
+        nextjs: {
+          test: /[\\/]node_modules[\\/](next)[\\/]/,
+          name: 'nextjs',
+          chunks: 'all',
+          priority: 10,
+        },
+        // Vendor rimanenti
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+          priority: 5,
+          maxSize: 200000, // Max 200KB per vendor chunk
+        },
+      },
+    };
+
+    if (!isServer) {
+      // Code splitting più granulare
+      config.optimization.splitChunks.cacheGroups.common = {
+        minChunks: 2,
+        priority: 5,
+        reuseExistingChunk: true,
       };
     }
 
