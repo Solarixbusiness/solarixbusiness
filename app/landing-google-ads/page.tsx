@@ -224,10 +224,6 @@ export default function LandingPage() {
           });
           console.log('Conversione tracciata su Google Ads');
         }
-        // Redirect to WhatsApp
-        const whatsappMessage = `Ciao, sono ${formData.nome} dell'azienda ${formData.azienda}. Vorrei maggiori informazioni sulla finanza agevolata per il fotovoltaico.`;
-        const whatsappUrl = `https://wa.me/+393792591471?text=${encodeURIComponent(whatsappMessage)}`;
-        window.open(whatsappUrl, '_blank');
       } else {
         throw new Error('Errore nell\'invio del form');
       }
@@ -584,8 +580,8 @@ export default function LandingPage() {
                     <Image
                       src={item.image}
                       alt={item.title}
-                      width={isMobile ? 65 : 64} 
-                      height={isMobile ? 65 : 64} 
+                      width={isMobile ? 65 : 128} 
+                      height={isMobile ? 65 : 128} 
                       style={{ 
                         borderRadius: '8px',
                         objectFit: 'cover'
@@ -821,12 +817,7 @@ export default function LandingPage() {
                 }}>
                   <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#2c3e50' }}>Grazie per averci contattato!</h3>
                   <p style={{ fontSize: '1.1rem', color: '#34495e' }}>
-                    Sarai reindirizzato a WhatsApp, altrimenti clicca <a 
-                      href={`https://wa.me/+393792591471?text=${encodeURIComponent(`Ciao, sono ${formData.nome} dell'azienda ${formData.azienda}. Vorrei maggiori informazioni sulla finanza agevolata per il fotovoltaico.`)}`} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      style={{ color: '#FF6600', textDecoration: 'underline' }}
-                    >qui</a>.
+                    La tua richiesta è stata inviata con successo. Ti contatteremo presto per fornirti tutte le informazioni sui contributi disponibili per la tua azienda.
                   </p>
                 </div>
               )}
