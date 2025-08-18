@@ -8,33 +8,54 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    optimizePackageImports: ['@headlessui/react', '@heroicons/react'],
+    optimizePackageImports: ['@headlessui/react', '@heroicons/react', 'react-icons'],
     serverActions: {
       allowedOrigins: ['solarixbusiness.it', 'www.solarixbusiness.it']
     },
-    // optimizeCss: true, // Disabilitato - causa errore critters
-    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB']
+    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
   },
   // Riduce polyfill per browser moderni
   swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Configurazione webpack semplificata
+  // Target browser moderni per ridurre polyfill
+  transpilePackages: [],
+  modularizeImports: {
+    '@heroicons/react/24/outline': {
+      transform: '@heroicons/react/24/outline/{{member}}',
+    },
+    '@heroicons/react/24/solid': {
+      transform: '@heroicons/react/24/solid/{{member}}',
+    },
+  },
+  // Configurazione webpack ottimizzata per performance
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
       config.optimization = {
         ...config.optimization,
         splitChunks: {
           chunks: 'all',
+          minSize: 20000,
+          maxSize: 200000,
           cacheGroups: {
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               name: 'vendors',
               chunks: 'all',
+              priority: 10,
+            },
+            common: {
+              name: 'common',
+              minChunks: 2,
+              chunks: 'all',
+              priority: 5,
+              reuseExistingChunk: true,
             },
           },
         },
+        usedExports: true,
+        sideEffects: false,
       };
     }
     return config;

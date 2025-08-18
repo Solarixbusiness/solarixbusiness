@@ -1,28 +1,10 @@
-/* Dichiarazioni Font */
-/* Open Sans */
-@font-face {
-  font-family: 'Open Sans';
-  src: url('/fonts/open sans/open-sans-v40-latin-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Montserrat Variable Font */
+/* Font ottimizzati per performance - solo quelli usati */
 @font-face {
   font-family: 'Montserrat';
   src: url('/fonts/montserrant/Montserrat-VF.woff2') format('woff2');
-  font-weight: 100 900; /* Supporta tutti i pesi */
+  font-weight: 400 700; /* Solo pesi usati */
   font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/montserrant/Montserrat-Italic-VF.woff2') format('woff2');
-  font-weight: 100 900; /* Supporta tutti i pesi */
-  font-style: italic;
-  font-display: swap;
+  font-display: optional; /* Migliore per performance */
 }
 
 /* Tailwind CSS */

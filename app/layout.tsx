@@ -214,12 +214,12 @@ export default function RootLayout({
         /> */}
         {/* End Google Tag Manager */}
         
-        {/* Google Analytics 4 */}
+        {/* Google Analytics 4 - Lazy loaded */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-MB624KV3DS"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -229,12 +229,12 @@ export default function RootLayout({
         </Script>
         {/* End Google Analytics 4 */}
         
-        {/* Google Ads */}
+        {/* Google Ads - Lazy loaded */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-16979483829"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-ads" strategy="afterInteractive">
+        <Script id="google-ads" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -243,12 +243,8 @@ export default function RootLayout({
           `}
         </Script>
         {/* End Google Ads */}
-        {/* Font Preloads - Critical for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/roboto/Roboto-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/roboto/Roboto-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/orbitron/Orbitron-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        {/* Font Preload ottimizzato - solo quello usato */}
+        <link rel="preload" href="/fonts/montserrant/Montserrat-VF.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         
         {/* DNS Prefetch for external resources */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
