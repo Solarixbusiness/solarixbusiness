@@ -5,6 +5,7 @@ interface RequirementsSectionProps {
   toggleSection: (sectionId: string) => void;
 }
 
+// Componente per la sezione requisiti
 const RequirementsSection: React.FC<RequirementsSectionProps> = ({ activeSection, toggleSection }) => {
   return (
     <div id="requisiti" className="mb-10">
