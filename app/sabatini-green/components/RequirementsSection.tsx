@@ -5,7 +5,6 @@ interface RequirementsSectionProps {
   toggleSection: (sectionId: string) => void;
 }
 
-// Componente per la sezione requisiti
 const RequirementsSection: React.FC<RequirementsSectionProps> = ({ activeSection, toggleSection }) => {
   return (
     <div id="requisiti" className="mb-10">
@@ -113,7 +112,7 @@ const RequirementsSection: React.FC<RequirementsSectionProps> = ({ activeSection
                   <tr className="bg-gray-50">
                     <td className="py-2 px-4 border-b">Veicoli elettrici/ibridi</td>
                     <td className="py-2 px-4 border-b">Furgoni, auto aziendali, mezzi da lavoro</td>
-                    <td className="py-2 px-4 border-b">Emissioni CO2 < 60 g/km</td>
+                    <td className="py-2 px-4 border-b">Emissioni CO2 &lt; 60 g/km</td>
                   </tr>
                   <tr>
                     <td className="py-2 px-4 border-b">Macchinari per riciclaggio</td>
@@ -145,7 +144,7 @@ const RequirementsSection: React.FC<RequirementsSectionProps> = ({ activeSection
           
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-200 mt-6">
             <p className="font-semibold text-blue-800">Valutazione Personalizzata</p>
-            <p className="mt-2">SolariX Business offre un servizio di valutazione gratuita dei requisiti per verificare l'ammissibilità della tua impresa e del tuo progetto di investimento. Contattaci per una consulenza personalizzata e scopri se puoi accedere alla Nuova Sabatini Green.</p>
+            <p className="mt-2">SolariX Business offre un servizio di valutazione gratuito dei requisiti per verificare l'ammissibilità della tua impresa e del tuo progetto di investimento. Contattaci per una consulenza personalizzata e scopri se puoi accedere alla Nuova Sabatini Green.</p>
           </div>
         </div>
       )}
