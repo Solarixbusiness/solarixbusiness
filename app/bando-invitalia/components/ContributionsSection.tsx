@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 
@@ -7,17 +6,17 @@ export default function ContributionsSection() {
     <>
       {/* Contributi che aiutiamo ad ottenere */}
       <div className="bg-orange-50 p-8 rounded-lg shadow-lg mb-12">
-        <h2 className="text-3xl font-bold text-orange-800 mb-6">💸 CONTRIBUTI CHE VI AIUTIAMO AD OTTENERE</h2>
+        <h2 className="text-3xl font-bold text-orange-800 mb-6">CONTRIBUTI CHE VI AIUTIAMO AD OTTENERE</h2>
         
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-orange-700 mb-4">🎁 I Vostri Vantaggi Economici</h3>
+          <h3 className="text-2xl font-semibold text-orange-700 mb-4">I Vostri Vantaggi Economici</h3>
           <p className="text-lg text-gray-700 mb-6">
             Solarix Business vi supporta per ottenere contributi a fondo perduto senza rimborso
           </p>
         </div>
 
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-orange-700 mb-4">📊 Tabella Dettagliata Percentuali di Finanziamento</h3>
+          <h3 className="text-2xl font-semibold text-orange-700 mb-4">Tabella Dettagliata Percentuali di Finanziamento</h3>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300 bg-white rounded-lg">
               <thead>
@@ -53,7 +52,7 @@ export default function ContributionsSection() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-orange-700 mb-4">💡 Esempi Pratici di Finanziamento Solarix Business</h3>
+          <h3 className="text-2xl font-semibold text-orange-700 mb-4">Esempi Pratici di Finanziamento Solarix Business</h3>
           
           {/* Esempio 1 */}
           <div className="mb-8">
@@ -160,7 +159,7 @@ export default function ContributionsSection() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-orange-700 mb-4">🔄 Cumulo con Altri Incentivi</h3>
+          <h3 className="text-2xl font-semibold text-orange-700 mb-4">Cumulo con Altri Incentivi</h3>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300 bg-white rounded-lg">
               <thead>

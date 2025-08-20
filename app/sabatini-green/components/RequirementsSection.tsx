@@ -1,84 +1,70 @@
 import React from 'react';
 
-interface RequirementsSectionProps {
-  activeSection: string | null;
-  toggleSection: (sectionId: string) => void;
-}
-
-const RequirementsSection: React.FC<RequirementsSectionProps> = ({ activeSection, toggleSection }) => {
+export default function RequirementsSection() {
   return (
-    <div id="requisiti" className="mb-10">
-      <button 
-        onClick={() => toggleSection('requisiti')} 
-        className="w-full flex justify-between items-center bg-green-600 text-white p-4 rounded-lg shadow hover:bg-green-700 transition duration-300"
-      >
-        <h2 className="text-xl md:text-2xl font-semibold">2. Requisiti di Accesso</h2>
-        <span>{activeSection === 'requisiti' ? '−' : '+'}</span>
-      </button>
+    <div id="sezione-2" className="mb-10">
+      <h2 className="text-2xl font-bold mb-6 text-gray-800">2. Requisiti e Soggetti Beneficiari</h2>
       
-      {activeSection === 'requisiti' && (
-        <div className="bg-white p-6 rounded-b-lg shadow-md border-l-2 border-r-2 border-b-2 border-green-200">
-          <h3 className="text-xl font-semibold mb-3 text-green-700">Requisiti Soggettivi</h3>
-          <p>Per accedere alla Nuova Sabatini Green, l'impresa deve possedere specifici requisiti soggettivi:</p>
+      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+          <h3 className="text-lg font-semibold mb-3 text-gray-800">2.1 Requisiti Soggettivi</h3>
+          <p>Per accedere alla Nuova Sabatini Green, l'impresa deve possedere i seguenti requisiti:</p>
           
-          <div className="mt-6 space-y-6">
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h4 className="text-lg font-medium mb-2 text-green-600">Dimensione dell'Impresa</h4>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Piccole e medie imprese (PMI) secondo la definizione UE</li>
-                <li>Meno di 250 dipendenti</li>
-                <li>Fatturato annuo non superiore a 50 milioni di euro OPPURE</li>
-                <li>Totale di bilancio annuo non superiore a 43 milioni di euro</li>
-              </ul>
-            </div>
-            
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h4 className="text-lg font-medium mb-2 text-green-600">Forma Giuridica</h4>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Società di capitali (S.p.A., S.r.l., S.r.l.s.)</li>
-                <li>Società di persone (S.n.c., S.a.s.)</li>
-                <li>Società cooperative</li>
-                <li>Ditte individuali</li>
-                <li>Professionisti con partita IVA (limitatamente ad alcuni settori)</li>
-              </ul>
-            </div>
-            
-            <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-green-500">
-              <h4 className="text-lg font-medium mb-2 text-green-600">Situazione Economico-Finanziaria</h4>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Non essere in stato di difficoltà secondo la normativa UE</li>
-                <li>Non essere soggette a procedure concorsuali</li>
-                <li>Essere in regola con i versamenti contributivi e fiscali</li>
-                <li>Avere un rating creditizio compatibile con l'operazione</li>
-              </ul>
-            </div>
-          </div>
+          <p className="mt-4 font-medium">Dimensione dell'Impresa:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Piccole e medie imprese (PMI) secondo la definizione UE</li>
+            <li>Meno di 250 dipendenti</li>
+            <li>Fatturato annuo non superiore a 50 milioni di euro OPPURE</li>
+            <li>Totale di bilancio annuo non superiore a 43 milioni di euro</li>
+          </ul>
           
-          <h3 className="text-xl font-semibold mb-3 mt-8 text-green-700">Requisiti Oggettivi</h3>
-          <p>L'investimento deve rispettare specifici requisiti oggettivi per essere ammissibile:</p>
+          <p className="mt-4 font-medium">Forma Giuridica Ammessa:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Società di capitali (S.p.A., S.r.l., S.r.l.s.)</li>
+            <li>Società di persone (S.n.c., S.a.s.)</li>
+            <li>Società cooperative</li>
+            <li>Ditte individuali</li>
+            <li>Liberi professionisti con partita IVA</li>
+          </ul>
           
-          <div className="grid md:grid-cols-2 gap-6 mt-4">
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h4 className="text-lg font-medium mb-2 text-green-600">Caratteristiche dell'Investimento</h4>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Importo minimo: €20.000</li>
-                <li>Importo massimo: €4.000.000</li>
-                <li>Beni strumentali nuovi di fabbrica</li>
-                <li>Destinazione produttiva nell'unità locale</li>
-                <li>Durata del finanziamento: da 2 a 6 anni</li>
-              </ul>
-            </div>
-            
-            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-              <h4 className="text-lg font-medium mb-2 text-green-600">Caratteristiche "Green"</h4>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>Beni a basso impatto ambientale</li>
-                <li>Tecnologie per l'efficienza energetica</li>
-                <li>Sistemi per l'utilizzo di energie rinnovabili</li>
-                <li>Attrezzature per la riduzione delle emissioni</li>
-                <li>Macchinari per l'economia circolare</li>
-              </ul>
-            </div>
+          <p className="mt-4 font-medium">Settori di Attività:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Industria manifatturiera</li>
+            <li>Servizi alle imprese</li>
+            <li>Commercio</li>
+            <li>Turismo</li>
+            <li>Agricoltura (limitatamente alla trasformazione e commercializzazione)</li>
+          </ul>
+          
+          <h3 className="text-lg font-semibold mb-3 mt-6 text-gray-800">2.2 Requisiti Oggettivi</h3>
+          
+          <p className="font-medium">Tipologia di Beni Ammissibili:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Macchinari, impianti e attrezzature nuovi di fabbrica</li>
+            <li>Beni strumentali a basso impatto ambientale</li>
+            <li>Tecnologie per l'efficienza energetica</li>
+            <li>Impianti per la produzione di energia da fonti rinnovabili</li>
+            <li>Software e tecnologie digitali per la sostenibilità</li>
+          </ul>
+          
+          <p className="mt-4 font-medium">Importi dell'Investimento:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li><strong>Importo minimo:</strong> 20.000 euro</li>
+            <li><strong>Importo massimo:</strong> 4.000.000 euro</li>
+            <li>L'investimento deve essere realizzato in Italia</li>
+            <li>I beni devono rimanere in Italia per almeno 3 anni</li>
+          </ul>
+          
+          <p className="mt-4 font-medium">Criteri di Sostenibilità:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Conformità agli standard ambientali europei</li>
+            <li>Certificazioni di efficienza energetica</li>
+            <li>Riduzione delle emissioni di CO2</li>
+            <li>Utilizzo di materiali riciclabili o a basso impatto</li>
+            <li>Tecnologie per l'economia circolare</li>
+          </ul>
+          
+          <div className="bg-yellow-50 p-4 rounded border-l-4 border-yellow-400 mt-6">
+            <p className="text-sm"><strong>Attenzione:</strong> È fondamentale verificare attentamente tutti i requisiti prima di presentare la domanda. La mancanza anche di un solo requisito può comportare il rigetto della richiesta.</p>
           </div>
           
           <h3 className="text-xl font-semibold mb-3 mt-8 text-green-700">Beni Ammissibili</h3>
@@ -147,9 +133,6 @@ const RequirementsSection: React.FC<RequirementsSectionProps> = ({ activeSection
             <p className="mt-2">SolariX Business offre un servizio di valutazione gratuito dei requisiti per verificare l'ammissibilità della tua impresa e del tuo progetto di investimento. Contattaci per una consulenza personalizzata e scopri se puoi accedere alla Nuova Sabatini Green.</p>
           </div>
         </div>
-      )}
     </div>
   );
-};
-
-export default RequirementsSection;
+}

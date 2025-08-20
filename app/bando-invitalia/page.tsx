@@ -1,20 +1,32 @@
-'use client';
+import Image from 'next/image';
+import IntroductionSection from './components/IntroductionSection';
+import ResourcesSection from './components/ResourcesSection';
+import SolutionsSection from './components/SolutionsSection';
+import ContributionsSection from './components/ContributionsSection';
+import ServicesSection from './components/ServicesSection';
+import LegalSection from './components/LegalSection';
 
-import { lazy, Suspense } from 'react';
-
-const IntroductionSection = lazy(() => import('./components/IntroductionSection'));
-const ResourcesSection = lazy(() => import('./components/ResourcesSection'));
-const SolutionsSection = lazy(() => import('./components/SolutionsSection'));
-const ContributionsSection = lazy(() => import('./components/ContributionsSection'));
-const ServicesSection = lazy(() => import('./components/ServicesSection'));
-const LegalSection = lazy(() => import('./components/LegalSection'));
+export const revalidate = 86400; // ISR ogni 24h
+export const runtime = 'nodejs';
 
 export default function BandoInvitaliaPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/strumenti/INVITALIA.webp" 
+            alt="Bando Invitalia 2025 - Contributi a fondo perduto per autoproduzione energia da fonti rinnovabili" 
+            fill 
+            className="object-cover opacity-80" 
+            priority 
+            sizes="100vw"
+            quality={85}
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-indigo-900/40"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               CONTRIBUTI A FONDO PERDUTO FINO AL 40%
@@ -33,51 +45,39 @@ export default function BandoInvitaliaPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
         {/* Introduction and Eligibility */}
-        <Suspense fallback={<div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse"><div className="h-8 bg-gray-200 rounded mb-4"></div><div className="h-4 bg-gray-200 rounded"></div></div>}>
-          <IntroductionSection />
-        </Suspense>
+        <IntroductionSection />
 
         {/* Resources and Investment Range */}
-        <Suspense fallback={<div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse"><div className="h-8 bg-gray-200 rounded mb-4"></div><div className="h-4 bg-gray-200 rounded"></div></div>}>
-          <ResourcesSection />
-        </Suspense>
+        <ResourcesSection />
 
         {/* Energy Solutions */}
-        <Suspense fallback={<div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse"><div className="h-8 bg-gray-200 rounded mb-4"></div><div className="h-4 bg-gray-200 rounded"></div></div>}>
-          <SolutionsSection />
-        </Suspense>
+        <SolutionsSection />
 
         {/* Contributions and Examples */}
-        <Suspense fallback={<div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse"><div className="h-8 bg-gray-200 rounded mb-4"></div><div className="h-4 bg-gray-200 rounded"></div></div>}>
-          <ContributionsSection />
-        </Suspense>
+        <ContributionsSection />
 
         {/* Services and ROI */}
-        <Suspense fallback={<div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse"><div className="h-8 bg-gray-200 rounded mb-4"></div><div className="h-4 bg-gray-200 rounded"></div></div>}>
-          <ServicesSection />
-        </Suspense>
+        <ServicesSection />
 
         {/* Legal and Deadlines */}
-        <Suspense fallback={<div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse"><div className="h-8 bg-gray-200 rounded mb-4"></div><div className="h-4 bg-gray-200 rounded"></div></div>}>
-          <LegalSection />
-        </Suspense>
+        <LegalSection />
 
         {/* Call to Action */}
         <div className="bg-orange-600 text-white p-8 rounded-lg shadow-lg text-center">
-          <h2 className="text-3xl font-bold mb-4">🚀 NON PERDERE QUESTA OPPORTUNITÀ UNICA!</h2>
+          <h2 className="text-3xl font-bold mb-4">NON PERDERE QUESTA OPPORTUNITÀ UNICA!</h2>
           <p className="text-xl mb-6">
             Solarix Business ti accompagna in ogni fase del progetto con la massima professionalità
           </p>
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <div className="bg-orange-700 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-3">📞 Contatti Diretti</h3>
+              <h3 className="text-xl font-bold mb-3">Contatti Diretti</h3>
               <p className="mb-2"><strong>Telefono:</strong> 011 1883 7752</p>
               <p className="mb-2"><strong>Cellulare:</strong> 347 008 7833</p>
               <p className="mb-2"><strong>Email:</strong> info@solarixbusiness.it</p>
               <p><strong>Consulenza:</strong> Gratuita e senza impegno</p>
             </div>
             <div className="bg-orange-700 p-6 rounded-lg">
-              <h3 className="text-xl font-bold mb-3">⏰ Tempi di Risposta</h3>
+              <h3 className="text-xl font-bold mb-3">Tempi di Risposta</h3>
               <p className="mb-2"><strong>Prima valutazione:</strong> 24 ore</p>
               <p className="mb-2"><strong>Preventivo completo:</strong> 48 ore</p>
               <p><strong>Supporto:</strong> Sempre disponibile</p>
@@ -104,16 +104,16 @@ export default function BandoInvitaliaPage() {
         {/* Final Call to Action */}
         <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg shadow-lg mb-12">
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-6">🚀 INIZIATE SUBITO IL VOSTRO PROGETTO</h2>
+            <h2 className="text-3xl font-bold mb-6">INIZIATE SUBITO IL VOSTRO PROGETTO</h2>
             <p className="text-xl mb-8">
               Non perdete l'opportunità di trasformare la vostra azienda in un esempio di sostenibilità energetica con il supporto dei contributi statali fino al 40%.
             </p>
             <p className="text-lg mb-8">
-              📞 I nostri esperti vi aspettano per una consulenza gratuita!
+              I nostri esperti vi aspettano per una consulenza gratuita!
             </p>
             <div className="space-y-4">
-              <p className="text-lg">🌐 www.solarixbusiness.it</p>
-              <p className="text-lg">📧 info@solarixbusiness.it</p>
+              <p className="text-lg">www.solarixbusiness.it</p>
+              <p className="text-lg">info@solarixbusiness.it</p>
             </div>
           </div>
         </div>

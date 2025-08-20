@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
 // Static imports per performance ottimali (seguendo best practices memoria)
@@ -38,6 +39,17 @@ export default function Transizione40Page() {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image 
+            src="/images/strumenti/trans-4.0.webp" 
+            alt="Transizione 4.0 - Piano per la digitalizzazione e innovazione tecnologica delle imprese" 
+            fill 
+            className="object-cover opacity-60" 
+            priority 
+            sizes="100vw"
+            quality={85}
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-indigo-900/80"></div>
         <div className="relative container mx-auto px-6 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">

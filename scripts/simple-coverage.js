@@ -123,7 +123,6 @@ function analyzeJSBundle() {
         if (content.includes('framer')) libraries.push('Framer Motion');
         if (content.includes('headless')) libraries.push('Headless UI');
         if (content.includes('radix')) libraries.push('Radix UI');
-        if (content.includes('supabase')) libraries.push('Supabase');
         if (content.includes('resend')) libraries.push('Resend');
         
         if (libraries.length > 0) {

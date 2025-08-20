@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 
@@ -7,13 +6,13 @@ export default function ServicesSection() {
     <>
       {/* Servizio Completo Solarix Business */}
       <div className="bg-blue-50 p-8 rounded-lg shadow-lg mb-12">
-        <h2 className="text-3xl font-bold text-blue-800 mb-6">🏢 SERVIZIO COMPLETO SOLARIX BUSINESS</h2>
+        <h2 className="text-3xl font-bold text-blue-800 mb-6">SERVIZIO COMPLETO SOLARIX BUSINESS</h2>
         
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-blue-700 mb-4">🎯 Il Nostro Approccio Vincente</h3>
+          <h3 className="text-2xl font-semibold text-blue-700 mb-4">Il Nostro Approccio Vincente</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-lg border-2 border-blue-200">
-              <h4 className="text-xl font-semibold text-blue-600 mb-3">📋 Analisi Preliminare</h4>
+              <h4 className="text-xl font-semibold text-blue-600 mb-3">Analisi Preliminare</h4>
               <ul className="space-y-2 text-gray-700">
                 <li>• Valutazione tecnica completa</li>
                 <li>• Analisi dei consumi energetici</li>
@@ -22,7 +21,7 @@ export default function ServicesSection() {
               </ul>
             </div>
             <div className="bg-white p-6 rounded-lg border-2 border-blue-200">
-              <h4 className="text-xl font-semibold text-blue-600 mb-3">📄 Preparazione Domanda</h4>
+              <h4 className="text-xl font-semibold text-blue-600 mb-3">Preparazione Domanda</h4>
               <ul className="space-y-2 text-gray-700">
                 <li>• Compilazione modulistica completa</li>
                 <li>• Raccolta documentazione tecnica</li>
@@ -31,7 +30,7 @@ export default function ServicesSection() {
               </ul>
             </div>
             <div className="bg-white p-6 rounded-lg border-2 border-blue-200">
-              <h4 className="text-xl font-semibold text-blue-600 mb-3">🔧 Realizzazione Progetto</h4>
+              <h4 className="text-xl font-semibold text-blue-600 mb-3">Realizzazione Progetto</h4>
               <ul className="space-y-2 text-gray-700">
                 <li>• Progettazione esecutiva</li>
                 <li>• Installazione chiavi in mano</li>
@@ -40,7 +39,7 @@ export default function ServicesSection() {
               </ul>
             </div>
             <div className="bg-white p-6 rounded-lg border-2 border-blue-200">
-              <h4 className="text-xl font-semibold text-blue-600 mb-3">📊 Monitoraggio e Supporto</h4>
+              <h4 className="text-xl font-semibold text-blue-600 mb-3">Monitoraggio e Supporto</h4>
               <ul className="space-y-2 text-gray-700">
                 <li>• Rendicontazione spese</li>
                 <li>• Assistenza post-installazione</li>
@@ -81,7 +80,7 @@ export default function ServicesSection() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-blue-700 mb-4">📈 Casi Studio di Successo</h3>
+          <h3 className="text-2xl font-semibold text-blue-700 mb-4">Casi Studio di Successo</h3>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300 bg-white rounded-lg">
               <thead>
@@ -177,10 +176,10 @@ export default function ServicesSection() {
 
       {/* Simulatore ROI e Calcolatore Risparmi */}
       <div className="bg-green-50 p-8 rounded-lg shadow-lg mb-12">
-        <h2 className="text-3xl font-bold text-green-800 mb-6">💰 SIMULATORE ROI E CALCOLATORE RISPARMI</h2>
+        <h2 className="text-3xl font-bold text-green-800 mb-6">SIMULATORE ROI E CALCOLATORE RISPARMI</h2>
         
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-green-700 mb-4">📊 Esempi di Risparmio per Settore</h3>
+          <h3 className="text-2xl font-semibold text-green-700 mb-4">Esempi di Risparmio per Settore</h3>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300 bg-white rounded-lg">
               <thead>
@@ -220,10 +219,10 @@ export default function ServicesSection() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-green-700 mb-4">🎯 Vantaggi Competitivi Solarix Business</h3>
+          <h3 className="text-2xl font-semibold text-green-700 mb-4">Vantaggi Competitivi Solarix Business</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-lg border-2 border-green-200">
-              <h4 className="text-xl font-semibold text-green-600 mb-3">🏆 Esperienza Comprovata</h4>
+              <h4 className="text-xl font-semibold text-green-600 mb-3">Esperienza Comprovata</h4>
               <ul className="space-y-2 text-gray-700">
                 <li>• Oltre 500 progetti finanziati con successo</li>
                 <li>• 95% di tasso di approvazione domande</li>
@@ -241,7 +240,7 @@ export default function ServicesSection() {
               </ul>
             </div>
             <div className="bg-white p-6 rounded-lg border-2 border-green-200">
-              <h4 className="text-xl font-semibold text-green-600 mb-3">💡 Tecnologie Innovative</h4>
+              <h4 className="text-xl font-semibold text-green-600 mb-3">Tecnologie Innovative</h4>
               <ul className="space-y-2 text-gray-700">
                 <li>• Pannelli fotovoltaici ad alta efficienza</li>
                 <li>• Sistemi di accumulo intelligenti</li>
@@ -261,41 +260,6 @@ export default function ServicesSection() {
           </div>
         </div>
 
-        <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-green-700 mb-4">📦 Pacchetti Servizio Solarix Business</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg border-2 border-green-200">
-              <h4 className="text-xl font-semibold text-green-600 mb-3">🥉 PACCHETTO BASE</h4>
-              <ul className="space-y-2 text-gray-700 mb-4">
-                <li>• Consulenza preliminare</li>
-                <li>• Preparazione domanda</li>
-                <li>• Supporto documentale</li>
-                <li>• Assistenza post-approvazione</li>
-              </ul>
-              <p className="text-lg font-bold text-green-600">€2.500 + IVA</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg border-2 border-green-400">
-              <h4 className="text-xl font-semibold text-green-600 mb-3">🥈 PACCHETTO COMPLETO</h4>
-              <ul className="space-y-2 text-gray-700 mb-4">
-                <li>• Tutto del pacchetto Base</li>
-                <li>• Progettazione esecutiva</li>
-                <li>• Installazione chiavi in mano</li>
-                <li>• Collaudo e messa in servizio</li>
-              </ul>
-              <p className="text-lg font-bold text-green-600">€4.500 + IVA</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg border-2 border-green-600">
-              <h4 className="text-xl font-semibold text-green-600 mb-3">🥇 PACCHETTO PREMIUM</h4>
-              <ul className="space-y-2 text-gray-700 mb-4">
-                <li>• Tutto del pacchetto Completo</li>
-                <li>• Monitoraggio 24/7</li>
-                <li>• Manutenzione 5 anni</li>
-                <li>• Garanzia performance estesa</li>
-              </ul>
-              <p className="text-lg font-bold text-green-600">€6.500 + IVA</p>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );

@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 
@@ -7,21 +6,21 @@ export default function SolutionsSection() {
     <>
       {/* Soluzioni Energetiche */}
       <div className="bg-indigo-50 p-8 rounded-lg shadow-lg mb-12">
-        <h2 className="text-3xl font-bold text-indigo-800 mb-6">⚡ SOLUZIONI ENERGETICHE CHE FINANZIAMO</h2>
+        <h2 className="text-3xl font-bold text-indigo-800 mb-6">SOLUZIONI ENERGETICHE CHE FINANZIAMO</h2>
         
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-indigo-700 mb-4">🔋 I Nostri Progetti Fotovoltaici ed Eolici</h3>
+          <h3 className="text-2xl font-semibold text-indigo-700 mb-4">I Nostri Progetti Fotovoltaici ed Eolici</h3>
           <p className="text-lg text-gray-700 mb-4">Solarix Business progetta e realizza per voi:</p>
           <ul className="list-disc list-inside text-lg text-gray-700 space-y-2">
-            <li>🔋 Impianti solari fotovoltaici per autoconsumo immediato</li>
-            <li>🌪️ Impianti mini eolici per autoconsumo immediato</li>
-            <li>⚡ Sistemi di accumulo/stoccaggio energia per autoconsumo differito</li>
-            <li>💻 Tecnologie digitali avanzate per gestione energetica</li>
+            <li>Impianti solari fotovoltaici per autoconsumo immediato</li>
+            <li>Impianti mini eolici per autoconsumo immediato</li>
+            <li>Sistemi di accumulo/stoccaggio energia per autoconsumo differito</li>
+            <li>Tecnologie digitali avanzate per gestione energetica</li>
           </ul>
         </div>
 
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-indigo-700 mb-4">📏 Tabella Dimensionamenti Standard Solarix Business</h3>
+          <h3 className="text-2xl font-semibold text-indigo-700 mb-4">Tabella Dimensionamenti Standard Solarix Business</h3>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300 bg-white rounded-lg">
               <thead>
@@ -76,7 +75,7 @@ export default function SolutionsSection() {
         </div>
 
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-indigo-700 mb-4">🔋 Tipologie di Sistemi di Accumulo</h3>
+          <h3 className="text-2xl font-semibold text-indigo-700 mb-4">Tipologie di Sistemi di Accumulo</h3>
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300 bg-white rounded-lg">
               <thead>

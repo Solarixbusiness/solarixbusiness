@@ -84,6 +84,17 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
             CHI SIAMO
           </Link>
         </li>
+        <li className={styles.menu_item} role="none">
+          <Link 
+            href="/conto-termico-3-0" 
+            className={styles.menu_link} 
+            role="menuitem" 
+            tabIndex={0}
+            onClick={handleLinkClick}
+          >
+            CONTO TERMICO 3.0
+          </Link>
+        </li>
         
         {/* Dropdown Servizi */}
         <li className={`${styles.menu_item} ${styles.dropdown}`} role="none">
