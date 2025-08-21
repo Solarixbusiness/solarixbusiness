@@ -44,7 +44,12 @@ export default function LandingGoogleAds() {
         }}
       />
 
-      <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc' }}>
+      <div style={{ 
+        minHeight: '100vh', 
+        backgroundColor: '#f8fafc',
+        position: 'relative',
+        zIndex: 9999
+      }}>
         {/* Hero Section */}
         <div style={{ 
           position: 'relative',
