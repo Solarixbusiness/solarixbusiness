@@ -47,8 +47,15 @@ export default function LandingGoogleAds() {
       <div style={{ 
         minHeight: '100vh', 
         backgroundColor: '#f8fafc',
-        position: 'relative',
-        zIndex: 9999
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 9999,
+        overflow: 'auto'
       }}>
         {/* Hero Section */}
         <div style={{ 
