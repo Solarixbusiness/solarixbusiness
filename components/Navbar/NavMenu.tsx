@@ -173,42 +173,42 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
             className={`${styles.dropdown_menu} ${activeDropdown === 'strumenti' ? styles.active : ''}`}
           >
             <Link 
-              href="/sabatini-green" 
+              href="/bandi-incentivi-nazionali/sabatini-green" 
               className={styles.dropdown_link}
               onClick={handleLinkClick}
             >
               Sabatini GREEN
             </Link>
             <Link 
-              href="/transizione-5-0" 
+              href="/bandi-incentivi-nazionali/transizione-5-0" 
               className={styles.dropdown_link}
               onClick={handleLinkClick}
             >
               TRANSIZIONE 5.0
             </Link>
             <Link 
-              href="/transizione-4-0" 
+              href="/bandi-incentivi-nazionali/transizione-4-0" 
               className={styles.dropdown_link}
               onClick={handleLinkClick}
             >
               TRANSIZIONE 4.0
             </Link>
             <Link 
-              href="/simest" 
+              href="/bandi-incentivi-nazionali/simest" 
               className={styles.dropdown_link}
               onClick={handleLinkClick}
             >
               SIMEST
             </Link>
             <Link 
-              href="/bando-invitalia" 
+              href="/bandi-incentivi-nazionali/bando-invitalia" 
               className={styles.dropdown_link}
               onClick={handleLinkClick}
             >
               BANDO INVITALIA
             </Link>
             <Link 
-              href="/strumenti/fondo-perduto-cer" 
+              href="/bandi-incentivi-nazionali/fondo-perduto-cer" 
               className={styles.dropdown_link}
               onClick={handleLinkClick}
             >
@@ -234,13 +234,13 @@ export default function NavMenu({ isOpen, onCloseAction }: NavMenuProps) {
             BANDI/INCENTIVI<br />EUROPEI
           </button>
           <div className={`${styles.dropdown_menu} ${activeDropdown === 'incentivi-europei' ? styles.active : ''}`}>
-            <Link href="/horizon-europe" className={styles.dropdown_link} onClick={handleLinkClick}>HORIZON EUROPE</Link>
-            <Link href="/life-programme" className={styles.dropdown_link} onClick={handleLinkClick}>LIFE PROGRAMME</Link>
-            <Link href="/innovation-fund" className={styles.dropdown_link} onClick={handleLinkClick}>INNOVATION FUND</Link>
-            <Link href="/eic" className={styles.dropdown_link} onClick={handleLinkClick}>EIC</Link>
-            <Link href="/investeu" className={styles.dropdown_link} onClick={handleLinkClick}>INVESTEU</Link>
-            <Link href="/psr" className={styles.dropdown_link} onClick={handleLinkClick}>PSR</Link>
-            <Link href="/eurostars" className={styles.dropdown_link} onClick={handleLinkClick}>EUROSTARS</Link>
+            <Link href="/bandi-incentivi-europei/horizon-europe" className={styles.dropdown_link} onClick={handleLinkClick}>HORIZON EUROPE</Link>
+            <Link href="/bandi-incentivi-europei/life-programme" className={styles.dropdown_link} onClick={handleLinkClick}>LIFE PROGRAMME</Link>
+            <Link href="/bandi-incentivi-europei/innovation-fund" className={styles.dropdown_link} onClick={handleLinkClick}>INNOVATION FUND</Link>
+            <Link href="/bandi-incentivi-europei/eic" className={styles.dropdown_link} onClick={handleLinkClick}>EIC</Link>
+            <Link href="/bandi-incentivi-europei/investeu" className={styles.dropdown_link} onClick={handleLinkClick}>INVESTEU</Link>
+            <Link href="/bandi-incentivi-europei/psr" className={styles.dropdown_link} onClick={handleLinkClick}>PSR</Link>
+            <Link href="/bandi-incentivi-europei/eurostars" className={styles.dropdown_link} onClick={handleLinkClick}>EUROSTARS</Link>
           </div>
         </li>
         
