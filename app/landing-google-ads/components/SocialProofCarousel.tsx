@@ -19,7 +19,7 @@ interface SocialProofItem {
 
 const socialProofItems: SocialProofItem[] = [
   {
-    image: '/landing/carosel/1c.jpg',
+    image: '/landing/carosel/1c.webp',
     title: 'Transizione 5.0 + CER',
     percentage: '-78%',
     text: '',
@@ -30,7 +30,7 @@ const socialProofItems: SocialProofItem[] = [
     }
   },
   {
-    image: '/landing/carosel/2c.jpg',
+    image: '/landing/carosel/2c.webp',
     title: 'Bando Regionale + Transizione 5.0',
     percentage: '-85%',
     text: '',
@@ -41,7 +41,7 @@ const socialProofItems: SocialProofItem[] = [
     }
   },
   {
-    image: '/landing/carosel/3c.jpg',
+    image: '/landing/carosel/3c.webp',
     title: 'PNRR + Transizione 5.0',
     percentage: '-72%',
     text: '',
@@ -52,7 +52,7 @@ const socialProofItems: SocialProofItem[] = [
     }
   },
   {
-    image: '/landing/carosel/4c.jpg',
+    image: '/landing/carosel/4c.webp',
     title: 'Bando Regionale Piemonte',
     percentage: '-65%',
     text: '',
@@ -63,7 +63,7 @@ const socialProofItems: SocialProofItem[] = [
     }
   },
   {
-    image: '/landing/carosel/5c.jpg',
+    image: '/landing/carosel/5c.webp',
     title: 'CER + Incentivi GSE',
     percentage: '-58%',
     text: '',
@@ -74,7 +74,7 @@ const socialProofItems: SocialProofItem[] = [
     }
   },
   {
-    image: '/landing/carosel/6c.jpg',
+    image: '/landing/carosel/6c.webp',
     title: 'Fondo Perduto CER + Transizione 5.0',
     percentage: '-67%',
     text: '',
@@ -85,7 +85,7 @@ const socialProofItems: SocialProofItem[] = [
     }
   },
   {
-    image: '/landing/carosel/7c.jpg',
+    image: '/landing/carosel/7c.webp',
     title: 'SIMEST + MIMIT',
     percentage: '-46%',
     text: '',
@@ -96,7 +96,7 @@ const socialProofItems: SocialProofItem[] = [
     }
   },
   {
-    image: '/landing/carosel/8c.jpg',
+    image: '/landing/carosel/8c.webp',
     title: 'Transizione 5.0 + Bando Regionale',
     percentage: '-73%',
     text: '',
@@ -107,7 +107,7 @@ const socialProofItems: SocialProofItem[] = [
     }
   },
   {
-    image: '/landing/carosel/9c.jpg',
+    image: '/landing/carosel/9c.webp',
     title: 'transizione 5.0',
     percentage: '-67,5%',
     text: '',
@@ -118,7 +118,7 @@ const socialProofItems: SocialProofItem[] = [
     }
   },
   {
-    image: '/landing/carosel/10c.jpg',
+    image: '/landing/carosel/10c.webp',
     title: 'rating ESG Ecomate',
     percentage: '',
     text: '',
