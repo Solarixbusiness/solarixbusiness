@@ -8,7 +8,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    optimizePackageImports: ['@headlessui/react', '@heroicons/react', 'react-icons'],
+    optimizePackageImports: ['react-icons'],
     serverActions: {
       allowedOrigins: ['solarixbusiness.it', 'www.solarixbusiness.it']
     },
@@ -21,14 +21,7 @@ const nextConfig = {
   },
   // Target browser moderni per ridurre polyfill
   transpilePackages: [],
-  modularizeImports: {
-    '@heroicons/react/24/outline': {
-      transform: '@heroicons/react/24/outline/{{member}}',
-    },
-    '@heroicons/react/24/solid': {
-      transform: '@heroicons/react/24/solid/{{member}}',
-    },
-  },
+  modularizeImports: {},
   // Configurazione webpack ottimizzata per performance
   webpack: (config, { dev, isServer }) => {
     if (!dev && !isServer) {
