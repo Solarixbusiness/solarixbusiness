@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article19_DifferenzeNFRD() {
   return (
-    <section className="mb-12" id="differenze-nfrd">
+    <div id="differenze-nfrd" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali sono le principali differenze tra la CSRD e la precedente direttiva NFRD in termini di obblighi per le imprese?</h2>
       
       <div className="prose max-w-none">
@@ -77,6 +75,6 @@ export default function Article19_DifferenzeNFRD() {
           A partire dal 25 settembre 2024 entrerà in vigore in Italia il decreto legislativo che recepisce la CSRD e che prevede specifiche sanzioni. Le aziende che non rispettano l'obbligo di rendicontazione, omettono informazioni relative alla catena del valore o non adottano procedure adeguate per la redazione del bilancio possono essere multate fino a €2.500.000. Inoltre, i singoli soggetti all'interno dell'azienda con funzioni di amministrazione, direzione o controllo possono essere multati fino a €150.000.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

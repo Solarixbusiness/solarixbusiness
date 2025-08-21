@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article09_ValoreMercato() {
   return (
-    <section className="mb-12" id="valore-mercato">
+    <div id="valore-mercato" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">In che modo le PMI italiane possono valutare l'impatto delle loro pratiche di rendicontazione di sostenibilità sul loro valore di mercato?</h2>
       
       <div className="prose max-w-none">
@@ -121,6 +119,6 @@ export default function Article09_ValoreMercato() {
           Un aspetto rilevante per una valutazione corretta dell'impatto sul valore di mercato è la comprensione che la rendicontazione di sostenibilità aumenta la consapevolezza interna e supporta la pianificazione strategica, trasformandosi da costo a investimento con rendimenti misurabili nel tempo.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

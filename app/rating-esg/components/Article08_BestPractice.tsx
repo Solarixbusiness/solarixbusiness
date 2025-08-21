@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article08_BestPractice() {
   return (
-    <section className="mb-12" id="best-practice">
+    <div id="best-practice" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali sono le best practice delle PMI italiane che hanno già adottato standard di rendicontazione di sostenibilità?</h2>
       
       <div className="prose max-w-none">
@@ -114,6 +112,6 @@ export default function Article08_BestPractice() {
           Questa comprensione delle differenze è fondamentale per le PMI italiane che stanno evolvendo le loro pratiche di rendicontazione.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

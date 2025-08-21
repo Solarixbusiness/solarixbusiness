@@ -1,26 +1,11 @@
-'use client';
-
-interface OpportunitiesTimelineProps {
-  openSections: { [key: string]: boolean };
-  toggleSectionAction: (sectionId: string) => void;
-}
-
-export default function OpportunitiesTimeline({ openSections, toggleSectionAction }: OpportunitiesTimelineProps) {
+export default function OpportunitiesTimeline() {
   return (
     <>
       {/* Finestre Future */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('finestre-future')}
-        >
-          <h2 className="text-2xl font-bold text-blue-700">📅 Finestre Immediate e Future 2025-2030</h2>
-          <span className="text-2xl text-blue-600">
-            {openSections['finestre-future'] ? '−' : '+'}
-          </span>
-        </div>
+        <h2 className="text-2xl font-bold text-blue-700 mb-6">📅 Finestre Immediate e Future 2025-2030</h2>
         
-        {openSections['finestre-future'] && (
+        <div className="mt-6">
           <div className="mt-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-gray-300">
@@ -71,22 +56,14 @@ export default function OpportunitiesTimeline({ openSections, toggleSectionActio
               </table>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Settori */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('settori')}
-        >
-          <h2 className="text-2xl font-bold text-blue-700">I Settori dove Vi Possiamo Supportare</h2>
-          <span className="text-2xl text-blue-600">
-            {openSections['settori'] ? '−' : '+'}
-          </span>
-        </div>
+        <h2 className="text-2xl font-bold text-blue-700 mb-6">I Settori dove Vi Possiamo Supportare</h2>
         
-        {openSections['settori'] && (
+        <div className="mt-6">
           <div className="mt-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-gray-300">
@@ -145,7 +122,7 @@ export default function OpportunitiesTimeline({ openSections, toggleSectionActio
               </table>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

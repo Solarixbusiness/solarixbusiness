@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 import Script from 'next/script'
 
+export const revalidate = 86400;
+export const runtime = 'nodejs';
+
 export const metadata: Metadata = {
   title: 'Consulenza Finanziaria Integrata | SolarixBusiness',
   description: 'Servizi di consulenza finanziaria per ottimizzare i tuoi investimenti energetici. Soluzioni personalizzate per massimizzare il ritorno.',

@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 import Script from 'next/script'
 
+export const revalidate = 86400;
+export const runtime = 'nodejs';
+
 export const metadata: Metadata = {
   title: 'Parla con un consulente | solariXbusiness',
   description: 'Richiedi una consulenza gratuita con i nostri esperti. Rispondiamo alle tue domande senza impegno e ti aiutiamo a capire le opportunità per la tua azienda.',

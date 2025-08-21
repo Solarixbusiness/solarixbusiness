@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article01_ImpresaESGReady() {
   return (
-    <section className="mb-12" id="imprese-esg-ready">
+    <div id="impresa-esg-ready" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Imprese ESG-Ready: La Nuova Era della Trasparenza Sostenibile</h2>
       
       <div className="prose max-w-none">
@@ -164,6 +162,6 @@ export default function Article01_ImpresaESGReady() {
           <li><strong>Integrare la sostenibilità nel business:</strong> Il bilancio di sostenibilità stimola l'integrazione dei principi ESG nelle strategie aziendali, trasformando la sostenibilità da costo a investimento con potenziale ritorno.</li>
         </ul>
       </div>
-    </section>
+    </div>
   )
 }

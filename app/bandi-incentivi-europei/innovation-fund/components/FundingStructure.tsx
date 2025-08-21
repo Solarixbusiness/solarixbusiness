@@ -1,26 +1,11 @@
-'use client';
-
-interface FundingStructureProps {
-  openSections: { [key: string]: boolean };
-  toggleSectionAction: (sectionId: string) => void;
-}
-
-export default function FundingStructure({ openSections, toggleSectionAction }: FundingStructureProps) {
+export default function FundingStructure() {
   return (
     <>
       {/* Introduzione */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('introduzione')}
-        >
-          <h2 className="text-2xl font-bold text-blue-700">Introduzione all'Innovation Fund</h2>
-          <span className="text-2xl text-blue-600">
-            {openSections['introduzione'] ? '−' : '+'}
-          </span>
-        </div>
+        <h2 className="text-2xl font-bold text-blue-700 mb-6">Introduzione all'Innovation Fund</h2>
         
-        {openSections['introduzione'] && (
+        <div className="mt-6 space-y-4 text-gray-700">
           <div className="mt-6 space-y-4 text-gray-700">
             <p>
               L'Innovation Fund è il programma dell'Unione Europea progettato per finanziare progetti su larga scala che riducono drasticamente le emissioni di carbonio e promuovono tecnologie pulite rivoluzionarie. Noi di Solarix Business vi guidiamo in questo programma d'élite che finanzia impianti innovativi per l'energia rinnovabile e processi industriali a basso impatto ambientale.
@@ -35,22 +20,14 @@ export default function FundingStructure({ openSections, toggleSectionAction }: 
               <p><strong>🎯 La nostra strategia:</strong> Vi trasformiamo da azienda locale a leader europeo nei mega-progetti!</p>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Struttura dei Finanziamenti */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('struttura-finanziamenti')}
-        >
-          <h2 className="text-2xl font-bold text-blue-700">💰 Struttura dei Finanziamenti a Fondo Perduto</h2>
-          <span className="text-2xl text-blue-600">
-            {openSections['struttura-finanziamenti'] ? '−' : '+'}
-          </span>
-        </div>
+        <h2 className="text-2xl font-bold text-blue-700 mb-6">💰 Struttura dei Finanziamenti a Fondo Perduto</h2>
         
-        {openSections['struttura-finanziamenti'] && (
+        <div className="mt-6">
           <div className="mt-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-gray-300">
@@ -112,7 +89,7 @@ export default function FundingStructure({ openSections, toggleSectionAction }: 
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

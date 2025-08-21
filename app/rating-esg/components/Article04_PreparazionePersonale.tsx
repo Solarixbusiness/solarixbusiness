@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article04_PreparazionePersonale() {
   return (
-    <section className="mb-12" id="preparazione-personale">
+    <div id="preparazione-personale" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Come preparare il personale aziendale alla transizione verso una rendicontazione integrata ESG e finanziaria?</h2>
       
       <div className="prose max-w-none">
@@ -71,6 +69,6 @@ export default function Article04_PreparazionePersonale() {
           L'adozione di queste tecnologie richiede lo sviluppo di specifiche green skills all'interno dell'organizzazione.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

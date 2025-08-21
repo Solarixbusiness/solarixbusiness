@@ -1,4 +1,5 @@
-'use client';
+export const revalidate = 86400;
+export const runtime = 'nodejs';
 
 export default function ParlaConUnConsulente() {
   return (

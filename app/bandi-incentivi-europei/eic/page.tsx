@@ -1,22 +1,13 @@
-'use client';
+// Best practices Next.js per performance e deploy Vercel
+export const revalidate = 86400; // ISR ogni 24h
+export const runtime = 'nodejs'; // MAI Edge per contenuto pesante
 
-import { useState, Suspense, lazy } from 'react'
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs'
 import SeoHead from '@/components/SeoHead/SeoHead'
-
-// Lazy load components
-const ProgramOverview = lazy(() => import('./components/ProgramOverview'));
-const CalendarProjects = lazy(() => import('./components/CalendarProjects'));
+import ProgramOverview from './components/ProgramOverview';
+import CalendarProjects from './components/CalendarProjects';
 
 export default function EICPage() {
-  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({})
-
-  const toggleSection = (sectionId: string) => {
-    setOpenSections(prev => ({
-      ...prev,
-      [sectionId]: !prev[sectionId]
-    }))
-  }
 
   return (
     <>
@@ -71,34 +62,10 @@ export default function EICPage() {
           </div>
 
           {/* Program Overview Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <ProgramOverview openSections={openSections} toggleSectionAction={toggleSection} />
-          </Suspense>
+          <ProgramOverview />
 
           {/* Calendar Projects Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <CalendarProjects openSections={openSections} toggleSectionAction={toggleSection} />
-          </Suspense>
+          <CalendarProjects />
 
           {/* WhatsApp CTA */}
           <div className="text-center mt-12">

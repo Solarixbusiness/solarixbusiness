@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article12_OpportunitaBusiness() {
   return (
-    <section className="mb-12" id="opportunita-business">
+    <div id="opportunita-business" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali sono le opportunità di business che la CSRD può offrire alle PMI italiane?</h2>
       
       <div className="prose max-w-none">
@@ -98,6 +96,6 @@ export default function Article12_OpportunitaBusiness() {
           Uno studio condotto su 289 notizie ESG classificate come "price sensitive" emesse da 88 PMI quotate sull'Euronext Growth Milano ha dimostrato che gli investitori reagiscono positivamente agli annunci ambientali e sociali delle società, in particolare nel breve termine. Questo dimostra come la comunicazione efficace delle pratiche ESG possa influenzare positivamente il valore azionario anche delle PMI sprovviste di rating ESG formali.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

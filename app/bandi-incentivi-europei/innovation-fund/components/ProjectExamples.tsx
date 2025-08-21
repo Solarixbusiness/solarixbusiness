@@ -1,24 +1,9 @@
-'use client';
-
-interface ProjectExamplesProps {
-  openSections: { [key: string]: boolean };
-  toggleSectionAction: (sectionId: string) => void;
-}
-
-export default function ProjectExamples({ openSections, toggleSectionAction }: ProjectExamplesProps) {
+export default function ProjectExamples() {
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-      <div 
-        className="flex items-center justify-between cursor-pointer"
-        onClick={() => toggleSectionAction('progetti')}
-      >
-        <h2 className="text-2xl font-bold text-blue-700">Esempi di Mega-Progetti che Realizziamo</h2>
-        <span className="text-2xl text-blue-600">
-          {openSections['progetti'] ? '−' : '+'}
-        </span>
-      </div>
+      <h2 className="text-2xl font-bold text-blue-700 mb-6">Esempi di Mega-Progetti che Realizziamo</h2>
       
-      {openSections['progetti'] && (
+      <div className="mt-6">
         <div className="mt-6">
           <div className="overflow-x-auto">
             <table className="w-full border-collapse border border-gray-300">
@@ -74,7 +59,7 @@ export default function ProjectExamples({ openSections, toggleSectionAction }: P
             </table>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

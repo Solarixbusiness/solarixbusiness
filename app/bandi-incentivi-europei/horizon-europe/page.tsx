@@ -1,19 +1,10 @@
-'use client';
+export const revalidate = 86400;
+export const runtime = 'nodejs';
 
-import { useState, lazy, Suspense } from 'react'
-
-const MainContent = lazy(() => import('./components/MainContent'));
-const ServicesContent = lazy(() => import('./components/ServicesContent'));
+import MainContent from './components/MainContent';
+import ServicesContent from './components/ServicesContent';
 
 export default function HorizonEuropePage() {
-  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({})
-
-  const toggleSection = (sectionId: string) => {
-    setOpenSections(prev => ({
-      ...prev,
-      [sectionId]: !prev[sectionId]
-    }))
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
@@ -37,14 +28,10 @@ export default function HorizonEuropePage() {
         <div className="max-w-6xl mx-auto">
           
           {/* Contenuto Principale */}
-          <Suspense fallback={<div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse"><div className="h-8 bg-gray-200 rounded mb-4"></div><div className="h-4 bg-gray-200 rounded"></div></div>}>
-            <MainContent openSections={openSections} toggleSectionAction={toggleSection} />
-          </Suspense>
+          <MainContent />
 
           {/* Servizi e Supporto */}
-          <Suspense fallback={<div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse"><div className="h-8 bg-gray-200 rounded mb-4"></div><div className="h-4 bg-gray-200 rounded"></div></div>}>
-            <ServicesContent openSections={openSections} toggleSectionAction={toggleSection} />
-          </Suspense>
+          <ServicesContent />
 
           {/* CTA */}
           <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg p-8 text-center">

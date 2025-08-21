@@ -1,82 +1,61 @@
-'use client';
-
-interface StrategyContentProps {
-  openSections: Record<string, boolean>;
-  toggleSectionAction: (section: string) => void;
-}
-
-export default function StrategyContent({ openSections, toggleSectionAction }: StrategyContentProps) {
+export default function StrategyContent() {
   return (
     <>
       {/* Analisi Costi-Benefici */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('analisi-costi')}
-        >
+        <div className="mb-6">
           <h2 className="text-2xl font-bold text-green-700">Analisi Costi-Benefici per Voi</h2>
-          <span className="text-2xl text-green-600">
-            {openSections['analisi-costi'] ? '−' : '+'}
-          </span>
         </div>
         
-        {openSections['analisi-costi'] && (
-          <div className="mt-6">
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse border border-gray-300">
-                <thead>
-                  <tr className="bg-green-100">
-                    <th className="border border-gray-300 p-3 text-left font-bold">Vostro Investimento</th>
-                    <th className="border border-gray-300 p-3 text-left font-bold">Contributi a Fondo Perduto Immediati</th>
-                    <th className="border border-gray-300 p-3 text-left font-bold">Benefici a Lungo Termine</th>
-                    <th className="border border-gray-300 p-3 text-left font-bold">Tempistica</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="bg-blue-50">
-                    <td className="border border-gray-300 p-3">Tempo preparazione 3-6 mesi consulenza</td>
-                    <td className="border border-gray-300 p-3"><strong className="text-green-600">1.2-1.8 milioni € a fondo perduto</strong></td>
-                    <td className="border border-gray-300 p-3">Crescita aziendale</td>
-                    <td className="border border-gray-300 p-3">Immediato alla firma</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 p-3">Co-finanziamento 40% 600.000-1.200.000 €</td>
-                    <td className="border border-gray-300 p-3"><strong className="text-green-600">Progetti da 1.5-3 milioni € (60% a fondo perduto)</strong></td>
-                    <td className="border border-gray-300 p-3">Competitività europea</td>
-                    <td className="border border-gray-300 p-3">2-3 anni</td>
-                  </tr>
-                  <tr className="bg-yellow-50">
-                    <td className="border border-gray-300 p-3">Competenze sviluppate</td>
-                    <td className="border border-gray-300 p-3"><strong className="text-green-600">Specializzazione UE a fondo perduto</strong></td>
-                    <td className="border border-gray-300 p-3">Credibilità consulenza</td>
-                    <td className="border border-gray-300 p-3">Permanente</td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-300 p-3">Network partners</td>
-                    <td className="border border-gray-300 p-3"><strong className="text-green-600">Relazioni europee a fondo perduto</strong></td>
-                    <td className="border border-gray-300 p-3">Progetti futuri</td>
-                    <td className="border border-gray-300 p-3">5+ anni</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        <div className="mt-6">
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse border border-gray-300">
+              <thead>
+                <tr className="bg-green-100">
+                  <th className="border border-gray-300 p-3 text-left font-bold">Vostro Investimento</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">Contributi a Fondo Perduto Immediati</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">Benefici a Lungo Termine</th>
+                  <th className="border border-gray-300 p-3 text-left font-bold">Tempistica</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-blue-50">
+                  <td className="border border-gray-300 p-3">Tempo preparazione 3-6 mesi consulenza</td>
+                  <td className="border border-gray-300 p-3"><strong className="text-green-600">1.2-1.8 milioni € a fondo perduto</strong></td>
+                  <td className="border border-gray-300 p-3">Crescita aziendale</td>
+                  <td className="border border-gray-300 p-3">Immediato alla firma</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 p-3">Co-finanziamento 40% 600.000-1.200.000 €</td>
+                  <td className="border border-gray-300 p-3"><strong className="text-green-600">Progetti da 1.5-3 milioni € (60% a fondo perduto)</strong></td>
+                  <td className="border border-gray-300 p-3">Competitività europea</td>
+                  <td className="border border-gray-300 p-3">2-3 anni</td>
+                </tr>
+                <tr className="bg-yellow-50">
+                  <td className="border border-gray-300 p-3">Competenze sviluppate</td>
+                  <td className="border border-gray-300 p-3"><strong className="text-green-600">Specializzazione UE a fondo perduto</strong></td>
+                  <td className="border border-gray-300 p-3">Credibilità consulenza</td>
+                  <td className="border border-gray-300 p-3">Permanente</td>
+                </tr>
+                <tr>
+                  <td className="border border-gray-300 p-3">Network partners</td>
+                  <td className="border border-gray-300 p-3"><strong className="text-green-600">Relazioni europee a fondo perduto</strong></td>
+                  <td className="border border-gray-300 p-3">Progetti futuri</td>
+                  <td className="border border-gray-300 p-3">5+ anni</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Posizionamento Competitivo */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('posizionamento')}
-        >
+        <div className="mb-6">
           <h2 className="text-2xl font-bold text-green-700">Il Nostro Posizionamento Competitivo per Voi</h2>
-          <span className="text-2xl text-green-600">
-            {openSections['posizionamento'] ? '−' : '+'}
-          </span>
         </div>
         
-        {openSections['posizionamento'] && (
+        <div className="mt-6">
           <div className="mt-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-gray-300">
@@ -117,22 +96,16 @@ export default function StrategyContent({ openSections, toggleSectionAction }: S
               </table>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Strategia di Crescita */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('strategia-crescita')}
-        >
+        <div className="mb-6">
           <h2 className="text-2xl font-bold text-green-700">La Nostra Strategia di Crescita con Voi</h2>
-          <span className="text-2xl text-green-600">
-            {openSections['strategia-crescita'] ? '−' : '+'}
-          </span>
         </div>
         
-        {openSections['strategia-crescita'] && (
+        <div className="mt-6">
           <div className="mt-6">
             <h3 className="text-xl font-bold text-blue-700 mb-4">Roadmap Solarix Business per i Vostri Progetti</h3>
             <div className="overflow-x-auto">
@@ -179,22 +152,16 @@ export default function StrategyContent({ openSections, toggleSectionAction }: S
               </table>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Matrice Rischio-Opportunità */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('rischio-opportunita')}
-        >
+        <div className="mb-6">
           <h2 className="text-2xl font-bold text-green-700">Matrice Rischio-Opportunità per le Vostre Decisioni</h2>
-          <span className="text-2xl text-green-600">
-            {openSections['rischio-opportunita'] ? '−' : '+'}
-          </span>
         </div>
         
-        {openSections['rischio-opportunita'] && (
+        <div className="mt-6">
           <div className="mt-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-gray-300">
@@ -233,7 +200,7 @@ export default function StrategyContent({ openSections, toggleSectionAction }: S
               </table>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

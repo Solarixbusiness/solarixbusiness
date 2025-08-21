@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article15_SistemaBancario() {
   return (
-    <section className="mb-12" id="sistema-bancario">
+    <div id="sistema-bancario" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Come si sta preparando il sistema bancario italiano a valutare gli indicatori ESG delle PMI?</h2>
       
       <div className="prose max-w-none">
@@ -101,6 +99,6 @@ export default function Article15_SistemaBancario() {
           Queste certificazioni rappresentano un elemento oggettivo che le banche possono utilizzare nella valutazione del rating ESG dell'impresa, migliorando potenzialmente l'accesso al credito e le condizioni di finanziamento.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

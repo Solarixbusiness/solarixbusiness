@@ -5,6 +5,9 @@ import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs'
 import SeoManager from '@/components/SeoManager/SeoManager'
 import { SEO_CONSTANTS, getOrganizationSchema } from '@/utils/seoConstants'
 
+export const revalidate = 86400;
+export const runtime = 'nodejs';
+
 export const metadata: Metadata = {
   title: 'Chi Siamo | solariXbusiness',
   description: 'Scopri chi siamo e la nostra missione di rendere le aziende più competitive attraverso l\'indipendenza energetica e soluzioni fotovoltaiche personalizzate.',

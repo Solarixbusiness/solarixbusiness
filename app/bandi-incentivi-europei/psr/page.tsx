@@ -1,22 +1,12 @@
-'use client';
-
-import { useState, Suspense, lazy } from 'react';
 import SeoHead from '../../../components/SeoHead/SeoHead';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
+import FundingStructure from './components/FundingStructure';
+import ProcessTimeline from './components/ProcessTimeline';
 
-// Lazy load components
-const FundingStructure = lazy(() => import('./components/FundingStructure'));
-const ProcessTimeline = lazy(() => import('./components/ProcessTimeline'));
+export const revalidate = 86400;
+export const runtime = 'nodejs';
 
 export default function PSRPage() {
-  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
-
-  const toggleSection = (sectionId: string) => {
-    setOpenSections(prev => ({
-      ...prev,
-      [sectionId]: !prev[sectionId]
-    }));
-  };
 
   return (
     <>
@@ -40,7 +30,7 @@ export default function PSRPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold text-green-800 mb-6">
-              🌾 Programmi di Sviluppo Rurale (PSR)
+              Programmi di Sviluppo Rurale (PSR)
             </h1>
             <p className="text-2xl text-gray-700 mb-8 max-w-4xl mx-auto">
               La Nostra Guida alla Transizione Energetica Agricola
@@ -64,40 +54,16 @@ export default function PSRPage() {
           </div>
 
           {/* Funding Structure Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <FundingStructure openSections={openSections} toggleSectionAction={toggleSection} />
-          </Suspense>
+          <FundingStructure />
 
           {/* Process Timeline Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <ProcessTimeline openSections={openSections} toggleSectionAction={toggleSection} />
-          </Suspense>
+          <ProcessTimeline />
 
           {/* WhatsApp CTA */}
           <div className="text-center mt-12">
             <div className="bg-green-50 p-8 rounded-2xl border-2 border-green-200">
               <h3 className="text-2xl font-bold text-green-800 mb-4">
-                🌾 Trasforma la Tua Azienda Agricola con i PSR
+                Trasforma la Tua Azienda Agricola con i PSR
               </h3>
               <p className="text-lg text-gray-700 mb-6">
                 Contattaci per una <strong>consulenza personalizzata gratuita</strong> sui Programmi di Sviluppo Rurale. 
@@ -115,7 +81,7 @@ export default function PSRPage() {
                 Consulenza Gratuita WhatsApp
               </a>
               <p className="text-sm text-gray-600 mt-4">
-                📱 <strong>347 008 7833</strong> - Rispondiamo entro 2 ore lavorative
+                <strong>347 008 7833</strong> - Rispondiamo entro 2 ore lavorative
               </p>
             </div>
           </div>

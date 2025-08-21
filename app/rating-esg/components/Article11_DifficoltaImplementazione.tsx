@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article11_DifficoltaImplementazione() {
   return (
-    <section className="mb-12" id="difficolta-implementazione">
+    <div id="difficolta-implementazione" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali sono le principali difficoltà che le PMI italiane incontrano nell'implementazione della rendicontazione di sostenibilità?</h2>
       
       <div className="prose max-w-none">
@@ -70,6 +68,6 @@ export default function Article11_DifficoltaImplementazione() {
           La CSRD si presenta come un documento estremamente complesso: "oltre 100 pagine, in tre documenti (atto delegato, principi di rendicontazione, acronimi e glossario)" e "altre 300 pagine di Regolamento". Questa complessità si accompagna a un significativo regime di responsabilità e sanzioni introdotto dal D.Lgs 125/2024 che ha recepito la CSRD in Italia. Gli amministratori e gli organi di controllo potrebbero incorrere in sanzioni amministrative e pecuniarie in caso di violazione degli obblighi di conformità dell'informazione e di pubblicità.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

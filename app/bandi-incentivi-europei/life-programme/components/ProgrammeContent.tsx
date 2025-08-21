@@ -1,59 +1,38 @@
-'use client';
-
-interface ProgrammeContentProps {
-  openSections: Record<string, boolean>;
-  toggleSectionAction: (section: string) => void;
-}
-
-export default function ProgrammeContent({ openSections, toggleSectionAction }: ProgrammeContentProps) {
+export default function ProgrammeContent() {
   return (
     <>
       {/* Introduzione */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('introduzione')}
-        >
+        <div className="mb-6">
           <h2 className="text-2xl font-bold text-green-700">Introduzione al Programma LIFE</h2>
-          <span className="text-2xl text-green-600">
-            {openSections['introduzione'] ? '−' : '+'}
-          </span>
         </div>
         
-        {openSections['introduzione'] && (
-          <div className="mt-6">
-            <p className="text-lg text-gray-700 mb-4">
-              Il <strong>Programma LIFE</strong> è lo strumento finanziario dell'UE dedicato esclusivamente all'ambiente e all'azione per il clima. 
-              Con un budget di <strong className="text-green-600">5,4 miliardi di euro per il periodo 2021-2027</strong>, 
-              rappresenta una delle opportunità più concrete per le aziende che vogliono investire nella sostenibilità ambientale.
-            </p>
-            <div className="bg-blue-50 p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-blue-700 mb-3">Perché Scegliere LIFE per la Vostra Azienda?</h3>
-              <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li><strong>Contributi a fondo perduto fino al 60%</strong> del costo totale del progetto</li>
-                <li><strong>Budget progetti da 1,5 a 3 milioni di euro</strong> per progetti standard</li>
-                <li><strong>Supporto tecnico e scientifico</strong> dalla Commissione Europea</li>
-                <li><strong>Visibilità europea</strong> e networking con partner internazionali</li>
-                <li><strong>Competitività a lungo termine</strong> nel mercato green</li>
-              </ul>
-            </div>
+        <div className="mt-6">
+          <p className="text-lg text-gray-700 mb-4">
+            Il <strong>Programma LIFE</strong> è lo strumento finanziario dell'UE dedicato esclusivamente all'ambiente e all'azione per il clima. 
+            Con un budget di <strong className="text-green-600">5,4 miliardi di euro per il periodo 2021-2027</strong>, 
+            rappresenta una delle opportunità più concrete per le aziende che vogliono investire nella sostenibilità ambientale.
+          </p>
+          <div className="bg-blue-50 p-6 rounded-lg">
+            <h3 className="text-xl font-bold text-blue-700 mb-3">Perché Scegliere LIFE per la Vostra Azienda?</h3>
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <li><strong>Contributi a fondo perduto fino al 60%</strong> del costo totale del progetto</li>
+              <li><strong>Progetti da 1 a 4 milioni di euro</strong> con possibilità di co-finanziamento</li>
+              <li><strong>Supporto per l'innovazione ambientale</strong> e la transizione verde</li>
+              <li><strong>Networking europeo</strong> con partner strategici qualificati</li>
+              <li><strong>Visibilità internazionale</strong> per le vostre soluzioni sostenibili</li>
+            </ul>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Obiettivi Strategici */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('obiettivi')}
-        >
+        <div className="mb-6">
           <h2 className="text-2xl font-bold text-green-700">Obiettivi Strategici LIFE 2021-2027</h2>
-          <span className="text-2xl text-green-600">
-            {openSections['obiettivi'] ? '−' : '+'}
-          </span>
         </div>
         
-        {openSections['obiettivi'] && (
+        <div className="mt-6">
           <div className="mt-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-green-50 p-6 rounded-lg">
@@ -76,22 +55,16 @@ export default function ProgrammeContent({ openSections, toggleSectionAction }: 
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Criteri di Ammissibilità */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('ammissibilita')}
-        >
-          <h2 className="text-2xl font-bold text-green-700">Criteri di Ammissibilità per la Vostra Azienda</h2>
-          <span className="text-2xl text-green-600">
-            {openSections['ammissibilita'] ? '−' : '+'}
-          </span>
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-green-700">Criteri di Ammissibilità e Valutazione</h2>
         </div>
         
-        {openSections['ammissibilita'] && (
+        <div className="mt-6">
           <div className="mt-6">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-gray-300">
@@ -132,22 +105,16 @@ export default function ProgrammeContent({ openSections, toggleSectionAction }: 
               </table>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
-      {/* Budget e Finanziamenti */}
+      {/* Tempistiche e Scadenze */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          className="flex items-center justify-between cursor-pointer"
-          onClick={() => toggleSectionAction('budget')}
-        >
-          <h2 className="text-2xl font-bold text-green-700">Budget e Opportunità di Finanziamento</h2>
-          <span className="text-2xl text-green-600">
-            {openSections['budget'] ? '−' : '+'}
-          </span>
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-green-700">Tempistiche e Scadenze 2025</h2>
         </div>
         
-        {openSections['budget'] && (
+        <div className="mt-6">
           <div className="mt-6">
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div className="bg-green-50 p-6 rounded-lg">
@@ -209,7 +176,7 @@ export default function ProgrammeContent({ openSections, toggleSectionAction }: 
               </table>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

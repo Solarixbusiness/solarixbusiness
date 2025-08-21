@@ -4,6 +4,9 @@ import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs'
 import SeoManager from '@/components/SeoManager/SeoManager'
 import { SEO_CONSTANTS } from '@/utils/seoConstants'
 
+export const revalidate = 86400;
+export const runtime = 'nodejs';
+
 export const metadata: Metadata = {
   title: 'Contatti | solariXbusiness',
   description: 'Contatta solariXbusiness per una consulenza gratuita sulle soluzioni fotovoltaiche per la tua azienda. Siamo a tua disposizione per trovare la soluzione energetica più adatta alle tue esigenze.',

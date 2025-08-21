@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article13_IncentiviSupporti() {
   return (
-    <section className="mb-12" id="incentivi-supporti">
+    <div id="incentivi-supporti" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali supporti e incentivi sono disponibili in Italia per le PMI che vogliono avviare percorsi di sostenibilità?</h2>
       
       <div className="prose max-w-none">
@@ -103,6 +101,6 @@ export default function Article13_IncentiviSupporti() {
           Dai risultati delle ricerche emerge che le PMI italiane stanno rispondendo in modo sorprendentemente positivo ai temi di sostenibilità ambientale, sociale ed economica, dimostrando una crescente consapevolezza dell'importanza strategica di questi investimenti per la competitività futura.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

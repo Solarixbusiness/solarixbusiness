@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article20_DoppiaMaterialita() {
   return (
-    <section className="mb-12" id="doppia-materialita">
+    <div id="doppia-materialita" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Differenze tra CSRD e NFRD</h2>
       
       <div className="prose max-w-none">
@@ -138,6 +136,6 @@ export default function Article20_DoppiaMaterialita() {
           Secondo la direttiva CSRD, i dati per la rendicontazione della sostenibilità devono essere presentati in un formato specifico: ESEF/XHTML. Questo formato standardizzato permetterà una maggiore trasparenza e comparabilità tra i report di sostenibilità di diverse aziende.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

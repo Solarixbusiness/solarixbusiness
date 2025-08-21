@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article10_KPIIndicatori() {
   return (
-    <section className="mb-12" id="kpi-indicatori">
+    <div id="kpi-indicatori" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali sono gli indicatori chiave (KPI) più utilizzati dalle PMI italiane nei report di sostenibilità?</h2>
       
       <div className="prose max-w-none">
@@ -113,6 +111,6 @@ export default function Article10_KPIIndicatori() {
           L'adozione di questi indicatori non rappresenta solo una questione di conformità normativa, ma una strategia competitiva per le PMI, in quanto comporta vantaggi significativi come miglior accesso al credito, rafforzamento della reputazione aziendale e maggiore resilienza e capacità di innovazione.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

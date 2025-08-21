@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article02_SfidePMI() {
   return (
-    <section className="mb-12" id="sfide-pmi">
+    <div id="sfide-pmi" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali sono le sfide principali che le PMI italiane affrontano nell'adozione della CSRD?</h2>
       
       <div className="prose max-w-none">
@@ -74,6 +72,6 @@ export default function Article02_SfidePMI() {
           Inoltre, un aspetto particolarmente rilevante è l'attenzione posta dalla CSRD all'intera catena del valore, che obbliga le aziende a rendicontare non solo le proprie attività interne, ma anche quelle relative alla catena di fornitura. Questo aspetto amplifica ulteriormente l'impatto indiretto della direttiva sulle PMI che operano come fornitori di aziende più grandi.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

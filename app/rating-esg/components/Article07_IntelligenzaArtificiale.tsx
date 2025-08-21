@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article07_IntelligenzaArtificiale() {
   return (
-    <section className="mb-12" id="intelligenza-artificiale">
+    <div id="intelligenza-artificiale" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Come possono le PMI italiane integrare l'intelligenza artificiale nei processi di rendicontazione ESG?</h2>
       
       <div className="prose max-w-none">
@@ -93,6 +91,6 @@ export default function Article07_IntelligenzaArtificiale() {
           <li>L'impegno in ambito ESG garantisce importanti premialità nell'ambito di bandi e gare pubbliche.</li>
         </ul>
       </div>
-    </section>
+    </div>
   )
 }

@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article03_ReportingIntegrato() {
   return (
-    <section className="mb-12" id="reporting-integrato">
+    <div id="reporting-integrato" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Come integrare efficacemente la reportistica ESG con i tradizionali sistemi di reporting finanziario?</h2>
       
       <div className="prose max-w-none">
@@ -128,6 +126,6 @@ export default function Article03_ReportingIntegrato() {
           Questa professionalizzazione della raccolta e gestione dei dati ESG è particolarmente importante per migliorare l'integrità dei dati e supportare gli audit ESG, che stanno diventando una componente essenziale del reporting aziendale moderno.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

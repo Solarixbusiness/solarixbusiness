@@ -1,22 +1,12 @@
-'use client';
-
-import { useState, Suspense, lazy } from 'react';
 import Link from 'next/link';
+import ProgrammeContent from './components/ProgrammeContent';
+import ServicesContent from './components/ServicesContent';
+import StrategyContent from './components/StrategyContent';
 
-// Lazy load components
-const ProgrammeContent = lazy(() => import('./components/ProgrammeContent'));
-const ServicesContent = lazy(() => import('./components/ServicesContent'));
-const StrategyContent = lazy(() => import('./components/StrategyContent'));
+export const revalidate = 86400;
+export const runtime = 'nodejs';
 
 export default function LifeProgrammePage() {
-  const [openSections, setOpenSections] = useState<{[key: string]: boolean}>({});
-
-  const toggleSection = (section: string) => {
-    setOpenSections(prev => ({
-      ...prev,
-      [section]: !prev[section]
-    }));
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
@@ -59,58 +49,13 @@ export default function LifeProgrammePage() {
         <div className="max-w-6xl mx-auto">
           
           {/* Programme Content Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <ProgrammeContent 
-              openSections={openSections} 
-              toggleSectionAction={toggleSection} 
-            />
-          </Suspense>
+          <ProgrammeContent />
 
           {/* Services Content Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <ServicesContent 
-              openSections={openSections} 
-              toggleSectionAction={toggleSection} 
-            />
-          </Suspense>
+          <ServicesContent />
 
           {/* Strategy Content Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <StrategyContent 
-              openSections={openSections} 
-              toggleSectionAction={toggleSection} 
-            />
-          </Suspense>
+          <StrategyContent />
 
         </div>
 

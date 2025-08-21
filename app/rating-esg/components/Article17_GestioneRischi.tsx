@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article17_GestioneRischi() {
   return (
-    <section className="mb-12" id="gestione-rischi">
+    <div id="gestione-rischi" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Come possono le PMI italiane migliorare la loro gestione dei rischi ESG con risorse limitate?</h2>
       
       <div className="prose max-w-none">
@@ -94,6 +92,6 @@ export default function Article17_GestioneRischi() {
           Per integrare efficacemente l'ESG nella gestione aziendale con risorse limitate è necessario creare una struttura e un framework per le iniziative di sostenibilità, ma soprattutto empowerare i membri del team a sviluppare una vera mentalità ESG. Questo approccio culturale può compensare la mancanza di risorse dedicate, distribuendo la responsabilità della sostenibilità a tutti i livelli dell'organizzazione.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

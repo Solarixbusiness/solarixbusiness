@@ -1,9 +1,10 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import ServiceForm from '@/components/ServiceForm'
 import { Roboto } from 'next/font/google';
+
+export const revalidate = 86400;
+export const runtime = 'nodejs';
 
 const roboto = Roboto({
   subsets: ['latin'],

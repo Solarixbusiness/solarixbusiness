@@ -1,23 +1,13 @@
-'use client';
+export const revalidate = 86400;
+export const runtime = 'nodejs';
 
-import { useState, Suspense, lazy } from 'react'
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs'
 import SeoHead from '../../../components/SeoHead/SeoHead'
-
-// Lazy load components
-const PillarStructure = lazy(() => import('./components/PillarStructure'))
-const ProjectPortfolio = lazy(() => import('./components/ProjectPortfolio'))
-const ComparisonStrategy = lazy(() => import('./components/ComparisonStrategy'))
+import PillarStructure from './components/PillarStructure'
+import ProjectPortfolio from './components/ProjectPortfolio'
+import ComparisonStrategy from './components/ComparisonStrategy'
 
 export default function InvestEUPage() {
-  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({})
-
-  const toggleSection = (sectionId: string) => {
-    setOpenSections(prev => ({
-      ...prev,
-      [sectionId]: !prev[sectionId]
-    }))
-  }
 
   return (
     <>
@@ -41,7 +31,6 @@ export default function InvestEUPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-purple-100 text-purple-800 px-6 py-3 rounded-full font-semibold mb-6">
-              <span className="mr-2">🇪🇺</span>
               Programma InvestEU 2021-2027
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-green-600 mb-6">
@@ -49,17 +38,17 @@ export default function InvestEUPage() {
             </h1>
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl max-w-5xl mx-auto">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                💰 €372 Miliardi per Investimenti Strategici Europei
+                €372 Miliardi per Investimenti Strategici Europei
               </h2>
               <div className="flex flex-wrap justify-center gap-4 mb-6">
                 <span className="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-semibold">
-                  🎯 Garanzie fino all'80%
+                  Garanzie fino all'80%
                 </span>
                 <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold">
-                  📈 Tassi ridotti 2-3%
+                  Tassi ridotti 2-3%
                 </span>
                 <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full font-semibold">
-                  ⚡ Procedure semplificate
+                  Procedure semplificate
                 </span>
               </div>
             </div>
@@ -72,55 +61,19 @@ export default function InvestEUPage() {
           </div>
 
           {/* Pillar Structure Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <PillarStructure openSections={openSections} toggleSectionAction={toggleSection} />
-          </Suspense>
+          <PillarStructure />
 
           {/* Project Portfolio Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <ProjectPortfolio openSections={openSections} toggleSectionAction={toggleSection} />
-          </Suspense>
+          <ProjectPortfolio />
 
           {/* Comparison Strategy Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-              <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="space-y-3">
-                  <div className="h-4 bg-gray-200 rounded"></div>
-                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          }>
-            <ComparisonStrategy openSections={openSections} toggleSectionAction={toggleSection} />
-          </Suspense>
+          <ComparisonStrategy />
 
           {/* WhatsApp CTA */}
           <div className="text-center mt-12">
             <div className="bg-green-50 p-8 rounded-2xl border-2 border-green-200">
               <h3 className="text-2xl font-bold text-green-800 mb-4">
-                💰 Trasforma i Tuoi Investimenti con InvestEU
+                Trasforma i Tuoi Investimenti con InvestEU
               </h3>
               <p className="text-lg text-gray-700 mb-6">
                 Contattaci per una <strong>consulenza personalizzata gratuita</strong> sui finanziamenti InvestEU. 
@@ -138,7 +91,7 @@ export default function InvestEUPage() {
                 Consulenza Gratuita WhatsApp
               </a>
               <p className="text-sm text-gray-600 mt-4">
-                📱 <strong>347 008 7833</strong> - Rispondiamo entro 2 ore lavorative
+                <strong>347 008 7833</strong> - Rispondiamo entro 2 ore lavorative
               </p>
             </div>
           </div>

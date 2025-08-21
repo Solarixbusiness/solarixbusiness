@@ -1,30 +1,17 @@
-'use client';
-
-interface ComparisonStrategyProps {
-  openSections: { [key: string]: boolean };
-  toggleSectionAction: (sectionId: string) => void;
-}
-
-export default function ComparisonStrategy({ openSections, toggleSectionAction }: ComparisonStrategyProps) {
+export default function ComparisonStrategy() {
   return (
     <>
       {/* Confronto Strumenti */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          onClick={() => toggleSectionAction('confronto-strumenti')}
-          className="cursor-pointer flex justify-between items-center mb-6"
-        >
-          <h2 className="text-3xl font-bold text-purple-800">⚖️ InvestEU vs Altri Strumenti UE</h2>
-          <span className="text-2xl font-bold text-purple-600">
-            {openSections['confronto-strumenti'] ? '−' : '+'}
-          </span>
+        <div className="mb-6">
+          <h2 className="text-3xl font-bold text-purple-800">InvestEU vs Altri Strumenti UE</h2>
         </div>
         
-        {openSections['confronto-strumenti'] && (
+        <div className="space-y-6">
           <div className="space-y-6">
             <div className="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-xl">
               <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
-                🎯 Perché InvestEU è la Scelta Migliore
+                Perché InvestEU è la Scelta Migliore
               </h3>
               
               <div className="overflow-x-auto">
@@ -86,29 +73,23 @@ export default function ComparisonStrategy({ openSections, toggleSectionAction }
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Errori da Evitare */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          onClick={() => toggleSectionAction('errori')}
-          className="cursor-pointer flex justify-between items-center mb-6"
-        >
-          <h2 className="text-3xl font-bold text-purple-800">⚠️ Errori che Vi Evitiamo con InvestEU</h2>
-          <span className="text-2xl font-bold text-purple-600">
-            {openSections['errori'] ? '−' : '+'}
-          </span>
+        <div className="mb-6">
+          <h2 className="text-3xl font-bold text-purple-800">Errori che Vi Evitiamo con InvestEU</h2>
         </div>
         
-        {openSections['errori'] && (
+        <div className="space-y-6">
           <div className="space-y-6">
             <div className="bg-red-50 p-6 rounded-xl border-l-4 border-red-500">
-              <h3 className="text-2xl font-bold text-red-800 mb-4">🚫 Errori Fatali da Evitare</h3>
+              <h3 className="text-2xl font-bold text-red-800 mb-4">Errori Fatali da Evitare</h3>
               
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="bg-white p-4 rounded-lg">
-                  <h4 className="font-bold text-red-700 mb-3">❌ Errori di Strategia</h4>
+                  <h4 className="font-bold text-red-700 mb-3">Errori di Strategia</h4>
                   <ul className="text-sm text-gray-700 space-y-2">
                     <li>• <strong>Progetto troppo piccolo:</strong> Budget sotto €5M non competitivo</li>
                     <li>• <strong>Settore sbagliato:</strong> Focus su aree non prioritarie UE</li>
@@ -118,7 +99,7 @@ export default function ComparisonStrategy({ openSections, toggleSectionAction }
                 </div>
                 
                 <div className="bg-white p-4 rounded-lg">
-                  <h4 className="font-bold text-red-700 mb-3">❌ Errori Tecnici</h4>
+                  <h4 className="font-bold text-red-700 mb-3">Errori Tecnici</h4>
                   <ul className="text-sm text-gray-700 space-y-2">
                     <li>• <strong>Documentazione incompleta:</strong> Business plan non dettagliato</li>
                     <li>• <strong>Analisi finanziaria debole:</strong> Proiezioni non credibili</li>
@@ -130,11 +111,11 @@ export default function ComparisonStrategy({ openSections, toggleSectionAction }
             </div>
 
             <div className="bg-green-50 p-6 rounded-xl border-l-4 border-green-500">
-              <h3 className="text-2xl font-bold text-green-800 mb-4">✅ La Nostra Metodologia di Successo</h3>
+              <h3 className="text-2xl font-bold text-green-800 mb-4">La Nostra Metodologia di Successo</h3>
               
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="bg-white p-4 rounded-lg">
-                  <h4 className="font-bold text-green-700 mb-2">🎯 Fase 1: Strategia</h4>
+                  <h4 className="font-bold text-green-700 mb-2">Fase 1: Strategia</h4>
                   <ul className="text-xs text-gray-600 space-y-1">
                     <li>• Analisi di fattibilità</li>
                     <li>• Selezione pilastro ottimale</li>
@@ -144,7 +125,7 @@ export default function ComparisonStrategy({ openSections, toggleSectionAction }
                 </div>
                 
                 <div className="bg-white p-4 rounded-lg">
-                  <h4 className="font-bold text-green-700 mb-2">📋 Fase 2: Preparazione</h4>
+                  <h4 className="font-bold text-green-700 mb-2">Fase 2: Preparazione</h4>
                   <ul className="text-xs text-gray-600 space-y-1">
                     <li>• Business plan dettagliato</li>
                     <li>• Analisi finanziaria completa</li>
@@ -154,7 +135,7 @@ export default function ComparisonStrategy({ openSections, toggleSectionAction }
                 </div>
                 
                 <div className="bg-white p-4 rounded-lg">
-                  <h4 className="font-bold text-green-700 mb-2">🚀 Fase 3: Esecuzione</h4>
+                  <h4 className="font-bold text-green-700 mb-2">Fase 3: Esecuzione</h4>
                   <ul className="text-xs text-gray-600 space-y-1">
                     <li>• Presentazione ottimizzata</li>
                     <li>• Gestione iter approvativo</li>
@@ -165,22 +146,16 @@ export default function ComparisonStrategy({ openSections, toggleSectionAction }
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Strategia 2025-2027 */}
       <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
-        <div 
-          onClick={() => toggleSectionAction('strategia-2025')}
-          className="cursor-pointer flex justify-between items-center mb-6"
-        >
-          <h2 className="text-3xl font-bold text-purple-800">🎯 La Nostra Strategia InvestEU 2025-2027</h2>
-          <span className="text-2xl font-bold text-purple-600">
-            {openSections['strategia-2025'] ? '−' : '+'}
-          </span>
+        <div className="mb-6">
+          <h2 className="text-3xl font-bold text-purple-800">La Nostra Strategia InvestEU 2025-2027</h2>
         </div>
         
-        {openSections['strategia-2025'] && (
+        <div className="space-y-6">
           <div className="space-y-6">
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-xl">
               <h3 className="text-2xl font-bold text-purple-800 mb-4">Roadmap SolariX Business per InvestEU</h3>
@@ -223,7 +198,7 @@ export default function ComparisonStrategy({ openSections, toggleSectionAction }
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

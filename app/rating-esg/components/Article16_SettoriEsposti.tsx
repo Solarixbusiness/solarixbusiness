@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article16_SettoriEsposti() {
   return (
-    <section className="mb-12" id="settori-esposti">
+    <div id="settori-esposti" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali settori industriali italiani sono più esposti ai rischi di non conformità ESG?</h2>
       
       <div className="prose max-w-none">
@@ -85,6 +83,6 @@ export default function Article16_SettoriEsposti() {
           <li><strong>Monitoraggio e reportistica:</strong> Implementare un sistema di monitoraggio periodico che possa valutare l'efficacia delle misure di mitigazione adottate.</li>
         </ul>
       </div>
-    </section>
+    </div>
   )
 }

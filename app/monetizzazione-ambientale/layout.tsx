@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 import Script from 'next/script'
 
+export const revalidate = 86400;
+export const runtime = 'nodejs';
+
 export const metadata: Metadata = {
   title: 'Monetizzazione Ambientale | SolarixBusiness',
   description: 'Trasforma il tuo impegno ambientale in valore economico. Scopri le opportunità di monetizzazione attraverso crediti di carbonio e certificati verdi.',

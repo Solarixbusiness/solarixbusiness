@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article18_Sanzioni() {
   return (
-    <section className="mb-12" id="sanzioni">
+    <div id="sanzioni" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali sono le sanzioni previste in Italia per la non conformità agli standard ESG?</h2>
       
       <div className="prose max-w-none">
@@ -85,6 +83,6 @@ export default function Article18_Sanzioni() {
           Queste misure integrano il quadro sanzionatorio e possono avere significative implicazioni reputazionali per le imprese non conformi.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

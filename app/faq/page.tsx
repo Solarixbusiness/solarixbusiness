@@ -6,6 +6,9 @@ import SeoManager from '@/components/SeoManager/SeoManager'
 import { SEO_CONSTANTS } from '@/utils/seoConstants'
 import { FaqItem } from '@/components/FaqSchema/FaqSchema'
 
+export const revalidate = 86400;
+export const runtime = 'nodejs';
+
 export const metadata: Metadata = {
   title: 'FAQ | solariXbusiness',
   description: 'Domande frequenti sul fotovoltaico per aziende. Scopri tutto ciò che devi sapere sugli impianti fotovoltaici per la tua impresa.',

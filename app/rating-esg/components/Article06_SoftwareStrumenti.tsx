@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article06_SoftwareStrumenti() {
   return (
-    <section className="mb-12" id="software-strumenti">
+    <div id="software-strumenti" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali software o strumenti digitali possono facilitare la raccolta dati per il report di sostenibilità?</h2>
       
       <div className="prose max-w-none">
@@ -95,6 +93,6 @@ export default function Article06_SoftwareStrumenti() {
           <li><strong>Integrazione con la strategia aziendale:</strong> La tecnologia dovrà facilitare sempre più l'integrazione della sostenibilità nella strategia aziendale complessiva, non come esercizio separato.</li>
         </ul>
       </div>
-    </section>
+    </div>
   )
 }

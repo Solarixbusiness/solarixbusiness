@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
 import Script from 'next/script'
 
+export const revalidate = 86400;
+export const runtime = 'nodejs';
+
 export const metadata: Metadata = {
   title: 'Comunità Energetiche | SolarixBusiness',
   description: 'Scopri le opportunità delle Comunità Energetiche Rinnovabili per la tua azienda. Partecipa e beneficia dell\'autoconsumo collettivo.',

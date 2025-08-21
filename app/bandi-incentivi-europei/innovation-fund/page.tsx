@@ -1,21 +1,11 @@
-'use client';
+export const revalidate = 86400;
+export const runtime = 'nodejs';
 
-import { useState, Suspense, lazy } from 'react';
-
-// Lazy load components
-const FundingStructure = lazy(() => import('./components/FundingStructure'));
-const OpportunitiesTimeline = lazy(() => import('./components/OpportunitiesTimeline'));
-const ProjectExamples = lazy(() => import('./components/ProjectExamples'));
+import FundingStructure from './components/FundingStructure';
+import OpportunitiesTimeline from './components/OpportunitiesTimeline';
+import ProjectExamples from './components/ProjectExamples';
 
 export default function InnovationFundPage() {
-  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({})
-
-  const toggleSection = (sectionId: string) => {
-    setOpenSections(prev => ({
-      ...prev,
-      [sectionId]: !prev[sectionId]
-    }))
-  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
@@ -42,46 +32,13 @@ export default function InnovationFundPage() {
         <div className="max-w-6xl mx-auto">
           
           {/* Funding Structure Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse">
-              <div className="h-8 bg-gray-200 rounded mb-4"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-            </div>
-          }>
-            <FundingStructure 
-              openSections={openSections} 
-              toggleSectionAction={toggleSection} 
-            />
-          </Suspense>
+          <FundingStructure />
 
           {/* Opportunities Timeline Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse">
-              <div className="h-8 bg-gray-200 rounded mb-4"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-            </div>
-          }>
-            <OpportunitiesTimeline 
-              openSections={openSections} 
-              toggleSectionAction={toggleSection} 
-            />
-          </Suspense>
+          <OpportunitiesTimeline />
 
           {/* Project Examples Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-lg shadow-lg p-8 mb-8 animate-pulse">
-              <div className="h-8 bg-gray-200 rounded mb-4"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-            </div>
-          }>
-            <ProjectExamples 
-              openSections={openSections} 
-              toggleSectionAction={toggleSection} 
-            />
-          </Suspense>
+          <ProjectExamples />
 
           {/* CTA Section */}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 text-center">

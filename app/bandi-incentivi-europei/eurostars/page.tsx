@@ -1,20 +1,14 @@
-'use client';
-
-import { useState, Suspense, lazy } from 'react';
 import SeoHead from '../../../components/SeoHead/SeoHead';
 import Breadcrumbs from '../../../components/Breadcrumbs/Breadcrumbs';
+import { Metadata } from 'next';
+import ProgrammeInfo from './components/ProgrammeInfo';
+import OpportunityMapping from './components/OpportunityMapping';
+import ErrorPrevention from './components/ErrorPrevention';
 
-// Lazy load components
-const ProgrammeInfo = lazy(() => import('./components/ProgrammeInfo'));
-const OpportunityMapping = lazy(() => import('./components/OpportunityMapping'));
-const ErrorPrevention = lazy(() => import('./components/ErrorPrevention'));
+export const revalidate = 86400;
+export const runtime = 'nodejs';
 
 export default function EurostarsPage() {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
-
-  const toggleSection = (section: string) => {
-    setExpandedSection(expandedSection === section ? null : section);
-  };
 
   return (
     <>
@@ -38,7 +32,7 @@ export default function EurostarsPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold text-indigo-800 mb-6">
-              🚀 Eurostars - Innovazione Tecnologica Europea
+              Eurostars - Innovazione Tecnologica Europea
             </h1>
             <p className="text-2xl text-gray-700 mb-8 max-w-4xl mx-auto">
               La Nostra Guida all'Innovazione Tecnologica Europea Collaborativa
@@ -47,52 +41,19 @@ export default function EurostarsPage() {
           </div>
 
           {/* Programme Info Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 animate-pulse">
-              <div className="h-8 bg-gray-200 rounded mb-4"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-            </div>
-          }>
-            <ProgrammeInfo 
-              expandedSection={expandedSection} 
-              toggleSectionAction={toggleSection} 
-            />
-          </Suspense>
+          <ProgrammeInfo />
 
           {/* Opportunity Mapping Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 animate-pulse">
-              <div className="h-8 bg-gray-200 rounded mb-4"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-            </div>
-          }>
-            <OpportunityMapping 
-              expandedSection={expandedSection} 
-              toggleSectionAction={toggleSection} 
-            />
-          </Suspense>
+          <OpportunityMapping />
 
           {/* Error Prevention Component */}
-          <Suspense fallback={
-            <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 animate-pulse">
-              <div className="h-8 bg-gray-200 rounded mb-4"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded mb-2"></div>
-            </div>
-          }>
-            <ErrorPrevention 
-              expandedSection={expandedSection} 
-              toggleSectionAction={toggleSection} 
-            />
-          </Suspense>
+          <ErrorPrevention />
 
           {/* WhatsApp CTA */}
           <div className="text-center mt-12">
             <div className="bg-blue-50 p-8 rounded-2xl border-2 border-blue-200">
               <h3 className="text-2xl font-bold text-blue-800 mb-4">
-                🚀 Trasforma la Tua Azienda in Innovatore Europeo
+                Trasforma la Tua Azienda in Innovatore Europeo
               </h3>
               <p className="text-lg text-gray-700 mb-6">
                 Contattaci per una <strong>consulenza personalizzata gratuita</strong> su Eurostars. 
@@ -110,7 +71,7 @@ export default function EurostarsPage() {
                 Consulenza Gratuita WhatsApp
               </a>
               <p className="text-sm text-gray-600 mt-4">
-                📱 <strong>347 008 7833</strong> - Rispondiamo entro 2 ore lavorative
+                <strong>347 008 7833</strong> - Rispondiamo entro 2 ore lavorative
               </p>
             </div>
           </div>

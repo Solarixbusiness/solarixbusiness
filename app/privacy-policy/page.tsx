@@ -1,5 +1,8 @@
 import React from 'react';
 
+export const revalidate = 86400;
+export const runtime = 'nodejs';
+
 export default function PrivacyPolicy() {
   return (
     <div className="container mx-auto px-4 py-8">

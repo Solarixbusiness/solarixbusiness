@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article05_CostiCSRD() {
   return (
-    <section className="mb-12" id="costi-csrd">
+    <div id="costi-csrd" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali sono i costi stimati per l'implementazione della CSRD nelle PMI italiane?</h2>
       
       <div className="prose max-w-none">
@@ -66,6 +64,6 @@ export default function Article05_CostiCSRD() {
           Per contenere i costi di implementazione, è fondamentale che le PMI adottino un approccio rapido e agile all'adeguamento normativo. Il 2025 rappresenta un anno cruciale per la preparazione alla CSRD, e le aziende che riescono a pianificare in anticipo e a integrare gradualmente i requisiti di sostenibilità nelle loro operazioni possono distribuire meglio i costi e ridurre l'impatto economico complessivo.
         </p>
       </div>
-    </section>
+    </div>
   )
 }

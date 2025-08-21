@@ -1,8 +1,6 @@
-'use client';
-
 export default function Article14_RischiESG() {
   return (
-    <section className="mb-12" id="rischi-esg">
+    <div id="rischi-esg" className="bg-white rounded-lg shadow-lg p-8 mb-8">
       <h2 className="text-3xl font-bold mb-6 text-center">Quali sono i principali rischi per le PMI che non si adeguano alla rendicontazione ESG?</h2>
       
       <div className="prose max-w-none">
@@ -70,6 +68,6 @@ export default function Article14_RischiESG() {
           L'adozione di pratiche sostenibili offre anche il vantaggio di ridurre i rischi finanziari legati a fattori ambientali e sociali, creando una resilienza aziendale di lungo periodo.
         </p>
       </div>
-    </section>
+    </div>
   )
 }
