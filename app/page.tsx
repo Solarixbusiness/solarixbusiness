@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
 }
 
-// Forza la generazione statica per migliorare performance
-export const dynamic = 'force-static'
-export const revalidate = 3600 // Rivalidazione ogni ora
+// Static generation configuration
+export const revalidate = 86400; // Rivalidazione ogni 24 ore
+export const runtime = 'nodejs';
 
 export default function HomePage() {
   return (

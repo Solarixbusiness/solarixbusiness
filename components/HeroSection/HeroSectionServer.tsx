@@ -23,6 +23,8 @@ export default function HeroSectionServer({ title, subtitle }: HeroSectionProps)
           zIndex: -1
         }}
         quality={75}
+        placeholder="blur"
+        blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
       />
       <div className={styles.hero_overlay}></div>
       <div className={styles.hero_content}>

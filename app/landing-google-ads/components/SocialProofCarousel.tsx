@@ -206,6 +206,8 @@ export default function SocialProofCarousel() {
                     fill
                     style={{ objectFit: 'cover' }}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+                    loading={index < 3 ? "eager" : "lazy"}
+                    quality={60}
                   />
                   {item.percentage && (
                     <div style={{

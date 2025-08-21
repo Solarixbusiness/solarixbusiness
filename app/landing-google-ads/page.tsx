@@ -10,7 +10,10 @@ export const runtime = 'nodejs';
 // Dynamic imports for Client Components
 const ServiceForm = dynamic(() => import('../../components/ServiceForm'), { ssr: false });
 const CookieConsent = dynamic(() => import('../../components/CookieConsent/CookieConsent'), { ssr: false });
-const SocialProofCarousel = dynamic(() => import('./components/SocialProofCarousel'), { ssr: false });
+const SocialProofCarousel = dynamic(() => import('./components/SocialProofCarousel'), { 
+  ssr: false,
+  loading: () => <div style={{ height: '400px', background: '#f8fafc' }} />
+});
 
 export const metadata: Metadata = {
   title: 'Incentivi e Bandi per Aziende | SolariX Business',
@@ -52,12 +55,14 @@ export default function LandingGoogleAds() {
         }}>
           <div style={{ position: 'absolute', inset: 0, opacity: 0.1 }}>
             <Image
-              src="/images/hero-business.jpg"
+              src="/landing/ads.webp"
               alt="SolariX Business - Incentivi e Bandi"
               fill
               style={{ objectFit: 'cover' }}
               priority
-              quality={100}
+              quality={75}
+              placeholder="blur"
+              blurDataURL="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoBAAEAAwA0JaQAA3AA/vuUAAA="
             />
           </div>
           
@@ -123,8 +128,10 @@ export default function LandingGoogleAds() {
           </div>
         </div>
 
-        {/* Social Proof Carousel */}
-        <SocialProofCarousel />
+        {/* Social Proof Carousel - Loaded after hero */}
+        <div style={{ marginTop: '40px' }}>
+          <SocialProofCarousel />
+        </div>
 
         {/* Main Content */}
         <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 20px' }}>
